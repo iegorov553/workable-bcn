@@ -44,6 +44,8 @@
     "check:places": "node scripts/check-places.mjs",
     "audit:places": "node scripts/audit-google-places.mjs",
     "audit:places:apply": "node scripts/audit-google-places.mjs --apply",
+    "discover:amb": "node scripts/discover-amb-cafes.mjs",
+    "discover:amb:apply": "node scripts/discover-amb-cafes.mjs --apply",
     "assets:build": "node scripts/build-brand-assets.mjs",
     "build:android": "npx eas-cli@latest build --platform android --profile production",
     "build:apk": "npx eas-cli@latest build --platform android --profile preview",

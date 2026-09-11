@@ -3,6 +3,12 @@
  * Discovers and reconciles cafes across the 36 AMB municipalities.
  */
 
+import { readFile, writeFile, mkdir } from 'node:fs/promises';
+import { existsSync, readFileSync } from 'node:fs';
+import path from 'node:path';
+import { fileURLToPath } from 'node:url';
+import { execFileSync } from 'node:child_process';
+
 export const AMB_BOUNDING_BOX = {
   minLat: 41.20,
   maxLat: 41.55,
@@ -18,6 +24,79 @@ export const BRAND_PATTERNS = {
   'El Fornet': /fornet/i,
   'SandwiChez': /sandwich/i,
   'Buenas Migas': /buenas\s*migas/i,
+};
+
+export const BARCELONA_DISTRICTS = [
+  'Ciutat Vella',
+  'Eixample',
+  'Sants-Montjuïc',
+  'Les Corts',
+  'Sarrià-Sant Gervasi',
+  'Gràcia',
+  'Horta-Guinardó',
+  'Nou Barris',
+  'Sant Andreu',
+  'Sant Martí',
+];
+
+export const AMB_MUNICIPALITIES = [
+  'Barcelona',
+  "L'Hospitalet de Llobregat",
+  'Badalona',
+  'Santa Coloma de Gramenet',
+  'Cornellà de Llobregat',
+  'Sant Boi de Llobregat',
+  'Sant Cugat del Vallès',
+  'El Prat de Llobregat',
+  'Viladecans',
+  'Castelldefels',
+  'Cerdanyola del Vallès',
+  'Esplugues de Llobregat',
+  'Gavà',
+  'Sant Feliu de Llobregat',
+  'Ripollet',
+  'Sant Adrià de Besòs',
+  'Montcada i Reixac',
+  'Sant Joan Despí',
+  'Barberà del Vallès',
+  'Sant Vicenç dels Horts',
+  'Sant Andreu de la Barca',
+  'Molins de Rei',
+  'Santa Coloma de Cervelló',
+  'Begues',
+  'Castellbisbal',
+  'Corbera de Llobregat',
+  'El Papiol',
+  'La Palma de Cervelló',
+  'Pallejà',
+  'Sant Climent de Llobregat',
+  'Sant Just Desvern',
+  'Torrelles de Llobregat',
+  'Tiana',
+  'Montgat',
+  'Badia del Vallès',
+  'Cervelló',
+  ...BARCELONA_DISTRICTS,
+];
+
+export const TARGET_CHAINS = [
+  '365 Café',
+  'Granier',
+  'Vivari',
+  'Santagloria',
+  'El Fornet',
+  'SandwiChez',
+  'Buenas Migas',
+];
+
+export const CHAIN_SEARCH_TERMS = {
+  '365 Café': ['365 Obrador', '365 Cafe'],
+  'Granier': ['Granier'],
+  'Vivari': ['Vivari'],
+  'Santagloria': ['Santagloria'],
+  'El Fornet': ['El Fornet'],
+  'SandwiChez': ['Sandwichez'],
+  'Buenas Migas': ['Buenas Migas'],
 };
 
 /**
@@ -259,3 +338,385 @@ export function deduplicateAgainstCatalog(candidates = [], existingPlaces = [], 
     newCandidates,
   };
 }
+
+export function buildMatrixQuery(chain, searchTerm, location) {
+  if (BARCELONA_DISTRICTS.includes(location)) {
+    return `${searchTerm} ${location}, Barcelona`;
+  }
+  if (location.toLowerCase() === 'barcelona') {
+    return `${searchTerm} Barcelona`;
+  }
+  return `${searchTerm} ${location}`;
+}
+
+export function loadEnv() {
+  if (existsSync('.env')) {
+    try {
+      const content = readFileSync('.env', 'utf8');
+      for (const line of content.split('\n')) {
+        const trimmed = line.trim();
+        if (!trimmed || trimmed.startsWith('#')) continue;
+        const [k, ...v] = trimmed.split('=');
+        if (k && v.length > 0 && !process.env[k.trim()]) {
+          process.env[k.trim()] = v.join('=').trim().replace(/^["']|["']$/g, '');
+        }
+      }
+    } catch {}
+  }
+}
+
+export function parseArgs(args = process.argv.slice(2)) {
+  loadEnv();
+  const flags = {
+    apply: false,
+    noCache: false,
+    apiKey: process.env.GOOGLE_MAPS_API_KEY || null,
+    cacheFile: path.resolve('.cache/amb-discovery-cache.json'),
+    cities: null,
+    chains: null,
+    help: false,
+  };
+
+  for (let i = 0; i < args.length; i++) {
+    const arg = args[i];
+    if (arg === '--apply') {
+      flags.apply = true;
+    } else if (arg === '--no-cache') {
+      flags.noCache = true;
+    } else if (arg === '--help' || arg === '-h') {
+      flags.help = true;
+    } else if (arg.startsWith('--api-key=')) {
+      flags.apiKey = arg.slice('--api-key='.length);
+    } else if (arg === '--api-key') {
+      flags.apiKey = args[++i] ?? '';
+    } else if (arg.startsWith('--cache-file=')) {
+      flags.cacheFile = path.resolve(arg.slice('--cache-file='.length));
+    } else if (arg === '--cache-file') {
+      flags.cacheFile = path.resolve(args[++i] ?? '');
+    } else if (arg.startsWith('--cities=')) {
+      flags.cities = arg.slice('--cities='.length).split(',').map(s => s.trim()).filter(Boolean);
+    } else if (arg === '--cities') {
+      flags.cities = (args[++i] ?? '').split(',').map(s => s.trim()).filter(Boolean);
+    } else if (arg.startsWith('--chains=')) {
+      flags.chains = arg.slice('--chains='.length).split(',').map(s => s.trim()).filter(Boolean);
+    } else if (arg === '--chains') {
+      flags.chains = (args[++i] ?? '').split(',').map(s => s.trim()).filter(Boolean);
+    }
+  }
+
+  return flags;
+}
+
+export async function searchGooglePlaces(query, apiKey) {
+  const url = 'https://places.googleapis.com/v1/places:searchText';
+  const res = await fetch(url, {
+    method: 'POST',
+    headers: {
+      'Content-Type': 'application/json',
+      'X-Goog-Api-Key': apiKey,
+      'X-Goog-FieldMask':
+        'places.id,places.displayName,places.formattedAddress,places.location,places.googleMapsUri,places.businessStatus',
+    },
+    body: JSON.stringify({
+      textQuery: query,
+      locationBias: {
+        rectangle: {
+          low: { latitude: AMB_BOUNDING_BOX.minLat, longitude: AMB_BOUNDING_BOX.minLng },
+          high: { latitude: AMB_BOUNDING_BOX.maxLat, longitude: AMB_BOUNDING_BOX.maxLng },
+        },
+      },
+    }),
+  });
+
+  if (!res.ok) {
+    const errText = await res.text();
+    throw new Error(`HTTP ${res.status}: ${errText}`);
+  }
+
+  return await res.json();
+}
+
+export function printUsage() {
+  console.log(`
+[AMB Cafe Discovery Engine]
+Discovers and reconciles cafes across all 36 AMB municipalities for 7 target chains.
+
+Usage:
+  node scripts/discover-amb-cafes.mjs [options]
+  GOOGLE_MAPS_API_KEY=your_key node scripts/discover-amb-cafes.mjs [options]
+
+Options:
+  --apply            Update src/data/places.json with discoveries and enrichments (dry-run by default)
+  --cities=LIST      Comma-separated list of municipalities to restrict search to
+  --chains=LIST      Comma-separated list of chains to restrict search to
+  --api-key=KEY      Google Maps API key (fall back to GOOGLE_MAPS_API_KEY in .env)
+  --cache-file=PATH  Path to cache file (default: .cache/amb-discovery-cache.json)
+  --no-cache         Ignore existing cache and re-fetch from API
+  --help, -h         Show this help message
+`);
+}
+
+export async function main() {
+  const flags = parseArgs();
+  const placesPath = path.resolve('src/data/places.json');
+  const cachePath = flags.cacheFile;
+  const cacheDir = path.dirname(cachePath);
+  const reportPath = path.resolve('docs/data/amb-candidates.json');
+
+  let cache = {};
+  if (!flags.noCache && existsSync(cachePath)) {
+    try {
+      cache = JSON.parse(await readFile(cachePath, 'utf8'));
+    } catch {}
+  }
+
+  const hasCache = Object.keys(cache).length > 0;
+
+  if (flags.help || flags.apiKey === '' || (!flags.apiKey && !hasCache)) {
+    printUsage();
+    process.exit(0);
+  }
+
+  await mkdir(cacheDir, { recursive: true });
+  await mkdir(path.dirname(reportPath), { recursive: true });
+
+  // Resolve target chains
+  let targetChains = TARGET_CHAINS;
+  if (flags.chains && flags.chains.length > 0) {
+    const chainFilter = flags.chains.map(c => c.toLowerCase());
+    targetChains = TARGET_CHAINS.filter(chain =>
+      chainFilter.some(f => chain.toLowerCase().includes(f) || f.includes(chain.toLowerCase()))
+    );
+  }
+
+  // Resolve target municipalities
+  let targetMunicipalities = AMB_MUNICIPALITIES;
+  if (flags.cities && flags.cities.length > 0) {
+    const cityFilter = flags.cities.map(c => c.toLowerCase());
+    targetMunicipalities = AMB_MUNICIPALITIES.filter(m =>
+      cityFilter.some(filter => m.toLowerCase().includes(filter) || filter.includes(m.toLowerCase()))
+    );
+    if (cityFilter.some(f => f === 'barcelona')) {
+      for (const d of BARCELONA_DISTRICTS) {
+        if (!targetMunicipalities.includes(d)) {
+          targetMunicipalities.push(d);
+        }
+      }
+    }
+  }
+
+  // Deduplicate targetMunicipalities list
+  targetMunicipalities = [...new Set(targetMunicipalities)];
+
+  console.log(`\n[AMB Cafe Discovery Engine]`);
+  console.log(`Mode: ${flags.apply ? 'APPLY (will update places.json)' : 'DRY RUN (no changes to places.json)'}`);
+  console.log(`Chains (${targetChains.length}): ${targetChains.join(', ')}`);
+  console.log(
+    `Municipalities/Districts (${targetMunicipalities.length}): ${
+      targetMunicipalities.length <= 10
+        ? targetMunicipalities.join(', ')
+        : `${targetMunicipalities.slice(0, 5).join(', ')}... (+${targetMunicipalities.length - 5} more)`
+    }`
+  );
+  console.log(`Cache file: ${cachePath} (${Object.keys(cache).length} entries cached)`);
+
+  const rawCandidates = [];
+  let queryCount = 0;
+  let cacheHitCount = 0;
+  let apiCallCount = 0;
+
+  for (const chain of targetChains) {
+    const searchTerms = CHAIN_SEARCH_TERMS[chain] || [chain];
+    for (const mun of targetMunicipalities) {
+      for (const term of searchTerms) {
+        queryCount++;
+        const query = buildMatrixQuery(chain, term, mun);
+        const cacheKey = `${chain}:${mun}:${term}`;
+
+        let data = (!flags.noCache && (cache[cacheKey] || cache[query])) ? (cache[cacheKey] || cache[query]) : null;
+
+        if (data) {
+          cacheHitCount++;
+        } else {
+          if (!flags.apiKey) {
+            console.warn(`[WARN] No API key; skipping uncached query: "${query}"`);
+            continue;
+          }
+
+          try {
+            data = await searchGooglePlaces(query, flags.apiKey);
+            apiCallCount++;
+            cache[cacheKey] = data;
+            cache[query] = data;
+            await writeFile(cachePath, JSON.stringify(cache, null, 2));
+            await new Promise(r => setTimeout(r, 100));
+          } catch (err) {
+            console.error(`[ERROR] Query failed "${query}":`, err.message);
+            continue;
+          }
+        }
+
+        const places = data?.places || [];
+        for (const p of places) {
+          if (p.businessStatus === 'CLOSED_PERMANENTLY') continue;
+          const lat = p.location?.latitude;
+          const lon = p.location?.longitude;
+          if (!isWithinAmbBoundingBox(lat, lon)) continue;
+          const displayName = p.displayName?.text || '';
+          if (!matchesBrand(displayName, chain)) continue;
+
+          rawCandidates.push({
+            id: p.id,
+            displayName: p.displayName,
+            formattedAddress: p.formattedAddress,
+            location: p.location,
+            googleMapsUri: p.googleMapsUri,
+            businessStatus: p.businessStatus,
+            chain,
+            municipality: mun,
+          });
+        }
+      }
+    }
+  }
+
+  console.log(`\nQueries executed: ${queryCount} (${cacheHitCount} cached, ${apiCallCount} fetched via API)`);
+  console.log(`Raw candidates before deduplication: ${rawCandidates.length}`);
+
+  // Load current catalog
+  const catalogPlaces = JSON.parse(await readFile(placesPath, 'utf8'));
+
+  // Run deduplication
+  const result = deduplicateAgainstCatalog(rawCandidates, catalogPlaces, 50);
+
+  // Compute breakdowns
+  const byMunicipality = {};
+  const byChain = {};
+
+  for (const cand of result.newCandidates) {
+    const mun = cand.address.split(' · ')[1] || 'Unknown';
+    byMunicipality[mun] = byMunicipality[mun] || { newCandidates: 0, enriched: 0 };
+    byMunicipality[mun].newCandidates++;
+
+    const ch = cand.chain;
+    byChain[ch] = byChain[ch] || { newCandidates: 0, enriched: 0 };
+    byChain[ch].newCandidates++;
+  }
+
+  for (const enriched of result.enrichedExisting) {
+    const mun = enriched.candidate?.municipality || 'Unknown';
+    byMunicipality[mun] = byMunicipality[mun] || { newCandidates: 0, enriched: 0 };
+    byMunicipality[mun].enriched++;
+
+    const ch = enriched.candidate?.chain || 'Unknown';
+    byChain[ch] = byChain[ch] || { newCandidates: 0, enriched: 0 };
+    byChain[ch].enriched++;
+  }
+
+  // Create report
+  const report = {
+    generatedAt: new Date().toISOString(),
+    stats: {
+      totalQueries: queryCount,
+      cacheHits: cacheHitCount,
+      apiCalls: apiCallCount,
+      rawCandidates: rawCandidates.length,
+      alreadyInCatalog: result.alreadyInCatalog.length,
+      enrichedExisting: result.enrichedExisting.length,
+      newCandidates: result.newCandidates.length,
+    },
+    byChain,
+    byMunicipality,
+    enrichedExisting: result.enrichedExisting,
+    newCandidates: result.newCandidates,
+  };
+
+  await writeFile(reportPath, JSON.stringify(report, null, 2) + '\n');
+
+  // Display summary
+  console.log(`\n=====================================================`);
+  console.log(`            AMB Cafe Discovery Summary               `);
+  console.log(`=====================================================`);
+  console.log(`Already in Catalog:       ${result.alreadyInCatalog.length}`);
+  console.log(`Enrichable Existing:      ${result.enrichedExisting.length}`);
+  console.log(`New Candidates Found:     ${result.newCandidates.length}`);
+  console.log(`Report written to:        ${reportPath}`);
+
+  if (Object.keys(byChain).length > 0) {
+    console.log(`\n--- Breakdown by Chain ---`);
+    console.table(
+      Object.entries(byChain).map(([chain, counts]) => ({
+        Chain: chain,
+        'New Candidates': counts.newCandidates,
+        Enriched: counts.enriched,
+      }))
+    );
+  }
+
+  if (Object.keys(byMunicipality).length > 0) {
+    console.log(`\n--- Breakdown by Municipality ---`);
+    console.table(
+      Object.entries(byMunicipality).map(([mun, counts]) => ({
+        Municipality: mun,
+        'New Candidates': counts.newCandidates,
+        Enriched: counts.enriched,
+      }))
+    );
+  }
+
+  // Apply changes if --apply is set
+  if (flags.apply) {
+    const existingMap = new Map(catalogPlaces.map(p => [p.id, p]));
+    let enrichedCount = 0;
+
+    for (const item of result.enrichedExisting) {
+      const existing = existingMap.get(item.existingId);
+      if (existing) {
+        if (!existing.googlePlaceId && item.googlePlaceId) {
+          existing.googlePlaceId = item.googlePlaceId;
+          enrichedCount++;
+        }
+        if (!existing.googleMapsUrl && item.googleMapsUrl) {
+          existing.googleMapsUrl = item.googleMapsUrl;
+        }
+      }
+    }
+
+    let addedCount = 0;
+    for (const cand of result.newCandidates) {
+      if (!existingMap.has(cand.id)) {
+        catalogPlaces.push(cand);
+        existingMap.set(cand.id, cand);
+        addedCount++;
+      }
+    }
+
+    await writeFile(placesPath, JSON.stringify(catalogPlaces, null, 2) + '\n');
+    console.log(`\n[APPLY] Enriched ${enrichedCount} existing venues with Google Place IDs.`);
+    console.log(`[APPLY] Appended ${addedCount} new candidates to ${placesPath} (Total catalog: ${catalogPlaces.length}).`);
+
+    console.log(`\n[APPLY] Running check:places verification...`);
+    try {
+      execFileSync(process.execPath, ['scripts/check-places.mjs'], { stdio: 'inherit' });
+      console.log(`[APPLY] Catalog integrity verified successfully.`);
+    } catch (err) {
+      console.error(`[ERROR] check:places failed after applying changes!`);
+      throw err;
+    }
+  } else {
+    console.log(`\n[DRY RUN] No changes made to ${placesPath}. Run with --apply to commit these discoveries.`);
+  }
+}
+
+const isMain = process.argv[1] && (
+  path.resolve(process.argv[1]).toLowerCase() === fileURLToPath(import.meta.url).toLowerCase() ||
+  path.resolve(process.argv[1]).toLowerCase() === path.resolve('scripts/discover-amb-cafes.mjs').toLowerCase()
+);
+
+if (isMain) {
+  main().catch(err => {
+    console.error('Fatal discovery error:', err);
+    process.exit(1);
+  });
+}
+
