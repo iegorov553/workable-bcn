@@ -1,0 +1,4208 @@
+{
+  "version": "1.0.0",
+  "transferPenaltyMinutes": 3.5,
+  "stations": [
+    {
+      "id": "aeroport-t1",
+      "name": "Aeroport T1",
+      "lines": [
+        "L9S"
+      ],
+      "latitude": 41.2882,
+      "longitude": 2.0722,
+      "connections": [
+        {
+          "targetId": "aeroport-t2",
+          "travelMinutes": 3.8,
+          "line": "L9S"
+        }
+      ]
+    },
+    {
+      "id": "aeroport-t2",
+      "name": "Aeroport T2",
+      "lines": [
+        "L9S"
+      ],
+      "latitude": 41.3034,
+      "longitude": 2.0778,
+      "connections": [
+        {
+          "targetId": "aeroport-t1",
+          "travelMinutes": 3.8,
+          "line": "L9S"
+        },
+        {
+          "targetId": "mas-blau",
+          "travelMinutes": 3.1,
+          "line": "L9S"
+        }
+      ]
+    },
+    {
+      "id": "alfons-x",
+      "name": "Alfons X",
+      "lines": [
+        "L4"
+      ],
+      "latitude": 41.4124,
+      "longitude": 2.1654,
+      "connections": [
+        {
+          "targetId": "guinardo-hospital-de-sant-pau",
+          "travelMinutes": 2.3,
+          "line": "L4"
+        },
+        {
+          "targetId": "joanic",
+          "travelMinutes": 1.8,
+          "line": "L4"
+        }
+      ]
+    },
+    {
+      "id": "almeda",
+      "name": "Almeda",
+      "lines": [
+        "L8"
+      ],
+      "latitude": 41.3538,
+      "longitude": 2.0912,
+      "connections": [
+        {
+          "targetId": "av-carrilet",
+          "travelMinutes": 5.1,
+          "line": "L8"
+        },
+        {
+          "targetId": "cornella-riera",
+          "travelMinutes": 3.3,
+          "line": "L8"
+        }
+      ]
+    },
+    {
+      "id": "arc-de-triomf",
+      "name": "Arc de Triomf",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.3919,
+      "longitude": 2.1813,
+      "connections": [
+        {
+          "targetId": "urquinaona",
+          "travelMinutes": 1.9,
+          "line": "L1"
+        },
+        {
+          "targetId": "marina",
+          "travelMinutes": 1.6,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "artigues-sant-adria",
+      "name": "Artigues | Sant Adrià",
+      "lines": [
+        "L2"
+      ],
+      "latitude": 41.4312,
+      "longitude": 2.2155,
+      "connections": [
+        {
+          "targetId": "verneda",
+          "travelMinutes": 2.2,
+          "line": "L2"
+        },
+        {
+          "targetId": "sant-roc",
+          "travelMinutes": 2.1,
+          "line": "L2"
+        }
+      ]
+    },
+    {
+      "id": "auditori-teatre-nacional",
+      "name": "Auditori | Teatre Nacional",
+      "lines": [
+        "T4"
+      ],
+      "latitude": 41.3986,
+      "longitude": 2.1868,
+      "connections": [
+        {
+          "targetId": "marina",
+          "travelMinutes": 1.6,
+          "line": "T4"
+        },
+        {
+          "targetId": "glories",
+          "travelMinutes": 1.7,
+          "line": "T4"
+        }
+      ]
+    },
+    {
+      "id": "av-carrilet",
+      "name": "Av. Carrilet",
+      "lines": [
+        "L1",
+        "L8"
+      ],
+      "latitude": 41.3592,
+      "longitude": 2.1197,
+      "connections": [
+        {
+          "targetId": "bellvitge",
+          "travelMinutes": 2.3,
+          "line": "L1"
+        },
+        {
+          "targetId": "rambla-just-oliveras",
+          "travelMinutes": 3.6,
+          "line": "L1"
+        },
+        {
+          "targetId": "sant-josep",
+          "travelMinutes": 1.3,
+          "line": "L8"
+        },
+        {
+          "targetId": "almeda",
+          "travelMinutes": 5.1,
+          "line": "L8"
+        }
+      ]
+    },
+    {
+      "id": "avinguda-de-xile",
+      "name": "Avinguda de Xile",
+      "lines": [
+        "T1"
+      ],
+      "latitude": 41.3802,
+      "longitude": 2.1084,
+      "connections": [
+        {
+          "targetId": "zona-universitaria",
+          "travelMinutes": 2.2,
+          "line": "T1"
+        },
+        {
+          "targetId": "sant-ramon",
+          "travelMinutes": 1.8,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "avinguda-tibidabo",
+      "name": "Avinguda Tibidabo",
+      "lines": [
+        "L7"
+      ],
+      "latitude": 41.4103,
+      "longitude": 2.1372,
+      "connections": [
+        {
+          "targetId": "el-putxet",
+          "travelMinutes": 1.3,
+          "line": "L7"
+        }
+      ]
+    },
+    {
+      "id": "bac-de-roda",
+      "name": "Bac de Roda",
+      "lines": [
+        "L2"
+      ],
+      "latitude": 41.4132,
+      "longitude": 2.195,
+      "connections": [
+        {
+          "targetId": "clot",
+          "travelMinutes": 2.1,
+          "line": "L2"
+        },
+        {
+          "targetId": "sant-marti",
+          "travelMinutes": 1.7,
+          "line": "L2"
+        }
+      ]
+    },
+    {
+      "id": "badal",
+      "name": "Badal",
+      "lines": [
+        "L5"
+      ],
+      "latitude": 41.3761,
+      "longitude": 2.1287,
+      "connections": [
+        {
+          "targetId": "collblanc",
+          "travelMinutes": 1.8,
+          "line": "L5"
+        },
+        {
+          "targetId": "placa-de-sants",
+          "travelMinutes": 1.6,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "badalona-pompeu-fabra",
+      "name": "Badalona Pompeu Fabra",
+      "lines": [
+        "L2"
+      ],
+      "latitude": 41.4484,
+      "longitude": 2.2471,
+      "connections": [
+        {
+          "targetId": "pep-ventura",
+          "travelMinutes": 2.3,
+          "line": "L2"
+        }
+      ]
+    },
+    {
+      "id": "barceloneta",
+      "name": "Barceloneta",
+      "lines": [
+        "L4"
+      ],
+      "latitude": 41.3813,
+      "longitude": 2.1873,
+      "connections": [
+        {
+          "targetId": "jaume-i",
+          "travelMinutes": 2,
+          "line": "L4"
+        },
+        {
+          "targetId": "ciutadella-vila-olimpica",
+          "travelMinutes": 2.2,
+          "line": "L4"
+        }
+      ]
+    },
+    {
+      "id": "baro-de-viver",
+      "name": "Baró de Viver",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.4475,
+      "longitude": 2.2038,
+      "connections": [
+        {
+          "targetId": "trinitat-vella",
+          "travelMinutes": 2.2,
+          "line": "L1"
+        },
+        {
+          "targetId": "santa-coloma",
+          "travelMinutes": 1.4,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "bellvitge",
+      "name": "Bellvitge",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.3524,
+      "longitude": 2.1127,
+      "connections": [
+        {
+          "targetId": "hospital-de-bellvitge",
+          "travelMinutes": 2.6,
+          "line": "L1"
+        },
+        {
+          "targetId": "av-carrilet",
+          "travelMinutes": 2.3,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "besos",
+      "name": "Besòs",
+      "lines": [
+        "L4"
+      ],
+      "latitude": 41.4206,
+      "longitude": 2.2115,
+      "connections": [
+        {
+          "targetId": "besos-mar",
+          "travelMinutes": 1.7,
+          "line": "L4"
+        },
+        {
+          "targetId": "la-pau",
+          "travelMinutes": 1.4,
+          "line": "L4"
+        }
+      ]
+    },
+    {
+      "id": "besos-mar",
+      "name": "Besòs Mar",
+      "lines": [
+        "L4"
+      ],
+      "latitude": 41.4158,
+      "longitude": 2.2158,
+      "connections": [
+        {
+          "targetId": "el-maresme-forum",
+          "travelMinutes": 1.3,
+          "line": "L4"
+        },
+        {
+          "targetId": "besos",
+          "travelMinutes": 1.7,
+          "line": "L4"
+        }
+      ]
+    },
+    {
+      "id": "bogatell",
+      "name": "Bogatell",
+      "lines": [
+        "L4"
+      ],
+      "latitude": 41.3945,
+      "longitude": 2.1959,
+      "connections": [
+        {
+          "targetId": "ciutadella-vila-olimpica",
+          "travelMinutes": 1.9,
+          "line": "L4"
+        },
+        {
+          "targetId": "llacuna",
+          "travelMinutes": 1.6,
+          "line": "L4"
+        }
+      ]
+    },
+    {
+      "id": "bon-pastor",
+      "name": "Bon Pastor",
+      "lines": [
+        "L10N",
+        "L9N"
+      ],
+      "latitude": 41.4377,
+      "longitude": 2.2039,
+      "connections": [
+        {
+          "targetId": "onze-de-setembre",
+          "travelMinutes": 2.6,
+          "line": "L9N"
+        },
+        {
+          "targetId": "can-peixauet",
+          "travelMinutes": 1.9,
+          "line": "L9N"
+        },
+        {
+          "targetId": "onze-de-setembre",
+          "travelMinutes": 2.6,
+          "line": "L10N"
+        },
+        {
+          "targetId": "llefia",
+          "travelMinutes": 2.6,
+          "line": "L10N"
+        }
+      ]
+    },
+    {
+      "id": "bon-viatge",
+      "name": "Bon Viatge",
+      "lines": [
+        "T1"
+      ],
+      "latitude": 41.3664,
+      "longitude": 2.0538,
+      "connections": [
+        {
+          "targetId": "fontsanta-fatjo",
+          "travelMinutes": 1.9,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "ca-l-aranyo",
+      "name": "Ca l'Aranyó",
+      "lines": [
+        "T4"
+      ],
+      "latitude": 41.4048,
+      "longitude": 2.1925,
+      "connections": [
+        {
+          "targetId": "glories",
+          "travelMinutes": 1.9,
+          "line": "T4"
+        },
+        {
+          "targetId": "pere-iv",
+          "travelMinutes": 1.8,
+          "line": "T4"
+        }
+      ]
+    },
+    {
+      "id": "ca-n-oliveres",
+      "name": "Ca n'Oliveres",
+      "lines": [
+        "T1"
+      ],
+      "latitude": 41.3725,
+      "longitude": 2.1023,
+      "connections": [
+        {
+          "targetId": "can-rigal",
+          "travelMinutes": 2.1,
+          "line": "T1"
+        },
+        {
+          "targetId": "pont-d-esplugues",
+          "travelMinutes": 2.4,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "camp-de-l-arpa",
+      "name": "Camp de l'Arpa",
+      "lines": [
+        "L5"
+      ],
+      "latitude": 41.4168,
+      "longitude": 2.1824,
+      "connections": [
+        {
+          "targetId": "sant-pau-dos-de-maig",
+          "travelMinutes": 1.8,
+          "line": "L5"
+        },
+        {
+          "targetId": "sagrera",
+          "travelMinutes": 1.9,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "campus-diagonal-besos",
+      "name": "Campus Diagonal-Besòs",
+      "lines": [
+        "T4"
+      ],
+      "latitude": 41.4158,
+      "longitude": 2.2225,
+      "connections": [
+        {
+          "targetId": "el-maresme-forum",
+          "travelMinutes": 2.4,
+          "line": "T4"
+        },
+        {
+          "targetId": "port-forum",
+          "travelMinutes": 2.1,
+          "line": "T4"
+        }
+      ]
+    },
+    {
+      "id": "can-boixeres",
+      "name": "Can Boixeres",
+      "lines": [
+        "L5"
+      ],
+      "latitude": 41.3659,
+      "longitude": 2.0978,
+      "connections": [
+        {
+          "targetId": "sant-ildefons",
+          "travelMinutes": 2.1,
+          "line": "L5"
+        },
+        {
+          "targetId": "can-vidalet",
+          "travelMinutes": 1.6,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "can-cuias",
+      "name": "Can Cuiàs",
+      "lines": [
+        "L11"
+      ],
+      "latitude": 41.464,
+      "longitude": 2.1802,
+      "connections": [
+        {
+          "targetId": "ciutat-meridiana",
+          "travelMinutes": 1.3,
+          "line": "L11"
+        }
+      ]
+    },
+    {
+      "id": "can-peixauet",
+      "name": "Can Peixauet",
+      "lines": [
+        "L9N"
+      ],
+      "latitude": 41.4426,
+      "longitude": 2.2099,
+      "connections": [
+        {
+          "targetId": "bon-pastor",
+          "travelMinutes": 1.9,
+          "line": "L9N"
+        },
+        {
+          "targetId": "santa-rosa",
+          "travelMinutes": 1.3,
+          "line": "L9N"
+        }
+      ]
+    },
+    {
+      "id": "can-rigal",
+      "name": "Can Rigal",
+      "lines": [
+        "T1"
+      ],
+      "latitude": 41.3732,
+      "longitude": 2.1089,
+      "connections": [
+        {
+          "targetId": "ernest-lluch",
+          "travelMinutes": 2.1,
+          "line": "T1"
+        },
+        {
+          "targetId": "ca-n-oliveres",
+          "travelMinutes": 2.1,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "can-serra",
+      "name": "Can Serra",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.3686,
+      "longitude": 2.1039,
+      "connections": [
+        {
+          "targetId": "rambla-just-oliveras",
+          "travelMinutes": 1.6,
+          "line": "L1"
+        },
+        {
+          "targetId": "florida",
+          "travelMinutes": 1.6,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "can-tries-gornal",
+      "name": "Can Tries | Gornal",
+      "lines": [
+        "L10S",
+        "L9S"
+      ],
+      "latitude": 41.3622,
+      "longitude": 2.1246,
+      "connections": [
+        {
+          "targetId": "europa-fira",
+          "travelMinutes": 1.4,
+          "line": "L9S"
+        },
+        {
+          "targetId": "torrassa",
+          "travelMinutes": 2,
+          "line": "L9S"
+        },
+        {
+          "targetId": "provencana",
+          "travelMinutes": 1.3,
+          "line": "L10S"
+        },
+        {
+          "targetId": "torrassa",
+          "travelMinutes": 2,
+          "line": "L10S"
+        }
+      ]
+    },
+    {
+      "id": "can-vidalet",
+      "name": "Can Vidalet",
+      "lines": [
+        "L5"
+      ],
+      "latitude": 41.3697,
+      "longitude": 2.1028,
+      "connections": [
+        {
+          "targetId": "can-boixeres",
+          "travelMinutes": 1.6,
+          "line": "L5"
+        },
+        {
+          "targetId": "pubilla-cases",
+          "travelMinutes": 1.6,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "can-zam",
+      "name": "Can Zam",
+      "lines": [
+        "L9N"
+      ],
+      "latitude": 41.4578,
+      "longitude": 2.2008,
+      "connections": [
+        {
+          "targetId": "singuerlin",
+          "travelMinutes": 1.7,
+          "line": "L9N"
+        }
+      ]
+    },
+    {
+      "id": "canyelles",
+      "name": "Canyelles",
+      "lines": [
+        "L3"
+      ],
+      "latitude": 41.4429,
+      "longitude": 2.169,
+      "connections": [
+        {
+          "targetId": "valldaura",
+          "travelMinutes": 2.2,
+          "line": "L3"
+        },
+        {
+          "targetId": "roquetes",
+          "travelMinutes": 1.8,
+          "line": "L3"
+        }
+      ]
+    },
+    {
+      "id": "casa-de-l-aigua",
+      "name": "Casa de l'Aigua",
+      "lines": [
+        "L11"
+      ],
+      "latitude": 41.4533,
+      "longitude": 2.1848,
+      "connections": [
+        {
+          "targetId": "trinitat-nova",
+          "travelMinutes": 1.5,
+          "line": "L11"
+        },
+        {
+          "targetId": "torre-baro-vallbona",
+          "travelMinutes": 1.7,
+          "line": "L11"
+        }
+      ]
+    },
+    {
+      "id": "catalunya",
+      "name": "Catalunya",
+      "lines": [
+        "L1",
+        "L3",
+        "L6",
+        "L7"
+      ],
+      "latitude": 41.387,
+      "longitude": 2.17,
+      "connections": [
+        {
+          "targetId": "universitat",
+          "travelMinutes": 1.5,
+          "line": "L1"
+        },
+        {
+          "targetId": "urquinaona",
+          "travelMinutes": 1.3,
+          "line": "L1"
+        },
+        {
+          "targetId": "liceu",
+          "travelMinutes": 1.7,
+          "line": "L3"
+        },
+        {
+          "targetId": "passeig-de-gracia",
+          "travelMinutes": 1.7,
+          "line": "L3"
+        },
+        {
+          "targetId": "diagonal",
+          "travelMinutes": 3.1,
+          "line": "L6"
+        },
+        {
+          "targetId": "diagonal",
+          "travelMinutes": 3.1,
+          "line": "L7"
+        }
+      ]
+    },
+    {
+      "id": "centric",
+      "name": "Cèntric",
+      "lines": [
+        "L9S"
+      ],
+      "latitude": 41.3236,
+      "longitude": 2.1009,
+      "connections": [
+        {
+          "targetId": "parc-nou",
+          "travelMinutes": 2.1,
+          "line": "L9S"
+        },
+        {
+          "targetId": "el-prat-estacio",
+          "travelMinutes": 2.3,
+          "line": "L9S"
+        }
+      ]
+    },
+    {
+      "id": "ciutadella-vila-olimpica",
+      "name": "Ciutadella | Vila Olímpica",
+      "lines": [
+        "L4",
+        "T4"
+      ],
+      "latitude": 41.3879,
+      "longitude": 2.1936,
+      "connections": [
+        {
+          "targetId": "barceloneta",
+          "travelMinutes": 2.2,
+          "line": "L4"
+        },
+        {
+          "targetId": "bogatell",
+          "travelMinutes": 1.9,
+          "line": "L4"
+        },
+        {
+          "targetId": "wellington",
+          "travelMinutes": 1.6,
+          "line": "T4"
+        }
+      ]
+    },
+    {
+      "id": "ciutat-de-la-justicia",
+      "name": "Ciutat de la Justícia",
+      "lines": [
+        "L10S",
+        "L8"
+      ],
+      "latitude": 41.3644,
+      "longitude": 2.1332,
+      "connections": [
+        {
+          "targetId": "foneria",
+          "travelMinutes": 1.4,
+          "line": "L10S"
+        },
+        {
+          "targetId": "provencana",
+          "travelMinutes": 1.3,
+          "line": "L10S"
+        },
+        {
+          "targetId": "magoria-la-campana",
+          "travelMinutes": 1.9,
+          "line": "L8"
+        },
+        {
+          "targetId": "europa-fira",
+          "travelMinutes": 1.6,
+          "line": "L8"
+        }
+      ]
+    },
+    {
+      "id": "ciutat-meridiana",
+      "name": "Ciutat Meridiana",
+      "lines": [
+        "L11"
+      ],
+      "latitude": 41.4623,
+      "longitude": 2.1772,
+      "connections": [
+        {
+          "targetId": "torre-baro-vallbona",
+          "travelMinutes": 1.6,
+          "line": "L11"
+        },
+        {
+          "targetId": "can-cuias",
+          "travelMinutes": 1.3,
+          "line": "L11"
+        }
+      ]
+    },
+    {
+      "id": "clot",
+      "name": "Clot",
+      "lines": [
+        "L1",
+        "L2"
+      ],
+      "latitude": 41.4087,
+      "longitude": 2.1868,
+      "connections": [
+        {
+          "targetId": "glories",
+          "travelMinutes": 1.8,
+          "line": "L1"
+        },
+        {
+          "targetId": "navas",
+          "travelMinutes": 2.2,
+          "line": "L1"
+        },
+        {
+          "targetId": "encants",
+          "travelMinutes": 1.5,
+          "line": "L2"
+        },
+        {
+          "targetId": "bac-de-roda",
+          "travelMinutes": 2.1,
+          "line": "L2"
+        }
+      ]
+    },
+    {
+      "id": "collblanc",
+      "name": "Collblanc",
+      "lines": [
+        "L10S",
+        "L5",
+        "L9S"
+      ],
+      "latitude": 41.3758,
+      "longitude": 2.1202,
+      "connections": [
+        {
+          "targetId": "ernest-lluch",
+          "travelMinutes": 1.3,
+          "line": "L5"
+        },
+        {
+          "targetId": "badal",
+          "travelMinutes": 1.8,
+          "line": "L5"
+        },
+        {
+          "targetId": "torrassa",
+          "travelMinutes": 1.9,
+          "line": "L9S"
+        },
+        {
+          "targetId": "zona-universitaria",
+          "travelMinutes": 3,
+          "line": "L9S"
+        },
+        {
+          "targetId": "torrassa",
+          "travelMinutes": 1.9,
+          "line": "L10S"
+        }
+      ]
+    },
+    {
+      "id": "congres",
+      "name": "Congrés",
+      "lines": [
+        "L5"
+      ],
+      "latitude": 41.4258,
+      "longitude": 2.1825,
+      "connections": [
+        {
+          "targetId": "sagrera",
+          "travelMinutes": 1.6,
+          "line": "L5"
+        },
+        {
+          "targetId": "maragall",
+          "travelMinutes": 1.3,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "cornella-centre",
+      "name": "Cornellà Centre",
+      "lines": [
+        "L5",
+        "T1"
+      ],
+      "latitude": 41.3572,
+      "longitude": 2.0712,
+      "connections": [
+        {
+          "targetId": "gavarra",
+          "travelMinutes": 2.2,
+          "line": "L5"
+        },
+        {
+          "targetId": "ignasi-iglesias",
+          "travelMinutes": 2.2,
+          "line": "T1"
+        },
+        {
+          "targetId": "les-aigues",
+          "travelMinutes": 2.7,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "cornella-riera",
+      "name": "Cornellà Riera",
+      "lines": [
+        "L8"
+      ],
+      "latitude": 41.3512,
+      "longitude": 2.0734,
+      "connections": [
+        {
+          "targetId": "almeda",
+          "travelMinutes": 3.3,
+          "line": "L8"
+        },
+        {
+          "targetId": "sant-boi",
+          "travelMinutes": 5.2,
+          "line": "L8"
+        }
+      ]
+    },
+    {
+      "id": "diagonal",
+      "name": "Diagonal",
+      "lines": [
+        "L3",
+        "L5",
+        "L6",
+        "L7"
+      ],
+      "latitude": 41.3962,
+      "longitude": 2.1585,
+      "connections": [
+        {
+          "targetId": "passeig-de-gracia",
+          "travelMinutes": 2,
+          "line": "L3"
+        },
+        {
+          "targetId": "fontana",
+          "travelMinutes": 2.2,
+          "line": "L3"
+        },
+        {
+          "targetId": "hospital-clinic",
+          "travelMinutes": 2.4,
+          "line": "L5"
+        },
+        {
+          "targetId": "verdaguer",
+          "travelMinutes": 1.9,
+          "line": "L5"
+        },
+        {
+          "targetId": "catalunya",
+          "travelMinutes": 3.1,
+          "line": "L6"
+        },
+        {
+          "targetId": "gracia",
+          "travelMinutes": 1.7,
+          "line": "L6"
+        },
+        {
+          "targetId": "catalunya",
+          "travelMinutes": 3.1,
+          "line": "L7"
+        },
+        {
+          "targetId": "gracia",
+          "travelMinutes": 1.7,
+          "line": "L7"
+        }
+      ]
+    },
+    {
+      "id": "drassanes",
+      "name": "Drassanes",
+      "lines": [
+        "L3"
+      ],
+      "latitude": 41.3779,
+      "longitude": 2.1762,
+      "connections": [
+        {
+          "targetId": "parallel",
+          "travelMinutes": 1.7,
+          "line": "L3"
+        },
+        {
+          "targetId": "liceu",
+          "travelMinutes": 1.4,
+          "line": "L3"
+        }
+      ]
+    },
+    {
+      "id": "ecoparc",
+      "name": "Ecoparc",
+      "lines": [
+        "L10S"
+      ],
+      "latitude": 41.3312,
+      "longitude": 2.1378,
+      "connections": [
+        {
+          "targetId": "zal-riu-vell",
+          "travelMinutes": 1.8,
+          "line": "L10S"
+        },
+        {
+          "targetId": "port-comercial-la-factoria",
+          "travelMinutes": 1.9,
+          "line": "L10S"
+        }
+      ]
+    },
+    {
+      "id": "el-carmel",
+      "name": "El Carmel",
+      "lines": [
+        "L5"
+      ],
+      "latitude": 41.4252,
+      "longitude": 2.1557,
+      "connections": [
+        {
+          "targetId": "horta",
+          "travelMinutes": 2,
+          "line": "L5"
+        },
+        {
+          "targetId": "el-coll-la-teixonera",
+          "travelMinutes": 1.6,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "el-coll-la-teixonera",
+      "name": "El Coll | La Teixonera",
+      "lines": [
+        "L5"
+      ],
+      "latitude": 41.4227,
+      "longitude": 2.1492,
+      "connections": [
+        {
+          "targetId": "el-carmel",
+          "travelMinutes": 1.6,
+          "line": "L5"
+        },
+        {
+          "targetId": "vall-d-hebron",
+          "travelMinutes": 1.8,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "el-maresme",
+      "name": "El Maresme",
+      "lines": [
+        "T4"
+      ],
+      "latitude": 41.4112,
+      "longitude": 2.2138,
+      "connections": [
+        {
+          "targetId": "selva-de-mar",
+          "travelMinutes": 1.9,
+          "line": "T4"
+        },
+        {
+          "targetId": "el-maresme-forum",
+          "travelMinutes": 1.2,
+          "line": "T4"
+        }
+      ]
+    },
+    {
+      "id": "el-maresme-forum",
+      "name": "El Maresme | Fòrum",
+      "lines": [
+        "L4",
+        "T4"
+      ],
+      "latitude": 41.4122,
+      "longitude": 2.2163,
+      "connections": [
+        {
+          "targetId": "selva-de-mar",
+          "travelMinutes": 1.9,
+          "line": "L4"
+        },
+        {
+          "targetId": "besos-mar",
+          "travelMinutes": 1.3,
+          "line": "L4"
+        },
+        {
+          "targetId": "el-maresme",
+          "travelMinutes": 1.2,
+          "line": "T4"
+        },
+        {
+          "targetId": "campus-diagonal-besos",
+          "travelMinutes": 2.4,
+          "line": "T4"
+        }
+      ]
+    },
+    {
+      "id": "el-pedro",
+      "name": "El Pedró",
+      "lines": [
+        "T1"
+      ],
+      "latitude": 41.3655,
+      "longitude": 2.0762,
+      "connections": [
+        {
+          "targetId": "montesa",
+          "travelMinutes": 3,
+          "line": "T1"
+        },
+        {
+          "targetId": "ignasi-iglesias",
+          "travelMinutes": 1.7,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "el-prat-estacio",
+      "name": "El Prat Estació",
+      "lines": [
+        "L9S"
+      ],
+      "latitude": 41.3308,
+      "longitude": 2.1077,
+      "connections": [
+        {
+          "targetId": "centric",
+          "travelMinutes": 2.3,
+          "line": "L9S"
+        },
+        {
+          "targetId": "les-moreres",
+          "travelMinutes": 2.2,
+          "line": "L9S"
+        }
+      ]
+    },
+    {
+      "id": "el-putxet",
+      "name": "El Putxet",
+      "lines": [
+        "L7"
+      ],
+      "latitude": 41.4082,
+      "longitude": 2.1415,
+      "connections": [
+        {
+          "targetId": "padua",
+          "travelMinutes": 1.3,
+          "line": "L7"
+        },
+        {
+          "targetId": "avinguda-tibidabo",
+          "travelMinutes": 1.3,
+          "line": "L7"
+        }
+      ]
+    },
+    {
+      "id": "encants",
+      "name": "Encants",
+      "lines": [
+        "L2"
+      ],
+      "latitude": 41.4072,
+      "longitude": 2.1808,
+      "connections": [
+        {
+          "targetId": "sagrada-familia",
+          "travelMinutes": 1.8,
+          "line": "L2"
+        },
+        {
+          "targetId": "clot",
+          "travelMinutes": 1.5,
+          "line": "L2"
+        }
+      ]
+    },
+    {
+      "id": "entenca",
+      "name": "Entença",
+      "lines": [
+        "L5"
+      ],
+      "latitude": 41.3846,
+      "longitude": 2.1466,
+      "connections": [
+        {
+          "targetId": "sants-estacio",
+          "travelMinutes": 1.8,
+          "line": "L5"
+        },
+        {
+          "targetId": "hospital-clinic",
+          "travelMinutes": 1.7,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "ernest-lluch",
+      "name": "Ernest Lluch",
+      "lines": [
+        "L5",
+        "T1"
+      ],
+      "latitude": 41.3736,
+      "longitude": 2.1157,
+      "connections": [
+        {
+          "targetId": "pubilla-cases",
+          "travelMinutes": 1.7,
+          "line": "L5"
+        },
+        {
+          "targetId": "collblanc",
+          "travelMinutes": 1.3,
+          "line": "L5"
+        },
+        {
+          "targetId": "sant-ramon",
+          "travelMinutes": 1.8,
+          "line": "T1"
+        },
+        {
+          "targetId": "can-rigal",
+          "travelMinutes": 2.1,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "esglesia-major",
+      "name": "Església Major",
+      "lines": [
+        "L9N"
+      ],
+      "latitude": 41.4552,
+      "longitude": 2.2131,
+      "connections": [
+        {
+          "targetId": "fondo",
+          "travelMinutes": 1.6,
+          "line": "L9N"
+        },
+        {
+          "targetId": "singuerlin",
+          "travelMinutes": 1.6,
+          "line": "L9N"
+        }
+      ]
+    },
+    {
+      "id": "espanya",
+      "name": "Espanya",
+      "lines": [
+        "L1",
+        "L3",
+        "L8"
+      ],
+      "latitude": 41.375,
+      "longitude": 2.1491,
+      "connections": [
+        {
+          "targetId": "hostafrancs",
+          "travelMinutes": 1.5,
+          "line": "L1"
+        },
+        {
+          "targetId": "rocafort",
+          "travelMinutes": 1.9,
+          "line": "L1"
+        },
+        {
+          "targetId": "tarragona",
+          "travelMinutes": 1.5,
+          "line": "L3"
+        },
+        {
+          "targetId": "poble-sec",
+          "travelMinutes": 2.5,
+          "line": "L3"
+        },
+        {
+          "targetId": "magoria-la-campana",
+          "travelMinutes": 2.4,
+          "line": "L8"
+        }
+      ]
+    },
+    {
+      "id": "estacio-de-sant-adria",
+      "name": "Estació de Sant Adrià",
+      "lines": [
+        "T4"
+      ],
+      "latitude": 41.4231,
+      "longitude": 2.2325,
+      "connections": [
+        {
+          "targetId": "port-forum",
+          "travelMinutes": 2.2,
+          "line": "T4"
+        }
+      ]
+    },
+    {
+      "id": "europa-fira",
+      "name": "Europa | Fira",
+      "lines": [
+        "L8",
+        "L9S"
+      ],
+      "latitude": 41.3601,
+      "longitude": 2.1294,
+      "connections": [
+        {
+          "targetId": "fira",
+          "travelMinutes": 1.9,
+          "line": "L9S"
+        },
+        {
+          "targetId": "can-tries-gornal",
+          "travelMinutes": 1.4,
+          "line": "L9S"
+        },
+        {
+          "targetId": "ciutat-de-la-justicia",
+          "travelMinutes": 1.6,
+          "line": "L8"
+        },
+        {
+          "targetId": "gornal",
+          "travelMinutes": 1.6,
+          "line": "L8"
+        }
+      ]
+    },
+    {
+      "id": "fabra-i-puig",
+      "name": "Fabra i Puig",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.43,
+      "longitude": 2.1843,
+      "connections": [
+        {
+          "targetId": "sagrera",
+          "travelMinutes": 2.2,
+          "line": "L1"
+        },
+        {
+          "targetId": "sant-andreu",
+          "travelMinutes": 2.1,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "fira",
+      "name": "Fira",
+      "lines": [
+        "L9S"
+      ],
+      "latitude": 41.3547,
+      "longitude": 2.1345,
+      "connections": [
+        {
+          "targetId": "parc-logistic",
+          "travelMinutes": 1.6,
+          "line": "L9S"
+        },
+        {
+          "targetId": "europa-fira",
+          "travelMinutes": 1.9,
+          "line": "L9S"
+        }
+      ]
+    },
+    {
+      "id": "florida",
+      "name": "Florida",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.3697,
+      "longitude": 2.1107,
+      "connections": [
+        {
+          "targetId": "can-serra",
+          "travelMinutes": 1.6,
+          "line": "L1"
+        },
+        {
+          "targetId": "torrassa",
+          "travelMinutes": 2.4,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "fluvia",
+      "name": "Fluvià",
+      "lines": [
+        "T4"
+      ],
+      "latitude": 41.4087,
+      "longitude": 2.2023,
+      "connections": [
+        {
+          "targetId": "pere-iv",
+          "travelMinutes": 1.8,
+          "line": "T4"
+        },
+        {
+          "targetId": "selva-de-mar",
+          "travelMinutes": 2.1,
+          "line": "T4"
+        }
+      ]
+    },
+    {
+      "id": "foc",
+      "name": "Foc",
+      "lines": [
+        "L10S"
+      ],
+      "latitude": 41.3585,
+      "longitude": 2.1412,
+      "connections": [
+        {
+          "targetId": "zona-franca",
+          "travelMinutes": 3.4,
+          "line": "L10S"
+        },
+        {
+          "targetId": "foneria",
+          "travelMinutes": 1.5,
+          "line": "L10S"
+        }
+      ]
+    },
+    {
+      "id": "fondo",
+      "name": "Fondo",
+      "lines": [
+        "L1",
+        "L9N"
+      ],
+      "latitude": 41.4514,
+      "longitude": 2.2183,
+      "connections": [
+        {
+          "targetId": "santa-coloma",
+          "travelMinutes": 2.1,
+          "line": "L1"
+        },
+        {
+          "targetId": "santa-rosa",
+          "travelMinutes": 2,
+          "line": "L9N"
+        },
+        {
+          "targetId": "esglesia-major",
+          "travelMinutes": 1.6,
+          "line": "L9N"
+        }
+      ]
+    },
+    {
+      "id": "foneria",
+      "name": "Foneria",
+      "lines": [
+        "L10S"
+      ],
+      "latitude": 41.3629,
+      "longitude": 2.1387,
+      "connections": [
+        {
+          "targetId": "foc",
+          "travelMinutes": 1.5,
+          "line": "L10S"
+        },
+        {
+          "targetId": "ciutat-de-la-justicia",
+          "travelMinutes": 1.4,
+          "line": "L10S"
+        }
+      ]
+    },
+    {
+      "id": "fontana",
+      "name": "Fontana",
+      "lines": [
+        "L3"
+      ],
+      "latitude": 41.4034,
+      "longitude": 2.1528,
+      "connections": [
+        {
+          "targetId": "diagonal",
+          "travelMinutes": 2.2,
+          "line": "L3"
+        },
+        {
+          "targetId": "lesseps",
+          "travelMinutes": 1.5,
+          "line": "L3"
+        }
+      ]
+    },
+    {
+      "id": "fontsanta-fatjo",
+      "name": "Fontsanta | Fatjó",
+      "lines": [
+        "T1"
+      ],
+      "latitude": 41.3632,
+      "longitude": 2.0578,
+      "connections": [
+        {
+          "targetId": "les-aigues",
+          "travelMinutes": 2.1,
+          "line": "T1"
+        },
+        {
+          "targetId": "bon-viatge",
+          "travelMinutes": 1.9,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "francesc-macia",
+      "name": "Francesc Macià",
+      "lines": [
+        "T1"
+      ],
+      "latitude": 41.3927,
+      "longitude": 2.1438,
+      "connections": [
+        {
+          "targetId": "l-illa",
+          "travelMinutes": 2.4,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "gavarra",
+      "name": "Gavarra",
+      "lines": [
+        "L5"
+      ],
+      "latitude": 41.3606,
+      "longitude": 2.0811,
+      "connections": [
+        {
+          "targetId": "cornella-centre",
+          "travelMinutes": 2.2,
+          "line": "L5"
+        },
+        {
+          "targetId": "sant-ildefons",
+          "travelMinutes": 1.9,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "girona",
+      "name": "Girona",
+      "lines": [
+        "L4"
+      ],
+      "latitude": 41.397,
+      "longitude": 2.1706,
+      "connections": [
+        {
+          "targetId": "verdaguer",
+          "travelMinutes": 1.6,
+          "line": "L4"
+        },
+        {
+          "targetId": "passeig-de-gracia",
+          "travelMinutes": 1.7,
+          "line": "L4"
+        }
+      ]
+    },
+    {
+      "id": "glories",
+      "name": "Glòries",
+      "lines": [
+        "L1",
+        "T4"
+      ],
+      "latitude": 41.4024,
+      "longitude": 2.1873,
+      "connections": [
+        {
+          "targetId": "marina",
+          "travelMinutes": 2,
+          "line": "L1"
+        },
+        {
+          "targetId": "clot",
+          "travelMinutes": 1.8,
+          "line": "L1"
+        },
+        {
+          "targetId": "auditori-teatre-nacional",
+          "travelMinutes": 1.7,
+          "line": "T4"
+        },
+        {
+          "targetId": "ca-l-aranyo",
+          "travelMinutes": 1.9,
+          "line": "T4"
+        }
+      ]
+    },
+    {
+      "id": "gorg",
+      "name": "Gorg",
+      "lines": [
+        "L10N",
+        "L2"
+      ],
+      "latitude": 41.4402,
+      "longitude": 2.2312,
+      "connections": [
+        {
+          "targetId": "sant-roc",
+          "travelMinutes": 2,
+          "line": "L2"
+        },
+        {
+          "targetId": "pep-ventura",
+          "travelMinutes": 1.7,
+          "line": "L2"
+        },
+        {
+          "targetId": "la-salut",
+          "travelMinutes": 1.6,
+          "line": "L10N"
+        }
+      ]
+    },
+    {
+      "id": "gornal",
+      "name": "Gornal",
+      "lines": [
+        "L8"
+      ],
+      "latitude": 41.3578,
+      "longitude": 2.1232,
+      "connections": [
+        {
+          "targetId": "europa-fira",
+          "travelMinutes": 1.6,
+          "line": "L8"
+        },
+        {
+          "targetId": "sant-josep",
+          "travelMinutes": 1.7,
+          "line": "L8"
+        }
+      ]
+    },
+    {
+      "id": "gracia",
+      "name": "Gràcia",
+      "lines": [
+        "L6",
+        "L7"
+      ],
+      "latitude": 41.4005,
+      "longitude": 2.1534,
+      "connections": [
+        {
+          "targetId": "diagonal",
+          "travelMinutes": 1.7,
+          "line": "L6"
+        },
+        {
+          "targetId": "sant-gervasi",
+          "travelMinutes": 1.7,
+          "line": "L6"
+        },
+        {
+          "targetId": "diagonal",
+          "travelMinutes": 1.7,
+          "line": "L7"
+        },
+        {
+          "targetId": "placa-molina",
+          "travelMinutes": 1.7,
+          "line": "L7"
+        }
+      ]
+    },
+    {
+      "id": "guinardo-hospital-de-sant-pau",
+      "name": "Guinardó | Hospital de Sant Pau",
+      "lines": [
+        "L4"
+      ],
+      "latitude": 41.4182,
+      "longitude": 2.1738,
+      "connections": [
+        {
+          "targetId": "maragall",
+          "travelMinutes": 2.5,
+          "line": "L4"
+        },
+        {
+          "targetId": "alfons-x",
+          "travelMinutes": 2.3,
+          "line": "L4"
+        }
+      ]
+    },
+    {
+      "id": "horta",
+      "name": "Horta",
+      "lines": [
+        "L5"
+      ],
+      "latitude": 41.4316,
+      "longitude": 2.1601,
+      "connections": [
+        {
+          "targetId": "vilapicina",
+          "travelMinutes": 1.6,
+          "line": "L5"
+        },
+        {
+          "targetId": "el-carmel",
+          "travelMinutes": 2,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "hospital-clinic",
+      "name": "Hospital Clínic",
+      "lines": [
+        "L5"
+      ],
+      "latitude": 41.3888,
+      "longitude": 2.1517,
+      "connections": [
+        {
+          "targetId": "entenca",
+          "travelMinutes": 1.7,
+          "line": "L5"
+        },
+        {
+          "targetId": "diagonal",
+          "travelMinutes": 2.4,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "hospital-de-bellvitge",
+      "name": "Hospital de Bellvitge",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.3435,
+      "longitude": 2.1065,
+      "connections": [
+        {
+          "targetId": "bellvitge",
+          "travelMinutes": 2.6,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "hostafrancs",
+      "name": "Hostafrancs",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.3748,
+      "longitude": 2.1428,
+      "connections": [
+        {
+          "targetId": "placa-de-sants",
+          "travelMinutes": 1.7,
+          "line": "L1"
+        },
+        {
+          "targetId": "espanya",
+          "travelMinutes": 1.5,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "ignasi-iglesias",
+      "name": "Ignasi Iglésias",
+      "lines": [
+        "T1"
+      ],
+      "latitude": 41.3618,
+      "longitude": 2.0748,
+      "connections": [
+        {
+          "targetId": "el-pedro",
+          "travelMinutes": 1.7,
+          "line": "T1"
+        },
+        {
+          "targetId": "cornella-centre",
+          "travelMinutes": 2.2,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "jaume-i",
+      "name": "Jaume I",
+      "lines": [
+        "L4"
+      ],
+      "latitude": 41.3846,
+      "longitude": 2.1789,
+      "connections": [
+        {
+          "targetId": "urquinaona",
+          "travelMinutes": 1.8,
+          "line": "L4"
+        },
+        {
+          "targetId": "barceloneta",
+          "travelMinutes": 2,
+          "line": "L4"
+        }
+      ]
+    },
+    {
+      "id": "joanic",
+      "name": "Joanic",
+      "lines": [
+        "L4"
+      ],
+      "latitude": 41.4069,
+      "longitude": 2.1611,
+      "connections": [
+        {
+          "targetId": "alfons-x",
+          "travelMinutes": 1.8,
+          "line": "L4"
+        },
+        {
+          "targetId": "verdaguer",
+          "travelMinutes": 2,
+          "line": "L4"
+        }
+      ]
+    },
+    {
+      "id": "l-illa",
+      "name": "L'Illa",
+      "lines": [
+        "T1"
+      ],
+      "latitude": 41.3905,
+      "longitude": 2.1362,
+      "connections": [
+        {
+          "targetId": "francesc-macia",
+          "travelMinutes": 2.4,
+          "line": "T1"
+        },
+        {
+          "targetId": "numancia",
+          "travelMinutes": 1.8,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "la-bonanova",
+      "name": "La Bonanova",
+      "lines": [
+        "L6"
+      ],
+      "latitude": 41.3986,
+      "longitude": 2.1328,
+      "connections": [
+        {
+          "targetId": "muntaner",
+          "travelMinutes": 1.6,
+          "line": "L6"
+        },
+        {
+          "targetId": "les-tres-torres",
+          "travelMinutes": 1.6,
+          "line": "L6"
+        }
+      ]
+    },
+    {
+      "id": "la-pau",
+      "name": "La Pau",
+      "lines": [
+        "L2",
+        "L4"
+      ],
+      "latitude": 41.4206,
+      "longitude": 2.2057,
+      "connections": [
+        {
+          "targetId": "sant-marti",
+          "travelMinutes": 1.6,
+          "line": "L2"
+        },
+        {
+          "targetId": "verneda",
+          "travelMinutes": 1.5,
+          "line": "L2"
+        },
+        {
+          "targetId": "besos",
+          "travelMinutes": 1.4,
+          "line": "L4"
+        }
+      ]
+    },
+    {
+      "id": "la-salut",
+      "name": "La Salut",
+      "lines": [
+        "L10N"
+      ],
+      "latitude": 41.4407,
+      "longitude": 2.2241,
+      "connections": [
+        {
+          "targetId": "llefia",
+          "travelMinutes": 1.6,
+          "line": "L10N"
+        },
+        {
+          "targetId": "gorg",
+          "travelMinutes": 1.6,
+          "line": "L10N"
+        }
+      ]
+    },
+    {
+      "id": "la-sardana",
+      "name": "La Sardana",
+      "lines": [
+        "T1"
+      ],
+      "latitude": 41.3758,
+      "longitude": 2.0887,
+      "connections": [
+        {
+          "targetId": "pont-d-esplugues",
+          "travelMinutes": 1.9,
+          "line": "T1"
+        },
+        {
+          "targetId": "montesa",
+          "travelMinutes": 2.4,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "les-aigues",
+      "name": "Les Aigües",
+      "lines": [
+        "T1"
+      ],
+      "latitude": 41.3598,
+      "longitude": 2.0628,
+      "connections": [
+        {
+          "targetId": "cornella-centre",
+          "travelMinutes": 2.7,
+          "line": "T1"
+        },
+        {
+          "targetId": "fontsanta-fatjo",
+          "travelMinutes": 2.1,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "les-corts",
+      "name": "Les Corts",
+      "lines": [
+        "L3"
+      ],
+      "latitude": 41.3856,
+      "longitude": 2.1306,
+      "connections": [
+        {
+          "targetId": "maria-cristina",
+          "travelMinutes": 1.4,
+          "line": "L3"
+        },
+        {
+          "targetId": "placa-del-centre",
+          "travelMinutes": 1.5,
+          "line": "L3"
+        }
+      ]
+    },
+    {
+      "id": "les-moreres",
+      "name": "Les Moreres",
+      "lines": [
+        "L9S"
+      ],
+      "latitude": 41.3364,
+      "longitude": 2.1154,
+      "connections": [
+        {
+          "targetId": "el-prat-estacio",
+          "travelMinutes": 2.2,
+          "line": "L9S"
+        },
+        {
+          "targetId": "mercabarna",
+          "travelMinutes": 2.9,
+          "line": "L9S"
+        }
+      ]
+    },
+    {
+      "id": "les-tres-torres",
+      "name": "Les Tres Torres",
+      "lines": [
+        "L6"
+      ],
+      "latitude": 41.3968,
+      "longitude": 2.1264,
+      "connections": [
+        {
+          "targetId": "la-bonanova",
+          "travelMinutes": 1.6,
+          "line": "L6"
+        },
+        {
+          "targetId": "sarria",
+          "travelMinutes": 1.5,
+          "line": "L6"
+        }
+      ]
+    },
+    {
+      "id": "lesseps",
+      "name": "Lesseps",
+      "lines": [
+        "L3"
+      ],
+      "latitude": 41.4079,
+      "longitude": 2.1504,
+      "connections": [
+        {
+          "targetId": "fontana",
+          "travelMinutes": 1.5,
+          "line": "L3"
+        },
+        {
+          "targetId": "vallcarca",
+          "travelMinutes": 1.7,
+          "line": "L3"
+        }
+      ]
+    },
+    {
+      "id": "liceu",
+      "name": "Liceu",
+      "lines": [
+        "L3"
+      ],
+      "latitude": 41.3817,
+      "longitude": 2.1731,
+      "connections": [
+        {
+          "targetId": "drassanes",
+          "travelMinutes": 1.4,
+          "line": "L3"
+        },
+        {
+          "targetId": "catalunya",
+          "travelMinutes": 1.7,
+          "line": "L3"
+        }
+      ]
+    },
+    {
+      "id": "llacuna",
+      "name": "Llacuna",
+      "lines": [
+        "L4"
+      ],
+      "latitude": 41.3995,
+      "longitude": 2.1989,
+      "connections": [
+        {
+          "targetId": "bogatell",
+          "travelMinutes": 1.6,
+          "line": "L4"
+        },
+        {
+          "targetId": "poblenou",
+          "travelMinutes": 1.4,
+          "line": "L4"
+        }
+      ]
+    },
+    {
+      "id": "llefia",
+      "name": "Llefià",
+      "lines": [
+        "L10N"
+      ],
+      "latitude": 41.4398,
+      "longitude": 2.2173,
+      "connections": [
+        {
+          "targetId": "bon-pastor",
+          "travelMinutes": 2.6,
+          "line": "L10N"
+        },
+        {
+          "targetId": "la-salut",
+          "travelMinutes": 1.6,
+          "line": "L10N"
+        }
+      ]
+    },
+    {
+      "id": "llucmajor",
+      "name": "Llucmajor",
+      "lines": [
+        "L4"
+      ],
+      "latitude": 41.4371,
+      "longitude": 2.1765,
+      "connections": [
+        {
+          "targetId": "via-julia",
+          "travelMinutes": 1.8,
+          "line": "L4"
+        },
+        {
+          "targetId": "maragall",
+          "travelMinutes": 2.6,
+          "line": "L4"
+        }
+      ]
+    },
+    {
+      "id": "magoria-la-campana",
+      "name": "Magòria La Campana",
+      "lines": [
+        "L8"
+      ],
+      "latitude": 41.3689,
+      "longitude": 2.1402,
+      "connections": [
+        {
+          "targetId": "espanya",
+          "travelMinutes": 2.4,
+          "line": "L8"
+        },
+        {
+          "targetId": "ciutat-de-la-justicia",
+          "travelMinutes": 1.9,
+          "line": "L8"
+        }
+      ]
+    },
+    {
+      "id": "maragall",
+      "name": "Maragall",
+      "lines": [
+        "L4",
+        "L5"
+      ],
+      "latitude": 41.4269,
+      "longitude": 2.1784,
+      "connections": [
+        {
+          "targetId": "llucmajor",
+          "travelMinutes": 2.6,
+          "line": "L4"
+        },
+        {
+          "targetId": "guinardo-hospital-de-sant-pau",
+          "travelMinutes": 2.5,
+          "line": "L4"
+        },
+        {
+          "targetId": "congres",
+          "travelMinutes": 1.3,
+          "line": "L5"
+        },
+        {
+          "targetId": "virrei-amat",
+          "travelMinutes": 1.5,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "maria-cristina",
+      "name": "Maria Cristina",
+      "lines": [
+        "L3",
+        "T1"
+      ],
+      "latitude": 41.3881,
+      "longitude": 2.126,
+      "connections": [
+        {
+          "targetId": "palau-reial",
+          "travelMinutes": 1.7,
+          "line": "L3"
+        },
+        {
+          "targetId": "les-corts",
+          "travelMinutes": 1.4,
+          "line": "L3"
+        },
+        {
+          "targetId": "numancia",
+          "travelMinutes": 1.7,
+          "line": "T1"
+        },
+        {
+          "targetId": "pius-xii",
+          "travelMinutes": 1.5,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "marina",
+      "name": "Marina",
+      "lines": [
+        "L1",
+        "T4"
+      ],
+      "latitude": 41.3951,
+      "longitude": 2.1867,
+      "connections": [
+        {
+          "targetId": "arc-de-triomf",
+          "travelMinutes": 1.6,
+          "line": "L1"
+        },
+        {
+          "targetId": "glories",
+          "travelMinutes": 2,
+          "line": "L1"
+        },
+        {
+          "targetId": "wellington",
+          "travelMinutes": 2.3,
+          "line": "T4"
+        },
+        {
+          "targetId": "auditori-teatre-nacional",
+          "travelMinutes": 1.6,
+          "line": "T4"
+        }
+      ]
+    },
+    {
+      "id": "mas-blau",
+      "name": "Mas Blau",
+      "lines": [
+        "L9S"
+      ],
+      "latitude": 41.3129,
+      "longitude": 2.0886,
+      "connections": [
+        {
+          "targetId": "aeroport-t2",
+          "travelMinutes": 3.1,
+          "line": "L9S"
+        },
+        {
+          "targetId": "parc-nou",
+          "travelMinutes": 2,
+          "line": "L9S"
+        }
+      ]
+    },
+    {
+      "id": "mercabarna",
+      "name": "Mercabarna",
+      "lines": [
+        "L9S"
+      ],
+      "latitude": 41.3418,
+      "longitude": 2.1287,
+      "connections": [
+        {
+          "targetId": "les-moreres",
+          "travelMinutes": 2.9,
+          "line": "L9S"
+        },
+        {
+          "targetId": "parc-logistic",
+          "travelMinutes": 2.3,
+          "line": "L9S"
+        }
+      ]
+    },
+    {
+      "id": "mercat-nou",
+      "name": "Mercat Nou",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.3712,
+      "longitude": 2.1342,
+      "connections": [
+        {
+          "targetId": "santa-eulalia",
+          "travelMinutes": 1.4,
+          "line": "L1"
+        },
+        {
+          "targetId": "placa-de-sants",
+          "travelMinutes": 1.5,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "moli-nou",
+      "name": "Molí Nou | Ciutat Cooperativa",
+      "lines": [
+        "L8"
+      ],
+      "latitude": 41.3573,
+      "longitude": 2.0362,
+      "connections": [
+        {
+          "targetId": "sant-boi",
+          "travelMinutes": 2.7,
+          "line": "L8"
+        }
+      ]
+    },
+    {
+      "id": "montbau",
+      "name": "Montbau",
+      "lines": [
+        "L3"
+      ],
+      "latitude": 41.4317,
+      "longitude": 2.1462,
+      "connections": [
+        {
+          "targetId": "vall-d-hebron",
+          "travelMinutes": 2,
+          "line": "L3"
+        },
+        {
+          "targetId": "mundet",
+          "travelMinutes": 1.6,
+          "line": "L3"
+        }
+      ]
+    },
+    {
+      "id": "montesa",
+      "name": "Montesa",
+      "lines": [
+        "T1"
+      ],
+      "latitude": 41.3718,
+      "longitude": 2.0825,
+      "connections": [
+        {
+          "targetId": "la-sardana",
+          "travelMinutes": 2.4,
+          "line": "T1"
+        },
+        {
+          "targetId": "el-pedro",
+          "travelMinutes": 3,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "monumental",
+      "name": "Monumental",
+      "lines": [
+        "L2"
+      ],
+      "latitude": 41.3997,
+      "longitude": 2.1808,
+      "connections": [
+        {
+          "targetId": "tetuan",
+          "travelMinutes": 1.9,
+          "line": "L2"
+        },
+        {
+          "targetId": "sagrada-familia",
+          "travelMinutes": 1.8,
+          "line": "L2"
+        }
+      ]
+    },
+    {
+      "id": "mundet",
+      "name": "Mundet",
+      "lines": [
+        "L3"
+      ],
+      "latitude": 41.4365,
+      "longitude": 2.1498,
+      "connections": [
+        {
+          "targetId": "montbau",
+          "travelMinutes": 1.6,
+          "line": "L3"
+        },
+        {
+          "targetId": "valldaura",
+          "travelMinutes": 2.1,
+          "line": "L3"
+        }
+      ]
+    },
+    {
+      "id": "muntaner",
+      "name": "Muntaner",
+      "lines": [
+        "L6"
+      ],
+      "latitude": 41.3995,
+      "longitude": 2.1396,
+      "connections": [
+        {
+          "targetId": "sant-gervasi",
+          "travelMinutes": 1.7,
+          "line": "L6"
+        },
+        {
+          "targetId": "la-bonanova",
+          "travelMinutes": 1.6,
+          "line": "L6"
+        }
+      ]
+    },
+    {
+      "id": "navas",
+      "name": "Navas",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.4168,
+      "longitude": 2.1878,
+      "connections": [
+        {
+          "targetId": "clot",
+          "travelMinutes": 2.2,
+          "line": "L1"
+        },
+        {
+          "targetId": "sagrera",
+          "travelMinutes": 1.6,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "numancia",
+      "name": "Numància",
+      "lines": [
+        "T1"
+      ],
+      "latitude": 41.3888,
+      "longitude": 2.1312,
+      "connections": [
+        {
+          "targetId": "l-illa",
+          "travelMinutes": 1.8,
+          "line": "T1"
+        },
+        {
+          "targetId": "maria-cristina",
+          "travelMinutes": 1.7,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "onze-de-setembre",
+      "name": "Onze de Setembre",
+      "lines": [
+        "L10N",
+        "L9N"
+      ],
+      "latitude": 41.431,
+      "longitude": 2.1935,
+      "connections": [
+        {
+          "targetId": "sagrera",
+          "travelMinutes": 2.5,
+          "line": "L9N"
+        },
+        {
+          "targetId": "bon-pastor",
+          "travelMinutes": 2.6,
+          "line": "L9N"
+        },
+        {
+          "targetId": "sagrera",
+          "travelMinutes": 2.5,
+          "line": "L10N"
+        },
+        {
+          "targetId": "bon-pastor",
+          "travelMinutes": 2.6,
+          "line": "L10N"
+        }
+      ]
+    },
+    {
+      "id": "padua",
+      "name": "Pàdua",
+      "lines": [
+        "L7"
+      ],
+      "latitude": 41.4048,
+      "longitude": 2.1428,
+      "connections": [
+        {
+          "targetId": "placa-molina",
+          "travelMinutes": 1.3,
+          "line": "L7"
+        },
+        {
+          "targetId": "el-putxet",
+          "travelMinutes": 1.3,
+          "line": "L7"
+        }
+      ]
+    },
+    {
+      "id": "palau-reial",
+      "name": "Palau Reial",
+      "lines": [
+        "L3",
+        "T1"
+      ],
+      "latitude": 41.3875,
+      "longitude": 2.1186,
+      "connections": [
+        {
+          "targetId": "zona-universitaria",
+          "travelMinutes": 1.8,
+          "line": "L3"
+        },
+        {
+          "targetId": "maria-cristina",
+          "travelMinutes": 1.7,
+          "line": "L3"
+        },
+        {
+          "targetId": "pius-xii",
+          "travelMinutes": 1.2,
+          "line": "T1"
+        },
+        {
+          "targetId": "zona-universitaria",
+          "travelMinutes": 2.5,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "parallel",
+      "name": "Paral·lel",
+      "lines": [
+        "L2",
+        "L3"
+      ],
+      "latitude": 41.375,
+      "longitude": 2.1695,
+      "connections": [
+        {
+          "targetId": "sant-antoni",
+          "travelMinutes": 2,
+          "line": "L2"
+        },
+        {
+          "targetId": "poble-sec",
+          "travelMinutes": 1.7,
+          "line": "L3"
+        },
+        {
+          "targetId": "drassanes",
+          "travelMinutes": 1.7,
+          "line": "L3"
+        }
+      ]
+    },
+    {
+      "id": "parc-logistic",
+      "name": "Parc Logístic",
+      "lines": [
+        "L9S"
+      ],
+      "latitude": 41.3496,
+      "longitude": 2.1332,
+      "connections": [
+        {
+          "targetId": "mercabarna",
+          "travelMinutes": 2.3,
+          "line": "L9S"
+        },
+        {
+          "targetId": "fira",
+          "travelMinutes": 1.6,
+          "line": "L9S"
+        }
+      ]
+    },
+    {
+      "id": "parc-nou",
+      "name": "Parc Nou",
+      "lines": [
+        "L9S"
+      ],
+      "latitude": 41.3168,
+      "longitude": 2.0967,
+      "connections": [
+        {
+          "targetId": "mas-blau",
+          "travelMinutes": 2,
+          "line": "L9S"
+        },
+        {
+          "targetId": "centric",
+          "travelMinutes": 2.1,
+          "line": "L9S"
+        }
+      ]
+    },
+    {
+      "id": "passeig-de-gracia",
+      "name": "Passeig de Gràcia",
+      "lines": [
+        "L2",
+        "L3",
+        "L4"
+      ],
+      "latitude": 41.3923,
+      "longitude": 2.1666,
+      "connections": [
+        {
+          "targetId": "universitat",
+          "travelMinutes": 1.9,
+          "line": "L2"
+        },
+        {
+          "targetId": "tetuan",
+          "travelMinutes": 1.9,
+          "line": "L2"
+        },
+        {
+          "targetId": "catalunya",
+          "travelMinutes": 1.7,
+          "line": "L3"
+        },
+        {
+          "targetId": "diagonal",
+          "travelMinutes": 2,
+          "line": "L3"
+        },
+        {
+          "targetId": "girona",
+          "travelMinutes": 1.7,
+          "line": "L4"
+        },
+        {
+          "targetId": "urquinaona",
+          "travelMinutes": 1.7,
+          "line": "L4"
+        }
+      ]
+    },
+    {
+      "id": "penitents",
+      "name": "Penitents",
+      "lines": [
+        "L3"
+      ],
+      "latitude": 41.4187,
+      "longitude": 2.1401,
+      "connections": [
+        {
+          "targetId": "vallcarca",
+          "travelMinutes": 2.1,
+          "line": "L3"
+        },
+        {
+          "targetId": "vall-d-hebron",
+          "travelMinutes": 1.9,
+          "line": "L3"
+        }
+      ]
+    },
+    {
+      "id": "pep-ventura",
+      "name": "Pep Ventura",
+      "lines": [
+        "L2"
+      ],
+      "latitude": 41.4437,
+      "longitude": 2.2372,
+      "connections": [
+        {
+          "targetId": "gorg",
+          "travelMinutes": 1.7,
+          "line": "L2"
+        },
+        {
+          "targetId": "badalona-pompeu-fabra",
+          "travelMinutes": 2.3,
+          "line": "L2"
+        }
+      ]
+    },
+    {
+      "id": "pere-iv",
+      "name": "Pere IV",
+      "lines": [
+        "T4"
+      ],
+      "latitude": 41.4069,
+      "longitude": 2.1972,
+      "connections": [
+        {
+          "targetId": "ca-l-aranyo",
+          "travelMinutes": 1.8,
+          "line": "T4"
+        },
+        {
+          "targetId": "fluvia",
+          "travelMinutes": 1.8,
+          "line": "T4"
+        }
+      ]
+    },
+    {
+      "id": "pius-xii",
+      "name": "Pius XII",
+      "lines": [
+        "T1"
+      ],
+      "latitude": 41.3879,
+      "longitude": 2.1218,
+      "connections": [
+        {
+          "targetId": "maria-cristina",
+          "travelMinutes": 1.5,
+          "line": "T1"
+        },
+        {
+          "targetId": "palau-reial",
+          "travelMinutes": 1.2,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "placa-de-sants",
+      "name": "Plaça de Sants",
+      "lines": [
+        "L1",
+        "L5"
+      ],
+      "latitude": 41.3758,
+      "longitude": 2.1354,
+      "connections": [
+        {
+          "targetId": "mercat-nou",
+          "travelMinutes": 1.5,
+          "line": "L1"
+        },
+        {
+          "targetId": "hostafrancs",
+          "travelMinutes": 1.7,
+          "line": "L1"
+        },
+        {
+          "targetId": "badal",
+          "travelMinutes": 1.6,
+          "line": "L5"
+        },
+        {
+          "targetId": "sants-estacio",
+          "travelMinutes": 1.8,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "placa-del-centre",
+      "name": "Plaça del Centre",
+      "lines": [
+        "L3"
+      ],
+      "latitude": 41.3831,
+      "longitude": 2.136,
+      "connections": [
+        {
+          "targetId": "les-corts",
+          "travelMinutes": 1.5,
+          "line": "L3"
+        },
+        {
+          "targetId": "sants-estacio",
+          "travelMinutes": 1.3,
+          "line": "L3"
+        }
+      ]
+    },
+    {
+      "id": "placa-molina",
+      "name": "Plaça Molina",
+      "lines": [
+        "L7"
+      ],
+      "latitude": 41.4022,
+      "longitude": 2.1464,
+      "connections": [
+        {
+          "targetId": "gracia",
+          "travelMinutes": 1.7,
+          "line": "L7"
+        },
+        {
+          "targetId": "padua",
+          "travelMinutes": 1.3,
+          "line": "L7"
+        }
+      ]
+    },
+    {
+      "id": "poble-sec",
+      "name": "Poble Sec",
+      "lines": [
+        "L3"
+      ],
+      "latitude": 41.3742,
+      "longitude": 2.1616,
+      "connections": [
+        {
+          "targetId": "espanya",
+          "travelMinutes": 2.5,
+          "line": "L3"
+        },
+        {
+          "targetId": "parallel",
+          "travelMinutes": 1.7,
+          "line": "L3"
+        }
+      ]
+    },
+    {
+      "id": "poblenou",
+      "name": "Poblenou",
+      "lines": [
+        "L4"
+      ],
+      "latitude": 41.4027,
+      "longitude": 2.2032,
+      "connections": [
+        {
+          "targetId": "llacuna",
+          "travelMinutes": 1.4,
+          "line": "L4"
+        },
+        {
+          "targetId": "selva-de-mar",
+          "travelMinutes": 2,
+          "line": "L4"
+        }
+      ]
+    },
+    {
+      "id": "pont-d-esplugues",
+      "name": "Pont d'Esplugues",
+      "lines": [
+        "T1"
+      ],
+      "latitude": 41.3742,
+      "longitude": 2.0945,
+      "connections": [
+        {
+          "targetId": "ca-n-oliveres",
+          "travelMinutes": 2.4,
+          "line": "T1"
+        },
+        {
+          "targetId": "la-sardana",
+          "travelMinutes": 1.9,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "port-comercial-la-factoria",
+      "name": "Port Comercial | La Factoria",
+      "lines": [
+        "L10S"
+      ],
+      "latitude": 41.3375,
+      "longitude": 2.1415,
+      "connections": [
+        {
+          "targetId": "ecoparc",
+          "travelMinutes": 1.9,
+          "line": "L10S"
+        },
+        {
+          "targetId": "zona-franca",
+          "travelMinutes": 2.1,
+          "line": "L10S"
+        }
+      ]
+    },
+    {
+      "id": "port-forum",
+      "name": "Port Fòrum",
+      "lines": [
+        "T4"
+      ],
+      "latitude": 41.4192,
+      "longitude": 2.2278,
+      "connections": [
+        {
+          "targetId": "campus-diagonal-besos",
+          "travelMinutes": 2.1,
+          "line": "T4"
+        },
+        {
+          "targetId": "estacio-de-sant-adria",
+          "travelMinutes": 2.2,
+          "line": "T4"
+        }
+      ]
+    },
+    {
+      "id": "provencana",
+      "name": "Provençana",
+      "lines": [
+        "L10S"
+      ],
+      "latitude": 41.3646,
+      "longitude": 2.1278,
+      "connections": [
+        {
+          "targetId": "ciutat-de-la-justicia",
+          "travelMinutes": 1.3,
+          "line": "L10S"
+        },
+        {
+          "targetId": "can-tries-gornal",
+          "travelMinutes": 1.3,
+          "line": "L10S"
+        }
+      ]
+    },
+    {
+      "id": "pubilla-cases",
+      "name": "Pubilla Cases",
+      "lines": [
+        "L5"
+      ],
+      "latitude": 41.3701,
+      "longitude": 2.1097,
+      "connections": [
+        {
+          "targetId": "can-vidalet",
+          "travelMinutes": 1.6,
+          "line": "L5"
+        },
+        {
+          "targetId": "ernest-lluch",
+          "travelMinutes": 1.7,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "rambla-just-oliveras",
+      "name": "Rambla Just Oliveras",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.3638,
+      "longitude": 2.1009,
+      "connections": [
+        {
+          "targetId": "av-carrilet",
+          "travelMinutes": 3.6,
+          "line": "L1"
+        },
+        {
+          "targetId": "can-serra",
+          "travelMinutes": 1.6,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "reina-elisenda",
+      "name": "Reina Elisenda",
+      "lines": [
+        "L12"
+      ],
+      "latitude": 41.3987,
+      "longitude": 2.1147,
+      "connections": [
+        {
+          "targetId": "sarria",
+          "travelMinutes": 1.5,
+          "line": "L12"
+        }
+      ]
+    },
+    {
+      "id": "rocafort",
+      "name": "Rocafort",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.3797,
+      "longitude": 2.1554,
+      "connections": [
+        {
+          "targetId": "espanya",
+          "travelMinutes": 1.9,
+          "line": "L1"
+        },
+        {
+          "targetId": "urgell",
+          "travelMinutes": 1.4,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "roquetes",
+      "name": "Roquetes",
+      "lines": [
+        "L3"
+      ],
+      "latitude": 41.4459,
+      "longitude": 2.1764,
+      "connections": [
+        {
+          "targetId": "canyelles",
+          "travelMinutes": 1.8,
+          "line": "L3"
+        },
+        {
+          "targetId": "trinitat-nova",
+          "travelMinutes": 1.8,
+          "line": "L3"
+        }
+      ]
+    },
+    {
+      "id": "sagrada-familia",
+      "name": "Sagrada Família",
+      "lines": [
+        "L2",
+        "L5"
+      ],
+      "latitude": 41.4036,
+      "longitude": 2.1744,
+      "connections": [
+        {
+          "targetId": "monumental",
+          "travelMinutes": 1.8,
+          "line": "L2"
+        },
+        {
+          "targetId": "encants",
+          "travelMinutes": 1.8,
+          "line": "L2"
+        },
+        {
+          "targetId": "verdaguer",
+          "travelMinutes": 2.1,
+          "line": "L5"
+        },
+        {
+          "targetId": "sant-pau-dos-de-maig",
+          "travelMinutes": 2.3,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "sagrera",
+      "name": "Sagrera",
+      "lines": [
+        "L1",
+        "L10N",
+        "L5",
+        "L9N"
+      ],
+      "latitude": 41.4223,
+      "longitude": 2.1878,
+      "connections": [
+        {
+          "targetId": "navas",
+          "travelMinutes": 1.6,
+          "line": "L1"
+        },
+        {
+          "targetId": "fabra-i-puig",
+          "travelMinutes": 2.2,
+          "line": "L1"
+        },
+        {
+          "targetId": "camp-de-l-arpa",
+          "travelMinutes": 1.9,
+          "line": "L5"
+        },
+        {
+          "targetId": "congres",
+          "travelMinutes": 1.6,
+          "line": "L5"
+        },
+        {
+          "targetId": "onze-de-setembre",
+          "travelMinutes": 2.5,
+          "line": "L9N"
+        },
+        {
+          "targetId": "onze-de-setembre",
+          "travelMinutes": 2.5,
+          "line": "L10N"
+        }
+      ]
+    },
+    {
+      "id": "sant-andreu",
+      "name": "Sant Andreu",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.4357,
+      "longitude": 2.1915,
+      "connections": [
+        {
+          "targetId": "fabra-i-puig",
+          "travelMinutes": 2.1,
+          "line": "L1"
+        },
+        {
+          "targetId": "torras-i-bages",
+          "travelMinutes": 1.8,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "sant-antoni",
+      "name": "Sant Antoni",
+      "lines": [
+        "L2"
+      ],
+      "latitude": 41.3804,
+      "longitude": 2.1628,
+      "connections": [
+        {
+          "targetId": "parallel",
+          "travelMinutes": 2,
+          "line": "L2"
+        },
+        {
+          "targetId": "universitat",
+          "travelMinutes": 1.7,
+          "line": "L2"
+        }
+      ]
+    },
+    {
+      "id": "sant-boi",
+      "name": "Sant Boi",
+      "lines": [
+        "L8"
+      ],
+      "latitude": 41.3486,
+      "longitude": 2.0438,
+      "connections": [
+        {
+          "targetId": "cornella-riera",
+          "travelMinutes": 5.2,
+          "line": "L8"
+        },
+        {
+          "targetId": "moli-nou",
+          "travelMinutes": 2.7,
+          "line": "L8"
+        }
+      ]
+    },
+    {
+      "id": "sant-gervasi",
+      "name": "Sant Gervasi",
+      "lines": [
+        "L6"
+      ],
+      "latitude": 41.4022,
+      "longitude": 2.1464,
+      "connections": [
+        {
+          "targetId": "gracia",
+          "travelMinutes": 1.7,
+          "line": "L6"
+        },
+        {
+          "targetId": "muntaner",
+          "travelMinutes": 1.7,
+          "line": "L6"
+        }
+      ]
+    },
+    {
+      "id": "sant-ildefons",
+      "name": "Sant Ildefons",
+      "lines": [
+        "L5"
+      ],
+      "latitude": 41.3653,
+      "longitude": 2.0877,
+      "connections": [
+        {
+          "targetId": "gavarra",
+          "travelMinutes": 1.9,
+          "line": "L5"
+        },
+        {
+          "targetId": "can-boixeres",
+          "travelMinutes": 2.1,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "sant-josep",
+      "name": "Sant Josep",
+      "lines": [
+        "L8"
+      ],
+      "latitude": 41.3598,
+      "longitude": 2.1158,
+      "connections": [
+        {
+          "targetId": "gornal",
+          "travelMinutes": 1.7,
+          "line": "L8"
+        },
+        {
+          "targetId": "av-carrilet",
+          "travelMinutes": 1.3,
+          "line": "L8"
+        }
+      ]
+    },
+    {
+      "id": "sant-marti",
+      "name": "Sant Martí",
+      "lines": [
+        "L2"
+      ],
+      "latitude": 41.4172,
+      "longitude": 2.2005,
+      "connections": [
+        {
+          "targetId": "bac-de-roda",
+          "travelMinutes": 1.7,
+          "line": "L2"
+        },
+        {
+          "targetId": "la-pau",
+          "travelMinutes": 1.6,
+          "line": "L2"
+        }
+      ]
+    },
+    {
+      "id": "sant-pau-dos-de-maig",
+      "name": "Sant Pau | Dos de Maig",
+      "lines": [
+        "L5"
+      ],
+      "latitude": 41.4116,
+      "longitude": 2.1783,
+      "connections": [
+        {
+          "targetId": "sagrada-familia",
+          "travelMinutes": 2.3,
+          "line": "L5"
+        },
+        {
+          "targetId": "camp-de-l-arpa",
+          "travelMinutes": 1.8,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "sant-ramon",
+      "name": "Sant Ramon",
+      "lines": [
+        "T1"
+      ],
+      "latitude": 41.3768,
+      "longitude": 2.1118,
+      "connections": [
+        {
+          "targetId": "avinguda-de-xile",
+          "travelMinutes": 1.8,
+          "line": "T1"
+        },
+        {
+          "targetId": "ernest-lluch",
+          "travelMinutes": 1.8,
+          "line": "T1"
+        }
+      ]
+    },
+    {
+      "id": "sant-roc",
+      "name": "Sant Roc",
+      "lines": [
+        "L2"
+      ],
+      "latitude": 41.4357,
+      "longitude": 2.2238,
+      "connections": [
+        {
+          "targetId": "artigues-sant-adria",
+          "travelMinutes": 2.1,
+          "line": "L2"
+        },
+        {
+          "targetId": "gorg",
+          "travelMinutes": 2,
+          "line": "L2"
+        }
+      ]
+    },
+    {
+      "id": "santa-coloma",
+      "name": "Santa Coloma",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.4503,
+      "longitude": 2.2079,
+      "connections": [
+        {
+          "targetId": "baro-de-viver",
+          "travelMinutes": 1.4,
+          "line": "L1"
+        },
+        {
+          "targetId": "fondo",
+          "travelMinutes": 2.1,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "santa-eulalia",
+      "name": "Santa Eulàlia",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.3678,
+      "longitude": 2.1306,
+      "connections": [
+        {
+          "targetId": "torrassa",
+          "travelMinutes": 1.8,
+          "line": "L1"
+        },
+        {
+          "targetId": "mercat-nou",
+          "travelMinutes": 1.4,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "santa-rosa",
+      "name": "Santa Rosa",
+      "lines": [
+        "L9N"
+      ],
+      "latitude": 41.4452,
+      "longitude": 2.2132,
+      "connections": [
+        {
+          "targetId": "can-peixauet",
+          "travelMinutes": 1.3,
+          "line": "L9N"
+        },
+        {
+          "targetId": "fondo",
+          "travelMinutes": 2,
+          "line": "L9N"
+        }
+      ]
+    },
+    {
+      "id": "sants-estacio",
+      "name": "Sants Estació",
+      "lines": [
+        "L3",
+        "L5"
+      ],
+      "latitude": 41.3809,
+      "longitude": 2.1402,
+      "connections": [
+        {
+          "targetId": "placa-del-centre",
+          "travelMinutes": 1.3,
+          "line": "L3"
+        },
+        {
+          "targetId": "tarragona",
+          "travelMinutes": 1.4,
+          "line": "L3"
+        },
+        {
+          "targetId": "placa-de-sants",
+          "travelMinutes": 1.8,
+          "line": "L5"
+        },
+        {
+          "targetId": "entenca",
+          "travelMinutes": 1.8,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "sarria",
+      "name": "Sarrià",
+      "lines": [
+        "L12",
+        "L6"
+      ],
+      "latitude": 41.3989,
+      "longitude": 2.1208,
+      "connections": [
+        {
+          "targetId": "les-tres-torres",
+          "travelMinutes": 1.5,
+          "line": "L6"
+        },
+        {
+          "targetId": "reina-elisenda",
+          "travelMinutes": 1.5,
+          "line": "L12"
+        }
+      ]
+    },
+    {
+      "id": "selva-de-mar",
+      "name": "Selva de Mar",
+      "lines": [
+        "L4",
+        "T4"
+      ],
+      "latitude": 41.4087,
+      "longitude": 2.2089,
+      "connections": [
+        {
+          "targetId": "poblenou",
+          "travelMinutes": 2,
+          "line": "L4"
+        },
+        {
+          "targetId": "el-maresme-forum",
+          "travelMinutes": 1.9,
+          "line": "L4"
+        },
+        {
+          "targetId": "fluvia",
+          "travelMinutes": 2.1,
+          "line": "T4"
+        },
+        {
+          "targetId": "el-maresme",
+          "travelMinutes": 1.9,
+          "line": "T4"
+        }
+      ]
+    },
+    {
+      "id": "singuerlin",
+      "name": "Singuerlín",
+      "lines": [
+        "L9N"
+      ],
+      "latitude": 41.4589,
+      "longitude": 2.2081,
+      "connections": [
+        {
+          "targetId": "esglesia-major",
+          "travelMinutes": 1.6,
+          "line": "L9N"
+        },
+        {
+          "targetId": "can-zam",
+          "travelMinutes": 1.7,
+          "line": "L9N"
+        }
+      ]
+    },
+    {
+      "id": "tarragona",
+      "name": "Tarragona",
+      "lines": [
+        "L3"
+      ],
+      "latitude": 41.3783,
+      "longitude": 2.1444,
+      "connections": [
+        {
+          "targetId": "sants-estacio",
+          "travelMinutes": 1.4,
+          "line": "L3"
+        },
+        {
+          "targetId": "espanya",
+          "travelMinutes": 1.5,
+          "line": "L3"
+        }
+      ]
+    },
+    {
+      "id": "tetuan",
+      "name": "Tetuan",
+      "lines": [
+        "L2"
+      ],
+      "latitude": 41.395,
+      "longitude": 2.1748,
+      "connections": [
+        {
+          "targetId": "passeig-de-gracia",
+          "travelMinutes": 1.9,
+          "line": "L2"
+        },
+        {
+          "targetId": "monumental",
+          "travelMinutes": 1.9,
+          "line": "L2"
+        }
+      ]
+    },
+    {
+      "id": "torras-i-bages",
+      "name": "Torras i Bages",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.4414,
+      "longitude": 2.1947,
+      "connections": [
+        {
+          "targetId": "sant-andreu",
+          "travelMinutes": 1.8,
+          "line": "L1"
+        },
+        {
+          "targetId": "trinitat-vella",
+          "travelMinutes": 2,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "torrassa",
+      "name": "Torrassa",
+      "lines": [
+        "L1",
+        "L10S",
+        "L9S"
+      ],
+      "latitude": 41.3692,
+      "longitude": 2.1225,
+      "connections": [
+        {
+          "targetId": "florida",
+          "travelMinutes": 2.4,
+          "line": "L1"
+        },
+        {
+          "targetId": "santa-eulalia",
+          "travelMinutes": 1.8,
+          "line": "L1"
+        },
+        {
+          "targetId": "can-tries-gornal",
+          "travelMinutes": 2,
+          "line": "L9S"
+        },
+        {
+          "targetId": "collblanc",
+          "travelMinutes": 1.9,
+          "line": "L9S"
+        },
+        {
+          "targetId": "can-tries-gornal",
+          "travelMinutes": 2,
+          "line": "L10S"
+        },
+        {
+          "targetId": "collblanc",
+          "travelMinutes": 1.9,
+          "line": "L10S"
+        }
+      ]
+    },
+    {
+      "id": "torre-baro-vallbona",
+      "name": "Torre Baró | Vallbona",
+      "lines": [
+        "L11"
+      ],
+      "latitude": 41.4589,
+      "longitude": 2.1822,
+      "connections": [
+        {
+          "targetId": "casa-de-l-aigua",
+          "travelMinutes": 1.7,
+          "line": "L11"
+        },
+        {
+          "targetId": "ciutat-meridiana",
+          "travelMinutes": 1.6,
+          "line": "L11"
+        }
+      ]
+    },
+    {
+      "id": "trinitat-nova",
+      "name": "Trinitat Nova",
+      "lines": [
+        "L11",
+        "L3",
+        "L4"
+      ],
+      "latitude": 41.4485,
+      "longitude": 2.1837,
+      "connections": [
+        {
+          "targetId": "roquetes",
+          "travelMinutes": 1.8,
+          "line": "L3"
+        },
+        {
+          "targetId": "via-julia",
+          "travelMinutes": 1.9,
+          "line": "L4"
+        },
+        {
+          "targetId": "casa-de-l-aigua",
+          "travelMinutes": 1.5,
+          "line": "L11"
+        }
+      ]
+    },
+    {
+      "id": "trinitat-vella",
+      "name": "Trinitat Vella",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.4485,
+      "longitude": 2.1932,
+      "connections": [
+        {
+          "targetId": "torras-i-bages",
+          "travelMinutes": 2,
+          "line": "L1"
+        },
+        {
+          "targetId": "baro-de-viver",
+          "travelMinutes": 2.2,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "universitat",
+      "name": "Universitat",
+      "lines": [
+        "L1",
+        "L2"
+      ],
+      "latitude": 41.386,
+      "longitude": 2.1639,
+      "connections": [
+        {
+          "targetId": "urgell",
+          "travelMinutes": 1.4,
+          "line": "L1"
+        },
+        {
+          "targetId": "catalunya",
+          "travelMinutes": 1.5,
+          "line": "L1"
+        },
+        {
+          "targetId": "sant-antoni",
+          "travelMinutes": 1.7,
+          "line": "L2"
+        },
+        {
+          "targetId": "passeig-de-gracia",
+          "travelMinutes": 1.9,
+          "line": "L2"
+        }
+      ]
+    },
+    {
+      "id": "urgell",
+      "name": "Urgell",
+      "lines": [
+        "L1"
+      ],
+      "latitude": 41.3828,
+      "longitude": 2.1597,
+      "connections": [
+        {
+          "targetId": "rocafort",
+          "travelMinutes": 1.4,
+          "line": "L1"
+        },
+        {
+          "targetId": "universitat",
+          "travelMinutes": 1.4,
+          "line": "L1"
+        }
+      ]
+    },
+    {
+      "id": "urquinaona",
+      "name": "Urquinaona",
+      "lines": [
+        "L1",
+        "L4"
+      ],
+      "latitude": 41.3892,
+      "longitude": 2.1732,
+      "connections": [
+        {
+          "targetId": "catalunya",
+          "travelMinutes": 1.3,
+          "line": "L1"
+        },
+        {
+          "targetId": "arc-de-triomf",
+          "travelMinutes": 1.9,
+          "line": "L1"
+        },
+        {
+          "targetId": "passeig-de-gracia",
+          "travelMinutes": 1.7,
+          "line": "L4"
+        },
+        {
+          "targetId": "jaume-i",
+          "travelMinutes": 1.8,
+          "line": "L4"
+        }
+      ]
+    },
+    {
+      "id": "vall-d-hebron",
+      "name": "Vall d'Hebron",
+      "lines": [
+        "L3",
+        "L5"
+      ],
+      "latitude": 41.4255,
+      "longitude": 2.1418,
+      "connections": [
+        {
+          "targetId": "penitents",
+          "travelMinutes": 1.9,
+          "line": "L3"
+        },
+        {
+          "targetId": "montbau",
+          "travelMinutes": 2,
+          "line": "L3"
+        },
+        {
+          "targetId": "el-coll-la-teixonera",
+          "travelMinutes": 1.8,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "vallcarca",
+      "name": "Vallcarca",
+      "lines": [
+        "L3"
+      ],
+      "latitude": 41.4116,
+      "longitude": 2.1442,
+      "connections": [
+        {
+          "targetId": "lesseps",
+          "travelMinutes": 1.7,
+          "line": "L3"
+        },
+        {
+          "targetId": "penitents",
+          "travelMinutes": 2.1,
+          "line": "L3"
+        }
+      ]
+    },
+    {
+      "id": "valldaura",
+      "name": "Valldaura",
+      "lines": [
+        "L3"
+      ],
+      "latitude": 41.4394,
+      "longitude": 2.1594,
+      "connections": [
+        {
+          "targetId": "mundet",
+          "travelMinutes": 2.1,
+          "line": "L3"
+        },
+        {
+          "targetId": "canyelles",
+          "travelMinutes": 2.2,
+          "line": "L3"
+        }
+      ]
+    },
+    {
+      "id": "verdaguer",
+      "name": "Verdaguer",
+      "lines": [
+        "L4",
+        "L5"
+      ],
+      "latitude": 41.4005,
+      "longitude": 2.1652,
+      "connections": [
+        {
+          "targetId": "joanic",
+          "travelMinutes": 2,
+          "line": "L4"
+        },
+        {
+          "targetId": "girona",
+          "travelMinutes": 1.6,
+          "line": "L4"
+        },
+        {
+          "targetId": "diagonal",
+          "travelMinutes": 1.9,
+          "line": "L5"
+        },
+        {
+          "targetId": "sagrada-familia",
+          "travelMinutes": 2.1,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "verneda",
+      "name": "Verneda",
+      "lines": [
+        "L2"
+      ],
+      "latitude": 41.4247,
+      "longitude": 2.2093,
+      "connections": [
+        {
+          "targetId": "la-pau",
+          "travelMinutes": 1.5,
+          "line": "L2"
+        },
+        {
+          "targetId": "artigues-sant-adria",
+          "travelMinutes": 2.2,
+          "line": "L2"
+        }
+      ]
+    },
+    {
+      "id": "via-julia",
+      "name": "Via Júlia",
+      "lines": [
+        "L4"
+      ],
+      "latitude": 41.4421,
+      "longitude": 2.1812,
+      "connections": [
+        {
+          "targetId": "trinitat-nova",
+          "travelMinutes": 1.9,
+          "line": "L4"
+        },
+        {
+          "targetId": "llucmajor",
+          "travelMinutes": 1.8,
+          "line": "L4"
+        }
+      ]
+    },
+    {
+      "id": "vilapicina",
+      "name": "Vilapicina",
+      "lines": [
+        "L5"
+      ],
+      "latitude": 41.4326,
+      "longitude": 2.1673,
+      "connections": [
+        {
+          "targetId": "virrei-amat",
+          "travelMinutes": 1.8,
+          "line": "L5"
+        },
+        {
+          "targetId": "horta",
+          "travelMinutes": 1.6,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "virrei-amat",
+      "name": "Virrei Amat",
+      "lines": [
+        "L5"
+      ],
+      "latitude": 41.4312,
+      "longitude": 2.1751,
+      "connections": [
+        {
+          "targetId": "maragall",
+          "travelMinutes": 1.5,
+          "line": "L5"
+        },
+        {
+          "targetId": "vilapicina",
+          "travelMinutes": 1.8,
+          "line": "L5"
+        }
+      ]
+    },
+    {
+      "id": "wellington",
+      "name": "Wellington",
+      "lines": [
+        "T4"
+      ],
+      "latitude": 41.3898,
+      "longitude": 2.1895,
+      "connections": [
+        {
+          "targetId": "ciutadella-vila-olimpica",
+          "travelMinutes": 1.6,
+          "line": "T4"
+        },
+        {
+          "targetId": "marina",
+          "travelMinutes": 2.3,
+          "line": "T4"
+        }
+      ]
+    },
+    {
+      "id": "zal-riu-vell",
+      "name": "ZAL | Riu Vell",
+      "lines": [
+        "L10S"
+      ],
+      "latitude": 41.3262,
+      "longitude": 2.1328,
+      "connections": [
+        {
+          "targetId": "ecoparc",
+          "travelMinutes": 1.8,
+          "line": "L10S"
+        }
+      ]
+    },
+    {
+      "id": "zona-franca",
+      "name": "Zona Franca",
+      "lines": [
+        "L10S"
+      ],
+      "latitude": 41.3448,
+      "longitude": 2.1448,
+      "connections": [
+        {
+          "targetId": "port-comercial-la-factoria",
+          "travelMinutes": 2.1,
+          "line": "L10S"
+        },
+        {
+          "targetId": "foc",
+          "travelMinutes": 3.4,
+          "line": "L10S"
+        }
+      ]
+    },
+    {
+      "id": "zona-universitaria",
+      "name": "Zona Universitària",
+      "lines": [
+        "L3",
+        "L9S",
+        "T1"
+      ],
+      "latitude": 41.3854,
+      "longitude": 2.1106,
+      "connections": [
+        {
+          "targetId": "palau-reial",
+          "travelMinutes": 1.8,
+          "line": "L3"
+        },
+        {
+          "targetId": "collblanc",
+          "travelMinutes": 3,
+          "line": "L9S"
+        },
+        {
+          "targetId": "palau-reial",
+          "travelMinutes": 2.5,
+          "line": "T1"
+        },
+        {
+          "targetId": "avinguda-de-xile",
+          "travelMinutes": 2.2,
+          "line": "T1"
+        }
+      ]
+    }
+  ]
+}
