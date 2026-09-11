@@ -1,0 +1,1889 @@
+{
+  "checkedAt": "2026-09-11",
+  "original": 432,
+  "total": 520,
+  "added": 88,
+  "listed": 351,
+  "unverified": 169,
+  "byChain": {
+    "365 Café": {
+      "total": 173,
+      "listed": 156,
+      "unverified": 17
+    },
+    "Buenas Migas": {
+      "total": 18,
+      "listed": 18,
+      "unverified": 0
+    },
+    "El Fornet": {
+      "total": 55,
+      "listed": 41,
+      "unverified": 14
+    },
+    "Granier": {
+      "total": 63,
+      "listed": 58,
+      "unverified": 5
+    },
+    "Sandwichez": {
+      "total": 23,
+      "listed": 21,
+      "unverified": 2
+    },
+    "Santagloria": {
+      "total": 65,
+      "listed": 57,
+      "unverified": 8
+    },
+    "Vivari": {
+      "total": 123,
+      "listed": 0,
+      "unverified": 123
+    }
+  },
+  "held": [],
+  "changes": [
+    {
+      "id": "365-caf--41.397553-2.152220",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Balmes, 206, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+      "address": "Carrer balmes, 206, Barcelona"
+    },
+    {
+      "id": "365-caf--41.383234-2.138408",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Berlín, 51, Les Corts, 08014 Barcelona, España",
+      "address": "C/ Berlín, 51, Barcelona"
+    },
+    {
+      "id": "365-caf--41.403099-2.203008",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Bilbao, 69, Sant Martí, 08005 Barcelona, España",
+      "address": "Carrer Bilbao, 69, Barcelona"
+    },
+    {
+      "id": "365-caf--41.419265-2.204106",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "C de Puigcerdà, 231, Sant Martí, 08020 Barcelona, España",
+      "address": "Carrer de Puigcerdà, 231, Barcelona"
+    },
+    {
+      "id": "365-caf--41.373625-2.131543",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Canalejas, 24, Sants-Montjuïc, 08028 Barcelona, España",
+      "address": "Rambla de Badal, 158, Barcelona"
+    },
+    {
+      "id": "365-caf--41.382042-2.169744",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer del Carme, 38, Ciutat Vella, 08001 Barcelona, España",
+      "address": "Carrer del Carme, 38, Barcelona"
+    },
+    {
+      "id": "365-caf--41.382882-2.170987",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer del Carme, 8, Ciutat Vella, 08001 Barcelona, España",
+      "address": "Carrer del Carme, 8, Barcelona"
+    },
+    {
+      "id": "365-caf--41.386495-2.173330",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer Comtal, 18, Ciutat Vella, 08002 Barcelona, España",
+      "address": "Carrer Comtal, 18, Barcelona"
+    },
+    {
+      "id": "365-caf--41.396536-2.142756",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer d'Amigó, 65, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+      "address": "Carre d`Amigó, 65, Barcelona"
+    },
+    {
+      "id": "365-caf--41.389355-2.161555",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer d'Aragó, 228, Eixample, 08007 Barcelona, España",
+      "address": "Carrer Aragó, 228, Barcelona"
+    },
+    {
+      "id": "365-caf--41.389525-2.138010",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer d'Entença, 313, Les Corts, 08029 Barcelona, España",
+      "address": "Carrer entença, 313, Barcelona"
+    },
+    {
+      "id": "365-caf--41.369755-2.107968",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer Enginyer Moncunill, 68, 08905 L'Hospitalet de Llobregat, Barcelona, España",
+      "address": "Avinguda del Masnou, 47, L`Hospitalet de Llobregat"
+    },
+    {
+      "id": "365-caf--41.405846-2.150583",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer Gran de Gràcia, 266, Gràcia, 08012 Barcelona, España",
+      "address": "Gran de gracia, 266, Barcelona"
+    },
+    {
+      "id": "365-caf--41.377634-2.172674",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer Nou de la Rambla, 46, Bajos, Ciutat Vella, 08001 Barcelona, España",
+      "address": "Carrer Nou de la Rambla, 46, Barcelona"
+    },
+    {
+      "id": "365-caf--41.376688-2.171621",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer Nou de la Rambla, 68, Ciutat Vella, 08400 Barcelona, España",
+      "address": "Carrer Nou de la Rambla, 68, 08001 Barcelona"
+    },
+    {
+      "id": "365-caf--41.388695-2.133237",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer Numància, 163, Les Corts, 08029 Barcelona, España",
+      "address": "Carrer numancia. 163, Barcelona"
+    },
+    {
+      "id": "365-caf--41.375006-2.119803",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer Occident, 14, 08903 L'Hospitalet de Llobregat, Barcelona, España",
+      "address": "Carrer Occident 14, Hospitalet de Llobregat"
+    },
+    {
+      "id": "365-caf--41.410077-2.175600",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Cartagena, 299, Eixample, 08025 Barcelona, España",
+      "address": "Carrer de Cartagena, 301, Barcelona"
+    },
+    {
+      "id": "365-caf--41.395686-2.179353",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Casp, 132, Eixample, 08013 Barcelona, España",
+      "address": "Carrer de Nàpols, 118, Barcelona"
+    },
+    {
+      "id": "365-caf--41.379048-2.160237",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer del Comte Borrell, 93, Eixample, 08015 Barcelona, España",
+      "address": "Carrer del Comte Borrel, 91, Barcelona"
+    },
+    {
+      "id": "365-caf--41.389331-2.149358",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer del Comte d'Urgell, 224, Eixample, 08036 Barcelona, España",
+      "address": "Carrer del Comte d`Urgell, 224, Barcelona"
+    },
+    {
+      "id": "365-caf--41.381273-2.159440",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer del Comte d'Urgell, 43, Eixample, 08011 Barcelona, España",
+      "address": "Comte d'urgell, 43, Barcelona"
+    },
+    {
+      "id": "365-caf--41.370001-2.138000",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de la Constitució, 13, Sants-Montjuïc, 08014 Barcelona, España",
+      "address": "Carrer de la Constitució. 13, Barcelona"
+    },
+    {
+      "id": "365-caf--41.393844-2.155978",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Còrsega, 264, Eixample, 08008 Barcelona, España",
+      "address": "Carrer de Còrsega, 264, Barcelona"
+    },
+    {
+      "id": "365-caf--41.414537-2.211278",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Cristóbal de Moura, 196, Sant Martí, 08019 Barcelona, España",
+      "address": "Carrer de Cristóbal de Moura, 196, 8019 Barcelona"
+    },
+    {
+      "id": "365-caf--41.385459-2.130443",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Plaça de Comas, 11, Les Corts, 08028 Barcelona, España",
+      "address": "Plaça Comas, 11, Barcelona"
+    },
+    {
+      "id": "365-caf--41.430353-2.180507",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Pg. de Fabra i Puig, 150, Nou Barris, 08016 Barcelona, España",
+      "address": "Passeig de Fabra i Puig, 150, Barcelona"
+    },
+    {
+      "id": "365-caf--41.430014-2.187708",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Rambla de Fabra i Puig, 29, Sant Andreu, 08030 Barcelona, España",
+      "address": "Rambla de Fabra i Puig, 29, Barcelona"
+    },
+    {
+      "id": "365-caf--41.386038-2.177168",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Av. de Francesc Cambó, 15, Ciutat Vella, 08003 Barcelona, España",
+      "address": "Avinguda Francesc Cambó, 15, Barcelona"
+    },
+    {
+      "id": "365-caf--41.381209-2.187185",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Pg. de Joan de Borbó, 3, Ciutat Vella, 08003 Barcelona, España",
+      "address": "passeig de borbó 3, Barcelona"
+    },
+    {
+      "id": "365-caf--41.405516-2.138787",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Pl. de Joaquim Folguera, 1, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+      "address": "Plaça Joaquim Folguera, 3-5, Barcelona"
+    },
+    {
+      "id": "365-caf--41.402120-2.173940",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Plaça de la Sagrada Família, 20, Eixample, 08013 Barcelona, España",
+      "address": "Plaça de la Sagarada Familia, 20, Barcelona"
+    },
+    {
+      "id": "365-caf--41.386394-2.165293",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Ronda de la Univ., 7, Eixample, 08007 Barcelona, España",
+      "address": "Ronda de la Universitat, 7, Barcelona"
+    },
+    {
+      "id": "365-caf--41.375865-2.122739",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Av. de Madrid, 1, Les Corts, 08028 Barcelona, España",
+      "address": "Avinguda de Madrid, 1, Barcelona"
+    },
+    {
+      "id": "365-caf--41.377602-2.126198",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Av. de Madrid, 52-62, Sants-Montjuïc, 08028 Barcelona, España",
+      "address": "Av. madrid, 60, Barcelona"
+    },
+    {
+      "id": "365-caf--41.450696-2.213777",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Rambla de Sant Sebastià, 49, 08921 Santa Coloma de Gramenet, Barcelona, España",
+      "address": "Rambla de Sant Sebastià, 49, Santa Coloma de Gramenet"
+    },
+    {
+      "id": "365-caf--41.410830-2.138250",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Pg. de St. Gervasi, 54, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+      "address": "Passeig de Sant Gervasi 54, Barcelona"
+    },
+    {
+      "id": "365-caf--41.396676-2.172662",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Pg. de St. Joan, 51, Eixample, 08009 Barcelona, España",
+      "address": "Passeig de Sant Joan, 53, Barcelona"
+    },
+    {
+      "id": "365-caf--41.436461-2.191022",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Passeig de Torras i Bages, 3, Sant Andreu, 08030 Barcelona, España",
+      "address": "Passeig de Torras i Bages, 3, Barcelona"
+    },
+    {
+      "id": "365-caf--41.438836-2.168358",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Pg. de Valldaura, 168, Nou Barris, 08042 Barcelona, España",
+      "address": "Passeig Valldaura, 168, Barcelona"
+    },
+    {
+      "id": "365-caf--41.438573-2.175196",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Pg. de Valldaura, 185, Nou Barris, 08016 Barcelona, España",
+      "address": "Passeig Valldaura, 185, Barcelona"
+    },
+    {
+      "id": "365-caf--41.436582-2.173269",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Passeig de Verdum, 14, Nou Barris, 08042 Barcelona, España",
+      "address": "Passeig del Verdum, 14, Barcelona"
+    },
+    {
+      "id": "365-caf--41.375214-2.163490",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Avinguda del Paral·lel, 105, Eixample, 08015 Barcelona, España",
+      "address": "Avinguda del Parallel, 105, Barcelona"
+    },
+    {
+      "id": "365-caf--41.375131-2.171217",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Avinguda del Paral·lel, 52, Ciutat Vella, 08001 Barcelona, España",
+      "address": "Avinguda del Parallel, 52, Barcelona"
+    },
+    {
+      "id": "365-caf--41.399915-2.202578",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Rambla del Poblenou, 43, Sant Martí, 08005 Barcelona, España",
+      "address": "Rambla del Poblenou, 43, Barcelona"
+    },
+    {
+      "id": "365-caf--41.448762-2.210530",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "C/ dels Sagarra, 47, 08922 Santa Coloma de Gramenet, Barcelona, España",
+      "address": "Carrer Sant Benet 2, Santa Coloma de Gramenet"
+    },
+    {
+      "id": "365-caf--41.380455-2.153617",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de la Diputació, 59, Eixample, 08015 Barcelona, España",
+      "address": "Carrer de Calàbria, 119, Barcelona"
+    },
+    {
+      "id": "365-caf--41.407751-2.181387",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer del dos de Maig, 242, Sant Martí, 08013 Barcelona, España",
+      "address": "Carrer de Mallorca, 518, Barcelona"
+    },
+    {
+      "id": "365-caf--41.379929-2.176762",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer dels Escudellers, 28, Ciutat Vella, 08002 Barcelona, España",
+      "address": "Carrer dels Escudellers, 28, Barcelona"
+    },
+    {
+      "id": "365-caf--41.378364-2.163233",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "España, Barcelona, Eixample, Rda. de Sant Pau, 邮政编码: 08015",
+      "address": "Ronda de Sant Pau, 79, Barcelona"
+    },
+    {
+      "id": "365-caf--41.404690-2.176623",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "España, Barcelona, Eixample, Carrer de Lepant, 邮政编码: 08013",
+      "address": "C/ Lepanto 278, Barcelona"
+    },
+    {
+      "id": "365-caf--41.382402-2.166048",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Ferlandina, 12, Ciutat Vella, 08001 Barcelona, España",
+      "address": "Carrer de Joaquim Costa, 34, Barcelona"
+    },
+    {
+      "id": "365-caf--41.423379-2.180580",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Garcilaso, 197, Sant Andreu, 08027 Barcelona, España",
+      "address": "Carrer de Garcilaso, 193, Barcelona"
+    },
+    {
+      "id": "365-caf--41.368387-2.140744",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Gran Via de les Corts Catalanes, 192, Sants-Montjuïc, 08004 Barcelona, España",
+      "address": "Gran Via de les Corts Catalanes, 192, Barcelona"
+    },
+    {
+      "id": "365-caf--41.372603-2.146333",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Gran Via de les Corts Catalanes, 302, Sants-Montjuïc, 08004 Barcelona, España",
+      "address": "Gran via de les corts catalanes, 306, Barcelona"
+    },
+    {
+      "id": "365-caf--41.422524-2.205012",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Guipúscoa, 143, Sant Martí, 08020 Barcelona, España",
+      "address": "Rambla de Guipúscoa, 141, Barcelona"
+    },
+    {
+      "id": "365-caf--41.417042-2.197598",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Guipúscoa, 63, Sant Martí, 08020 Barcelona, España",
+      "address": "Rambla de Guipúscoa, 61, Barcelona"
+    },
+    {
+      "id": "365-caf--41.378431-2.133647",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Joan Güell, 48, Sants-Montjuïc, 08028 Barcelona, España",
+      "address": "Carrer del Rosés, 58, Barcelona"
+    },
+    {
+      "id": "365-caf--41.379961-2.168849",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de l'Hospital, 103, Ciutat Vella, 08001 Barcelona, España",
+      "address": "Carrer de l`Hospital, 105, Barcelona"
+    },
+    {
+      "id": "365-caf--41.399921-2.152884",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de l'Oreneta, 2, Gràcia, 08012 Barcelona, España",
+      "address": "Carrer de l´Oreneta, 2, Barcelona"
+    },
+    {
+      "id": "365-caf--41.411952-2.216012",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Llull, 389, Sant Martí, 08019 Barcelona, España",
+      "address": "Carrer de Llull, 389, Barcelona"
+    },
+    {
+      "id": "365-caf--41.396158-2.165444",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Mallorca, 287, Eixample, 08037 Barcelona, España",
+      "address": "Mallorca, 285, Barcelona"
+    },
+    {
+      "id": "365-caf--41.428339-2.163178",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Pg. Maragall, 407, Horta-Guinardó, 08032 Barcelona, España",
+      "address": "Passeig de Maragall, 407, Barcelona"
+    },
+    {
+      "id": "365-caf--41.406453-2.172065",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de la Marina, 328, Eixample, 08025 Barcelona, España",
+      "address": "Carrer de Còrsega, 551, Barcelona"
+    },
+    {
+      "id": "365-caf--41.393088-2.188677",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de la Marina, 81, Sant Martí, 08018 Barcelona, España",
+      "address": "Carrer de la Marina, 81, Barcelona"
+    },
+    {
+      "id": "365-caf--41.408247-2.187218",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Avinguda Meridiana, 116-120, local 3, Sant Martí, 08018 Barcelona, España",
+      "address": "Avinguda Meridiana, 116, Barcelona"
+    },
+    {
+      "id": "365-caf--41.423595-2.187223",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Avinguda Meridiana, 308, Sant Andreu, 08027 Barcelona, España",
+      "address": "Avinguda Meridiana, 308, Barcelona"
+    },
+    {
+      "id": "365-caf--41.385434-2.138827",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Nicaragua, 96, Les Corts, 08029 Barcelona, España",
+      "address": "Carrer de Nicaragua, 96, Barcelona"
+    },
+    {
+      "id": "365-caf--41.392600-2.152006",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de París, 166, Eixample, 08036 Barcelona, España",
+      "address": "Carrer de Muntaner, 184, Barcelona"
+    },
+    {
+      "id": "365-caf--41.392205-2.167469",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Pau Claris, 119, Eixample, 08009 Barcelona, España",
+      "address": "Carrer Pau Claris, 119, Barcelona"
+    },
+    {
+      "id": "365-caf--41.394548-2.164346",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Pau Claris, 155, Eixample, 08009 Barcelona, España",
+      "address": "Carrer de Pau Claris, 155, Barcelona"
+    },
+    {
+      "id": "365-caf--41.394087-2.176079",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Pça. Tetuan, 3, Eixample, 08010 Barcelona, España",
+      "address": "Plaça de Tetuan, 3, Barcelona"
+    },
+    {
+      "id": "365-caf--41.382927-2.173926",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer del Pi, 1, Ciutat Vella, 08002 Barcelona, España",
+      "address": "Carrer del pi, 1, Barcelona"
+    },
+    {
+      "id": "365-caf--41.369167-2.112301",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Av. Ponent, 51, 08905 L'Hospitalet de Llobregat, Barcelona, España",
+      "address": "Avinguda Ponent, 51, L`Hospitalet de Llobregat"
+    },
+    {
+      "id": "365-caf--41.384826-2.179920",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de la Princesa, 14, Ciutat Vella, 08003 Barcelona, España",
+      "address": "Carrer de la Princesa, 14, Barcelona"
+    },
+    {
+      "id": "365-caf--41.389120-2.154425",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Provença, 186, Eixample, 08036 Barcelona, España",
+      "address": "Carrer Provença, 186, Barcelona"
+    },
+    {
+      "id": "365-caf--41.405640-2.175756",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Provença, 463, Eixample, 08025 Barcelona, España",
+      "address": "Carrer Provença, 463, Barcelona"
+    },
+    {
+      "id": "365-caf--41.406413-2.177268",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Provença, 498, Eixample, 08025 Barcelona, España",
+      "address": "Carrer de Provença, 498, 8025 Barcelona"
+    },
+    {
+      "id": "365-caf--41.424165-2.156074",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Ptge. de Lugo, 141, Horta-Guinardó, 08032 Barcelona, España",
+      "address": "Llobregos.139-145, Barcelona"
+    },
+    {
+      "id": "365-caf--41.383250-2.163942",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Rda. de Sant Antoni, 31, Ciutat Vella, 08011 Barcelona, España",
+      "address": "Ronda de Sant Antoni, 31, Barcelona"
+    },
+    {
+      "id": "365-caf--41.383252-2.163900",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Rda. de Sant Antoni, 74, Ciutat Vella, 08001 Barcelona, España",
+      "address": "Ronda de Sant Antoni, 72, Barcelona"
+    },
+    {
+      "id": "365-caf--41.391155-2.179072",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Rda. de Sant Pere, 72, Eixample, 08010 Barcelona, España",
+      "address": "Ronda Sant pere, 72, Barcleona"
+    },
+    {
+      "id": "365-caf--41.380325-2.164849",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de la Riera Alta, 47, Ciutat Vella, 08001 Barcelona, España",
+      "address": "Carrer de la Riera alta. 47, Barcelona"
+    },
+    {
+      "id": "365-caf--41.409356-2.184271",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Rogent, 31, Sant Martí, 08026 Barcelona, España",
+      "address": "Carrer de Rogent, 31, Barcelona"
+    },
+    {
+      "id": "365-caf--41.397764-2.174258",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Roger de Flor, 166, Eixample, 08013 Barcelona, España",
+      "address": "Carrer de Roger de Flor, 166, Barcelona"
+    },
+    {
+      "id": "365-caf--41.398182-2.161956",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Roger de Llúria, 155, 157, Eixample, 08037 Barcelona, España",
+      "address": "Carrer de Roger de Llúria, 155, Barcelona"
+    },
+    {
+      "id": "365-caf--41.393425-2.157680",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer del Rosselló, 202, Eixample, 08008 Barcelona, España",
+      "address": "Carrer dell Rosselló, 202, Barcelona"
+    },
+    {
+      "id": "365-caf--41.411019-2.173924",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Sant Antoni Maria Claret, 157, Horta-Guinardó, 08025 Barcelona, España",
+      "address": "Sant Antoni Maria Claret, 157, Barcelona"
+    },
+    {
+      "id": "365-caf--41.453177-2.206799",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Sant Carles, 6, 08921 Santa Coloma de Gramenet, Barcelona, España",
+      "address": "Carrer de Sant Carles, 6, Santa Coloma de Gramenet"
+    },
+    {
+      "id": "365-caf--41.378959-2.171856",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Sant Pau, 50, Ciutat Vella, 08001 Barcelona, España",
+      "address": "Carrer de Sant Pau, 52, Barcelona"
+    },
+    {
+      "id": "365-caf--41.375449-2.129107",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Sants, 295, Sants-Montjuïc, 08028 Barcelona, España",
+      "address": "Carrer de Sants, 295, Barcelona"
+    },
+    {
+      "id": "365-caf--41.375221-2.136069",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Sants, 91, Sants-Montjuïc, 08014 Barcelona, España",
+      "address": "Carrer de Sants, 91, Barcelona"
+    },
+    {
+      "id": "365-caf--41.403970-2.172906",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Sardenya, 326, Eixample, 08025 Barcelona, España",
+      "address": "Carrer Sardenya, 326, Barcelona"
+    },
+    {
+      "id": "365-caf--41.410364-2.164557",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Sardenya, 492, Horta-Guinardó, 08025 Barcelona, España",
+      "address": "C/ de Sardenya, 492, Barcelona"
+    },
+    {
+      "id": "365-caf--41.412616-2.203482",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de la Selva de Mar, 125, Sant Martí, 08020 Barcelona, España",
+      "address": "Selva de Mar, 125, Barcelona"
+    },
+    {
+      "id": "365-caf--41.429806-2.159391",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer del Tajo, 72, Horta-Guinardó, 08032 Barcelona, España",
+      "address": "Carrer del Tajo, 72, Barcelona"
+    },
+    {
+      "id": "365-caf--41.384600-2.169863",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer dels Tallers, 7, Ciutat Vella, 08001 Barcelona, España",
+      "address": "Carrer dels Tallers, 7, Barcelona"
+    },
+    {
+      "id": "365-caf--41.384879-2.166940",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer dels Tallers, 71, Ciutat Vella, 08001 Barcelona, España",
+      "address": "Carrer dels Tallers, 71, Barcelona"
+    },
+    {
+      "id": "365-caf--41.378719-2.144458",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Tarragona, 161, Sants-Montjuïc, 08014 Barcelona, España",
+      "address": "Carrer de Tarragona, 161, Barcelona"
+    },
+    {
+      "id": "365-caf--41.390423-2.178461",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Trafalgar, 66, Ciutat Vella, 08010 Barcelona, España",
+      "address": "Carrer de Trafalgar, 66, Barcelona"
+    },
+    {
+      "id": "365-caf--41.410110-2.156155",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Trav. de Dalt, 72, Gràcia, 08024 Barcelona, España",
+      "address": "Trav. de Dalt 72, 08350 Barcelona"
+    },
+    {
+      "id": "365-caf--41.410726-2.156469",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Trav. de Dalt, 83, Gràcia, 08024 Barcelona, España",
+      "address": "Travessera de dalt, 83, Barcelona"
+    },
+    {
+      "id": "365-caf--41.396580-2.150527",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Travessera de Gràcia, 66, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+      "address": "Travessera de Gràcia, 66, Barcelona"
+    },
+    {
+      "id": "365-caf--41.391253-2.161234",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de València, 227, Eixample, 08007 Barcelona, España",
+      "address": "Carrer de Valencia, 227, Barcelona"
+    },
+    {
+      "id": "365-caf--41.396697-2.168343",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de València, 321, Eixample, 08009 Barcelona, España",
+      "address": "Carrer Girona, 109, Barcelona"
+    },
+    {
+      "id": "365-caf--41.404305-2.178603",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de València, 481, Eixample, 08013 Barcelona, España",
+      "address": "Carrer de València, 481, Barcelona"
+    },
+    {
+      "id": "365-caf--41.440166-2.175898",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Via Júlia, 37, Nou Barris, 08042 Barcelona, España",
+      "address": "Vía Julia, 37, Barcelona"
+    },
+    {
+      "id": "365-caf--41.386648-2.175400",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Via Laietana, 48, Ciutat Vella, 08003 Barcelona, España",
+      "address": "Vía Layetana, 48, Barcelona"
+    },
+    {
+      "id": "365-caf--41.374480-2.167551",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Vila i Vilà, 97, Sants-Montjuïc, 08004 Barcelona, España",
+      "address": "Carrer de Vila i Vilà, 97, Barcelona"
+    },
+    {
+      "id": "365-caf--41.386178-2.155723",
+      "oldChain": "365 Café",
+      "chain": "365 Café",
+      "oldAddress": "Carrer de Villarroel, 116, Eixample, 08011 Barcelona, España",
+      "address": "Avinguda de Roma, 133, Barcelona"
+    },
+    {
+      "id": "buenas-migas-41.383810-2.177298",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Baixada de Santa Clara, 2, Ciutat Vella, 08002 Barcelona, España",
+      "address": "Baixada de Santa Clara, 2 08002 Barcelona"
+    },
+    {
+      "id": "buenas-migas-41.410117-2.137342",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Carrer de Balmes, 470, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+      "address": "Balmes, 470 08022 Barcelona"
+    },
+    {
+      "id": "buenas-migas-41.375598-2.148523",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Pl. d'Espanya, 6, 8, Sants-Montjuïc, 08014 Barcelona, España",
+      "address": "Plaça Espanya, 6-8 08014 Barcelona"
+    },
+    {
+      "id": "buenas-migas-41.397571-2.158787",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Pg. de Gràcia, 120, Gràcia, 08008 Barcelona, España",
+      "address": "Passeig de Gràcia, 120 08008 Barcelona"
+    },
+    {
+      "id": "buenas-migas-41.402412-2.174280",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Plaça de la Sagrada Família, 17, Eixample, 08013 Barcelona, España",
+      "address": "Plaça Sagrada Familia, 17 08013 Barcelona"
+    },
+    {
+      "id": "buenas-migas-41.385259-2.163294",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Pl. de la Universitat, 1, Eixample, 08007 Barcelona, España",
+      "address": "Plaça Universitat, 1 08007 Barcelona"
+    },
+    {
+      "id": "buenas-migas-41.383817-2.169634",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Plaça del Bonsuccés, 6, Bajo, Ciutat Vella, 08001 Barcelona, España",
+      "address": "Plaça Bonsuccés, 6 08001 Barcelona"
+    },
+    {
+      "id": "buenas-migas-41.375384-2.189576",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Plaça del Mar, 1, Ciutat Vella, 08002 Barcelona, España",
+      "address": "Plaça del Mar, 1 08002 Barcelona"
+    },
+    {
+      "id": "buenas-migas-41.375181-2.161224",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Avinguda del Paral·lel, 130, Eixample, 08015 Barcelona, España",
+      "address": "Avinguda del Paral·lel, 130 08015 Barcelona"
+    },
+    {
+      "id": "buenas-migas-41.389044-2.136188",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Carrer de Déu i Mata, 69-95, Local 111, Les Corts, 08029 Barcelona, España",
+      "address": "Centre Comercial L'Illa Diagonal Déu i mata 69-95, Local 111 Pb 08029 Barcelona"
+    },
+    {
+      "id": "buenas-migas-41.404114-2.191474",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Av. Diagonal, 197, 6, Sant Martí, 08018 Barcelona, España",
+      "address": "Avd Diagonal, 197 local puerta 2 08018 Barcelona"
+    },
+    {
+      "id": "buenas-migas-41.396118-2.156728",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Av. Diagonal, 466, Gràcia, 08006 Barcelona, España",
+      "address": "Avd Diagonal, 466 08006 Barcelona"
+    },
+    {
+      "id": "buenas-migas-41.386970-2.123877",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Av. Diagonal, 635, Les Corts, 08028 Barcelona, España",
+      "address": "Av Diagonal 635 Les Corts 08028"
+    },
+    {
+      "id": "buenas-migas-41.393346-2.162054",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Carrer de Mallorca, 246, Eixample, 08008 Barcelona, España",
+      "address": "Mallorca, 246 08008 Barcelona"
+    },
+    {
+      "id": "buenas-migas-41.389910-2.148765",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Carrer de París, 118, Eixample, 08036 Barcelona, España",
+      "address": "Carrer París, 118 Bajos 08036 Barcelona"
+    },
+    {
+      "id": "buenas-migas-41.389928-2.174834",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Rda. de Sant Pere, 27, Eixample, 08010 Barcelona, España",
+      "address": "Ronda Sant Pere, 27 08010 Barcelona"
+    },
+    {
+      "id": "buenas-migas-41.388623-2.152088",
+      "oldChain": "Buenas Migas",
+      "chain": "Buenas Migas",
+      "oldAddress": "Carrer de Villarroel, 177, Eixample, 08036 Barcelona, España",
+      "address": "Villarroel, 177 08036 Barcelona"
+    },
+    {
+      "id": "el-fornet-41.390993-2.131984",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "180 carrer Numància, Carrer de la Nau Santa Maria, 2, 08017 Barcelona, España",
+      "address": "C/Numància 180"
+    },
+    {
+      "id": "el-fornet-41.392771-2.165969",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer d'Aragó, 284, Eixample, 08009 Barcelona, España",
+      "address": "C/Aragó 284"
+    },
+    {
+      "id": "el-fornet-41.395027-2.150749",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer d'Aribau, 224, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+      "address": "C/Aribau 224"
+    },
+    {
+      "id": "el-fornet-41.397170-2.123530",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer Major de Sarrià, 35, Sarrià-Sant Gervasi, 08017 Barcelona, España",
+      "address": "C/Major de Sarrià 35"
+    },
+    {
+      "id": "el-fornet-41.389517-2.153838",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer de Casanova, 152, Eixample, 08036 Barcelona, España",
+      "address": "Carrer de Casanova, 152, 08036 Barcelona"
+    },
+    {
+      "id": "el-fornet-41.392117-2.145191",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer del Comte d'Urgell, 259, Eixample, 08036 Barcelona, España",
+      "address": "C/ Urgell 259"
+    },
+    {
+      "id": "el-fornet-41.391884-2.166428",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer del Consell de Cent, 355, Eixample, 08007 Barcelona, España",
+      "address": "C/Consell de Cent 355"
+    },
+    {
+      "id": "el-fornet-41.392526-2.161748",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Rambla de Catalunya, 82, Eixample, 08008 Barcelona, España",
+      "address": "Rambla Catalunya 82"
+    },
+    {
+      "id": "el-fornet-41.401456-2.124519",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Passeig de la Bonanova, 101, Carrer d'Anglí, 43, 08017 Barcelona, España",
+      "address": "C/Angli 43"
+    },
+    {
+      "id": "el-fornet-41.406129-2.133541",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Pl. de la Bonanova, 9, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+      "address": "Plaza Bonanova 9"
+    },
+    {
+      "id": "el-fornet-41.386486-2.165555",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Ronda de la Univ., 11, Eixample, 08007 Barcelona, España",
+      "address": "Ronda de la Universitat, 11, 08007 Barcelona"
+    },
+    {
+      "id": "el-fornet-41.395989-2.147205",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "C/ de Muntaner, 272, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+      "address": "Carrer de Muntaner, 272, 08021 Barcelona"
+    },
+    {
+      "id": "el-fornet-41.399853-2.142094",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "C/ de Muntaner, 388, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+      "address": "Carrer de Muntaner, 388, 08006 Barcelona"
+    },
+    {
+      "id": "el-fornet-41.409951-2.136437",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Pg. de St. Gervasi, 40, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+      "address": "Paseo Sant Gervasi 40"
+    },
+    {
+      "id": "el-fornet-41.402870-2.137700",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Ronda del General Mitre, 141, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+      "address": "Ronda General Mitre 141"
+    },
+    {
+      "id": "el-fornet-41.406166-2.200185",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Av. Diagonal, 131, Sant Martí, 08018 Barcelona, España",
+      "address": "Avda Diagonal 131"
+    },
+    {
+      "id": "el-fornet-41.395016-2.154483",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Av. Diagonal, 411, Eixample, 08008 Barcelona, España",
+      "address": "Avda Diagonal 411"
+    },
+    {
+      "id": "el-fornet-41.387132-2.124381",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Av. Diagonal, 633, Les Corts, 08028 Barcelona, España",
+      "address": "Avda Diagonal 633"
+    },
+    {
+      "id": "el-fornet-41.390792-2.134744",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Av. Diagonal, 644, Les Corts, 08017 Barcelona, España",
+      "address": "Avda Diagonal 644"
+    },
+    {
+      "id": "el-fornet-41.388151-2.172190",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer de Fontanella, 15, Eixample, 08010 Barcelona, España",
+      "address": "C/Fontanella 15"
+    },
+    {
+      "id": "el-fornet-41.404782-2.194288",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer de la Llacuna, 140, 142, Sant Martí, 08018 Barcelona, España",
+      "address": "Carrer de la Llacuna, 140-142, 08018 Barcelona"
+    },
+    {
+      "id": "el-fornet-41.395390-2.164438",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer de Mallorca, 279, Eixample, 08037 Barcelona, España",
+      "address": "C/Mallorca 279"
+    },
+    {
+      "id": "el-fornet-41.402854-2.134329",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer de Mandri, 26, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+      "address": "C/Mandri 26"
+    },
+    {
+      "id": "el-fornet-41.389988-2.125615",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer de Manila, 49, Les Corts, 08034 Barcelona, España",
+      "address": "C/Manila 49"
+    },
+    {
+      "id": "el-fornet-41.396726-2.162046",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer de Pau Claris, 190, Eixample, 08037 Barcelona, España",
+      "address": "Carrer de Pau Claris, 190, 08037 Barcelona"
+    },
+    {
+      "id": "el-fornet-41.391016-2.156748",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer de Provença, 224, Eixample, 08006 Barcelona, España",
+      "address": "Carrer de Provença, 224, 08006 Barcelona"
+    },
+    {
+      "id": "el-fornet-41.393089-2.159505",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer de Provença, 266, Eixample, 08008 Barcelona, España",
+      "address": "C/Provença 266"
+    },
+    {
+      "id": "el-fornet-41.408091-2.209387",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer de Pujades, 362, Sant Martí, 08019 Barcelona, España",
+      "address": "C/Pujades 362"
+    },
+    {
+      "id": "el-fornet-41.393085-2.169118",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer de Roger de Llúria, 56, Eixample, 08009 Barcelona, España",
+      "address": "C/Roger de Llúria 56"
+    },
+    {
+      "id": "el-fornet-41.390260-2.172837",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer de Roger de Llúria, 8, Eixample, 08010 Barcelona, España",
+      "address": "C/Roger de Llúria 8"
+    },
+    {
+      "id": "el-fornet-41.394965-2.159722",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer del Rosselló, 228, Eixample, 08008 Barcelona, España",
+      "address": "C/Rosselló 228"
+    },
+    {
+      "id": "el-fornet-41.393698-2.134278",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer de Santa Fe de Nou Mèxic, 1, Sarrià-Sant Gervasi, 08017 Barcelona, España",
+      "address": "C/ Santa Fe De Nuevo Méjico 1"
+    },
+    {
+      "id": "el-fornet-41.471652-2.081977",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer de Santa Maria, 42, 08172 Sant Cugat del Vallès, Barcelona, España",
+      "address": "C/ Santa Maria 42"
+    },
+    {
+      "id": "el-fornet-41.398513-2.152811",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Travessera de Gràcia, 101, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+      "address": "Travessera de Gràcia 101"
+    },
+    {
+      "id": "el-fornet-41.394175-2.146654",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Travessera de Gràcia, 20, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+      "address": "Travesera de Gràcia 20"
+    },
+    {
+      "id": "el-fornet-41.396465-2.168027",
+      "oldChain": "El Fornet",
+      "chain": "El Fornet",
+      "oldAddress": "Carrer de València, 315, Eixample, 08009 Barcelona, España",
+      "address": "C/València 315"
+    },
+    {
+      "id": "granier-41.379653-2.161591",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer del Comte d'Urgell, 5, Eixample, 08011 Barcelona, España",
+      "address": "C/ COMPTE D'URGELL, 5, Barcelona"
+    },
+    {
+      "id": "granier-41.382515-2.157755",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer del Comte d'Urgell, 65, Eixample, 08011 Barcelona, España",
+      "address": "COMTE D'URGELL 65 LOCAL, Barcelona"
+    },
+    {
+      "id": "granier-41.427127-2.155954",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer de Dante Alighieri, 105, Horta-Guinardó, 08032 Barcelona, España",
+      "address": "DANTE ALIGHIERI 105, Barcelona"
+    },
+    {
+      "id": "granier-41.430580-2.218886",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Av. de Catalunya, 58, 08930 Sant Adrià de Besòs, Barcelona, España",
+      "address": "AV. CATALUNYA, 58, Barcelona"
+    },
+    {
+      "id": "granier-41.399917-2.152518",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Plaça de Gal·la Placídia, 28, Gràcia, 08006 Barcelona, España",
+      "address": "PLAÇA GAL·LA PLACIDIA 28, Barcelona"
+    },
+    {
+      "id": "granier-41.449868-2.209891",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Av. de la Generalitat, 30, 08922 Santa Coloma de Gramenet, Barcelona, España",
+      "address": "AV. DE LA GENERALITAT, 30, Barcelona"
+    },
+    {
+      "id": "granier-41.409542-2.146847",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Av. de la República Argentina, 58, Gràcia, 08023 Barcelona, España",
+      "address": "AV. REPUBLICA ARGENTINA, 58, Barcelona"
+    },
+    {
+      "id": "granier-41.325167-2.092825",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Av. de la Verge de Montserrat, 138, Local 2, 08820 El Prat de Llobregat, Barcelona, España",
+      "address": "AVDA. VIRGEN DE MONTSERRAT, 138, Barcelona"
+    },
+    {
+      "id": "granier-41.412035-2.217585",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Rambla de Prim, 27, Sant Martí, 08019 Barcelona, España",
+      "address": "RAMBLA PRIM, 27, Barcelona"
+    },
+    {
+      "id": "granier-41.365027-2.122039",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Av. del Carrilet, 112, 08902 L'Hospitalet de Llobregat, Barcelona, España",
+      "address": "AVDA. CARRILET, 112, Barcelona"
+    },
+    {
+      "id": "granier-41.381600-2.136012",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Plaça del Centre, 6, Sants-Montjuïc, 08014 Barcelona, España",
+      "address": "PLAÇA DEL CENTRE, 6, Barcelona"
+    },
+    {
+      "id": "granier-41.374797-2.161187",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Avinguda del Paral·lel, 115, Sants-Montjuïc, 08004 Barcelona, España",
+      "address": "AV. PARAL·LEL 115, Barcelona"
+    },
+    {
+      "id": "granier-41.396933-2.177818",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Gran Via de les Corts Catalanes, 689, Eixample, 08013 Barcelona, España",
+      "address": "GRAN VIA DE LES CORTS CATALANES 689, Barcelona"
+    },
+    {
+      "id": "granier-41.416408-2.196584",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer de Guipúscoa, 53, Sant Martí, 08020 Barcelona, España",
+      "address": "RAMBLA GUIPUZCOA 53, Barcelona"
+    },
+    {
+      "id": "granier-41.418845-2.199922",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer de Guipúscoa, 85, Sant Martí, 08020 Barcelona, España",
+      "address": "RAMBLA GUIPUZCOA, 85, Barcelona"
+    },
+    {
+      "id": "granier-41.405844-2.169595",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer de la Indústria, 80, Gràcia, 08025 Barcelona, España",
+      "address": "INDUSTRIA, 80, Barcelona"
+    },
+    {
+      "id": "granier-41.386834-2.112590",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer de l'Alfambra, 18, Les Corts, 08034 Barcelona, España",
+      "address": "C/ALFAMBRA,18, Barcelona"
+    },
+    {
+      "id": "granier-41.438302-2.173235",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer de Lorena, 105, 107, Nou Barris, 08042 Barcelona, España",
+      "address": "DE LORENA, 101-107, Barcelona"
+    },
+    {
+      "id": "granier-41.427564-2.168157",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Pg. Maragall, 320, Nou Barris, 08031 Barcelona, España",
+      "address": "PSO MARAGALL, 320, Barcelona"
+    },
+    {
+      "id": "granier-41.415264-2.180836",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Pg. Maragall, 40, Sant Martí, 08006 Barcelona, España",
+      "address": "PASEO MARAGALL 40, Barcelona"
+    },
+    {
+      "id": "granier-41.373266-2.105961",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Plaça Mare de Déu del Pilar, 3, 08906 L'Hospitalet de Llobregat, Barcelona, España",
+      "address": "PLAÇA MARE DE DÉU DEL PILAR, 3, Barcelona"
+    },
+    {
+      "id": "granier-41.394528-2.187699",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer de la Marina, 108, Sant Martí, 08018 Barcelona, España",
+      "address": "C/ MARINA, 108, Barcelona"
+    },
+    {
+      "id": "granier-41.402664-2.177018",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer de la Marina, 244, Eixample, 08013 Barcelona, España",
+      "address": "C/ MARINA, 244, Barcelona"
+    },
+    {
+      "id": "granier-41.422176-2.187230",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Avinguda Meridiana, 292, Sant Andreu, 08027 Barcelona, España",
+      "address": "AVDA. MERIDIANA, 292, Barcelona"
+    },
+    {
+      "id": "granier-41.429528-2.184002",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Avinguda Meridiana, 384, Sant Andreu, 08030 Barcelona, España",
+      "address": "AV.MERIDIANA 384, Barcelona"
+    },
+    {
+      "id": "granier-41.367636-2.102214",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer del Molí, 14, bajos, 08906 L'Hospitalet de Llobregat, Barcelona, España",
+      "address": "C/ MOLI, 14, BAJOS, Barcelona"
+    },
+    {
+      "id": "granier-41.405926-2.163279",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer de Pi i Margall, 12, Gràcia, 08025 Barcelona, España",
+      "address": "PI I MARGALL,12, Barcelona"
+    },
+    {
+      "id": "granier-41.399446-2.167924",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer de Provença, 356, local 2, Eixample, 08037 Barcelona, España",
+      "address": "C/ PROVENÇA 356, Barcelona"
+    },
+    {
+      "id": "granier-41.403432-2.203186",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer de Pujades, 228, Sant Martí, 08005 Barcelona, España",
+      "address": "PUJADES 228, Barcelona"
+    },
+    {
+      "id": "granier-41.406040-2.210768",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer de Ramon Turró, 331, Sant Martí, 08019 Barcelona, España",
+      "address": "RAMON TURRO, 331, Barcelona"
+    },
+    {
+      "id": "granier-41.384569-2.146085",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer del Rosselló, 26, Eixample, 08029 Barcelona, España",
+      "address": "C/ DEL ROSSELLO 24-26, Barcelona"
+    },
+    {
+      "id": "granier-41.375364-2.132990",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer de Sants, 147, Sants-Montjuïc, 08028 Barcelona, España",
+      "address": "C/SANTS, 147, Barcelona"
+    },
+    {
+      "id": "granier-41.375472-2.127653",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Carrer de Sants, 323, Sants-Montjuïc, 08028 Barcelona, España",
+      "address": "CARRETERA DE SANTS 323, Barcelona"
+    },
+    {
+      "id": "granier-41.384157-2.163502",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "C/Sepulveda, 187, LC-02, 08011 Barcelona, España",
+      "address": "CALLE SEPÚLVEDA, 187, LC-02, Barcelona"
+    },
+    {
+      "id": "granier-41.408590-2.152005",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Trav. de Dalt, 21, Gràcia, 08024 Barcelona, España",
+      "address": "TRAVESSERA DE DALT 21, Barcelona"
+    },
+    {
+      "id": "granier-41.386915-2.134989",
+      "oldChain": "Granier",
+      "chain": "Granier",
+      "oldAddress": "Travessera de les Corts, 293, Les Corts, 08014 Barcelona, España",
+      "address": "TRAVESSERA DE LES CORTS 293 BJ, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.394107-2.169461",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Carrer del Bruc, 71, Eixample, 08009 Barcelona, España",
+      "address": "BRUC, 71, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.405027-2.161141",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Carrer de Bruniquer, 33, 35, Gràcia, 08024 Barcelona, España",
+      "address": "BRUNIQUER, 33-35, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.396397-2.142917",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Carrer d'Amigó, 63, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+      "address": "AMIGÓ, 63, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.388468-2.159681",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Carrer d'Aragó, 205, Eixample, 08011 Barcelona, España",
+      "address": "ARAGÓ, 205, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.381577-2.180352",
+      "oldChain": "Sandwichez",
+      "chain": "Buenas Migas",
+      "oldAddress": "Carrer d'en Gignàs, 25, Ciutat Vella, 08002 Barcelona, España",
+      "address": "Carrer d'en Gignàs, 25 08002 Barcelona"
+    },
+    {
+      "id": "sandwichez-41.387812-2.134035",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Carrer Numància, 147, Les Corts, 08029 Barcelona, España",
+      "address": "NUMÀNCIA, 147, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.390819-2.172311",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Carrer de Casp, 31, Eixample, 08010 Barcelona, España",
+      "address": "CASP, 31, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.390143-2.143905",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Av. de Josep Tarradellas, 116, Eixample, 08029 Barcelona, España",
+      "address": "AV.JOSEP TARRADELLAS, 116, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.399286-2.119564",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Passeig de la Reina Elisenda de Montcada, 16 bis, Sarrià-Sant Gervasi, 08034 Barcelona, España",
+      "address": "PG.REINA ELISENDA, 16BIS, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.408246-2.147325",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Av. de la República Argentina, 31, Sarrià-Sant Gervasi, 08023 Barcelona, España",
+      "address": "AV.REPÚBLICA ARGENTINA, 31, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.405577-2.177749",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "C/ de Padilla, 236, Eixample, 08013 Barcelona, España",
+      "address": "PADILLA, 236, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.393441-2.177901",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Pg. de St. Joan, 34, Eixample, 08010 Barcelona, España",
+      "address": "PG.SANT JOAN, 34, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.377072-2.151258",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Gran Via de les Corts Catalanes, 403, Eixample, 08015 Barcelona, España",
+      "address": "GRAN VIA, 403, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.389301-2.156339",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Carrer de Mallorca, 179, Eixample, 08036 Barcelona, España",
+      "address": "MALLORCA, 179, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.392658-2.158936",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Carrer de Provença, 258, Eixample, 08008 Barcelona, España",
+      "address": "PROVENÇA, 258, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.381880-2.163269",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Rda. de Sant Antoni, 35, Eixample, 08011 Barcelona, España",
+      "address": "RONDA SANT ANTONI, 35, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.380741-2.151530",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Carrer de Rocafort, 112, Eixample, 08015 Barcelona, España",
+      "address": "ROCAFORT, 112, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.389149-2.174762",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Carrer de Trafalgar, 11, Eixample, 08010 Barcelona, España",
+      "address": "trafalgar, 11, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.394127-2.146626",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Travessera de Gràcia, 18, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+      "address": "TRAV. DE GRÀCIA, 18, Barcelona"
+    },
+    {
+      "id": "sandwichez-41.400503-2.146004",
+      "oldChain": "Sandwichez",
+      "chain": "Sandwichez",
+      "oldAddress": "Via Augusta, 117, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+      "address": "VIA AUGUSTA, 117, Barcelona"
+    },
+    {
+      "id": "santagloria-41.374313-2.123966",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer de Bassegoda, 56, Sants-Montjuïc, 08028 Barcelona, España",
+      "address": "Calle Bassegoda, 56 - 08028 Sants-Montjuic (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.346892-2.077589",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "C.C. Splau, Av. del Baix Llobregat, s/n, 08940 Cornellà de Llobregat, Barcelona, España",
+      "address": "C.C. Splau. Avinguda del Baix Llobregat, s/n - 08940 Cornellà de Llobregat (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.376001-2.111720",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carr. de Collblanc, 146, Les Corts, 08028 L'Hospitalet de Llobregat, Barcelona, España",
+      "address": "Carretera de Collblanc, 146 - 08028 L'Hospitalet de Llobregat (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.394871-2.168113",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer d'Aragó, 307, Eixample, 08009 Barcelona, España",
+      "address": "Carrer d'Aragó, 307 - 08009 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.389311-2.158471",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer d'Aribau, 72, Eixample, 08011 Barcelona, España",
+      "address": "Carrer d'Aribau, 72 - 08011 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.397069-2.123619",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer Major de Sarrià, 27, Sarrià-Sant Gervasi, 08017 Barcelona, España",
+      "address": "C/ Major de Sarrià, 27 - 08017 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.407161-2.179808",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer de Cartagena, 230, Eixample, 08013 Barcelona, España",
+      "address": "Calle Cartagena nº 230 – Esquina Calle Mallorca - Local Planta Baja - (Barcelona) 08013"
+    },
+    {
+      "id": "santagloria-41.389836-2.148707",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer del Comte d'Urgell, 238, Eixample, 08036 Barcelona, España",
+      "address": "Carrer del Comte d'Urgell, 238 - 08036 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.413140-2.194893",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer del Concili de Trento, 59, Sant Martí, 08018 Barcelona, España",
+      "address": "Carrer del Concili de Trento, 59 - 08018 Sant Martí (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.430111-2.179711",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Pg. de Fabra i Puig, 143, Nou Barris, 08016 Barcelona, España",
+      "address": "Passeig de Fabra i Puig, 143 - 08016 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.383611-2.142196",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Av. de Josep Tarradellas, 37, Sants-Montjuïc, 08029 Barcelona, España",
+      "address": "Av. de Josep Tarradellas, 37, Sants-Montjuïc, 08029 Barcelona"
+    },
+    {
+      "id": "santagloria-41.403331-2.127249",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Pg. de la Bonanova, 56, Sarrià-Sant Gervasi, 08017 Barcelona, España",
+      "address": "Passeig de la Bonanova, 56 - 08017 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.379003-2.128871",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Av. de Madrid, 122, Sants-Montjuïc, 08028 Barcelona, España",
+      "address": "Avinguda de Madrid, 122 - 08028 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.381793-2.135122",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Av. de Madrid, 215, Les Corts, 08014 Barcelona, España",
+      "address": "Avinguda de Madrid, 215 - 08028 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.420232-2.180258",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Plaça de Maragall, 8, Local 1, Horta-Guinardó, 08041 Barcelona, España",
+      "address": "Plaza de Maragall, 8-9, Local 1 - 08041 Barcelona"
+    },
+    {
+      "id": "santagloria-41.395089-2.148671",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "C/ de Muntaner, 254, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+      "address": "Carrer de Muntaner, 254 - 08021 Barcelona"
+    },
+    {
+      "id": "santagloria-41.401407-2.139630",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "C/ de Muntaner, 449, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+      "address": "Carrer de Muntaner, 449 - 08021 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.450325-2.213124",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Rambla de Sant Sebastià, 62, 08922 Santa Coloma de Gramenet, Barcelona, España",
+      "address": "Rambla de Sant Sebastià, 62, 08922 Santa Coloma de Gramenet, Barcelona"
+    },
+    {
+      "id": "santagloria-41.391851-2.132508",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Av. de Sarrià, 137, Les Corts, 08017 Barcelona, España",
+      "address": "Avinguda de Sarrià, 137-139 - 08017 (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.433762-2.173088",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer del Doctor Pi i Molist, 86, Nou Barris, 08016 Barcelona, España",
+      "address": "Doctor Pi i Molist, 86-88 – Barcelona"
+    },
+    {
+      "id": "santagloria-41.401509-2.121176",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "esquina Dolors Montserdà, Via Augusta, 349 - 355, Sarrià-Sant Gervasi, 08017 Barcelona, España",
+      "address": "Calle Via Augusta, 349 - 08017 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.361797-2.105342",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "La Farga, Carrer de Barcelona, 2, 08901 L'Hospitalet de Llobregat, Barcelona, España",
+      "address": "Centro Comercial La Farga. Carrer de Barcelona, 2 - 08901 L’Hospitalet de Llobregat (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.392173-2.139159",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer de Ganduxer, 8, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+      "address": "Carrer de Ganduxer, 8 - 08021 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.393676-2.126424",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "i Mateu, Carrer de Benet Mateu, 44, Sarrià-Sant Gervasi, 08034 Barcelona, España",
+      "address": "Carrer de Benet i Mateu, 44 - 08034 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.382492-2.131776",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer de Joan Güell, 134, Les Corts, 08028 Barcelona, España",
+      "address": "Joan Güell, 134 - 08028 Barcelona"
+    },
+    {
+      "id": "santagloria-41.422034-2.186475",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Avinguda Meridiana, 267, Sant Andreu, 08027 Barcelona, España",
+      "address": "Avinguda Meridiana, 267 - 08027 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.391058-2.169537",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer de Pau Claris, 100, Eixample, 08009 Barcelona, España",
+      "address": "Carrer de Pau Claris, 100, L'Eixample - 08009 Barcelona"
+    },
+    {
+      "id": "santagloria-41.447499-2.245583",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Plaça Plana, 8, 08912 Badalona, Barcelona, España",
+      "address": "Plaça Plana, 8 - 08912 Badalona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.386787-2.151099",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer de Provença, 136, Eixample, 08029 Barcelona, España",
+      "address": "Carrer de Provença, 136 - 08029 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.400542-2.169385",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer de Provença, 378, Eixample, 08037 Barcelona, España",
+      "address": "Carrer de Provença, 378 - 08037 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.393345-2.157692",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer del Rosselló, 200, Eixample, 08008 Barcelona, España",
+      "address": "Carrer del Rosselló, 200 - 08008 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.386398-2.124300",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer de Sabino Arana, 48, Les Corts, 08028 Barcelona, España",
+      "address": "Carrer de Sabino Arana, 48 - 08028 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.411345-2.174837",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer de Sant Antoni Maria Claret, 224, Eixample, 08025 Barcelona, España",
+      "address": "Carrer de Sant Antoni Maria Claret, 224 - 08025 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.405456-2.166883",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer de Sant Antoni Maria Claret, 50, Gràcia, 08025 Barcelona, España",
+      "address": "Carrer de Sant Antoni Maria Claret, 50 - 08025 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.393902-2.123341",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer de Santa Amèlia, 31, Sarrià-Sant Gervasi, 08034 Barcelona, España",
+      "address": "Carrer de Santa Amèlia, 31 – 08034 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.377187-2.098447",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Shopping Center, Centro Comercial Finestrelles, Carrer de Laureà Miró, 20, 08950 Esplugues de Llobregat, Barcelona, España",
+      "address": "C.C. Finestrelles Shopping Center. Carrer de Laureà Miró, 20 - Local P1-04B - 08950 Esplugues de Llobregat (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.378776-2.144313",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer de Tarragona, 161, Sants-Montjuïc, 08014 Barcelona, España",
+      "address": "Carrer de Tarragona, 161 - 08014 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.405864-2.138155",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer de Teodora Lamadrid, 2, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+      "address": "Carrer de Teodora Lamadrid, 2 - 08022 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.397318-2.151125",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Travessera de Gràcia, 83, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+      "address": "Travesera de Gràcia, 83 - 08006 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.388049-2.137425",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Travessera de les Corts, 306, Les Corts, 08029 Barcelona, España",
+      "address": "Travessera de les Corts, 306 - 08029 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.394885-2.131345",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Carrer de les Tres Torres, 4, Sarrià-Sant Gervasi, 08017 Barcelona, España",
+      "address": "Carrer de les Tres Torres, 4 - 08017 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.437333-2.161691",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Passeig Universal, 31, Horta-Guinardó, 08031 Barcelona, España",
+      "address": "PASSEIG UNIVERSAL, 31 - 08031 Barcelona"
+    },
+    {
+      "id": "santagloria-41.401380-2.148177",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Via Augusta, 114, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+      "address": "Vía Augusta, 114 - 08006 Barcelona (Barcelona)"
+    },
+    {
+      "id": "santagloria-41.397944-2.130565",
+      "oldChain": "Santagloria",
+      "chain": "Santagloria",
+      "oldAddress": "Via Augusta, 280, Sarrià-Sant Gervasi, 08017 Barcelona, España",
+      "address": "Vía Augusta, 280 - 08017 Barcelona (Barcelona)"
+    }
+  ]
+}

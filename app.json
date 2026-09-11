@@ -1,25 +1,63 @@
 {
   "expo": {
-    "name": "barna-cafe-map",
+    "name": "Workable BCN",
     "slug": "barna-cafe-map",
     "version": "1.0.0",
     "orientation": "portrait",
-    "icon": "./assets/icon.png",
+    "icon": "./assets/workable-icon.png",
     "userInterfaceStyle": "light",
     "ios": {
       "supportsTablet": true
     },
     "android": {
+      "package": "com.workablebcn.app",
       "adaptiveIcon": {
-        "backgroundColor": "#E6F4FE",
-        "foregroundImage": "./assets/android-icon-foreground.png",
-        "backgroundImage": "./assets/android-icon-background.png",
-        "monochromeImage": "./assets/android-icon-monochrome.png"
+        "backgroundColor": "#F4C344",
+        "foregroundImage": "./assets/workable-adaptive-foreground.png"
       },
-      "predictiveBackGestureEnabled": false
+      "predictiveBackGestureEnabled": true,
+      "permissions": [
+        "android.permission.ACCESS_COARSE_LOCATION",
+        "android.permission.ACCESS_FINE_LOCATION"
+      ],
+      "versionCode": 1,
+      "allowBackup": false,
+      "blockedPermissions": [
+        "android.permission.ACCESS_BACKGROUND_LOCATION",
+        "android.permission.FOREGROUND_SERVICE_LOCATION",
+        "android.permission.RECORD_AUDIO",
+        "android.permission.READ_EXTERNAL_STORAGE",
+        "android.permission.WRITE_EXTERNAL_STORAGE",
+        "android.permission.SYSTEM_ALERT_WINDOW"
+      ]
     },
     "web": {
-      "favicon": "./assets/favicon.png"
-    }
+      "favicon": "./assets/workable-favicon.png"
+    },
+    "plugins": [
+      "expo-font",
+      [
+        "expo-location",
+        {
+          "locationWhenInUsePermission": "Workable BCN uses your location to show the closest places to work."
+        }
+      ],
+      [
+        "expo-splash-screen",
+        {
+          "image": "./assets/workable-icon.png",
+          "imageWidth": 180,
+          "backgroundColor": "#F4C344"
+        }
+      ],
+      "expo-status-bar",
+      "expo-system-ui"
+    ],
+    "extra": {
+      "eas": {
+        "projectId": "ae372833-fa82-4bfc-a29b-083298e27e04"
+      }
+    },
+    "owner": "iegorov553"
   }
 }

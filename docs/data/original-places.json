@@ -1,0 +1,3458 @@
+[
+  {
+    "id": "365-caf--41.397553-2.152220",
+    "name": "365 Café - Balmes 206",
+    "chain": "365 Café",
+    "address": "Carrer de Balmes, 206, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+    "latitude": 41.3975526,
+    "longitude": 2.1522204
+  },
+  {
+    "id": "365-caf--41.383234-2.138408",
+    "name": "365 Café - Berlín 51",
+    "chain": "365 Café",
+    "address": "Carrer de Berlín, 51, Les Corts, 08014 Barcelona, España",
+    "latitude": 41.383234,
+    "longitude": 2.1384079
+  },
+  {
+    "id": "365-caf--41.403099-2.203008",
+    "name": "365 Café - Bilbao 69",
+    "chain": "365 Café",
+    "address": "Carrer de Bilbao, 69, Sant Martí, 08005 Barcelona, España",
+    "latitude": 41.403099,
+    "longitude": 2.203008
+  },
+  {
+    "id": "365-caf--41.414172-2.211207",
+    "name": "365 Café - C de Puigcerdà",
+    "chain": "365 Café",
+    "address": "C de Puigcerdà, Sant Martí, 08019 108Sant Martí08019, Barcelona, España",
+    "latitude": 41.4141716,
+    "longitude": 2.2112069
+  },
+  {
+    "id": "365-caf--41.419265-2.204106",
+    "name": "365 Café - C de Puigcerdà 231",
+    "chain": "365 Café",
+    "address": "C de Puigcerdà, 231, Sant Martí, 08020 Barcelona, España",
+    "latitude": 41.4192647,
+    "longitude": 2.2041065
+  },
+  {
+    "id": "365-caf--41.373625-2.131543",
+    "name": "365 Café - Canalejas 24",
+    "chain": "365 Café",
+    "address": "Carrer de Canalejas, 24, Sants-Montjuïc, 08028 Barcelona, España",
+    "latitude": 41.3736252,
+    "longitude": 2.1315425
+  },
+  {
+    "id": "365-caf--41.382042-2.169744",
+    "name": "365 Café - Carme 38",
+    "chain": "365 Café",
+    "address": "Carrer del Carme, 38, Ciutat Vella, 08001 Barcelona, España",
+    "latitude": 41.3820418,
+    "longitude": 2.1697436
+  },
+  {
+    "id": "365-caf--41.382882-2.170987",
+    "name": "365 Café - Carme 8",
+    "chain": "365 Café",
+    "address": "Carrer del Carme, 8, Ciutat Vella, 08001 Barcelona, España",
+    "latitude": 41.3828822,
+    "longitude": 2.1709866
+  },
+  {
+    "id": "365-caf--41.386495-2.173330",
+    "name": "365 Café - Carrer Comtal 18",
+    "chain": "365 Café",
+    "address": "Carrer Comtal, 18, Ciutat Vella, 08002 Barcelona, España",
+    "latitude": 41.3864954,
+    "longitude": 2.1733298
+  },
+  {
+    "id": "365-caf--41.396536-2.142756",
+    "name": "365 Café - Carrer d'Amigó 65",
+    "chain": "365 Café",
+    "address": "Carrer d'Amigó, 65, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+    "latitude": 41.3965358,
+    "longitude": 2.1427558
+  },
+  {
+    "id": "365-caf--41.389355-2.161555",
+    "name": "365 Café - Carrer d'Aragó 228",
+    "chain": "365 Café",
+    "address": "Carrer d'Aragó, 228, Eixample, 08007 Barcelona, España",
+    "latitude": 41.3893545,
+    "longitude": 2.1615554
+  },
+  {
+    "id": "365-caf--41.389525-2.138010",
+    "name": "365 Café - Carrer d'Entença 313",
+    "chain": "365 Café",
+    "address": "Carrer d'Entença, 313, Les Corts, 08029 Barcelona, España",
+    "latitude": 41.3895251,
+    "longitude": 2.1380103
+  },
+  {
+    "id": "365-caf--41.369755-2.107968",
+    "name": "365 Café - Carrer Enginyer Moncunill 68",
+    "chain": "365 Café",
+    "address": "Carrer Enginyer Moncunill, 68, 08905 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.369755,
+    "longitude": 2.1079678
+  },
+  {
+    "id": "365-caf--41.405846-2.150583",
+    "name": "365 Café - Carrer Gran de Gràcia 266",
+    "chain": "365 Café",
+    "address": "Carrer Gran de Gràcia, 266, Gràcia, 08012 Barcelona, España",
+    "latitude": 41.405846,
+    "longitude": 2.1505828
+  },
+  {
+    "id": "365-caf--41.377634-2.172674",
+    "name": "365 Café - Carrer Nou de la Rambla 46",
+    "chain": "365 Café",
+    "address": "Carrer Nou de la Rambla, 46, Bajos, Ciutat Vella, 08001 Barcelona, España",
+    "latitude": 41.3776338,
+    "longitude": 2.1726742
+  },
+  {
+    "id": "365-caf--41.376688-2.171621",
+    "name": "365 Café - Carrer Nou de la Rambla 68",
+    "chain": "365 Café",
+    "address": "Carrer Nou de la Rambla, 68, Ciutat Vella, 08400 Barcelona, España",
+    "latitude": 41.3766875,
+    "longitude": 2.1716208
+  },
+  {
+    "id": "365-caf--41.388695-2.133237",
+    "name": "365 Café - Carrer Numància 163",
+    "chain": "365 Café",
+    "address": "Carrer Numància, 163, Les Corts, 08029 Barcelona, España",
+    "latitude": 41.3886947,
+    "longitude": 2.133237
+  },
+  {
+    "id": "365-caf--41.383465-2.139018",
+    "name": "365 Café - Carrer Numància 48",
+    "chain": "365 Café",
+    "address": "Carrer Numància, 48, Les Corts, 08029 Barcelona, España",
+    "latitude": 41.383465,
+    "longitude": 2.1390179
+  },
+  {
+    "id": "365-caf--41.375006-2.119803",
+    "name": "365 Café - Carrer Occident 14",
+    "chain": "365 Café",
+    "address": "Carrer Occident, 14, 08903 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3750062,
+    "longitude": 2.1198028
+  },
+  {
+    "id": "365-caf--41.410077-2.175600",
+    "name": "365 Café - Cartagena 299",
+    "chain": "365 Café",
+    "address": "Carrer de Cartagena, 299, Eixample, 08025 Barcelona, España",
+    "latitude": 41.4100774,
+    "longitude": 2.1756004
+  },
+  {
+    "id": "365-caf--41.360326-2.102010",
+    "name": "365 Café - Casanova 2",
+    "chain": "365 Café",
+    "address": "Carrer de Casanova, 2, 08901 L`Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3603261,
+    "longitude": 2.1020098
+  },
+  {
+    "id": "365-caf--41.395686-2.179353",
+    "name": "365 Café - Casp 132",
+    "chain": "365 Café",
+    "address": "Carrer de Casp, 132, Eixample, 08013 Barcelona, España",
+    "latitude": 41.3956863,
+    "longitude": 2.1793527
+  },
+  {
+    "id": "365-caf--41.379048-2.160237",
+    "name": "365 Café - Comte Borrell 93",
+    "chain": "365 Café",
+    "address": "Carrer del Comte Borrell, 93, Eixample, 08015 Barcelona, España",
+    "latitude": 41.3790484,
+    "longitude": 2.1602374
+  },
+  {
+    "id": "365-caf--41.389331-2.149358",
+    "name": "365 Café - Comte d'Urgell 224",
+    "chain": "365 Café",
+    "address": "Carrer del Comte d'Urgell, 224, Eixample, 08036 Barcelona, España",
+    "latitude": 41.3893313,
+    "longitude": 2.1493581
+  },
+  {
+    "id": "365-caf--41.381273-2.159440",
+    "name": "365 Café - Comte d'Urgell 43",
+    "chain": "365 Café",
+    "address": "Carrer del Comte d'Urgell, 43, Eixample, 08011 Barcelona, España",
+    "latitude": 41.3812732,
+    "longitude": 2.1594401
+  },
+  {
+    "id": "365-caf--41.370001-2.138000",
+    "name": "365 Café - Constitució 13",
+    "chain": "365 Café",
+    "address": "Carrer de la Constitució, 13, Sants-Montjuïc, 08014 Barcelona, España",
+    "latitude": 41.370001,
+    "longitude": 2.1380003
+  },
+  {
+    "id": "365-caf--41.393844-2.155978",
+    "name": "365 Café - Còrsega 264",
+    "chain": "365 Café",
+    "address": "Carrer de Còrsega, 264, Eixample, 08008 Barcelona, España",
+    "latitude": 41.3938444,
+    "longitude": 2.1559785
+  },
+  {
+    "id": "365-caf--41.414537-2.211278",
+    "name": "365 Café - Cristóbal de Moura 196",
+    "chain": "365 Café",
+    "address": "Carrer de Cristóbal de Moura, 196, Sant Martí, 08019 Barcelona, España",
+    "latitude": 41.4145371,
+    "longitude": 2.2112782
+  },
+  {
+    "id": "365-caf--41.356704-2.127230",
+    "name": "365 Café - d'Europa 17",
+    "chain": "365 Café",
+    "address": "Pl. d'Europa, 17, 08902 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3567042,
+    "longitude": 2.1272302
+  },
+  {
+    "id": "365-caf--41.385459-2.130443",
+    "name": "365 Café - de Comas 11",
+    "chain": "365 Café",
+    "address": "Plaça de Comas, 11, Les Corts, 08028 Barcelona, España",
+    "latitude": 41.3854586,
+    "longitude": 2.1304433
+  },
+  {
+    "id": "365-caf--41.430353-2.180507",
+    "name": "365 Café - de Fabra i Puig 150",
+    "chain": "365 Café",
+    "address": "Pg. de Fabra i Puig, 150, Nou Barris, 08016 Barcelona, España",
+    "latitude": 41.4303531,
+    "longitude": 2.1805071
+  },
+  {
+    "id": "365-caf--41.430014-2.187708",
+    "name": "365 Café - de Fabra i Puig 29",
+    "chain": "365 Café",
+    "address": "Rambla de Fabra i Puig, 29, Sant Andreu, 08030 Barcelona, España",
+    "latitude": 41.4300144,
+    "longitude": 2.187708
+  },
+  {
+    "id": "365-caf--41.386038-2.177168",
+    "name": "365 Café - de Francesc Cambó 15",
+    "chain": "365 Café",
+    "address": "Av. de Francesc Cambó, 15, Ciutat Vella, 08003 Barcelona, España",
+    "latitude": 41.3860375,
+    "longitude": 2.1771682
+  },
+  {
+    "id": "365-caf--41.381209-2.187185",
+    "name": "365 Café - de Joan de Borbó 3",
+    "chain": "365 Café",
+    "address": "Pg. de Joan de Borbó, 3, Ciutat Vella, 08003 Barcelona, España",
+    "latitude": 41.3812092,
+    "longitude": 2.1871846
+  },
+  {
+    "id": "365-caf--41.405516-2.138787",
+    "name": "365 Café - de Joaquim Folguera 1",
+    "chain": "365 Café",
+    "address": "Pl. de Joaquim Folguera, 1, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+    "latitude": 41.4055165,
+    "longitude": 2.1387874
+  },
+  {
+    "id": "365-caf--41.413687-2.161728",
+    "name": "365 Café - de la Mare de Déu de Montserrat 24",
+    "chain": "365 Café",
+    "address": "Av. de la Mare de Déu de Montserrat, 24, Horta-Guinardó, 08024 Barcelona, España",
+    "latitude": 41.4136872,
+    "longitude": 2.161728
+  },
+  {
+    "id": "365-caf--41.350860-2.109472",
+    "name": "365 Café - de la Marina 211",
+    "chain": "365 Café",
+    "address": "Rambla de la Marina, 211, 08907 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3508598,
+    "longitude": 2.1094717
+  },
+  {
+    "id": "365-caf--41.402120-2.173940",
+    "name": "365 Café - de la Sagrada Família 20",
+    "chain": "365 Café",
+    "address": "Plaça de la Sagrada Família, 20, Eixample, 08013 Barcelona, España",
+    "latitude": 41.4021199,
+    "longitude": 2.17394
+  },
+  {
+    "id": "365-caf--41.386394-2.165293",
+    "name": "365 Café - de la Univ. 7",
+    "chain": "365 Café",
+    "address": "Ronda de la Univ., 7, Eixample, 08007 Barcelona, España",
+    "latitude": 41.3863942,
+    "longitude": 2.1652929
+  },
+  {
+    "id": "365-caf--41.360904-2.138764",
+    "name": "365 Café - de la Zona Franca 182",
+    "chain": "365 Café",
+    "address": "Pg. de la Zona Franca, 182, Sants-Montjuïc, 08038 Barcelona, España",
+    "latitude": 41.3609038,
+    "longitude": 2.1387637
+  },
+  {
+    "id": "365-caf--41.363300-2.137234",
+    "name": "365 Café - de la Zona Franca 240",
+    "chain": "365 Café",
+    "address": "Pg. de la Zona Franca, 240, Sants-Montjuïc, 08038 Barcelona, España",
+    "latitude": 41.3633004,
+    "longitude": 2.1372338
+  },
+  {
+    "id": "365-caf--41.375865-2.122739",
+    "name": "365 Café - de Madrid 1",
+    "chain": "365 Café",
+    "address": "Av. de Madrid, 1, Les Corts, 08028 Barcelona, España",
+    "latitude": 41.3758654,
+    "longitude": 2.122739
+  },
+  {
+    "id": "365-caf--41.377602-2.126198",
+    "name": "365 Café - de Madrid 52-62",
+    "chain": "365 Café",
+    "address": "Av. de Madrid, 52-62, Sants-Montjuïc, 08028 Barcelona, España",
+    "latitude": 41.377602,
+    "longitude": 2.1261984
+  },
+  {
+    "id": "365-caf--41.450696-2.213777",
+    "name": "365 Café - de Sant Sebastià 49",
+    "chain": "365 Café",
+    "address": "Rambla de Sant Sebastià, 49, 08921 Santa Coloma de Gramenet, Barcelona, España",
+    "latitude": 41.450696,
+    "longitude": 2.2137773
+  },
+  {
+    "id": "365-caf--41.410830-2.138250",
+    "name": "365 Café - de St. Gervasi 54",
+    "chain": "365 Café",
+    "address": "Pg. de St. Gervasi, 54, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+    "latitude": 41.4108302,
+    "longitude": 2.1382505
+  },
+  {
+    "id": "365-caf--41.396676-2.172662",
+    "name": "365 Café - de St. Joan 51",
+    "chain": "365 Café",
+    "address": "Pg. de St. Joan, 51, Eixample, 08009 Barcelona, España",
+    "latitude": 41.3966759,
+    "longitude": 2.1726622
+  },
+  {
+    "id": "365-caf--41.436461-2.191022",
+    "name": "365 Café - de Torras i Bages 3",
+    "chain": "365 Café",
+    "address": "Passeig de Torras i Bages, 3, Sant Andreu, 08030 Barcelona, España",
+    "latitude": 41.4364611,
+    "longitude": 2.1910217
+  },
+  {
+    "id": "365-caf--41.438836-2.168358",
+    "name": "365 Café - de Valldaura 168",
+    "chain": "365 Café",
+    "address": "Pg. de Valldaura, 168, Nou Barris, 08042 Barcelona, España",
+    "latitude": 41.4388364,
+    "longitude": 2.1683579
+  },
+  {
+    "id": "365-caf--41.438573-2.175196",
+    "name": "365 Café - de Valldaura 185",
+    "chain": "365 Café",
+    "address": "Pg. de Valldaura, 185, Nou Barris, 08016 Barcelona, España",
+    "latitude": 41.4385735,
+    "longitude": 2.1751957
+  },
+  {
+    "id": "365-caf--41.436582-2.173269",
+    "name": "365 Café - de Verdum 14",
+    "chain": "365 Café",
+    "address": "Passeig de Verdum, 14, Nou Barris, 08042 Barcelona, España",
+    "latitude": 41.4365823,
+    "longitude": 2.1732692
+  },
+  {
+    "id": "365-caf--41.375214-2.163490",
+    "name": "365 Café - del Paral·lel 105",
+    "chain": "365 Café",
+    "address": "Avinguda del Paral·lel, 105, Eixample, 08015 Barcelona, España",
+    "latitude": 41.3752145,
+    "longitude": 2.1634899
+  },
+  {
+    "id": "365-caf--41.375131-2.171217",
+    "name": "365 Café - del Paral·lel 52",
+    "chain": "365 Café",
+    "address": "Avinguda del Paral·lel, 52, Ciutat Vella, 08001 Barcelona, España",
+    "latitude": 41.3751306,
+    "longitude": 2.1712169
+  },
+  {
+    "id": "365-caf--41.399915-2.202578",
+    "name": "365 Café - del Poblenou 43",
+    "chain": "365 Café",
+    "address": "Rambla del Poblenou, 43, Sant Martí, 08005 Barcelona, España",
+    "latitude": 41.3999155,
+    "longitude": 2.2025779
+  },
+  {
+    "id": "365-caf--41.448762-2.210530",
+    "name": "365 Café - dels Sagarra 47",
+    "chain": "365 Café",
+    "address": "C/ dels Sagarra, 47, 08922 Santa Coloma de Gramenet, Barcelona, España",
+    "latitude": 41.4487615,
+    "longitude": 2.2105305
+  },
+  {
+    "id": "365-caf--41.380455-2.153617",
+    "name": "365 Café - Diputació 59",
+    "chain": "365 Café",
+    "address": "Carrer de la Diputació, 59, Eixample, 08015 Barcelona, España",
+    "latitude": 41.3804554,
+    "longitude": 2.1536166
+  },
+  {
+    "id": "365-caf--41.407751-2.181387",
+    "name": "365 Café - dos de Maig 242",
+    "chain": "365 Café",
+    "address": "Carrer del dos de Maig, 242, Sant Martí, 08013 Barcelona, España",
+    "latitude": 41.4077513,
+    "longitude": 2.1813873
+  },
+  {
+    "id": "365-caf--41.379929-2.176762",
+    "name": "365 Café - Escudellers 28",
+    "chain": "365 Café",
+    "address": "Carrer dels Escudellers, 28, Ciutat Vella, 08002 Barcelona, España",
+    "latitude": 41.3799288,
+    "longitude": 2.1767621
+  },
+  {
+    "id": "365-caf--41.378364-2.163233",
+    "name": "365 Café - España",
+    "chain": "365 Café",
+    "address": "España, Barcelona, Eixample, Rda. de Sant Pau, 邮政编码: 08015",
+    "latitude": 41.3783644,
+    "longitude": 2.163233
+  },
+  {
+    "id": "365-caf--41.404690-2.176623",
+    "name": "365 Café - España",
+    "chain": "365 Café",
+    "address": "España, Barcelona, Eixample, Carrer de Lepant, 邮政编码: 08013",
+    "latitude": 41.4046899,
+    "longitude": 2.176623
+  },
+  {
+    "id": "365-caf--41.382402-2.166048",
+    "name": "365 Café - Ferlandina 12",
+    "chain": "365 Café",
+    "address": "Carrer de Ferlandina, 12, Ciutat Vella, 08001 Barcelona, España",
+    "latitude": 41.382402,
+    "longitude": 2.1660484
+  },
+  {
+    "id": "365-caf--41.423379-2.180580",
+    "name": "365 Café - Garcilaso 197",
+    "chain": "365 Café",
+    "address": "Carrer de Garcilaso, 197, Sant Andreu, 08027 Barcelona, España",
+    "latitude": 41.4233791,
+    "longitude": 2.1805799
+  },
+  {
+    "id": "365-caf--41.368387-2.140744",
+    "name": "365 Café - Gran Via de les Corts Catalanes 192",
+    "chain": "365 Café",
+    "address": "Gran Via de les Corts Catalanes, 192, Sants-Montjuïc, 08004 Barcelona, España",
+    "latitude": 41.3683866,
+    "longitude": 2.1407442
+  },
+  {
+    "id": "365-caf--41.372603-2.146333",
+    "name": "365 Café - Gran Via de les Corts Catalanes 302",
+    "chain": "365 Café",
+    "address": "Gran Via de les Corts Catalanes, 302, Sants-Montjuïc, 08004 Barcelona, España",
+    "latitude": 41.3726035,
+    "longitude": 2.1463325
+  },
+  {
+    "id": "365-caf--41.422524-2.205012",
+    "name": "365 Café - Guipúscoa 143",
+    "chain": "365 Café",
+    "address": "Carrer de Guipúscoa, 143, Sant Martí, 08020 Barcelona, España",
+    "latitude": 41.4225244,
+    "longitude": 2.2050122
+  },
+  {
+    "id": "365-caf--41.417042-2.197598",
+    "name": "365 Café - Guipúscoa 63",
+    "chain": "365 Café",
+    "address": "Carrer de Guipúscoa, 63, Sant Martí, 08020 Barcelona, España",
+    "latitude": 41.4170421,
+    "longitude": 2.197598
+  },
+  {
+    "id": "365-caf--41.378431-2.133647",
+    "name": "365 Café - Joan Güell 48",
+    "chain": "365 Café",
+    "address": "Carrer de Joan Güell, 48, Sants-Montjuïc, 08028 Barcelona, España",
+    "latitude": 41.3784305,
+    "longitude": 2.1336466
+  },
+  {
+    "id": "365-caf--41.379961-2.168849",
+    "name": "365 Café - l'Hospital 103",
+    "chain": "365 Café",
+    "address": "Carrer de l'Hospital, 103, Ciutat Vella, 08001 Barcelona, España",
+    "latitude": 41.3799606,
+    "longitude": 2.1688493
+  },
+  {
+    "id": "365-caf--41.399921-2.152884",
+    "name": "365 Café - l'Oreneta 2",
+    "chain": "365 Café",
+    "address": "Carrer de l'Oreneta, 2, Gràcia, 08012 Barcelona, España",
+    "latitude": 41.3999213,
+    "longitude": 2.1528844
+  },
+  {
+    "id": "365-caf--41.411952-2.216012",
+    "name": "365 Café - Llull 389",
+    "chain": "365 Café",
+    "address": "Carrer de Llull, 389, Sant Martí, 08019 Barcelona, España",
+    "latitude": 41.4119524,
+    "longitude": 2.2160116
+  },
+  {
+    "id": "365-caf--41.396158-2.165444",
+    "name": "365 Café - Mallorca 287",
+    "chain": "365 Café",
+    "address": "Carrer de Mallorca, 287, Eixample, 08037 Barcelona, España",
+    "latitude": 41.396158,
+    "longitude": 2.165444
+  },
+  {
+    "id": "365-caf--41.428339-2.163178",
+    "name": "365 Café - Maragall 407",
+    "chain": "365 Café",
+    "address": "Pg. Maragall, 407, Horta-Guinardó, 08032 Barcelona, España",
+    "latitude": 41.428339,
+    "longitude": 2.1631784
+  },
+  {
+    "id": "365-caf--41.348302-2.107879",
+    "name": "365 Café - Mare de Déu de Bellvitge 44",
+    "chain": "365 Café",
+    "address": "Av. Mare de Déu de Bellvitge, 44, 08907 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3483021,
+    "longitude": 2.107879
+  },
+  {
+    "id": "365-caf--41.406453-2.172065",
+    "name": "365 Café - Marina 328",
+    "chain": "365 Café",
+    "address": "Carrer de la Marina, 328, Eixample, 08025 Barcelona, España",
+    "latitude": 41.4064525,
+    "longitude": 2.1720653
+  },
+  {
+    "id": "365-caf--41.393088-2.188677",
+    "name": "365 Café - Marina 81",
+    "chain": "365 Café",
+    "address": "Carrer de la Marina, 81, Sant Martí, 08018 Barcelona, España",
+    "latitude": 41.3930883,
+    "longitude": 2.1886775
+  },
+  {
+    "id": "365-caf--41.408247-2.187218",
+    "name": "365 Café - Meridiana 116-120",
+    "chain": "365 Café",
+    "address": "Avinguda Meridiana, 116-120, local 3, Sant Martí, 08018 Barcelona, España",
+    "latitude": 41.4082474,
+    "longitude": 2.1872181
+  },
+  {
+    "id": "365-caf--41.423595-2.187223",
+    "name": "365 Café - Meridiana 308",
+    "chain": "365 Café",
+    "address": "Avinguda Meridiana, 308, Sant Andreu, 08027 Barcelona, España",
+    "latitude": 41.4235954,
+    "longitude": 2.1872231
+  },
+  {
+    "id": "365-caf--41.429382-2.184133",
+    "name": "365 Café - Meridiana 382",
+    "chain": "365 Café",
+    "address": "Avinguda Meridiana, 382, Sant Andreu, 08030 Barcelona, España",
+    "latitude": 41.4293817,
+    "longitude": 2.1841328
+  },
+  {
+    "id": "365-caf--41.385434-2.138827",
+    "name": "365 Café - Nicaragua 96",
+    "chain": "365 Café",
+    "address": "Carrer de Nicaragua, 96, Les Corts, 08029 Barcelona, España",
+    "latitude": 41.3854343,
+    "longitude": 2.1388272
+  },
+  {
+    "id": "365-caf--41.392600-2.152006",
+    "name": "365 Café - París 166",
+    "chain": "365 Café",
+    "address": "Carrer de París, 166, Eixample, 08036 Barcelona, España",
+    "latitude": 41.3926,
+    "longitude": 2.152006
+  },
+  {
+    "id": "365-caf--41.392205-2.167469",
+    "name": "365 Café - Pau Claris 119",
+    "chain": "365 Café",
+    "address": "Carrer de Pau Claris, 119, Eixample, 08009 Barcelona, España",
+    "latitude": 41.3922049,
+    "longitude": 2.1674686
+  },
+  {
+    "id": "365-caf--41.394548-2.164346",
+    "name": "365 Café - Pau Claris 155",
+    "chain": "365 Café",
+    "address": "Carrer de Pau Claris, 155, Eixample, 08009 Barcelona, España",
+    "latitude": 41.3945477,
+    "longitude": 2.1643459
+  },
+  {
+    "id": "365-caf--41.389644-2.171432",
+    "name": "365 Café - Pau Claris 82",
+    "chain": "365 Café",
+    "address": "Carrer de Pau Claris, 82, Eixample, 08010 Barcelona, España",
+    "latitude": 41.3896439,
+    "longitude": 2.1714323
+  },
+  {
+    "id": "365-caf--41.394087-2.176079",
+    "name": "365 Café - Pça. Tetuan 3",
+    "chain": "365 Café",
+    "address": "Pça. Tetuan, 3, Eixample, 08010 Barcelona, España",
+    "latitude": 41.3940867,
+    "longitude": 2.176079
+  },
+  {
+    "id": "365-caf--41.382927-2.173926",
+    "name": "365 Café - Pi 1",
+    "chain": "365 Café",
+    "address": "Carrer del Pi, 1, Ciutat Vella, 08002 Barcelona, España",
+    "latitude": 41.3829266,
+    "longitude": 2.1739257
+  },
+  {
+    "id": "365-caf--41.369167-2.112301",
+    "name": "365 Café - Ponent 51",
+    "chain": "365 Café",
+    "address": "Av. Ponent, 51, 08905 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3691668,
+    "longitude": 2.112301
+  },
+  {
+    "id": "365-caf--41.384826-2.179920",
+    "name": "365 Café - Princesa 14",
+    "chain": "365 Café",
+    "address": "Carrer de la Princesa, 14, Ciutat Vella, 08003 Barcelona, España",
+    "latitude": 41.3848261,
+    "longitude": 2.1799204
+  },
+  {
+    "id": "365-caf--41.389120-2.154425",
+    "name": "365 Café - Provença 186",
+    "chain": "365 Café",
+    "address": "Carrer de Provença, 186, Eixample, 08036 Barcelona, España",
+    "latitude": 41.3891196,
+    "longitude": 2.1544252
+  },
+  {
+    "id": "365-caf--41.405640-2.175756",
+    "name": "365 Café - Provença 463",
+    "chain": "365 Café",
+    "address": "Carrer de Provença, 463, Eixample, 08025 Barcelona, España",
+    "latitude": 41.4056399,
+    "longitude": 2.1757565
+  },
+  {
+    "id": "365-caf--41.406413-2.177268",
+    "name": "365 Café - Provença 498",
+    "chain": "365 Café",
+    "address": "Carrer de Provença, 498, Eixample, 08025 Barcelona, España",
+    "latitude": 41.406413,
+    "longitude": 2.1772679
+  },
+  {
+    "id": "365-caf--41.424165-2.156074",
+    "name": "365 Café - Ptge. de Lugo 141",
+    "chain": "365 Café",
+    "address": "Ptge. de Lugo, 141, Horta-Guinardó, 08032 Barcelona, España",
+    "latitude": 41.4241645,
+    "longitude": 2.1560741
+  },
+  {
+    "id": "365-caf--41.383250-2.163942",
+    "name": "365 Café - Rda. de Sant Antoni 31",
+    "chain": "365 Café",
+    "address": "Rda. de Sant Antoni, 31, Ciutat Vella, 08011 Barcelona, España",
+    "latitude": 41.38325,
+    "longitude": 2.1639421
+  },
+  {
+    "id": "365-caf--41.383252-2.163900",
+    "name": "365 Café - Rda. de Sant Antoni 74",
+    "chain": "365 Café",
+    "address": "Rda. de Sant Antoni, 74, Ciutat Vella, 08001 Barcelona, España",
+    "latitude": 41.3832518,
+    "longitude": 2.1639001
+  },
+  {
+    "id": "365-caf--41.389350-2.174243",
+    "name": "365 Café - Rda. de Sant Pere 26",
+    "chain": "365 Café",
+    "address": "Rda. de Sant Pere, 26, Eixample, 08010 Barcelona, España",
+    "latitude": 41.3893498,
+    "longitude": 2.1742426
+  },
+  {
+    "id": "365-caf--41.391155-2.179072",
+    "name": "365 Café - Rda. de Sant Pere 72",
+    "chain": "365 Café",
+    "address": "Rda. de Sant Pere, 72, Eixample, 08010 Barcelona, España",
+    "latitude": 41.3911546,
+    "longitude": 2.1790715
+  },
+  {
+    "id": "365-caf--41.380325-2.164849",
+    "name": "365 Café - Riera Alta 47",
+    "chain": "365 Café",
+    "address": "Carrer de la Riera Alta, 47, Ciutat Vella, 08001 Barcelona, España",
+    "latitude": 41.3803255,
+    "longitude": 2.1648487
+  },
+  {
+    "id": "365-caf--41.409356-2.184271",
+    "name": "365 Café - Rogent 31",
+    "chain": "365 Café",
+    "address": "Carrer de Rogent, 31, Sant Martí, 08026 Barcelona, España",
+    "latitude": 41.4093558,
+    "longitude": 2.1842712
+  },
+  {
+    "id": "365-caf--41.397764-2.174258",
+    "name": "365 Café - Roger de Flor 166",
+    "chain": "365 Café",
+    "address": "Carrer de Roger de Flor, 166, Eixample, 08013 Barcelona, España",
+    "latitude": 41.3977637,
+    "longitude": 2.174258
+  },
+  {
+    "id": "365-caf--41.398182-2.161956",
+    "name": "365 Café - Roger de Llúria 155",
+    "chain": "365 Café",
+    "address": "Carrer de Roger de Llúria, 155, 157, Eixample, 08037 Barcelona, España",
+    "latitude": 41.3981822,
+    "longitude": 2.161956
+  },
+  {
+    "id": "365-caf--41.393425-2.157680",
+    "name": "365 Café - Rosselló 202",
+    "chain": "365 Café",
+    "address": "Carrer del Rosselló, 202, Eixample, 08008 Barcelona, España",
+    "latitude": 41.3934248,
+    "longitude": 2.15768
+  },
+  {
+    "id": "365-caf--41.411019-2.173924",
+    "name": "365 Café - Sant Antoni Maria Claret 157",
+    "chain": "365 Café",
+    "address": "Carrer de Sant Antoni Maria Claret, 157, Horta-Guinardó, 08025 Barcelona, España",
+    "latitude": 41.4110193,
+    "longitude": 2.1739244
+  },
+  {
+    "id": "365-caf--41.453177-2.206799",
+    "name": "365 Café - Sant Carles 6",
+    "chain": "365 Café",
+    "address": "Carrer de Sant Carles, 6, 08921 Santa Coloma de Gramenet, Barcelona, España",
+    "latitude": 41.4531771,
+    "longitude": 2.2067986
+  },
+  {
+    "id": "365-caf--41.378959-2.171856",
+    "name": "365 Café - Sant Pau 50",
+    "chain": "365 Café",
+    "address": "Carrer de Sant Pau, 50, Ciutat Vella, 08001 Barcelona, España",
+    "latitude": 41.3789588,
+    "longitude": 2.1718557
+  },
+  {
+    "id": "365-caf--41.375449-2.129107",
+    "name": "365 Café - Sants 295",
+    "chain": "365 Café",
+    "address": "Carrer de Sants, 295, Sants-Montjuïc, 08028 Barcelona, España",
+    "latitude": 41.3754489,
+    "longitude": 2.1291075
+  },
+  {
+    "id": "365-caf--41.375221-2.136069",
+    "name": "365 Café - Sants 91",
+    "chain": "365 Café",
+    "address": "Carrer de Sants, 91, Sants-Montjuïc, 08014 Barcelona, España",
+    "latitude": 41.3752214,
+    "longitude": 2.1360694
+  },
+  {
+    "id": "365-caf--41.403970-2.172906",
+    "name": "365 Café - Sardenya 326",
+    "chain": "365 Café",
+    "address": "Carrer de Sardenya, 326, Eixample, 08025 Barcelona, España",
+    "latitude": 41.4039698,
+    "longitude": 2.1729061
+  },
+  {
+    "id": "365-caf--41.410364-2.164557",
+    "name": "365 Café - Sardenya 492",
+    "chain": "365 Café",
+    "address": "Carrer de Sardenya, 492, Horta-Guinardó, 08025 Barcelona, España",
+    "latitude": 41.4103644,
+    "longitude": 2.164557
+  },
+  {
+    "id": "365-caf--41.412616-2.203482",
+    "name": "365 Café - Selva de Mar 125",
+    "chain": "365 Café",
+    "address": "Carrer de la Selva de Mar, 125, Sant Martí, 08020 Barcelona, España",
+    "latitude": 41.4126165,
+    "longitude": 2.2034821
+  },
+  {
+    "id": "365-caf--41.381191-2.159411",
+    "name": "365 Café - Sepúlveda 127",
+    "chain": "365 Café",
+    "address": "Carrer de Sepúlveda, 127, Eixample, 08011 Barcelona, España",
+    "latitude": 41.3811905,
+    "longitude": 2.1594109
+  },
+  {
+    "id": "365-caf--41.429806-2.159391",
+    "name": "365 Café - Tajo 72",
+    "chain": "365 Café",
+    "address": "Carrer del Tajo, 72, Horta-Guinardó, 08032 Barcelona, España",
+    "latitude": 41.429806,
+    "longitude": 2.1593915
+  },
+  {
+    "id": "365-caf--41.384600-2.169863",
+    "name": "365 Café - Tallers 7",
+    "chain": "365 Café",
+    "address": "Carrer dels Tallers, 7, Ciutat Vella, 08001 Barcelona, España",
+    "latitude": 41.3845995,
+    "longitude": 2.1698634
+  },
+  {
+    "id": "365-caf--41.384879-2.166940",
+    "name": "365 Café - Tallers 71",
+    "chain": "365 Café",
+    "address": "Carrer dels Tallers, 71, Ciutat Vella, 08001 Barcelona, España",
+    "latitude": 41.3848792,
+    "longitude": 2.1669399
+  },
+  {
+    "id": "365-caf--41.378719-2.144458",
+    "name": "365 Café - Tarragona 161",
+    "chain": "365 Café",
+    "address": "Carrer de Tarragona, 161, Sants-Montjuïc, 08014 Barcelona, España",
+    "latitude": 41.3787192,
+    "longitude": 2.1444582
+  },
+  {
+    "id": "365-caf--41.390423-2.178461",
+    "name": "365 Café - Trafalgar 66",
+    "chain": "365 Café",
+    "address": "Carrer de Trafalgar, 66, Ciutat Vella, 08010 Barcelona, España",
+    "latitude": 41.3904228,
+    "longitude": 2.1784613
+  },
+  {
+    "id": "365-caf--41.410110-2.156155",
+    "name": "365 Café - Trav. de Dalt 72",
+    "chain": "365 Café",
+    "address": "Trav. de Dalt, 72, Gràcia, 08024 Barcelona, España",
+    "latitude": 41.41011,
+    "longitude": 2.1561548
+  },
+  {
+    "id": "365-caf--41.410726-2.156469",
+    "name": "365 Café - Trav. de Dalt 83",
+    "chain": "365 Café",
+    "address": "Trav. de Dalt, 83, Gràcia, 08024 Barcelona, España",
+    "latitude": 41.4107258,
+    "longitude": 2.1564693
+  },
+  {
+    "id": "365-caf--41.396580-2.150527",
+    "name": "365 Café - Travessera de Gràcia 66",
+    "chain": "365 Café",
+    "address": "Travessera de Gràcia, 66, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+    "latitude": 41.3965796,
+    "longitude": 2.1505268
+  },
+  {
+    "id": "365-caf--41.391253-2.161234",
+    "name": "365 Café - València 227",
+    "chain": "365 Café",
+    "address": "Carrer de València, 227, Eixample, 08007 Barcelona, España",
+    "latitude": 41.3912527,
+    "longitude": 2.1612345
+  },
+  {
+    "id": "365-caf--41.396697-2.168343",
+    "name": "365 Café - València 321",
+    "chain": "365 Café",
+    "address": "Carrer de València, 321, Eixample, 08009 Barcelona, España",
+    "latitude": 41.396697,
+    "longitude": 2.168343
+  },
+  {
+    "id": "365-caf--41.404305-2.178603",
+    "name": "365 Café - València 481",
+    "chain": "365 Café",
+    "address": "Carrer de València, 481, Eixample, 08013 Barcelona, España",
+    "latitude": 41.4043052,
+    "longitude": 2.1786029
+  },
+  {
+    "id": "365-caf--41.385376-2.132901",
+    "name": "365 Café - Vallespir 203",
+    "chain": "365 Café",
+    "address": "Carrer del Vallespir, 203, Les Corts, 08014 Barcelona, España",
+    "latitude": 41.3853764,
+    "longitude": 2.1329007
+  },
+  {
+    "id": "365-caf--41.440166-2.175898",
+    "name": "365 Café - Via Júlia 37",
+    "chain": "365 Café",
+    "address": "Via Júlia, 37, Nou Barris, 08042 Barcelona, España",
+    "latitude": 41.4401658,
+    "longitude": 2.1758977
+  },
+  {
+    "id": "365-caf--41.384447-2.178380",
+    "name": "365 Café - Via Laietana 24",
+    "chain": "365 Café",
+    "address": "Via Laietana, 24, Ciutat Vella, 08003 Barcelona, España",
+    "latitude": 41.3844474,
+    "longitude": 2.1783805
+  },
+  {
+    "id": "365-caf--41.386648-2.175400",
+    "name": "365 Café - Via Laietana 48",
+    "chain": "365 Café",
+    "address": "Via Laietana, 48, Ciutat Vella, 08003 Barcelona, España",
+    "latitude": 41.3866477,
+    "longitude": 2.1753999
+  },
+  {
+    "id": "365-caf--41.374480-2.167551",
+    "name": "365 Café - Vila i Vilà 97",
+    "chain": "365 Café",
+    "address": "Carrer de Vila i Vilà, 97, Sants-Montjuïc, 08004 Barcelona, España",
+    "latitude": 41.3744804,
+    "longitude": 2.1675509
+  },
+  {
+    "id": "365-caf--41.386178-2.155723",
+    "name": "365 Café - Villarroel 116",
+    "chain": "365 Café",
+    "address": "Carrer de Villarroel, 116, Eixample, 08011 Barcelona, España",
+    "latitude": 41.3861777,
+    "longitude": 2.1557227
+  },
+  {
+    "id": "365-caf--41.392059-2.147868",
+    "name": "365 Café - Villarroel 214",
+    "chain": "365 Café",
+    "address": "Carrer de Villarroel, 214, Eixample, 08036 Barcelona, España",
+    "latitude": 41.392059,
+    "longitude": 2.1478685
+  },
+  {
+    "id": "365-caf--41.380657-2.140345",
+    "name": "365 Café - Viriat 37",
+    "chain": "365 Café",
+    "address": "Carrer de Viriat, 37, Sants-Montjuïc, 08014 Barcelona, España",
+    "latitude": 41.3806571,
+    "longitude": 2.1403447
+  },
+  {
+    "id": "buenas-migas-41.383810-2.177298",
+    "name": "Buenas Migas - Baixada de Santa Clara 2",
+    "chain": "Buenas Migas",
+    "address": "Baixada de Santa Clara, 2, Ciutat Vella, 08002 Barcelona, España",
+    "latitude": 41.3838103,
+    "longitude": 2.1772981
+  },
+  {
+    "id": "buenas-migas-41.410117-2.137342",
+    "name": "Buenas Migas - Balmes 470",
+    "chain": "Buenas Migas",
+    "address": "Carrer de Balmes, 470, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+    "latitude": 41.4101166,
+    "longitude": 2.1373417
+  },
+  {
+    "id": "buenas-migas-41.375598-2.148523",
+    "name": "Buenas Migas - d'Espanya 6",
+    "chain": "Buenas Migas",
+    "address": "Pl. d'Espanya, 6, 8, Sants-Montjuïc, 08014 Barcelona, España",
+    "latitude": 41.3755981,
+    "longitude": 2.148523
+  },
+  {
+    "id": "buenas-migas-41.397571-2.158787",
+    "name": "Buenas Migas - de Gràcia 120",
+    "chain": "Buenas Migas",
+    "address": "Pg. de Gràcia, 120, Gràcia, 08008 Barcelona, España",
+    "latitude": 41.3975713,
+    "longitude": 2.158787
+  },
+  {
+    "id": "buenas-migas-41.402412-2.174280",
+    "name": "Buenas Migas - de la Sagrada Família 17",
+    "chain": "Buenas Migas",
+    "address": "Plaça de la Sagrada Família, 17, Eixample, 08013 Barcelona, España",
+    "latitude": 41.4024119,
+    "longitude": 2.1742801
+  },
+  {
+    "id": "buenas-migas-41.385259-2.163294",
+    "name": "Buenas Migas - de la Universitat 1",
+    "chain": "Buenas Migas",
+    "address": "Pl. de la Universitat, 1, Eixample, 08007 Barcelona, España",
+    "latitude": 41.385259,
+    "longitude": 2.163294
+  },
+  {
+    "id": "buenas-migas-41.383817-2.169634",
+    "name": "Buenas Migas - del Bonsuccés 6",
+    "chain": "Buenas Migas",
+    "address": "Plaça del Bonsuccés, 6, Bajo, Ciutat Vella, 08001 Barcelona, España",
+    "latitude": 41.383817,
+    "longitude": 2.169634
+  },
+  {
+    "id": "buenas-migas-41.375384-2.189576",
+    "name": "Buenas Migas - del Mar 1",
+    "chain": "Buenas Migas",
+    "address": "Plaça del Mar, 1, Ciutat Vella, 08002 Barcelona, España",
+    "latitude": 41.3753843,
+    "longitude": 2.1895759
+  },
+  {
+    "id": "buenas-migas-41.375181-2.161224",
+    "name": "Buenas Migas - del Paral·lel 130",
+    "chain": "Buenas Migas",
+    "address": "Avinguda del Paral·lel, 130, Eixample, 08015 Barcelona, España",
+    "latitude": 41.3751813,
+    "longitude": 2.1612244
+  },
+  {
+    "id": "buenas-migas-41.389044-2.136188",
+    "name": "Buenas Migas - Déu i Mata 69-95",
+    "chain": "Buenas Migas",
+    "address": "Carrer de Déu i Mata, 69-95, Local 111, Les Corts, 08029 Barcelona, España",
+    "latitude": 41.3890438,
+    "longitude": 2.1361881
+  },
+  {
+    "id": "buenas-migas-41.404114-2.191474",
+    "name": "Buenas Migas - Diagonal 197",
+    "chain": "Buenas Migas",
+    "address": "Av. Diagonal, 197, 6, Sant Martí, 08018 Barcelona, España",
+    "latitude": 41.4041144,
+    "longitude": 2.1914743
+  },
+  {
+    "id": "buenas-migas-41.396118-2.156728",
+    "name": "Buenas Migas - Diagonal 466",
+    "chain": "Buenas Migas",
+    "address": "Av. Diagonal, 466, Gràcia, 08006 Barcelona, España",
+    "latitude": 41.396118,
+    "longitude": 2.1567277
+  },
+  {
+    "id": "buenas-migas-41.386970-2.123877",
+    "name": "Buenas Migas - Diagonal 635",
+    "chain": "Buenas Migas",
+    "address": "Av. Diagonal, 635, Les Corts, 08028 Barcelona, España",
+    "latitude": 41.38697,
+    "longitude": 2.1238768
+  },
+  {
+    "id": "buenas-migas-41.393346-2.162054",
+    "name": "Buenas Migas - Mallorca 246",
+    "chain": "Buenas Migas",
+    "address": "Carrer de Mallorca, 246, Eixample, 08008 Barcelona, España",
+    "latitude": 41.3933455,
+    "longitude": 2.1620542
+  },
+  {
+    "id": "buenas-migas-41.389910-2.148765",
+    "name": "Buenas Migas - París 118",
+    "chain": "Buenas Migas",
+    "address": "Carrer de París, 118, Eixample, 08036 Barcelona, España",
+    "latitude": 41.3899097,
+    "longitude": 2.1487654
+  },
+  {
+    "id": "buenas-migas-41.389928-2.174834",
+    "name": "Buenas Migas - Rda. de Sant Pere 27",
+    "chain": "Buenas Migas",
+    "address": "Rda. de Sant Pere, 27, Eixample, 08010 Barcelona, España",
+    "latitude": 41.3899279,
+    "longitude": 2.1748345
+  },
+  {
+    "id": "buenas-migas-41.388623-2.152088",
+    "name": "Buenas Migas - Villarroel 177",
+    "chain": "Buenas Migas",
+    "address": "Carrer de Villarroel, 177, Eixample, 08036 Barcelona, España",
+    "latitude": 41.3886232,
+    "longitude": 2.1520881
+  },
+  {
+    "id": "el-fornet-41.390993-2.131984",
+    "name": "El Fornet - 180 carrer Numància",
+    "chain": "El Fornet",
+    "address": "180 carrer Numància, Carrer de la Nau Santa Maria, 2, 08017 Barcelona, España",
+    "latitude": 41.3909926,
+    "longitude": 2.1319843
+  },
+  {
+    "id": "el-fornet-41.419781-2.157217",
+    "name": "El Fornet - Calderón de la Barca 109",
+    "chain": "El Fornet",
+    "address": "Carrer de Calderón de la Barca, 109, Horta-Guinardó, 08032 Barcelona, España",
+    "latitude": 41.4197807,
+    "longitude": 2.1572169
+  },
+  {
+    "id": "el-fornet-41.436523-2.205098",
+    "name": "El Fornet - Carrer d'Alfarràs 5",
+    "chain": "El Fornet",
+    "address": "Carrer d'Alfarràs, 5, Sant Andreu, 08030 Barcelona, España",
+    "latitude": 41.4365225,
+    "longitude": 2.2050981
+  },
+  {
+    "id": "el-fornet-41.392771-2.165969",
+    "name": "El Fornet - Carrer d'Aragó 284",
+    "chain": "El Fornet",
+    "address": "Carrer d'Aragó, 284, Eixample, 08009 Barcelona, España",
+    "latitude": 41.3927706,
+    "longitude": 2.1659694
+  },
+  {
+    "id": "el-fornet-41.395027-2.150749",
+    "name": "El Fornet - Carrer d'Aribau 224",
+    "chain": "El Fornet",
+    "address": "Carrer d'Aribau, 224, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+    "latitude": 41.395027,
+    "longitude": 2.150749
+  },
+  {
+    "id": "el-fornet-41.397170-2.123530",
+    "name": "El Fornet - Carrer Major de Sarrià 35",
+    "chain": "El Fornet",
+    "address": "Carrer Major de Sarrià, 35, Sarrià-Sant Gervasi, 08017 Barcelona, España",
+    "latitude": 41.3971698,
+    "longitude": 2.1235301
+  },
+  {
+    "id": "el-fornet-41.480616-2.315991",
+    "name": "El Fornet - Carrer Sant Miquel 49",
+    "chain": "El Fornet",
+    "address": "Carrer Sant Miquel, 49, 51, 08320 El Masnou, Barcelona, España",
+    "latitude": 41.4806164,
+    "longitude": 2.3159915
+  },
+  {
+    "id": "el-fornet-41.389517-2.153838",
+    "name": "El Fornet - Casanova 152",
+    "chain": "El Fornet",
+    "address": "Carrer de Casanova, 152, Eixample, 08036 Barcelona, España",
+    "latitude": 41.3895175,
+    "longitude": 2.1538382
+  },
+  {
+    "id": "el-fornet-41.397381-2.181020",
+    "name": "El Fornet - Casp 139",
+    "chain": "El Fornet",
+    "address": "Carrer de Casp, 139, local 3, Eixample, 08013 Barcelona, España",
+    "latitude": 41.3973812,
+    "longitude": 2.1810205
+  },
+  {
+    "id": "el-fornet-41.392117-2.145191",
+    "name": "El Fornet - Comte d'Urgell 259",
+    "chain": "El Fornet",
+    "address": "Carrer del Comte d'Urgell, 259, Eixample, 08036 Barcelona, España",
+    "latitude": 41.3921174,
+    "longitude": 2.145191
+  },
+  {
+    "id": "el-fornet-41.391884-2.166428",
+    "name": "El Fornet - Consell de Cent 355",
+    "chain": "El Fornet",
+    "address": "Carrer del Consell de Cent, 355, Eixample, 08007 Barcelona, España",
+    "latitude": 41.391884,
+    "longitude": 2.166428
+  },
+  {
+    "id": "el-fornet-41.392526-2.161748",
+    "name": "El Fornet - de Catalunya 82",
+    "chain": "El Fornet",
+    "address": "Rambla de Catalunya, 82, Eixample, 08008 Barcelona, España",
+    "latitude": 41.392526,
+    "longitude": 2.161748
+  },
+  {
+    "id": "el-fornet-41.359597-2.100397",
+    "name": "El Fornet - de l'Ajuntament 1",
+    "chain": "El Fornet",
+    "address": "Plaça de l'Ajuntament, 1, 08901 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.359597,
+    "longitude": 2.1003973
+  },
+  {
+    "id": "el-fornet-41.419082-1.999650",
+    "name": "El Fornet - de L'Onze de Setembre 7",
+    "chain": "El Fornet",
+    "address": "Avinguda de L'Onze de Setembre, 7, 08780 Pallejà, Barcelona, España",
+    "latitude": 41.4190823,
+    "longitude": 1.9996495
+  },
+  {
+    "id": "el-fornet-41.401456-2.124519",
+    "name": "El Fornet - de la Bonanova 101",
+    "chain": "El Fornet",
+    "address": "Passeig de la Bonanova, 101, Carrer d'Anglí, 43, 08017 Barcelona, España",
+    "latitude": 41.4014564,
+    "longitude": 2.1245191
+  },
+  {
+    "id": "el-fornet-41.406129-2.133541",
+    "name": "El Fornet - de la Bonanova 9",
+    "chain": "El Fornet",
+    "address": "Pl. de la Bonanova, 9, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+    "latitude": 41.4061291,
+    "longitude": 2.1335405
+  },
+  {
+    "id": "el-fornet-41.386486-2.165555",
+    "name": "El Fornet - de la Univ. 11",
+    "chain": "El Fornet",
+    "address": "Ronda de la Univ., 11, Eixample, 08007 Barcelona, España",
+    "latitude": 41.386486,
+    "longitude": 2.165555
+  },
+  {
+    "id": "el-fornet-41.395989-2.147205",
+    "name": "El Fornet - de Muntaner 272",
+    "chain": "El Fornet",
+    "address": "C/ de Muntaner, 272, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+    "latitude": 41.3959895,
+    "longitude": 2.1472052
+  },
+  {
+    "id": "el-fornet-41.399853-2.142094",
+    "name": "El Fornet - de Muntaner 388",
+    "chain": "El Fornet",
+    "address": "C/ de Muntaner, 388, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+    "latitude": 41.3998531,
+    "longitude": 2.142094
+  },
+  {
+    "id": "el-fornet-41.376970-2.116613",
+    "name": "El Fornet - de Sant Ramon Nonat 21",
+    "chain": "El Fornet",
+    "address": "Av. de Sant Ramon Nonat, 21, Les Corts, 08028 Barcelona, España",
+    "latitude": 41.3769698,
+    "longitude": 2.1166125
+  },
+  {
+    "id": "el-fornet-41.409951-2.136437",
+    "name": "El Fornet - de St. Gervasi 40",
+    "chain": "El Fornet",
+    "address": "Pg. de St. Gervasi, 40, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+    "latitude": 41.4099507,
+    "longitude": 2.1364366
+  },
+  {
+    "id": "el-fornet-41.402870-2.137700",
+    "name": "El Fornet - del General Mitre 141",
+    "chain": "El Fornet",
+    "address": "Ronda del General Mitre, 141, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+    "latitude": 41.4028702,
+    "longitude": 2.1376995
+  },
+  {
+    "id": "el-fornet-41.406166-2.200185",
+    "name": "El Fornet - Diagonal 131",
+    "chain": "El Fornet",
+    "address": "Av. Diagonal, 131, Sant Martí, 08018 Barcelona, España",
+    "latitude": 41.4061656,
+    "longitude": 2.2001854
+  },
+  {
+    "id": "el-fornet-41.395016-2.154483",
+    "name": "El Fornet - Diagonal 411",
+    "chain": "El Fornet",
+    "address": "Av. Diagonal, 411, Eixample, 08008 Barcelona, España",
+    "latitude": 41.395016,
+    "longitude": 2.154483
+  },
+  {
+    "id": "el-fornet-41.387132-2.124381",
+    "name": "El Fornet - Diagonal 633",
+    "chain": "El Fornet",
+    "address": "Av. Diagonal, 633, Les Corts, 08028 Barcelona, España",
+    "latitude": 41.3871316,
+    "longitude": 2.1243805
+  },
+  {
+    "id": "el-fornet-41.390792-2.134744",
+    "name": "El Fornet - Diagonal 644",
+    "chain": "El Fornet",
+    "address": "Av. Diagonal, 644, Les Corts, 08017 Barcelona, España",
+    "latitude": 41.3907919,
+    "longitude": 2.1347443
+  },
+  {
+    "id": "el-fornet-41.388151-2.172190",
+    "name": "El Fornet - Fontanella 15",
+    "chain": "El Fornet",
+    "address": "Carrer de Fontanella, 15, Eixample, 08010 Barcelona, España",
+    "latitude": 41.388151,
+    "longitude": 2.17219
+  },
+  {
+    "id": "el-fornet-41.404782-2.194288",
+    "name": "El Fornet - Llacuna 140",
+    "chain": "El Fornet",
+    "address": "Carrer de la Llacuna, 140, 142, Sant Martí, 08018 Barcelona, España",
+    "latitude": 41.4047819,
+    "longitude": 2.1942885
+  },
+  {
+    "id": "el-fornet-41.395390-2.164438",
+    "name": "El Fornet - Mallorca 279",
+    "chain": "El Fornet",
+    "address": "Carrer de Mallorca, 279, Eixample, 08037 Barcelona, España",
+    "latitude": 41.3953902,
+    "longitude": 2.1644381
+  },
+  {
+    "id": "el-fornet-41.402854-2.134329",
+    "name": "El Fornet - Mandri 26",
+    "chain": "El Fornet",
+    "address": "Carrer de Mandri, 26, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+    "latitude": 41.4028541,
+    "longitude": 2.1343285
+  },
+  {
+    "id": "el-fornet-41.389988-2.125615",
+    "name": "El Fornet - Manila 49",
+    "chain": "El Fornet",
+    "address": "Carrer de Manila, 49, Les Corts, 08034 Barcelona, España",
+    "latitude": 41.3899884,
+    "longitude": 2.1256152
+  },
+  {
+    "id": "el-fornet-41.424114-2.228632",
+    "name": "El Fornet - Mare de Déu del Carme 120",
+    "chain": "El Fornet",
+    "address": "Carrer de la Mare de Déu del Carme, 120, 08930 Sant Adrià de Besòs, Barcelona, España",
+    "latitude": 41.424114,
+    "longitude": 2.2286325
+  },
+  {
+    "id": "el-fornet-41.396726-2.162046",
+    "name": "El Fornet - Pau Claris 190",
+    "chain": "El Fornet",
+    "address": "Carrer de Pau Claris, 190, Eixample, 08037 Barcelona, España",
+    "latitude": 41.3967264,
+    "longitude": 2.1620462
+  },
+  {
+    "id": "el-fornet-41.391016-2.156748",
+    "name": "El Fornet - Provença 224",
+    "chain": "El Fornet",
+    "address": "Carrer de Provença, 224, Eixample, 08006 Barcelona, España",
+    "latitude": 41.391016,
+    "longitude": 2.156748
+  },
+  {
+    "id": "el-fornet-41.393089-2.159505",
+    "name": "El Fornet - Provença 266",
+    "chain": "El Fornet",
+    "address": "Carrer de Provença, 266, Eixample, 08008 Barcelona, España",
+    "latitude": 41.393089,
+    "longitude": 2.159505
+  },
+  {
+    "id": "el-fornet-41.383626-2.146912",
+    "name": "El Fornet - Provença 68",
+    "chain": "El Fornet",
+    "address": "Carrer de Provença, 68, Eixample, 08029 Barcelona, España",
+    "latitude": 41.3836257,
+    "longitude": 2.1469119
+  },
+  {
+    "id": "el-fornet-41.406752-2.207687",
+    "name": "El Fornet - Pujades 316",
+    "chain": "El Fornet",
+    "address": "Carrer de Pujades, 316, Sant Martí, 08019 Barcelona, España",
+    "latitude": 41.4067518,
+    "longitude": 2.207687
+  },
+  {
+    "id": "el-fornet-41.408091-2.209387",
+    "name": "El Fornet - Pujades 362",
+    "chain": "El Fornet",
+    "address": "Carrer de Pujades, 362, Sant Martí, 08019 Barcelona, España",
+    "latitude": 41.4080914,
+    "longitude": 2.2093868
+  },
+  {
+    "id": "el-fornet-41.402359-2.206005",
+    "name": "El Fornet - Ramon Turró 242",
+    "chain": "El Fornet",
+    "address": "Carrer de Ramon Turró, 242, Sant Martí, 08005 Barcelona, España",
+    "latitude": 41.4023587,
+    "longitude": 2.2060047
+  },
+  {
+    "id": "el-fornet-41.384592-2.163674",
+    "name": "El Fornet - Rda. de Sant Antoni 59",
+    "chain": "El Fornet",
+    "address": "Rda. de Sant Antoni, 59, Eixample, 08011 Barcelona, España",
+    "latitude": 41.3845918,
+    "longitude": 2.1636744
+  },
+  {
+    "id": "el-fornet-41.393085-2.169118",
+    "name": "El Fornet - Roger de Llúria 56",
+    "chain": "El Fornet",
+    "address": "Carrer de Roger de Llúria, 56, Eixample, 08009 Barcelona, España",
+    "latitude": 41.3930855,
+    "longitude": 2.1691175
+  },
+  {
+    "id": "el-fornet-41.390260-2.172837",
+    "name": "El Fornet - Roger de Llúria 8",
+    "chain": "El Fornet",
+    "address": "Carrer de Roger de Llúria, 8, Eixample, 08010 Barcelona, España",
+    "latitude": 41.3902599,
+    "longitude": 2.1728371
+  },
+  {
+    "id": "el-fornet-41.394965-2.159722",
+    "name": "El Fornet - Rosselló 228",
+    "chain": "El Fornet",
+    "address": "Carrer del Rosselló, 228, Eixample, 08008 Barcelona, España",
+    "latitude": 41.394965,
+    "longitude": 2.159722
+  },
+  {
+    "id": "el-fornet-41.385291-2.146884",
+    "name": "El Fornet - Rosselló 40",
+    "chain": "El Fornet",
+    "address": "Carrer del Rosselló, 40, Eixample, 08029 Barcelona, España",
+    "latitude": 41.3852913,
+    "longitude": 2.1468842
+  },
+  {
+    "id": "el-fornet-41.523025-2.223721",
+    "name": "El Fornet - Sant Jeroni 13-15",
+    "chain": "El Fornet",
+    "address": "Av. Sant Jeroni, 13-15, 08105 Sant Fost de Campsentelles, Barcelona, España",
+    "latitude": 41.5230253,
+    "longitude": 2.2237215
+  },
+  {
+    "id": "el-fornet-41.393698-2.134278",
+    "name": "El Fornet - Santa Fe de Nou Mèxic 1",
+    "chain": "El Fornet",
+    "address": "Carrer de Santa Fe de Nou Mèxic, 1, Sarrià-Sant Gervasi, 08017 Barcelona, España",
+    "latitude": 41.393698,
+    "longitude": 2.134278
+  },
+  {
+    "id": "el-fornet-41.471652-2.081977",
+    "name": "El Fornet - Santa Maria 42",
+    "chain": "El Fornet",
+    "address": "Carrer de Santa Maria, 42, 08172 Sant Cugat del Vallès, Barcelona, España",
+    "latitude": 41.4716521,
+    "longitude": 2.0819765
+  },
+  {
+    "id": "el-fornet-41.398513-2.152811",
+    "name": "El Fornet - Travessera de Gràcia 101",
+    "chain": "El Fornet",
+    "address": "Travessera de Gràcia, 101, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+    "latitude": 41.3985135,
+    "longitude": 2.1528109
+  },
+  {
+    "id": "el-fornet-41.394175-2.146654",
+    "name": "El Fornet - Travessera de Gràcia 20",
+    "chain": "El Fornet",
+    "address": "Travessera de Gràcia, 20, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+    "latitude": 41.3941746,
+    "longitude": 2.146654
+  },
+  {
+    "id": "el-fornet-41.396465-2.168027",
+    "name": "El Fornet - València 315",
+    "chain": "El Fornet",
+    "address": "Carrer de València, 315, Eixample, 08009 Barcelona, España",
+    "latitude": 41.3964652,
+    "longitude": 2.168027
+  },
+  {
+    "id": "granier-41.387949-2.164271",
+    "name": "Granier - Balmes 25",
+    "chain": "Granier",
+    "address": "Carrer de Balmes, 25, Eixample, 08007 Barcelona, España",
+    "latitude": 41.3879493,
+    "longitude": 2.1642708
+  },
+  {
+    "id": "granier-41.379653-2.161591",
+    "name": "Granier - Comte d'Urgell 5",
+    "chain": "Granier",
+    "address": "Carrer del Comte d'Urgell, 5, Eixample, 08011 Barcelona, España",
+    "latitude": 41.3796531,
+    "longitude": 2.1615912
+  },
+  {
+    "id": "granier-41.382515-2.157755",
+    "name": "Granier - Comte d'Urgell 65",
+    "chain": "Granier",
+    "address": "Carrer del Comte d'Urgell, 65, Eixample, 08011 Barcelona, España",
+    "latitude": 41.3825154,
+    "longitude": 2.157755
+  },
+  {
+    "id": "granier-41.427127-2.155954",
+    "name": "Granier - Dante Alighieri 105",
+    "chain": "Granier",
+    "address": "Carrer de Dante Alighieri, 105, Horta-Guinardó, 08032 Barcelona, España",
+    "latitude": 41.4271275,
+    "longitude": 2.1559539
+  },
+  {
+    "id": "granier-41.430580-2.218886",
+    "name": "Granier - de Catalunya 58",
+    "chain": "Granier",
+    "address": "Av. de Catalunya, 58, 08930 Sant Adrià de Besòs, Barcelona, España",
+    "latitude": 41.4305805,
+    "longitude": 2.2188859
+  },
+  {
+    "id": "granier-41.399917-2.152518",
+    "name": "Granier - de Gal·la Placídia 28",
+    "chain": "Granier",
+    "address": "Plaça de Gal·la Placídia, 28, Gràcia, 08006 Barcelona, España",
+    "latitude": 41.3999168,
+    "longitude": 2.1525179
+  },
+  {
+    "id": "granier-41.449868-2.209891",
+    "name": "Granier - de la Generalitat 30",
+    "chain": "Granier",
+    "address": "Av. de la Generalitat, 30, 08922 Santa Coloma de Gramenet, Barcelona, España",
+    "latitude": 41.4498677,
+    "longitude": 2.2098906
+  },
+  {
+    "id": "granier-41.409542-2.146847",
+    "name": "Granier - de la República Argentina 58",
+    "chain": "Granier",
+    "address": "Av. de la República Argentina, 58, Gràcia, 08023 Barcelona, España",
+    "latitude": 41.4095415,
+    "longitude": 2.1468469
+  },
+  {
+    "id": "granier-41.325167-2.092825",
+    "name": "Granier - de la Verge de Montserrat 138",
+    "chain": "Granier",
+    "address": "Av. de la Verge de Montserrat, 138, Local 2, 08820 El Prat de Llobregat, Barcelona, España",
+    "latitude": 41.3251665,
+    "longitude": 2.092825
+  },
+  {
+    "id": "granier-41.361207-2.138537",
+    "name": "Granier - de la Zona Franca 198",
+    "chain": "Granier",
+    "address": "Pg. de la Zona Franca, 198, Sants-Montjuïc, 08038 Barcelona, España",
+    "latitude": 41.3612075,
+    "longitude": 2.1385373
+  },
+  {
+    "id": "granier-41.412035-2.217585",
+    "name": "Granier - de Prim 27",
+    "chain": "Granier",
+    "address": "Rambla de Prim, 27, Sant Martí, 08019 Barcelona, España",
+    "latitude": 41.4120346,
+    "longitude": 2.2175845
+  },
+  {
+    "id": "granier-41.365027-2.122039",
+    "name": "Granier - del Carrilet 112",
+    "chain": "Granier",
+    "address": "Av. del Carrilet, 112, 08902 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3650268,
+    "longitude": 2.1220394
+  },
+  {
+    "id": "granier-41.381600-2.136012",
+    "name": "Granier - del Centre 6",
+    "chain": "Granier",
+    "address": "Plaça del Centre, 6, Sants-Montjuïc, 08014 Barcelona, España",
+    "latitude": 41.3816004,
+    "longitude": 2.1360117
+  },
+  {
+    "id": "granier-41.374797-2.161187",
+    "name": "Granier - del Paral·lel 115",
+    "chain": "Granier",
+    "address": "Avinguda del Paral·lel, 115, Sants-Montjuïc, 08004 Barcelona, España",
+    "latitude": 41.3747975,
+    "longitude": 2.1611874
+  },
+  {
+    "id": "granier-41.376301-2.135995",
+    "name": "Granier - Galileu 2",
+    "chain": "Granier",
+    "address": "Carrer de Galileu, 2, Sants-Montjuïc, 08028 Barcelona, España",
+    "latitude": 41.3763011,
+    "longitude": 2.1359949
+  },
+  {
+    "id": "granier-41.396933-2.177818",
+    "name": "Granier - Gran Via de les Corts Catalanes 689",
+    "chain": "Granier",
+    "address": "Gran Via de les Corts Catalanes, 689, Eixample, 08013 Barcelona, España",
+    "latitude": 41.3969329,
+    "longitude": 2.1778176
+  },
+  {
+    "id": "granier-41.416408-2.196584",
+    "name": "Granier - Guipúscoa 53",
+    "chain": "Granier",
+    "address": "Carrer de Guipúscoa, 53, Sant Martí, 08020 Barcelona, España",
+    "latitude": 41.4164082,
+    "longitude": 2.196584
+  },
+  {
+    "id": "granier-41.418845-2.199922",
+    "name": "Granier - Guipúscoa 85",
+    "chain": "Granier",
+    "address": "Carrer de Guipúscoa, 85, Sant Martí, 08020 Barcelona, España",
+    "latitude": 41.4188446,
+    "longitude": 2.1999216
+  },
+  {
+    "id": "granier-41.405844-2.169595",
+    "name": "Granier - Indústria 80",
+    "chain": "Granier",
+    "address": "Carrer de la Indústria, 80, Gràcia, 08025 Barcelona, España",
+    "latitude": 41.4058444,
+    "longitude": 2.1695953
+  },
+  {
+    "id": "granier-41.386834-2.112590",
+    "name": "Granier - l'Alfambra 18",
+    "chain": "Granier",
+    "address": "Carrer de l'Alfambra, 18, Les Corts, 08034 Barcelona, España",
+    "latitude": 41.3868335,
+    "longitude": 2.1125897
+  },
+  {
+    "id": "granier-41.438302-2.173235",
+    "name": "Granier - Lorena 105",
+    "chain": "Granier",
+    "address": "Carrer de Lorena, 105, 107, Nou Barris, 08042 Barcelona, España",
+    "latitude": 41.4383016,
+    "longitude": 2.1732354
+  },
+  {
+    "id": "granier-41.427564-2.168157",
+    "name": "Granier - Maragall 320",
+    "chain": "Granier",
+    "address": "Pg. Maragall, 320, Nou Barris, 08031 Barcelona, España",
+    "latitude": 41.4275644,
+    "longitude": 2.1681569
+  },
+  {
+    "id": "granier-41.428503-2.163365",
+    "name": "Granier - Maragall 386",
+    "chain": "Granier",
+    "address": "Pg. Maragall, 386, Horta-Guinardó, 08031 Barcelona, España",
+    "latitude": 41.4285028,
+    "longitude": 2.1633646
+  },
+  {
+    "id": "granier-41.415264-2.180836",
+    "name": "Granier - Maragall 40",
+    "chain": "Granier",
+    "address": "Pg. Maragall, 40, Sant Martí, 08006 Barcelona, España",
+    "latitude": 41.4152642,
+    "longitude": 2.1808365
+  },
+  {
+    "id": "granier-41.373266-2.105961",
+    "name": "Granier - Mare de Déu del Pilar 3",
+    "chain": "Granier",
+    "address": "Plaça Mare de Déu del Pilar, 3, 08906 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3732664,
+    "longitude": 2.1059606
+  },
+  {
+    "id": "granier-41.394528-2.187699",
+    "name": "Granier - Marina 108",
+    "chain": "Granier",
+    "address": "Carrer de la Marina, 108, Sant Martí, 08018 Barcelona, España",
+    "latitude": 41.3945282,
+    "longitude": 2.1876986
+  },
+  {
+    "id": "granier-41.402664-2.177018",
+    "name": "Granier - Marina 244",
+    "chain": "Granier",
+    "address": "Carrer de la Marina, 244, Eixample, 08013 Barcelona, España",
+    "latitude": 41.4026639,
+    "longitude": 2.1770183
+  },
+  {
+    "id": "granier-41.422176-2.187230",
+    "name": "Granier - Meridiana 292",
+    "chain": "Granier",
+    "address": "Avinguda Meridiana, 292, Sant Andreu, 08027 Barcelona, España",
+    "latitude": 41.422176,
+    "longitude": 2.1872301
+  },
+  {
+    "id": "granier-41.429528-2.184002",
+    "name": "Granier - Meridiana 384",
+    "chain": "Granier",
+    "address": "Avinguda Meridiana, 384, Sant Andreu, 08030 Barcelona, España",
+    "latitude": 41.4295282,
+    "longitude": 2.1840021
+  },
+  {
+    "id": "granier-41.367636-2.102214",
+    "name": "Granier - Molí 14",
+    "chain": "Granier",
+    "address": "Carrer del Molí, 14, bajos, 08906 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3676364,
+    "longitude": 2.1022143
+  },
+  {
+    "id": "granier-41.405926-2.163279",
+    "name": "Granier - Pi i Margall 12",
+    "chain": "Granier",
+    "address": "Carrer de Pi i Margall, 12, Gràcia, 08025 Barcelona, España",
+    "latitude": 41.4059265,
+    "longitude": 2.163279
+  },
+  {
+    "id": "granier-41.399446-2.167924",
+    "name": "Granier - Provença 356",
+    "chain": "Granier",
+    "address": "Carrer de Provença, 356, local 2, Eixample, 08037 Barcelona, España",
+    "latitude": 41.3994463,
+    "longitude": 2.1679241
+  },
+  {
+    "id": "granier-41.403432-2.203186",
+    "name": "Granier - Pujades 228",
+    "chain": "Granier",
+    "address": "Carrer de Pujades, 228, Sant Martí, 08005 Barcelona, España",
+    "latitude": 41.4034315,
+    "longitude": 2.2031855
+  },
+  {
+    "id": "granier-41.406040-2.210768",
+    "name": "Granier - Ramon Turró 331",
+    "chain": "Granier",
+    "address": "Carrer de Ramon Turró, 331, Sant Martí, 08019 Barcelona, España",
+    "latitude": 41.4060403,
+    "longitude": 2.2107677
+  },
+  {
+    "id": "granier-41.384569-2.146085",
+    "name": "Granier - Rosselló 26",
+    "chain": "Granier",
+    "address": "Carrer del Rosselló, 26, Eixample, 08029 Barcelona, España",
+    "latitude": 41.3845688,
+    "longitude": 2.1460847
+  },
+  {
+    "id": "granier-41.375364-2.132990",
+    "name": "Granier - Sants 147",
+    "chain": "Granier",
+    "address": "Carrer de Sants, 147, Sants-Montjuïc, 08028 Barcelona, España",
+    "latitude": 41.3753639,
+    "longitude": 2.1329898
+  },
+  {
+    "id": "granier-41.375472-2.127653",
+    "name": "Granier - Sants 323",
+    "chain": "Granier",
+    "address": "Carrer de Sants, 323, Sants-Montjuïc, 08028 Barcelona, España",
+    "latitude": 41.3754723,
+    "longitude": 2.1276534
+  },
+  {
+    "id": "granier-41.384157-2.163502",
+    "name": "Granier - Sepulveda 187",
+    "chain": "Granier",
+    "address": "C/Sepulveda, 187, LC-02, 08011 Barcelona, España",
+    "latitude": 41.3841574,
+    "longitude": 2.1635015
+  },
+  {
+    "id": "granier-41.408590-2.152005",
+    "name": "Granier - Trav. de Dalt 21",
+    "chain": "Granier",
+    "address": "Trav. de Dalt, 21, Gràcia, 08024 Barcelona, España",
+    "latitude": 41.4085901,
+    "longitude": 2.1520053
+  },
+  {
+    "id": "granier-41.386915-2.134989",
+    "name": "Granier - Travessera de les Corts 293",
+    "chain": "Granier",
+    "address": "Travessera de les Corts, 293, Les Corts, 08014 Barcelona, España",
+    "latitude": 41.3869154,
+    "longitude": 2.1349891
+  },
+  {
+    "id": "granier-41.439984-2.176346",
+    "name": "Granier - Via Júlia 32",
+    "chain": "Granier",
+    "address": "Via Júlia, 32, Nou Barris, 08016 Barcelona, España",
+    "latitude": 41.4399836,
+    "longitude": 2.1763457
+  },
+  {
+    "id": "sandwichez-41.394107-2.169461",
+    "name": "Sandwichez - Bruc 71",
+    "chain": "Sandwichez",
+    "address": "Carrer del Bruc, 71, Eixample, 08009 Barcelona, España",
+    "latitude": 41.3941073,
+    "longitude": 2.1694612
+  },
+  {
+    "id": "sandwichez-41.405027-2.161141",
+    "name": "Sandwichez - Bruniquer 33",
+    "chain": "Sandwichez",
+    "address": "Carrer de Bruniquer, 33, 35, Gràcia, 08024 Barcelona, España",
+    "latitude": 41.405027,
+    "longitude": 2.1611405
+  },
+  {
+    "id": "sandwichez-41.389009-2.126413",
+    "name": "Sandwichez - C. del Capitán Arenas 3",
+    "chain": "Sandwichez",
+    "address": "C. del Capitán Arenas, 3, Les Corts, 08034 Barcelona, España",
+    "latitude": 41.3890085,
+    "longitude": 2.1264134
+  },
+  {
+    "id": "sandwichez-41.396397-2.142917",
+    "name": "Sandwichez - Carrer d'Amigó 63",
+    "chain": "Sandwichez",
+    "address": "Carrer d'Amigó, 63, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+    "latitude": 41.3963971,
+    "longitude": 2.1429173
+  },
+  {
+    "id": "sandwichez-41.388468-2.159681",
+    "name": "Sandwichez - Carrer d'Aragó 205",
+    "chain": "Sandwichez",
+    "address": "Carrer d'Aragó, 205, Eixample, 08011 Barcelona, España",
+    "latitude": 41.3884677,
+    "longitude": 2.1596806
+  },
+  {
+    "id": "sandwichez-41.381577-2.180352",
+    "name": "Sandwichez - Carrer d'en Gignàs 25",
+    "chain": "Sandwichez",
+    "address": "Carrer d'en Gignàs, 25, Ciutat Vella, 08002 Barcelona, España",
+    "latitude": 41.3815774,
+    "longitude": 2.1803516
+  },
+  {
+    "id": "sandwichez-41.387812-2.134035",
+    "name": "Sandwichez - Carrer Numància 147",
+    "chain": "Sandwichez",
+    "address": "Carrer Numància, 147, Les Corts, 08029 Barcelona, España",
+    "latitude": 41.387812,
+    "longitude": 2.1340348
+  },
+  {
+    "id": "sandwichez-41.390819-2.172311",
+    "name": "Sandwichez - Casp 31",
+    "chain": "Sandwichez",
+    "address": "Carrer de Casp, 31, Eixample, 08010 Barcelona, España",
+    "latitude": 41.3908188,
+    "longitude": 2.172311
+  },
+  {
+    "id": "sandwichez-41.390143-2.143905",
+    "name": "Sandwichez - de Josep Tarradellas 116",
+    "chain": "Sandwichez",
+    "address": "Av. de Josep Tarradellas, 116, Eixample, 08029 Barcelona, España",
+    "latitude": 41.3901432,
+    "longitude": 2.1439054
+  },
+  {
+    "id": "sandwichez-41.399286-2.119564",
+    "name": "Sandwichez - de la Reina Elisenda de Montcada 16 bis",
+    "chain": "Sandwichez",
+    "address": "Passeig de la Reina Elisenda de Montcada, 16 bis, Sarrià-Sant Gervasi, 08034 Barcelona, España",
+    "latitude": 41.3992863,
+    "longitude": 2.1195644
+  },
+  {
+    "id": "sandwichez-41.408246-2.147325",
+    "name": "Sandwichez - de la República Argentina 31",
+    "chain": "Sandwichez",
+    "address": "Av. de la República Argentina, 31, Sarrià-Sant Gervasi, 08023 Barcelona, España",
+    "latitude": 41.408246,
+    "longitude": 2.1473249
+  },
+  {
+    "id": "sandwichez-41.405577-2.177749",
+    "name": "Sandwichez - de Padilla 236",
+    "chain": "Sandwichez",
+    "address": "C/ de Padilla, 236, Eixample, 08013 Barcelona, España",
+    "latitude": 41.4055768,
+    "longitude": 2.1777488
+  },
+  {
+    "id": "sandwichez-41.393441-2.177901",
+    "name": "Sandwichez - de St. Joan 34",
+    "chain": "Sandwichez",
+    "address": "Pg. de St. Joan, 34, Eixample, 08010 Barcelona, España",
+    "latitude": 41.3934407,
+    "longitude": 2.1779009
+  },
+  {
+    "id": "sandwichez-41.377072-2.151258",
+    "name": "Sandwichez - Gran Via de les Corts Catalanes 403",
+    "chain": "Sandwichez",
+    "address": "Gran Via de les Corts Catalanes, 403, Eixample, 08015 Barcelona, España",
+    "latitude": 41.3770724,
+    "longitude": 2.1512582
+  },
+  {
+    "id": "sandwichez-41.389301-2.156339",
+    "name": "Sandwichez - Mallorca 179",
+    "chain": "Sandwichez",
+    "address": "Carrer de Mallorca, 179, Eixample, 08036 Barcelona, España",
+    "latitude": 41.3893013,
+    "longitude": 2.1563389
+  },
+  {
+    "id": "sandwichez-41.392658-2.158936",
+    "name": "Sandwichez - Provença 258",
+    "chain": "Sandwichez",
+    "address": "Carrer de Provença, 258, Eixample, 08008 Barcelona, España",
+    "latitude": 41.3926577,
+    "longitude": 2.1589363
+  },
+  {
+    "id": "sandwichez-41.381880-2.163269",
+    "name": "Sandwichez - Rda. de Sant Antoni 35",
+    "chain": "Sandwichez",
+    "address": "Rda. de Sant Antoni, 35, Eixample, 08011 Barcelona, España",
+    "latitude": 41.38188,
+    "longitude": 2.163269
+  },
+  {
+    "id": "sandwichez-41.380741-2.151530",
+    "name": "Sandwichez - Rocafort 112",
+    "chain": "Sandwichez",
+    "address": "Carrer de Rocafort, 112, Eixample, 08015 Barcelona, España",
+    "latitude": 41.3807405,
+    "longitude": 2.1515299
+  },
+  {
+    "id": "sandwichez-41.389149-2.174762",
+    "name": "Sandwichez - Trafalgar 11",
+    "chain": "Sandwichez",
+    "address": "Carrer de Trafalgar, 11, Eixample, 08010 Barcelona, España",
+    "latitude": 41.389149,
+    "longitude": 2.1747618
+  },
+  {
+    "id": "sandwichez-41.394127-2.146626",
+    "name": "Sandwichez - Travessera de Gràcia 18",
+    "chain": "Sandwichez",
+    "address": "Travessera de Gràcia, 18, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+    "latitude": 41.3941269,
+    "longitude": 2.1466262
+  },
+  {
+    "id": "sandwichez-41.387600-2.136149",
+    "name": "Sandwichez - Travessera de les Corts 305",
+    "chain": "Sandwichez",
+    "address": "Travessera de les Corts, 305, Les Corts, 08029 Barcelona, España",
+    "latitude": 41.3876004,
+    "longitude": 2.1361487
+  },
+  {
+    "id": "sandwichez-41.400503-2.146004",
+    "name": "Sandwichez - Via Augusta 117",
+    "chain": "Sandwichez",
+    "address": "Via Augusta, 117, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+    "latitude": 41.4005026,
+    "longitude": 2.1460042
+  },
+  {
+    "id": "santagloria-41.374313-2.123966",
+    "name": "Santagloria - Bassegoda 56",
+    "chain": "Santagloria",
+    "address": "Carrer de Bassegoda, 56, Sants-Montjuïc, 08028 Barcelona, España",
+    "latitude": 41.3743128,
+    "longitude": 2.1239655
+  },
+  {
+    "id": "santagloria-41.346892-2.077589",
+    "name": "Santagloria - C.C. Splau",
+    "chain": "Santagloria",
+    "address": "C.C. Splau, Av. del Baix Llobregat, s/n, 08940 Cornellà de Llobregat, Barcelona, España",
+    "latitude": 41.3468924,
+    "longitude": 2.0775885
+  },
+  {
+    "id": "santagloria-41.383830-2.149733",
+    "name": "Santagloria - Calàbria 188",
+    "chain": "Santagloria",
+    "address": "Carrer de Calàbria, 188, Eixample, 08029 Barcelona, España",
+    "latitude": 41.3838303,
+    "longitude": 2.1497329
+  },
+  {
+    "id": "santagloria-41.376001-2.111720",
+    "name": "Santagloria - Carr. de Collblanc 146",
+    "chain": "Santagloria",
+    "address": "Carr. de Collblanc, 146, Les Corts, 08028 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3760007,
+    "longitude": 2.1117198
+  },
+  {
+    "id": "santagloria-41.394871-2.168113",
+    "name": "Santagloria - Carrer d'Aragó 307",
+    "chain": "Santagloria",
+    "address": "Carrer d'Aragó, 307, Eixample, 08009 Barcelona, España",
+    "latitude": 41.3948713,
+    "longitude": 2.1681126
+  },
+  {
+    "id": "santagloria-41.389311-2.158471",
+    "name": "Santagloria - Carrer d'Aribau 72",
+    "chain": "Santagloria",
+    "address": "Carrer d'Aribau, 72, Eixample, 08011 Barcelona, España",
+    "latitude": 41.3893107,
+    "longitude": 2.1584709
+  },
+  {
+    "id": "santagloria-41.397069-2.123619",
+    "name": "Santagloria - Carrer Major de Sarrià 27",
+    "chain": "Santagloria",
+    "address": "Carrer Major de Sarrià, 27, Sarrià-Sant Gervasi, 08017 Barcelona, España",
+    "latitude": 41.3970686,
+    "longitude": 2.1236187
+  },
+  {
+    "id": "santagloria-41.407161-2.179808",
+    "name": "Santagloria - Cartagena 230",
+    "chain": "Santagloria",
+    "address": "Carrer de Cartagena, 230, Eixample, 08013 Barcelona, España",
+    "latitude": 41.4071614,
+    "longitude": 2.1798084
+  },
+  {
+    "id": "santagloria-41.377581-2.099314",
+    "name": "Santagloria - Comercial Finestrelles",
+    "chain": "Santagloria",
+    "address": "Comercial Finestrelles, Carrer de Sant Mateu, 9 Centro, Local PS03, 08950 Esplugues de Llobregat, Barcelona, España",
+    "latitude": 41.3775809,
+    "longitude": 2.0993137
+  },
+  {
+    "id": "santagloria-41.389836-2.148707",
+    "name": "Santagloria - Comte d'Urgell 238",
+    "chain": "Santagloria",
+    "address": "Carrer del Comte d'Urgell, 238, Eixample, 08036 Barcelona, España",
+    "latitude": 41.3898364,
+    "longitude": 2.1487068
+  },
+  {
+    "id": "santagloria-41.413140-2.194893",
+    "name": "Santagloria - Concili de Trento 59",
+    "chain": "Santagloria",
+    "address": "Carrer del Concili de Trento, 59, Sant Martí, 08018 Barcelona, España",
+    "latitude": 41.41314,
+    "longitude": 2.194893
+  },
+  {
+    "id": "santagloria-41.411663-2.138752",
+    "name": "Santagloria - Craywinckel 24",
+    "chain": "Santagloria",
+    "address": "Carrer de Craywinckel, 24, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+    "latitude": 41.4116629,
+    "longitude": 2.1387521
+  },
+  {
+    "id": "santagloria-41.430111-2.179711",
+    "name": "Santagloria - de Fabra i Puig 143",
+    "chain": "Santagloria",
+    "address": "Pg. de Fabra i Puig, 143, Nou Barris, 08016 Barcelona, España",
+    "latitude": 41.4301114,
+    "longitude": 2.1797113
+  },
+  {
+    "id": "santagloria-41.399413-2.153061",
+    "name": "Santagloria - de Gal·la Placídia 16",
+    "chain": "Santagloria",
+    "address": "Plaça de Gal·la Placídia, 16, Gràcia, 08006 Barcelona, España",
+    "latitude": 41.3994129,
+    "longitude": 2.1530606
+  },
+  {
+    "id": "santagloria-41.383611-2.142196",
+    "name": "Santagloria - de Josep Tarradellas 37",
+    "chain": "Santagloria",
+    "address": "Av. de Josep Tarradellas, 37, Sants-Montjuïc, 08029 Barcelona, España",
+    "latitude": 41.3836113,
+    "longitude": 2.1421965
+  },
+  {
+    "id": "santagloria-41.403331-2.127249",
+    "name": "Santagloria - de la Bonanova 56",
+    "chain": "Santagloria",
+    "address": "Pg. de la Bonanova, 56, Sarrià-Sant Gervasi, 08017 Barcelona, España",
+    "latitude": 41.4033314,
+    "longitude": 2.1272492
+  },
+  {
+    "id": "santagloria-41.359398-2.130510",
+    "name": "Santagloria - de la Granvia de l'Hospitalet 75",
+    "chain": "Santagloria",
+    "address": "Avinguda de la Granvia de l'Hospitalet, 75, Gran Via, 2, Centro Comercial, 08908 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3593984,
+    "longitude": 2.1305098
+  },
+  {
+    "id": "santagloria-41.379003-2.128871",
+    "name": "Santagloria - de Madrid 122",
+    "chain": "Santagloria",
+    "address": "Av. de Madrid, 122, Sants-Montjuïc, 08028 Barcelona, España",
+    "latitude": 41.3790028,
+    "longitude": 2.1288715
+  },
+  {
+    "id": "santagloria-41.381793-2.135122",
+    "name": "Santagloria - de Madrid 215",
+    "chain": "Santagloria",
+    "address": "Av. de Madrid, 215, Les Corts, 08014 Barcelona, España",
+    "latitude": 41.3817926,
+    "longitude": 2.1351221
+  },
+  {
+    "id": "santagloria-41.420232-2.180258",
+    "name": "Santagloria - de Maragall 8",
+    "chain": "Santagloria",
+    "address": "Plaça de Maragall, 8, Local 1, Horta-Guinardó, 08041 Barcelona, España",
+    "latitude": 41.4202323,
+    "longitude": 2.180258
+  },
+  {
+    "id": "santagloria-41.395089-2.148671",
+    "name": "Santagloria - de Muntaner 254",
+    "chain": "Santagloria",
+    "address": "C/ de Muntaner, 254, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+    "latitude": 41.3950891,
+    "longitude": 2.1486711
+  },
+  {
+    "id": "santagloria-41.401407-2.139630",
+    "name": "Santagloria - de Muntaner 449",
+    "chain": "Santagloria",
+    "address": "C/ de Muntaner, 449, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+    "latitude": 41.4014066,
+    "longitude": 2.13963
+  },
+  {
+    "id": "santagloria-41.450325-2.213124",
+    "name": "Santagloria - de Sant Sebastià 62",
+    "chain": "Santagloria",
+    "address": "Rambla de Sant Sebastià, 62, 08922 Santa Coloma de Gramenet, Barcelona, España",
+    "latitude": 41.4503255,
+    "longitude": 2.2131244
+  },
+  {
+    "id": "santagloria-41.450191-2.207278",
+    "name": "Santagloria - de Santa Coloma 11",
+    "chain": "Santagloria",
+    "address": "Avinguda de Santa Coloma, 11, 08921 Santa Coloma de Gramenet, Barcelona, España",
+    "latitude": 41.4501912,
+    "longitude": 2.207278
+  },
+  {
+    "id": "santagloria-41.391851-2.132508",
+    "name": "Santagloria - de Sarrià 137",
+    "chain": "Santagloria",
+    "address": "Av. de Sarrià, 137, Les Corts, 08017 Barcelona, España",
+    "latitude": 41.3918511,
+    "longitude": 2.1325082
+  },
+  {
+    "id": "santagloria-41.433762-2.173088",
+    "name": "Santagloria - Doctor Pi i Molist 86",
+    "chain": "Santagloria",
+    "address": "Carrer del Doctor Pi i Molist, 86, Nou Barris, 08016 Barcelona, España",
+    "latitude": 41.4337618,
+    "longitude": 2.1730883
+  },
+  {
+    "id": "santagloria-41.401509-2.121176",
+    "name": "Santagloria - esquina Dolors Montserdà",
+    "chain": "Santagloria",
+    "address": "esquina Dolors Montserdà, Via Augusta, 349 - 355, Sarrià-Sant Gervasi, 08017 Barcelona, España",
+    "latitude": 41.4015087,
+    "longitude": 2.1211757
+  },
+  {
+    "id": "santagloria-41.361797-2.105342",
+    "name": "Santagloria - Farga",
+    "chain": "Santagloria",
+    "address": "La Farga, Carrer de Barcelona, 2, 08901 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3617967,
+    "longitude": 2.1053424
+  },
+  {
+    "id": "santagloria-41.392173-2.139159",
+    "name": "Santagloria - Ganduxer 8",
+    "chain": "Santagloria",
+    "address": "Carrer de Ganduxer, 8, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+    "latitude": 41.3921726,
+    "longitude": 2.1391586
+  },
+  {
+    "id": "santagloria-41.393676-2.126424",
+    "name": "Santagloria - i Mateu",
+    "chain": "Santagloria",
+    "address": "i Mateu, Carrer de Benet Mateu, 44, Sarrià-Sant Gervasi, 08034 Barcelona, España",
+    "latitude": 41.3936755,
+    "longitude": 2.1264239
+  },
+  {
+    "id": "santagloria-41.382492-2.131776",
+    "name": "Santagloria - Joan Güell 134",
+    "chain": "Santagloria",
+    "address": "Carrer de Joan Güell, 134, Les Corts, 08028 Barcelona, España",
+    "latitude": 41.3824921,
+    "longitude": 2.1317759
+  },
+  {
+    "id": "santagloria-41.422034-2.186475",
+    "name": "Santagloria - Meridiana 267",
+    "chain": "Santagloria",
+    "address": "Avinguda Meridiana, 267, Sant Andreu, 08027 Barcelona, España",
+    "latitude": 41.4220338,
+    "longitude": 2.1864754
+  },
+  {
+    "id": "santagloria-41.394033-2.142789",
+    "name": "Santagloria - Mestre Nicolau 17",
+    "chain": "Santagloria",
+    "address": "Carrer del Mestre Nicolau, 17, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+    "latitude": 41.3940325,
+    "longitude": 2.1427886
+  },
+  {
+    "id": "santagloria-41.391058-2.169537",
+    "name": "Santagloria - Pau Claris 100",
+    "chain": "Santagloria",
+    "address": "Carrer de Pau Claris, 100, Eixample, 08009 Barcelona, España",
+    "latitude": 41.3910578,
+    "longitude": 2.169537
+  },
+  {
+    "id": "santagloria-41.447499-2.245583",
+    "name": "Santagloria - Plana 8",
+    "chain": "Santagloria",
+    "address": "Plaça Plana, 8, 08912 Badalona, Barcelona, España",
+    "latitude": 41.4474987,
+    "longitude": 2.2455826
+  },
+  {
+    "id": "santagloria-41.386787-2.151099",
+    "name": "Santagloria - Provença 136",
+    "chain": "Santagloria",
+    "address": "Carrer de Provença, 136, Eixample, 08029 Barcelona, España",
+    "latitude": 41.3867869,
+    "longitude": 2.151099
+  },
+  {
+    "id": "santagloria-41.400542-2.169385",
+    "name": "Santagloria - Provença 378",
+    "chain": "Santagloria",
+    "address": "Carrer de Provença, 378, Eixample, 08037 Barcelona, España",
+    "latitude": 41.4005423,
+    "longitude": 2.1693849
+  },
+  {
+    "id": "santagloria-41.305842-2.006670",
+    "name": "Santagloria - Rbla. de Maria Casas 73",
+    "chain": "Santagloria",
+    "address": "Rbla. de Maria Casas, 73, 08850 Gavà, Barcelona, España",
+    "latitude": 41.3058419,
+    "longitude": 2.0066702
+  },
+  {
+    "id": "santagloria-41.393345-2.157692",
+    "name": "Santagloria - Rosselló 200",
+    "chain": "Santagloria",
+    "address": "Carrer del Rosselló, 200, Eixample, 08008 Barcelona, España",
+    "latitude": 41.3933447,
+    "longitude": 2.1576924
+  },
+  {
+    "id": "santagloria-41.386398-2.124300",
+    "name": "Santagloria - Sabino Arana 48",
+    "chain": "Santagloria",
+    "address": "Carrer de Sabino Arana, 48, Les Corts, 08028 Barcelona, España",
+    "latitude": 41.3863982,
+    "longitude": 2.1243001
+  },
+  {
+    "id": "santagloria-41.411345-2.174837",
+    "name": "Santagloria - Sant Antoni Maria Claret 224",
+    "chain": "Santagloria",
+    "address": "Carrer de Sant Antoni Maria Claret, 224, Eixample, 08025 Barcelona, España",
+    "latitude": 41.4113454,
+    "longitude": 2.174837
+  },
+  {
+    "id": "santagloria-41.405456-2.166883",
+    "name": "Santagloria - Sant Antoni Maria Claret 50",
+    "chain": "Santagloria",
+    "address": "Carrer de Sant Antoni Maria Claret, 50, Gràcia, 08025 Barcelona, España",
+    "latitude": 41.405456,
+    "longitude": 2.1668828
+  },
+  {
+    "id": "santagloria-41.393902-2.123341",
+    "name": "Santagloria - Santa Amèlia 31",
+    "chain": "Santagloria",
+    "address": "Carrer de Santa Amèlia, 31, Sarrià-Sant Gervasi, 08034 Barcelona, España",
+    "latitude": 41.3939016,
+    "longitude": 2.1233413
+  },
+  {
+    "id": "santagloria-41.377187-2.098447",
+    "name": "Santagloria - Shopping Center",
+    "chain": "Santagloria",
+    "address": "Shopping Center, Centro Comercial Finestrelles, Carrer de Laureà Miró, 20, 08950 Esplugues de Llobregat, Barcelona, España",
+    "latitude": 41.3771871,
+    "longitude": 2.0984465
+  },
+  {
+    "id": "santagloria-41.378776-2.144313",
+    "name": "Santagloria - Tarragona 161",
+    "chain": "Santagloria",
+    "address": "Carrer de Tarragona, 161, Sants-Montjuïc, 08014 Barcelona, España",
+    "latitude": 41.3787759,
+    "longitude": 2.144313
+  },
+  {
+    "id": "santagloria-41.405864-2.138155",
+    "name": "Santagloria - Teodora Lamadrid 2",
+    "chain": "Santagloria",
+    "address": "Carrer de Teodora Lamadrid, 2, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+    "latitude": 41.4058636,
+    "longitude": 2.1381546
+  },
+  {
+    "id": "santagloria-41.397318-2.151125",
+    "name": "Santagloria - Travessera de Gràcia 83",
+    "chain": "Santagloria",
+    "address": "Travessera de Gràcia, 83, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+    "latitude": 41.3973178,
+    "longitude": 2.1511251
+  },
+  {
+    "id": "santagloria-41.388049-2.137425",
+    "name": "Santagloria - Travessera de les Corts 306",
+    "chain": "Santagloria",
+    "address": "Travessera de les Corts, 306, Les Corts, 08029 Barcelona, España",
+    "latitude": 41.3880494,
+    "longitude": 2.1374251
+  },
+  {
+    "id": "santagloria-41.394885-2.131345",
+    "name": "Santagloria - Tres Torres 4",
+    "chain": "Santagloria",
+    "address": "Carrer de les Tres Torres, 4, Sarrià-Sant Gervasi, 08017 Barcelona, España",
+    "latitude": 41.3948854,
+    "longitude": 2.1313451
+  },
+  {
+    "id": "santagloria-41.437333-2.161691",
+    "name": "Santagloria - Universal 31",
+    "chain": "Santagloria",
+    "address": "Passeig Universal, 31, Horta-Guinardó, 08031 Barcelona, España",
+    "latitude": 41.4373334,
+    "longitude": 2.1616908
+  },
+  {
+    "id": "santagloria-41.401380-2.148177",
+    "name": "Santagloria - Via Augusta 114",
+    "chain": "Santagloria",
+    "address": "Via Augusta, 114, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+    "latitude": 41.4013801,
+    "longitude": 2.1481768
+  },
+  {
+    "id": "santagloria-41.397944-2.130565",
+    "name": "Santagloria - Via Augusta 280",
+    "chain": "Santagloria",
+    "address": "Via Augusta, 280, Sarrià-Sant Gervasi, 08017 Barcelona, España",
+    "latitude": 41.3979439,
+    "longitude": 2.1305648
+  },
+  {
+    "id": "vivari-41.389937-2.175755",
+    "name": "Vivari - Àtic",
+    "chain": "Vivari",
+    "address": "Àtic, Rda. de Sant Pere, 40, 08010 Barcelona, España",
+    "latitude": 41.3899371,
+    "longitude": 2.1757548
+  },
+  {
+    "id": "vivari-41.391370-2.178235",
+    "name": "Vivari - Bailèn 2",
+    "chain": "Vivari",
+    "address": "Carrer de Bailèn, 2, Eixample, 08010 Barcelona, España",
+    "latitude": 41.3913701,
+    "longitude": 2.178235
+  },
+  {
+    "id": "vivari-41.392416-2.158189",
+    "name": "Vivari - Balmes 119",
+    "chain": "Vivari",
+    "address": "Carrer de Balmes, 119, Eixample, 08008 Barcelona, España",
+    "latitude": 41.3924157,
+    "longitude": 2.1581889
+  },
+  {
+    "id": "vivari-41.398772-2.150759",
+    "name": "Vivari - Balmes 221",
+    "chain": "Vivari",
+    "address": "Carrer de Balmes, 221, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+    "latitude": 41.3987724,
+    "longitude": 2.1507595
+  },
+  {
+    "id": "vivari-41.402791-2.144239",
+    "name": "Vivari - Balmes 319",
+    "chain": "Vivari",
+    "address": "Carrer de Balmes, 319, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+    "latitude": 41.402791,
+    "longitude": 2.1442387
+  },
+  {
+    "id": "vivari-41.382514-2.137729",
+    "name": "Vivari - Berlín 16",
+    "chain": "Vivari",
+    "address": "Carrer de Berlín, 16, Sants-Montjuïc, 08014 Barcelona, España",
+    "latitude": 41.3825137,
+    "longitude": 2.1377286
+  },
+  {
+    "id": "vivari-41.404697-2.201184",
+    "name": "Vivari - Bilbao 84",
+    "chain": "Vivari",
+    "address": "Carrer de Bilbao, 84, Sant Martí, 08005 Barcelona, España",
+    "latitude": 41.4046968,
+    "longitude": 2.2011842
+  },
+  {
+    "id": "vivari-41.397115-2.179061",
+    "name": "Vivari - C. de Sicília 135",
+    "chain": "Vivari",
+    "address": "C. de Sicília, 135, Eixample, 08013 Barcelona, España",
+    "latitude": 41.3971146,
+    "longitude": 2.1790613
+  },
+  {
+    "id": "vivari-41.398435-2.146508",
+    "name": "Vivari - Carrer d'Aribau 249",
+    "chain": "Vivari",
+    "address": "Carrer d'Aribau, 249, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+    "latitude": 41.3984354,
+    "longitude": 2.146508
+  },
+  {
+    "id": "vivari-41.375772-2.125123",
+    "name": "Vivari - Carrer d'Arizala 2",
+    "chain": "Vivari",
+    "address": "Carrer d'Arizala, 2, Sants-Montjuïc, 08028 Barcelona, España",
+    "latitude": 41.3757716,
+    "longitude": 2.1251234
+  },
+  {
+    "id": "vivari-41.394643-2.180509",
+    "name": "Vivari - Carrer d'Ausiàs Marc 82",
+    "chain": "Vivari",
+    "address": "Carrer d'Ausiàs Marc, 82, Eixample, 08013 Barcelona, España",
+    "latitude": 41.3946429,
+    "longitude": 2.1805089
+  },
+  {
+    "id": "vivari-41.386652-2.178531",
+    "name": "Vivari - Carrer d'En Giralt el Pellicer 24",
+    "chain": "Vivari",
+    "address": "Carrer d'En Giralt el Pellicer, 24, Ciutat Vella, 08003 Barcelona, España",
+    "latitude": 41.3866517,
+    "longitude": 2.1785312
+  },
+  {
+    "id": "vivari-41.362941-2.110372",
+    "name": "Vivari - Carrer d'Enric Prat de la Riba 125",
+    "chain": "Vivari",
+    "address": "Carrer d'Enric Prat de la Riba, 125, 08901 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3629406,
+    "longitude": 2.1103724
+  },
+  {
+    "id": "vivari-41.384197-2.144881",
+    "name": "Vivari - Carrer d'Entença 178",
+    "chain": "Vivari",
+    "address": "Carrer d'Entença, 178, Eixample, 08029 Barcelona, España",
+    "latitude": 41.384197,
+    "longitude": 2.1448809
+  },
+  {
+    "id": "vivari-41.417420-2.188784",
+    "name": "Vivari - Carrer d'Espronceda 330",
+    "chain": "Vivari",
+    "address": "Carrer d'Espronceda, 330, Sant Andreu, 08027 Barcelona, España",
+    "latitude": 41.4174197,
+    "longitude": 2.1887843
+  },
+  {
+    "id": "vivari-41.415949-2.196128",
+    "name": "Vivari - Carrer Dr. Zamenhof 1",
+    "chain": "Vivari",
+    "address": "Carrer Dr. Zamenhof, 1, Sant Martí, 08020 Barcelona, España",
+    "latitude": 41.4159493,
+    "longitude": 2.1961284
+  },
+  {
+    "id": "vivari-41.397915-2.122873",
+    "name": "Vivari - Carrer Major de Sarrià 60",
+    "chain": "Vivari",
+    "address": "Carrer Major de Sarrià, 60, Sarrià-Sant Gervasi, 08017 Barcelona, España",
+    "latitude": 41.3979152,
+    "longitude": 2.1228734
+  },
+  {
+    "id": "vivari-41.450339-2.219387",
+    "name": "Vivari - Carrer Mossèn Jacint Verdaguer 150",
+    "chain": "Vivari",
+    "address": "Carrer Mossèn Jacint Verdaguer, 150, 08923 Santa Coloma de Gramenet, Barcelona, España",
+    "latitude": 41.4503391,
+    "longitude": 2.2193869
+  },
+  {
+    "id": "vivari-41.366508-2.127067",
+    "name": "Vivari - Carrer Pareto 10",
+    "chain": "Vivari",
+    "address": "Carrer Pareto, 10, 08902 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3665082,
+    "longitude": 2.1270668
+  },
+  {
+    "id": "vivari-41.408104-2.188236",
+    "name": "Vivari - Clot 59",
+    "chain": "Vivari",
+    "address": "Carrer del Clot, 59, Sant Martí, 08018 Barcelona, España",
+    "latitude": 41.4081035,
+    "longitude": 2.1882357
+  },
+  {
+    "id": "vivari-41.423341-2.155566",
+    "name": "Vivari - Conca de Tremp 22",
+    "chain": "Vivari",
+    "address": "Carrer de la Conca de Tremp, 22, Horta-Guinardó, 08032 Barcelona, España",
+    "latitude": 41.4233411,
+    "longitude": 2.1555663
+  },
+  {
+    "id": "vivari-41.414510-2.196086",
+    "name": "Vivari - Concili de Trento 89",
+    "chain": "Vivari",
+    "address": "Carrer del Concili de Trento, 89, Sant Martí, 08020 Barcelona, España",
+    "latitude": 41.4145098,
+    "longitude": 2.1960865
+  },
+  {
+    "id": "vivari-41.375595-2.143484",
+    "name": "Vivari - Consell de Cent 11",
+    "chain": "Vivari",
+    "address": "Carrer del Consell de Cent, 11, Sants-Montjuïc, 08014 Barcelona, España",
+    "latitude": 41.3755947,
+    "longitude": 2.1434836
+  },
+  {
+    "id": "vivari-41.392036-2.166659",
+    "name": "Vivari - Consell de Cent 357",
+    "chain": "Vivari",
+    "address": "Carrer del Consell de Cent, 357, Eixample, 08007 Barcelona, España",
+    "latitude": 41.3920361,
+    "longitude": 2.1666585
+  },
+  {
+    "id": "vivari-41.399482-2.162976",
+    "name": "Vivari - Còrsega 381",
+    "chain": "Vivari",
+    "address": "Carrer de Còrsega, 381, Gràcia, 08037 Barcelona, España",
+    "latitude": 41.3994818,
+    "longitude": 2.1629764
+  },
+  {
+    "id": "vivari-41.356656-2.127626",
+    "name": "Vivari - d'Europa 21",
+    "chain": "Vivari",
+    "address": "Pl. d'Europa, 21, 08908 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3566555,
+    "longitude": 2.1276256
+  },
+  {
+    "id": "vivari-41.435830-2.191317",
+    "name": "Vivari - d'Orfila 6",
+    "chain": "Vivari",
+    "address": "Plaça d'Orfila, 6, Sant Andreu, 08030 Barcelona, España",
+    "latitude": 41.4358298,
+    "longitude": 2.1913175
+  },
+  {
+    "id": "vivari-41.427492-2.157110",
+    "name": "Vivari - Dante Alighieri 82",
+    "chain": "Vivari",
+    "address": "Carrer de Dante Alighieri, 82, Horta-Guinardó, 08032 Barcelona, España",
+    "latitude": 41.4274918,
+    "longitude": 2.1571103
+  },
+  {
+    "id": "vivari-41.535635-2.114504",
+    "name": "Vivari - de Barberà 08203",
+    "chain": "Vivari",
+    "address": "Av. de Barberà, 08203 Sabadell, Barcelona, España",
+    "latitude": 41.5356348,
+    "longitude": 2.114504
+  },
+  {
+    "id": "vivari-41.492446-2.030997",
+    "name": "Vivari - de Catalunya 4",
+    "chain": "Vivari",
+    "address": "Plaça de Catalunya, 4, 08191 Rubí, Barcelona, España",
+    "latitude": 41.4924456,
+    "longitude": 2.0309968
+  },
+  {
+    "id": "vivari-41.492998-2.145179",
+    "name": "Vivari - de Catalunya 52",
+    "chain": "Vivari",
+    "address": "Av. de Catalunya, 52, 08290 Cerdanyola del Vallès, Barcelona, España",
+    "latitude": 41.4929983,
+    "longitude": 2.1451788
+  },
+  {
+    "id": "vivari-41.375485-2.086268",
+    "name": "Vivari - de Cornellà 38",
+    "chain": "Vivari",
+    "address": "Av. de Cornellà, 38, 08950 Esplugues de Llobregat, Barcelona, España",
+    "latitude": 41.3754847,
+    "longitude": 2.0862684
+  },
+  {
+    "id": "vivari-41.382939-2.142074",
+    "name": "Vivari - de Josep Tarradellas 27",
+    "chain": "Vivari",
+    "address": "Av. de Josep Tarradellas, 27, Sants-Montjuïc, 08029 Barcelona, España",
+    "latitude": 41.3829389,
+    "longitude": 2.1420742
+  },
+  {
+    "id": "vivari-41.429970-2.191295",
+    "name": "Vivari - de l'Onze de Setembre 43",
+    "chain": "Vivari",
+    "address": "Rambla de l'Onze de Setembre, 43, 49, Sant Andreu, 08030 Barcelona, España",
+    "latitude": 41.4299702,
+    "longitude": 2.1912947
+  },
+  {
+    "id": "vivari-41.405538-2.131707",
+    "name": "Vivari - de la Bonanova 25",
+    "chain": "Vivari",
+    "address": "Pg. de la Bonanova, 25, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+    "latitude": 41.4055377,
+    "longitude": 2.1317069
+  },
+  {
+    "id": "vivari-41.406070-2.133640",
+    "name": "Vivari - de la Bonanova 9",
+    "chain": "Vivari",
+    "address": "Pl. de la Bonanova, 9, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+    "latitude": 41.4060703,
+    "longitude": 2.1336396
+  },
+  {
+    "id": "vivari-41.418875-2.172351",
+    "name": "Vivari - de la Mare de Déu de Montserrat 158-162",
+    "chain": "Vivari",
+    "address": "Av. de la Mare de Déu de Montserrat, 158-162, Horta-Guinardó, 08041 Barcelona, España",
+    "latitude": 41.4188753,
+    "longitude": 2.1723513
+  },
+  {
+    "id": "vivari-41.414630-2.164603",
+    "name": "Vivari - de la Mare de Déu de Montserrat 62",
+    "chain": "Vivari",
+    "address": "Av. de la Mare de Déu de Montserrat, 62, Horta-Guinardó, 08024 Barcelona, España",
+    "latitude": 41.4146302,
+    "longitude": 2.1646034
+  },
+  {
+    "id": "vivari-41.490631-2.145634",
+    "name": "Vivari - de la Primavera 11-15",
+    "chain": "Vivari",
+    "address": "Av. de la Primavera, 11-15, 08290 Cerdanyola del Vallès, Barcelona, España",
+    "latitude": 41.4906306,
+    "longitude": 2.1456338
+  },
+  {
+    "id": "vivari-41.430126-2.218391",
+    "name": "Vivari - de la Vila 11",
+    "chain": "Vivari",
+    "address": "Pl. de la Vila, 11, 08930 Sant Adrià de Besòs, Barcelona, España",
+    "latitude": 41.4301263,
+    "longitude": 2.2183914
+  },
+  {
+    "id": "vivari-41.357335-2.140190",
+    "name": "Vivari - de la Zona Franca 109",
+    "chain": "Vivari",
+    "address": "Pg. de la Zona Franca, 109, Sants-Montjuïc, 08038 Barcelona, España",
+    "latitude": 41.3573352,
+    "longitude": 2.1401898
+  },
+  {
+    "id": "vivari-41.381526-2.135335",
+    "name": "Vivari - de Madrid 222",
+    "chain": "Vivari",
+    "address": "Av. de Madrid, 222, Sants-Montjuïc, 08014 Barcelona, España",
+    "latitude": 41.3815258,
+    "longitude": 2.1353353
+  },
+  {
+    "id": "vivari-41.396299-2.146438",
+    "name": "Vivari - de Muntaner 281",
+    "chain": "Vivari",
+    "address": "C/ de Muntaner, 281, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+    "latitude": 41.3962986,
+    "longitude": 2.1464381
+  },
+  {
+    "id": "vivari-41.383877-2.152209",
+    "name": "Vivari - de Roma 94",
+    "chain": "Vivari",
+    "address": "Avinguda de Roma, 94, Eixample, 08015 Barcelona, España",
+    "latitude": 41.3838771,
+    "longitude": 2.152209
+  },
+  {
+    "id": "vivari-41.410310-2.137622",
+    "name": "Vivari - de St. Gervasi 44",
+    "chain": "Vivari",
+    "address": "Pg. de St. Gervasi, 44, Sarrià-Sant Gervasi, 08022 Barcelona, España",
+    "latitude": 41.4103102,
+    "longitude": 2.1376223
+  },
+  {
+    "id": "vivari-41.401060-2.166902",
+    "name": "Vivari - de St. Joan 129",
+    "chain": "Vivari",
+    "address": "Pg. de St. Joan, 129, Eixample, 08037 Barcelona, España",
+    "latitude": 41.4010602,
+    "longitude": 2.1669025
+  },
+  {
+    "id": "vivari-41.438779-2.168835",
+    "name": "Vivari - de Valldaura 174",
+    "chain": "Vivari",
+    "address": "Pg. de Valldaura, 174, Nou Barris, 08042 Barcelona, España",
+    "latitude": 41.4387786,
+    "longitude": 2.1688347
+  },
+  {
+    "id": "vivari-41.378016-2.129293",
+    "name": "Vivari - del Brasil 37",
+    "chain": "Vivari",
+    "address": "Rambla del Brasil, 37, Sants-Montjuïc, 08028 Barcelona, España",
+    "latitude": 41.3780164,
+    "longitude": 2.1292931
+  },
+  {
+    "id": "vivari-41.400079-2.135240",
+    "name": "Vivari - del General Mitre 92",
+    "chain": "Vivari",
+    "address": "Ronda del General Mitre, 92, Sarrià-Sant Gervasi, 08021 Barcelona, España",
+    "latitude": 41.4000787,
+    "longitude": 2.1352397
+  },
+  {
+    "id": "vivari-41.374769-2.160657",
+    "name": "Vivari - del Paral·lel 119",
+    "chain": "Vivari",
+    "address": "Avinguda del Paral·lel, 119, Sants-Montjuïc, 08004 Barcelona, España",
+    "latitude": 41.3747686,
+    "longitude": 2.1606567
+  },
+  {
+    "id": "vivari-41.370749-2.115451",
+    "name": "Vivari - del Torrent Gornal 44",
+    "chain": "Vivari",
+    "address": "Avinguda del Torrent Gornal, 44, 08904 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3707491,
+    "longitude": 2.1154511
+  },
+  {
+    "id": "vivari-41.409633-2.215544",
+    "name": "Vivari - Diagonal 3",
+    "chain": "Vivari",
+    "address": "Av. Diagonal, 3, Sant Martí, 08019 Barcelona, España",
+    "latitude": 41.4096335,
+    "longitude": 2.2155439
+  },
+  {
+    "id": "vivari-41.394785-2.153215",
+    "name": "Vivari - Diagonal 421",
+    "chain": "Vivari",
+    "address": "Av. Diagonal, 421, Eixample, 08008 Barcelona, España",
+    "latitude": 41.3947847,
+    "longitude": 2.1532151
+  },
+  {
+    "id": "vivari-41.385245-2.160796",
+    "name": "Vivari - Diputació 188",
+    "chain": "Vivari",
+    "address": "Carrer de la Diputació, 188, Eixample, 08011 Barcelona, España",
+    "latitude": 41.3852448,
+    "longitude": 2.1607957
+  },
+  {
+    "id": "vivari-41.397767-2.176652",
+    "name": "Vivari - Diputació 399",
+    "chain": "Vivari",
+    "address": "Carrer de la Diputació, 399, Eixample, 08013 Barcelona, España",
+    "latitude": 41.3977667,
+    "longitude": 2.1766521
+  },
+  {
+    "id": "vivari-41.381270-2.154752",
+    "name": "Vivari - Diputació 79",
+    "chain": "Vivari",
+    "address": "Carrer de la Diputació, 79, Eixample, 08015 Barcelona, España",
+    "latitude": 41.3812703,
+    "longitude": 2.154752
+  },
+  {
+    "id": "vivari-41.431317-2.174468",
+    "name": "Vivari - Doctor Pi i Molist 22",
+    "chain": "Vivari",
+    "address": "Carrer del Doctor Pi i Molist, 22, Nou Barris, 08016 Barcelona, España",
+    "latitude": 41.4313167,
+    "longitude": 2.1744678
+  },
+  {
+    "id": "vivari-41.407315-2.181863",
+    "name": "Vivari - dos de Maig 236",
+    "chain": "Vivari",
+    "address": "Carrer del dos de Maig, 236, Sant Martí, 08013 Barcelona, España",
+    "latitude": 41.4073153,
+    "longitude": 2.1818627
+  },
+  {
+    "id": "vivari-41.399909-2.177730",
+    "name": "Vivari - ES",
+    "chain": "Vivari",
+    "address": "ES, Carrer del Consell de Cent, 480, Eixample, 08013 Barcelona, España",
+    "latitude": 41.399909,
+    "longitude": 2.1777296
+  },
+  {
+    "id": "vivari-41.384772-2.172219",
+    "name": "Vivari - ES Barcelona Barcelona",
+    "chain": "Vivari",
+    "address": "ES Barcelona Barcelona, Carrer de la Canuda, 25, bajos, 08002, España",
+    "latitude": 41.3847724,
+    "longitude": 2.1722193
+  },
+  {
+    "id": "vivari-41.419141-2.180436",
+    "name": "Vivari - España",
+    "chain": "Vivari",
+    "address": "España, Barcelona, Horta-Guinardó, Pg. Maragall, 邮政编码: 08041",
+    "latitude": 41.419141,
+    "longitude": 2.1804356
+  },
+  {
+    "id": "vivari-41.434908-2.172103",
+    "name": "Vivari - España",
+    "chain": "Vivari",
+    "address": "España, Barcelona, Nou Barris, Carrer del Doctor Pi i Molist, 邮政编码: 08031",
+    "latitude": 41.4349078,
+    "longitude": 2.1721032
+  },
+  {
+    "id": "vivari-41.366177-2.134276",
+    "name": "Vivari - España",
+    "chain": "Vivari",
+    "address": "España, Barcelona, Sants-Montjuïc, Rambla de Badal, 邮政编码: 08014",
+    "latitude": 41.3661774,
+    "longitude": 2.1342765
+  },
+  {
+    "id": "vivari-41.395225-2.173148",
+    "name": "Vivari - España",
+    "chain": "Vivari",
+    "address": "España, Barcelona, Eixample, Carrer de Bailèn, 邮政编码: 08009",
+    "latitude": 41.3952249,
+    "longitude": 2.1731479
+  },
+  {
+    "id": "vivari-41.394983-2.168217",
+    "name": "Vivari - España",
+    "chain": "Vivari",
+    "address": "España, Barcelona, Eixample, Carrer d'Aragó, 邮政编码: 08009",
+    "latitude": 41.3949828,
+    "longitude": 2.1682167
+  },
+  {
+    "id": "vivari-41.387647-2.151788",
+    "name": "Vivari - España",
+    "chain": "Vivari",
+    "address": "España, Barcelona, Eixample, Carrer de Provença, 邮政编码: 08036",
+    "latitude": 41.387647,
+    "longitude": 2.1517878
+  },
+  {
+    "id": "vivari-41.397299-2.167499",
+    "name": "Vivari - España",
+    "chain": "Vivari",
+    "address": "España, Barcelona, Eixample, Carrer de Mallorca, 邮政编码: 08037",
+    "latitude": 41.3972987,
+    "longitude": 2.1674995
+  },
+  {
+    "id": "vivari-41.450840-2.209839",
+    "name": "Vivari - España",
+    "chain": "Vivari",
+    "address": "España, Barcelona, Santa Coloma de Gramenet, Rambla de Sant Sebastià, 邮政编码: 08922",
+    "latitude": 41.4508397,
+    "longitude": 2.2098387
+  },
+  {
+    "id": "vivari-41.398736-2.170893",
+    "name": "Vivari - España",
+    "chain": "Vivari",
+    "address": "España, Barcelona, Eixample, Pg. de St. Joan, 邮政编码: 08009",
+    "latitude": 41.3987361,
+    "longitude": 2.1708927
+  },
+  {
+    "id": "vivari-41.390066-2.153325",
+    "name": "Vivari - España",
+    "chain": "Vivari",
+    "address": "España, Barcelona, Eixample, Carrer del Rosselló, 邮政编码: 08036",
+    "latitude": 41.3900657,
+    "longitude": 2.1533248
+  },
+  {
+    "id": "vivari-41.370457-2.138685",
+    "name": "Vivari - Gavà",
+    "chain": "Vivari",
+    "address": "Carrer de Gavà, Sants-Montjuïc, 08014 Barcelona, España",
+    "latitude": 41.3704565,
+    "longitude": 2.1386845
+  },
+  {
+    "id": "vivari-41.398689-2.166335",
+    "name": "Vivari - Girona 146",
+    "chain": "Vivari",
+    "address": "Carrer de Girona, 146, Eixample, 08037 Barcelona, España",
+    "latitude": 41.3986894,
+    "longitude": 2.1663345
+  },
+  {
+    "id": "vivari-41.381880-2.127906",
+    "name": "Vivari - Gran Via de Carles III 41",
+    "chain": "Vivari",
+    "address": "Gran Via de Carles III, 41, Les Corts, 08028 Barcelona, España",
+    "latitude": 41.3818804,
+    "longitude": 2.1279065
+  },
+  {
+    "id": "vivari-41.366780-2.138570",
+    "name": "Vivari - Gran Via de les Corts Catalanes 164",
+    "chain": "Vivari",
+    "address": "Gran Via de les Corts Catalanes, 164, Sants-Montjuïc, 08038 Barcelona, España",
+    "latitude": 41.3667803,
+    "longitude": 2.1385695
+  },
+  {
+    "id": "vivari-41.368630-2.141068",
+    "name": "Vivari - Gran Via de les Corts Catalanes 196",
+    "chain": "Vivari",
+    "address": "Gran Via de les Corts Catalanes, 196, Sants-Montjuïc, 08004 Barcelona, España",
+    "latitude": 41.3686296,
+    "longitude": 2.141068
+  },
+  {
+    "id": "vivari-41.371215-2.143464",
+    "name": "Vivari - Gran Via de les Corts Catalanes 269",
+    "chain": "Vivari",
+    "address": "Gran Via de les Corts Catalanes, 269, Sants-Montjuïc, 08014 Barcelona, España",
+    "latitude": 41.3712146,
+    "longitude": 2.1434635
+  },
+  {
+    "id": "vivari-41.373635-2.146764",
+    "name": "Vivari - Gran Via de les Corts Catalanes 347",
+    "chain": "Vivari",
+    "address": "Gran Via de les Corts Catalanes, 347, Sants-Montjuïc, 08014 Barcelona, España",
+    "latitude": 41.3736347,
+    "longitude": 2.1467644
+  },
+  {
+    "id": "vivari-41.375736-2.150505",
+    "name": "Vivari - Gran Via de les Corts Catalanes 384",
+    "chain": "Vivari",
+    "address": "Gran Via de les Corts Catalanes, 384, Eixample, 08015 Barcelona, España",
+    "latitude": 41.3757359,
+    "longitude": 2.1505051
+  },
+  {
+    "id": "vivari-41.382204-2.159076",
+    "name": "Vivari - Gran Via de les Corts Catalanes 524",
+    "chain": "Vivari",
+    "address": "Gran Via de les Corts Catalanes, 524, Eixample, 08011 Barcelona, España",
+    "latitude": 41.3822036,
+    "longitude": 2.1590757
+  },
+  {
+    "id": "vivari-41.420256-2.201936",
+    "name": "Vivari - Guipúscoa 107",
+    "chain": "Vivari",
+    "address": "Carrer de Guipúscoa, 107, Sant Martí, 08020 Barcelona, España",
+    "latitude": 41.4202562,
+    "longitude": 2.2019364
+  },
+  {
+    "id": "vivari-41.411459-2.178748",
+    "name": "Vivari - Independència 352",
+    "chain": "Vivari",
+    "address": "Carrer de la Independència, 352, Sant Martí, 08026 Barcelona, España",
+    "latitude": 41.4114591,
+    "longitude": 2.1787483
+  },
+  {
+    "id": "vivari-41.414916-2.181131",
+    "name": "Vivari - Indústria 279",
+    "chain": "Vivari",
+    "address": "Carrer de la Indústria, 279, Sant Martí, 08041 Barcelona, España",
+    "latitude": 41.4149157,
+    "longitude": 2.1811315
+  },
+  {
+    "id": "vivari-41.386632-2.129496",
+    "name": "Vivari - Joan Güell",
+    "chain": "Vivari",
+    "address": "Carrer de Joan Güell, Les Corts, 08028 Barcelona, España",
+    "latitude": 41.3866316,
+    "longitude": 2.1294956
+  },
+  {
+    "id": "vivari-41.363151-2.100372",
+    "name": "Vivari - Just Oliveras 62",
+    "chain": "Vivari",
+    "address": "Rambla Just Oliveras, 62, 08901 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3631512,
+    "longitude": 2.1003715
+  },
+  {
+    "id": "vivari-41.361172-2.123159",
+    "name": "Vivari - l'Aprestadora 128",
+    "chain": "Vivari",
+    "address": "Carrer de l'Aprestadora, 128, 08902 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.361172,
+    "longitude": 2.1231594
+  },
+  {
+    "id": "vivari-41.391133-2.158713",
+    "name": "Vivari - Mallorca 215",
+    "chain": "Vivari",
+    "address": "Carrer de Mallorca, 215, Eixample, 08008 Barcelona, España",
+    "latitude": 41.3911333,
+    "longitude": 2.1587132
+  },
+  {
+    "id": "vivari-41.404220-2.176588",
+    "name": "Vivari - Mallorca 436",
+    "chain": "Vivari",
+    "address": "Carrer de Mallorca, 436, Eixample, 08013 Barcelona, España",
+    "latitude": 41.4042197,
+    "longitude": 2.1765877
+  },
+  {
+    "id": "vivari-41.447683-2.249693",
+    "name": "Vivari - Mar 116",
+    "chain": "Vivari",
+    "address": "Carrer de Mar, 116, 08911 Badalona, Barcelona, España",
+    "latitude": 41.4476834,
+    "longitude": 2.2496935
+  },
+  {
+    "id": "vivari-41.422547-2.178572",
+    "name": "Vivari - Maragall 167",
+    "chain": "Vivari",
+    "address": "Pg. Maragall, 167, Horta-Guinardó, 08042 Barcelona, España",
+    "latitude": 41.4225473,
+    "longitude": 2.178572
+  },
+  {
+    "id": "vivari-41.425882-2.174247",
+    "name": "Vivari - Maragall 243",
+    "chain": "Vivari",
+    "address": "Pg. Maragall, 243, Horta-Guinardó, 08032 Barcelona, España",
+    "latitude": 41.4258822,
+    "longitude": 2.1742465
+  },
+  {
+    "id": "vivari-41.360615-2.140283",
+    "name": "Vivari - Mare de Déu de Port 246",
+    "chain": "Vivari",
+    "address": "Carrer de la Mare de Déu de Port, 246, Sants-Montjuïc, 08038 Barcelona, España",
+    "latitude": 41.3606149,
+    "longitude": 2.140283
+  },
+  {
+    "id": "vivari-41.393663-2.188796",
+    "name": "Vivari - Marina 94",
+    "chain": "Vivari",
+    "address": "Carrer de la Marina, 94, Sant Martí, 08018 Barcelona, España",
+    "latitude": 41.3936632,
+    "longitude": 2.1887964
+  },
+  {
+    "id": "vivari-41.393643-2.186558",
+    "name": "Vivari - Meridiana 19",
+    "chain": "Vivari",
+    "address": "Avinguda Meridiana, 19, Sant Martí, 08018 Barcelona, España",
+    "latitude": 41.3936432,
+    "longitude": 2.1865582
+  },
+  {
+    "id": "vivari-41.426504-2.186058",
+    "name": "Vivari - Meridiana 342",
+    "chain": "Vivari",
+    "address": "Avinguda Meridiana, 342, Sant Andreu, 08027 Barcelona, España",
+    "latitude": 41.4265044,
+    "longitude": 2.1860583
+  },
+  {
+    "id": "vivari-41.429993-2.182791",
+    "name": "Vivari - Meridiana 387",
+    "chain": "Vivari",
+    "address": "Avinguda Meridiana, 387, Nou Barris, 08016 Barcelona, España",
+    "latitude": 41.4299928,
+    "longitude": 2.1827909
+  },
+  {
+    "id": "vivari-41.431614-2.183537",
+    "name": "Vivari - Meridiana 408",
+    "chain": "Vivari",
+    "address": "Avinguda Meridiana, 408, Sant Andreu, 08030 Barcelona, España",
+    "latitude": 41.4316142,
+    "longitude": 2.1835374
+  },
+  {
+    "id": "vivari-41.430214-2.142384",
+    "name": "Vivari - Montbau 2B",
+    "chain": "Vivari",
+    "address": "Carrer de Montbau, 2B, Horta-Guinardó, 08035 Barcelona, España",
+    "latitude": 41.4302135,
+    "longitude": 2.1423839
+  },
+  {
+    "id": "vivari-41.371289-2.121578",
+    "name": "Vivari - Montseny 76",
+    "chain": "Vivari",
+    "address": "Carrer del Montseny, 76, 08903 L'Hospitalet de Llobregat, Barcelona, España",
+    "latitude": 41.3712886,
+    "longitude": 2.1215778
+  },
+  {
+    "id": "vivari-41.417389-2.184510",
+    "name": "Vivari - Navas de Tolosa 314",
+    "chain": "Vivari",
+    "address": "Carrer de las Navas de Tolosa, 314, 326, Sant Andreu, 08027 Barcelona, España",
+    "latitude": 41.4173889,
+    "longitude": 2.1845099
+  },
+  {
+    "id": "vivari-41.386177-2.138013",
+    "name": "Vivari - Nicaragua 116",
+    "chain": "Vivari",
+    "address": "Carrer de Nicaragua, 116, Les Corts, 08029 Barcelona, España",
+    "latitude": 41.3861767,
+    "longitude": 2.138013
+  },
+  {
+    "id": "vivari-41.443301-2.181258",
+    "name": "Vivari - Nou Barris 08016",
+    "chain": "Vivari",
+    "address": "Nou Barris, 08016 Barcelona, España",
+    "latitude": 41.4433014,
+    "longitude": 2.1812579
+  },
+  {
+    "id": "vivari-41.391561-2.168967",
+    "name": "Vivari - Pau Claris 108",
+    "chain": "Vivari",
+    "address": "Carrer de Pau Claris, 108, Eixample, 08009 Barcelona, España",
+    "latitude": 41.3915613,
+    "longitude": 2.1689674
+  },
+  {
+    "id": "vivari-41.410617-2.164614",
+    "name": "Vivari - Pi i Margall 100",
+    "chain": "Vivari",
+    "address": "Carrer de Pi i Margall, 100, Horta-Guinardó, 08025 Barcelona, España",
+    "latitude": 41.4106168,
+    "longitude": 2.1646144
+  },
+  {
+    "id": "vivari-41.442038-2.197643",
+    "name": "Vivari - Potosí 2",
+    "chain": "Vivari",
+    "address": "Carrer de Potosí, 2, Sant Andreu, 08020 Barcelona, España",
+    "latitude": 41.4420377,
+    "longitude": 2.1976425
+  },
+  {
+    "id": "vivari-41.393471-2.159826",
+    "name": "Vivari - Provença",
+    "chain": "Vivari",
+    "address": "Carrer de Provença, Eixample, 08008 Barcelona, España",
+    "latitude": 41.3934713,
+    "longitude": 2.1598265
+  },
+  {
+    "id": "vivari-41.376128-2.121968",
+    "name": "Vivari - Riera Blanca 19",
+    "chain": "Vivari",
+    "address": "Carrer de la Riera Blanca, 19, Les Corts, 08028 Barcelona, España",
+    "latitude": 41.376128,
+    "longitude": 2.121968
+  },
+  {
+    "id": "vivari-41.368063-2.131785",
+    "name": "Vivari - Riera Blanca 191",
+    "chain": "Vivari",
+    "address": "Carrer de la Riera Blanca, 191, Sants-Montjuïc, 08014 Barcelona, España",
+    "latitude": 41.3680633,
+    "longitude": 2.1317853
+  },
+  {
+    "id": "vivari-41.385334-2.125412",
+    "name": "Vivari - Sabino Arana 20",
+    "chain": "Vivari",
+    "address": "Carrer de Sabino Arana, 20, Les Corts, 08028 Barcelona, España",
+    "latitude": 41.3853344,
+    "longitude": 2.1254116
+  },
+  {
+    "id": "vivari-41.408725-2.171302",
+    "name": "Vivari - Sant Antoni Maria Claret 154",
+    "chain": "Vivari",
+    "address": "Carrer de Sant Antoni Maria Claret, 154, Eixample, 08025 Barcelona, España",
+    "latitude": 41.4087253,
+    "longitude": 2.1713018
+  },
+  {
+    "id": "vivari-41.564338-2.012139",
+    "name": "Vivari - Sant Pere 46",
+    "chain": "Vivari",
+    "address": "Carrer de Sant Pere, 46, 3er 2a, 08221 Terrassa, Barcelona, España",
+    "latitude": 41.5643378,
+    "longitude": 2.0121386
+  },
+  {
+    "id": "vivari-41.376123-2.157868",
+    "name": "Vivari - Tamarit 104",
+    "chain": "Vivari",
+    "address": "Carrer de Tamarit, 104, Eixample, 08015 Barcelona, España",
+    "latitude": 41.3761234,
+    "longitude": 2.1578676
+  },
+  {
+    "id": "vivari-41.379291-2.144756",
+    "name": "Vivari - Tarragona 98",
+    "chain": "Vivari",
+    "address": "Carrer de Tarragona, 98, Eixample, 08015 Barcelona, España",
+    "latitude": 41.379291,
+    "longitude": 2.1447564
+  },
+  {
+    "id": "vivari-41.408050-2.150759",
+    "name": "Vivari - Trav. de Dalt 1",
+    "chain": "Vivari",
+    "address": "Trav. de Dalt, 1, Gràcia, 08024 Barcelona, España",
+    "latitude": 41.4080501,
+    "longitude": 2.1507588
+  },
+  {
+    "id": "vivari-41.385750-2.132950",
+    "name": "Vivari - Travessera de les Corts 265",
+    "chain": "Vivari",
+    "address": "Travessera de les Corts, 265, Les Corts, 08014 Barcelona, España",
+    "latitude": 41.3857504,
+    "longitude": 2.1329499
+  },
+  {
+    "id": "vivari-41.411531-2.188067",
+    "name": "Vivari - València 633",
+    "chain": "Vivari",
+    "address": "Carrer de València, 633, Sant Martí, 08026 Barcelona, España",
+    "latitude": 41.4115311,
+    "longitude": 2.1880672
+  },
+  {
+    "id": "vivari-41.469233-2.080204",
+    "name": "Vivari - Valldoreix 28",
+    "chain": "Vivari",
+    "address": "Carrer de Valldoreix, 28, 08172 Sant Cugat del Vallès, Barcelona, España",
+    "latitude": 41.4692326,
+    "longitude": 2.0802036
+  },
+  {
+    "id": "vivari-41.404191-2.156595",
+    "name": "Vivari - Verdi 40",
+    "chain": "Vivari",
+    "address": "Carrer de Verdi, 40, Gràcia, 08012 Barcelona, España",
+    "latitude": 41.4041914,
+    "longitude": 2.1565949
+  },
+  {
+    "id": "vivari-41.399335-2.143686",
+    "name": "Vivari - Via Augusta 164",
+    "chain": "Vivari",
+    "address": "Via Augusta, 164, Sarrià-Sant Gervasi, 08006 Barcelona, España",
+    "latitude": 41.3993355,
+    "longitude": 2.1436863
+  },
+  {
+    "id": "vivari-41.397482-2.132207",
+    "name": "Vivari - Via Augusta 261",
+    "chain": "Vivari",
+    "address": "Via Augusta, 261, Sarrià-Sant Gervasi, 08017 Barcelona, España",
+    "latitude": 41.397482,
+    "longitude": 2.1322073
+  },
+  {
+    "id": "vivari-41.396205-2.155557",
+    "name": "Vivari - Via Augusta 4",
+    "chain": "Vivari",
+    "address": "Via Augusta, 4, Gràcia, 08006 Barcelona, España",
+    "latitude": 41.3962053,
+    "longitude": 2.1555567
+  },
+  {
+    "id": "vivari-41.444325-2.179131",
+    "name": "Vivari - Via Júlia 146",
+    "chain": "Vivari",
+    "address": "Via Júlia, 146, Nou Barris, 08016 Barcelona, España",
+    "latitude": 41.444325,
+    "longitude": 2.1791307
+  },
+  {
+    "id": "vivari-41.387644-2.173659",
+    "name": "Vivari - Via Laietana 59",
+    "chain": "Vivari",
+    "address": "Via Laietana, 59, Ciutat Vella, 08003 Barcelona, España",
+    "latitude": 41.3876439,
+    "longitude": 2.1736589
+  },
+  {
+    "id": "vivari-41.386280-2.148305",
+    "name": "Vivari - Viladomat",
+    "chain": "Vivari",
+    "address": "Carrer de Viladomat, Eixample, 08029 Barcelona, España",
+    "latitude": 41.38628,
+    "longitude": 2.1483049
+  }
+]

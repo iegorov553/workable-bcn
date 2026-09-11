@@ -39,3 +39,15 @@ yarn-error.*
 # generated native folders
 /ios
 /android
+
+# Local research, exported bundles, credentials and release binaries
+tmp/
+builds/
+*.aab
+*.apk
+google-service-account*.json
+credentials.json
+
+# Goldie generated assets
+goldie/out/
+

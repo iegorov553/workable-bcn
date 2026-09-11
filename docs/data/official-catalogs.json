@@ -1,0 +1,2914 @@
+{
+  "checkedAt": "2026-09-11",
+  "region": {
+    "south": 41.3,
+    "north": 41.6,
+    "west": 1.9,
+    "east": 2.3
+  },
+  "sourceUrls": {
+    "365 Café": "https://365obrador.com/es/encuentranos/",
+    "Granier": "https://pansgranier.com/donde-estamos/",
+    "Santagloria": "https://www.santagloria.com/nuestros-locales",
+    "El Fornet": "https://elfornet.com/tiendas",
+    "Sandwichez": "https://www.sandwichez.com/locales",
+    "Buenas Migas": "https://www.buenasmigas.com/",
+    "Vivari": "https://vivari.es/"
+  },
+  "records": [
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Pau Claris, 119",
+      "address": "Carrer Pau Claris, 119, Barcelona",
+      "latitude": 41.3921919,
+      "longitude": 2.167479,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9553"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Ronda de la Universitat, 7",
+      "address": "Ronda de la Universitat, 7, Barcelona",
+      "latitude": 41.3863784,
+      "longitude": 2.165318,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9468"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Comtal, 18",
+      "address": "Carrer Comtal, 18, Barcelona",
+      "latitude": 41.3864954,
+      "longitude": 2.1733298,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9481"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer dels Tallers, 71",
+      "address": "Carrer dels Tallers, 71, Barcelona",
+      "latitude": 41.384837,
+      "longitude": 2.166918,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9535"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer dels Tallers, 7",
+      "address": "Carrer dels Tallers, 7, Barcelona",
+      "latitude": 41.3845995,
+      "longitude": 2.1698634,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9558"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Vía Layetana, 48",
+      "address": "Vía Layetana, 48, Barcelona",
+      "latitude": 41.3866793,
+      "longitude": 2.175382,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9548"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Aragó, 228",
+      "address": "Carrer Aragó, 228, Barcelona",
+      "latitude": 41.3893582,
+      "longitude": 2.1615441,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9515"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer del Carme, 8",
+      "address": "Carrer del Carme, 8, Barcelona",
+      "latitude": 41.3828822,
+      "longitude": 2.1709866,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9547"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Valencia, 227",
+      "address": "Carrer de Valencia, 227, Barcelona",
+      "latitude": 41.391341,
+      "longitude": 2.16118,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9563"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Pau Claris, 155",
+      "address": "Carrer de Pau Claris, 155, Barcelona",
+      "latitude": 41.3945477,
+      "longitude": 2.1643459,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9490"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda Francesc Cambó, 15",
+      "address": "Avinguda Francesc Cambó, 15, Barcelona",
+      "latitude": 41.386076,
+      "longitude": 2.177164,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9539"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer del Carme, 38",
+      "address": "Carrer del Carme, 38, Barcelona",
+      "latitude": 41.382184,
+      "longitude": 2.169624,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9542"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Joaquim Costa, 34",
+      "address": "Carrer de Joaquim Costa, 34, Barcelona",
+      "latitude": 41.3824655,
+      "longitude": 2.1660164,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9467"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Ronda de Sant Antoni, 72",
+      "address": "Ronda de Sant Antoni, 72, Barcelona",
+      "latitude": 41.3831462,
+      "longitude": 2.16389,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9564"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Trafalgar, 66",
+      "address": "Carrer de Trafalgar, 66, Barcelona",
+      "latitude": 41.3903317,
+      "longitude": 2.1784345,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9505"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer del pi, 1",
+      "address": "Carrer del pi, 1, Barcelona",
+      "latitude": 41.3827494,
+      "longitude": 2.1739997,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9508"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Plaça de Tetuan, 3",
+      "address": "Plaça de Tetuan, 3, Barcelona",
+      "latitude": 41.3940936,
+      "longitude": 2.1760157,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9559"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Mallorca, 285",
+      "address": "Mallorca, 285, Barcelona",
+      "latitude": 41.3961054,
+      "longitude": 2.1653916,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9428"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Girona, 109",
+      "address": "Carrer Girona, 109, Barcelona",
+      "latitude": 41.396734,
+      "longitude": 2.168332,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9550"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Ronda Sant pere, 72",
+      "address": "Ronda Sant pere, 72, Barcleona",
+      "latitude": 41.3911546,
+      "longitude": 2.1790715,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9439"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Passeig de Sant Joan, 53",
+      "address": "Passeig de Sant Joan, 53, Barcelona",
+      "latitude": 41.3967815,
+      "longitude": 2.1726043,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9489"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Ronda de Sant Antoni, 31",
+      "address": "Ronda de Sant Antoni, 31, Barcelona",
+      "latitude": 41.3815375,
+      "longitude": 2.1632654,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9532"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de l`Hospital, 105",
+      "address": "Carrer de l`Hospital, 105, Barcelona",
+      "latitude": 41.3799106,
+      "longitude": 2.1687985,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9562"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de la Riera alta. 47",
+      "address": "Carrer de la Riera alta. 47, Barcelona",
+      "latitude": 41.380336,
+      "longitude": 2.164772,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9582"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de la Princesa, 14",
+      "address": "Carrer de la Princesa, 14, Barcelona",
+      "latitude": 41.3847656,
+      "longitude": 2.1799558,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9545"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer dell Rosselló, 202",
+      "address": "Carrer dell Rosselló, 202, Barcelona",
+      "latitude": 41.3934287,
+      "longitude": 2.1577734,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9474"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Roger de Flor, 166",
+      "address": "Carrer de Roger de Flor, 166, Barcelona",
+      "latitude": 41.3978223,
+      "longitude": 2.1743073,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9494"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Nàpols, 118",
+      "address": "Carrer de Nàpols, 118, Barcelona",
+      "latitude": 41.3955092,
+      "longitude": 2.17943,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9480"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Sant Pau, 52",
+      "address": "Carrer de Sant Pau, 52, Barcelona",
+      "latitude": 41.3789963,
+      "longitude": 2.1718319,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9555"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda de Roma, 133",
+      "address": "Avinguda de Roma, 133, Barcelona",
+      "latitude": 41.3862278,
+      "longitude": 2.1557948,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9512"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Roger de Llúria, 155",
+      "address": "Carrer de Roger de Llúria, 155, Barcelona",
+      "latitude": 41.3981408,
+      "longitude": 2.162042,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9549"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Comte d'urgell, 43",
+      "address": "Comte d'urgell, 43, Barcelona",
+      "latitude": 41.3812732,
+      "longitude": 2.1594401,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9447"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer dels Escudellers, 28",
+      "address": "Carrer dels Escudellers, 28, Barcelona",
+      "latitude": 41.3799288,
+      "longitude": 2.1767621,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9456"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Còrsega, 264",
+      "address": "Carrer de Còrsega, 264, Barcelona",
+      "latitude": 41.3938031,
+      "longitude": 2.1560561,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9565"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Provença, 186",
+      "address": "Carrer Provença, 186, Barcelona",
+      "latitude": 41.3891321,
+      "longitude": 2.1543257,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9496"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Ronda de Sant Pau, 79",
+      "address": "Ronda de Sant Pau, 79, Barcelona",
+      "latitude": 41.3783467,
+      "longitude": 2.1633139,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9493"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Nou de la Rambla, 46",
+      "address": "Carrer Nou de la Rambla, 46, Barcelona",
+      "latitude": 41.3776296,
+      "longitude": 2.1725663,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9543"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer del Comte Borrel, 91",
+      "address": "Carrer del Comte Borrel, 91, Barcelona",
+      "latitude": 41.3790562,
+      "longitude": 2.160209,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9585"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Nou de la Rambla, 68",
+      "address": "Carrer Nou de la Rambla, 68, 08001 Barcelona",
+      "latitude": 41.376688,
+      "longitude": 2.171621,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "11586"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Muntaner, 184",
+      "address": "Carrer de Muntaner, 184, Barcelona",
+      "latitude": 41.3924704,
+      "longitude": 2.1519818,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9495"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Plaça de la Sagarada Familia, 20",
+      "address": "Plaça de la Sagarada Familia, 20, Barcelona",
+      "latitude": 41.4021976,
+      "longitude": 2.1739145,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9587"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda del Parallel, 52",
+      "address": "Avinguda del Parallel, 52, Barcelona",
+      "latitude": 41.3751306,
+      "longitude": 2.1712169,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9513"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Calàbria, 119",
+      "address": "Carrer de Calàbria, 119, Barcelona",
+      "latitude": 41.3806133,
+      "longitude": 2.1536319,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9500"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda del Parallel, 116",
+      "address": "Avinguda del Parallel, 116, Barcelona",
+      "latitude": 41.3752547,
+      "longitude": 2.1635591,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9586"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Villarroel, 217",
+      "address": "Carrer de Villarroel, 217, Barcelona",
+      "latitude": 41.3902875,
+      "longitude": 2.149771,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9584"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Vila i Vilà, 97",
+      "address": "Carrer de Vila i Vilà, 97, Barcelona",
+      "latitude": 41.37447,
+      "longitude": 2.167552,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9519"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer del Comte d`Urgell, 224",
+      "address": "Carrer del Comte d`Urgell, 224, Barcelona",
+      "latitude": 41.389299,
+      "longitude": 2.1494536,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9522"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda Meridiana, 116",
+      "address": "Avinguda Meridiana, 116, Barcelona",
+      "latitude": 41.394856,
+      "longitude": 2.187327,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9517"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda del Parallel, 105",
+      "address": "Avinguda del Parallel, 105, Barcelona",
+      "latitude": 41.3747021,
+      "longitude": 2.1627723,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9530"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer balmes, 206",
+      "address": "Carrer balmes, 206, Barcelona",
+      "latitude": 41.3975766,
+      "longitude": 2.152237,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9432"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Sardenya, 326",
+      "address": "Carrer Sardenya, 326, Barcelona",
+      "latitude": 41.403943,
+      "longitude": 2.172947,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9441"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de la Marina, 81",
+      "address": "Carrer de la Marina, 81, Barcelona",
+      "latitude": 41.3930476,
+      "longitude": 2.1886031,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9577"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Travessera de Gràcia, 66",
+      "address": "Travessera de Gràcia, 66, Barcelona",
+      "latitude": 41.3966113,
+      "longitude": 2.1506805,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9557"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - passeig de borbó 3",
+      "address": "passeig de borbó 3, Barcelona",
+      "latitude": 41.3812092,
+      "longitude": 2.1871846,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9427"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de l´Oreneta, 2",
+      "address": "Carrer de l´Oreneta, 2, Barcelona",
+      "latitude": 41.3999213,
+      "longitude": 2.1528844,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9421"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - C/ Lepanto 278",
+      "address": "C/ Lepanto 278, Barcelona",
+      "latitude": 41.404706,
+      "longitude": 2.176513,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9520"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de València, 481",
+      "address": "Carrer de València, 481, Barcelona",
+      "latitude": 41.4042713,
+      "longitude": 2.1785601,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9486"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Provença, 463",
+      "address": "Carrer Provença, 463, Barcelona",
+      "latitude": 41.405563,
+      "longitude": 2.175728,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9514"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Còrsega, 551",
+      "address": "Carrer de Còrsega, 551, Barcelona",
+      "latitude": 41.4064852,
+      "longitude": 2.1723489,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9422"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Provença, 498",
+      "address": "Carrer de Provença, 498, 8025 Barcelona",
+      "latitude": 41.406381,
+      "longitude": 2.177282,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9395"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer d'Àlaba, 124",
+      "address": "Carrer d'Àlaba, 124, barcelona",
+      "latitude": 41.399417,
+      "longitude": 2.190167,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "13951"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Vía Augusta 124",
+      "address": "Vía Augusta 124, barcelona",
+      "latitude": 41.400977,
+      "longitude": 2.14625,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "10540"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Tarragona, 161",
+      "address": "Carrer de Tarragona, 161, Barcelona",
+      "latitude": 41.378448,
+      "longitude": 2.1448722,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9556"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Mallorca, 518",
+      "address": "Carrer de Mallorca, 518, Barcelona",
+      "latitude": 41.4077998,
+      "longitude": 2.1814112,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9498"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carre d`Amigó, 65",
+      "address": "Carre d`Amigó, 65, Barcelona",
+      "latitude": 41.3966099,
+      "longitude": 2.1426515,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9482"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - C/ de Sardenya, 492",
+      "address": "C/ de Sardenya, 492, Barcelona",
+      "latitude": 41.410364,
+      "longitude": 2.164557,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9408"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Cartagena, 301",
+      "address": "Carrer de Cartagena, 301, Barcelona",
+      "latitude": 41.4101133,
+      "longitude": 2.1755812,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9484"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Gran de gracia, 266",
+      "address": "Gran de gracia, 266, Barcelona",
+      "latitude": 41.4059009,
+      "longitude": 2.1507144,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9449"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Sant Antoni Maria Claret, 157",
+      "address": "Sant Antoni Maria Claret, 157, Barcelona",
+      "latitude": 41.4110017,
+      "longitude": 2.1738311,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9435"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Ronda Guinardó, 36",
+      "address": "Ronda Guinardó, 36, Barcelona",
+      "latitude": 41.411696,
+      "longitude": 2.165842,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "13975"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Nicaragua, 96",
+      "address": "Carrer de Nicaragua, 96, Barcelona",
+      "latitude": 41.3854343,
+      "longitude": 2.1388272,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9492"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Trav. de Dalt 72",
+      "address": "Trav. de Dalt 72, 08350 Barcelona",
+      "latitude": 41.41011,
+      "longitude": 2.156155,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9597"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer entença, 313",
+      "address": "Carrer entença, 313, Barcelona",
+      "latitude": 41.3895056,
+      "longitude": 2.1380191,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9431"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Rogent, 31",
+      "address": "Carrer de Rogent, 31, Barcelona",
+      "latitude": 41.4093558,
+      "longitude": 2.1842712,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9469"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Gran via de les corts catalanes, 306",
+      "address": "Gran via de les corts catalanes, 306, Barcelona",
+      "latitude": 41.3725605,
+      "longitude": 2.1464774,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9574"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - C/ Berlín, 51",
+      "address": "C/ Berlín, 51, Barcelona",
+      "latitude": 41.383234,
+      "longitude": 2.1384079,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9417"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Travessera de dalt, 83",
+      "address": "Travessera de dalt, 83, Barcelona",
+      "latitude": 41.4107513,
+      "longitude": 2.1564207,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9453"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de la Creu Coberta, 90",
+      "address": "Carrer de la Creu Coberta, 90, Barcelona",
+      "latitude": 41.3754588,
+      "longitude": 2.1428467,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9483"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer numancia. 163",
+      "address": "Carrer numancia. 163, Barcelona",
+      "latitude": 41.3886901,
+      "longitude": 2.1332287,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9446"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Can Bruixa, 44",
+      "address": "Carrer de Can Bruixa, 44, Barcelona",
+      "latitude": 41.384178,
+      "longitude": 2.133542,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "13971"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Rambla del Poblenou, 43",
+      "address": "Rambla del Poblenou, 43, Barcelona",
+      "latitude": 41.3998616,
+      "longitude": 2.2025997,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9569"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Travessera de les Corts, 238",
+      "address": "Travessera de les Corts, 238, Barcelona",
+      "latitude": 41.3851603,
+      "longitude": 2.1327299,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9554"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Plaça Joaquim Folguera, 3-5",
+      "address": "Plaça Joaquim Folguera, 3-5, Barcelona",
+      "latitude": 41.4053636,
+      "longitude": 2.1389584,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9424"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Sants, 91",
+      "address": "Carrer de Sants, 91, Barcelona",
+      "latitude": 41.3752501,
+      "longitude": 2.1360988,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9436"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda de la Mare de Déu de Montserrat",
+      "address": "Avinguda de la Mare de Déu de Montserrat, Barcelona",
+      "latitude": 41.4173671,
+      "longitude": 2.1711933,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9477"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer del Rosés, 58",
+      "address": "Carrer del Rosés, 58, Barcelona",
+      "latitude": 41.378471,
+      "longitude": 2.133762,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9473"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Plaça Comas, 11",
+      "address": "Plaça Comas, 11, Barcelona",
+      "latitude": 41.3854586,
+      "longitude": 2.1304433,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9451"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Bilbao, 69",
+      "address": "Carrer Bilbao, 69, Barcelona",
+      "latitude": 41.403099,
+      "longitude": 2.203008,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9425"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Gran Via de les Corts Catalanes, 192",
+      "address": "Gran Via de les Corts Catalanes, 192, Barcelona",
+      "latitude": 41.3683158,
+      "longitude": 2.1408269,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9478"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda meridiana,214",
+      "address": "Avinguda meridiana,214, Barcelona",
+      "latitude": 41.41536,
+      "longitude": 2.1872082,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9448"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de la Constitució. 13",
+      "address": "Carrer de la Constitució. 13, Barcelona",
+      "latitude": 41.3699836,
+      "longitude": 2.137977,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9580"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Plaça Bonanova, 3",
+      "address": "Plaça Bonanova, 3, Barcelona",
+      "latitude": 41.406824,
+      "longitude": 2.134113,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "13967"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Passeig de Sant Gervasi 54",
+      "address": "Passeig de Sant Gervasi 54, Barcelona",
+      "latitude": 41.4108302,
+      "longitude": 2.1382505,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9458"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Rambla de Badal, 158",
+      "address": "Rambla de Badal, 158, Barcelona",
+      "latitude": 41.373616,
+      "longitude": 2.1315046,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9540"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Sants, 295",
+      "address": "Carrer de Sants, 295, Barcelona",
+      "latitude": 41.3754489,
+      "longitude": 2.1291075,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9475"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Mare de deu del port. 379",
+      "address": "Carrer Mare de deu del port. 379, Barcelona",
+      "latitude": 41.3633431,
+      "longitude": 2.139339,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9581"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Av. madrid, 60",
+      "address": "Av. madrid, 60, Barcelona",
+      "latitude": 41.3774882,
+      "longitude": 2.1260348,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9423"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Sant Carles, 6",
+      "address": "Carrer de Sant Carles, 6, Santa Coloma de Gramenet",
+      "latitude": 41.4531771,
+      "longitude": 2.2067986,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9568"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda de Francesc Macià, 4",
+      "address": "Avinguda de Francesc Macià, 4, Santa Coloma de Gramenet",
+      "latitude": 41.4511876,
+      "longitude": 2.2065756,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9479"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Sant Benet 2",
+      "address": "Carrer Sant Benet 2, Santa Coloma de Gramenet",
+      "latitude": 41.4487373,
+      "longitude": 2.210636,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9460"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Rambla de Sant Sebastià, 49",
+      "address": "Rambla de Sant Sebastià, 49, Santa Coloma de Gramenet",
+      "latitude": 41.4507909,
+      "longitude": 2.2137137,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9578"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Mosén Jacint Verdaguer, 101",
+      "address": "Carrer de Mosén Jacint Verdaguer, 101, Santa Coloma de Gramenet",
+      "latitude": 41.4483396,
+      "longitude": 2.2161561,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9518"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Passeig de Torras i Bages, 3",
+      "address": "Passeig de Torras i Bages, 3, Barcelona",
+      "latitude": 41.4364607,
+      "longitude": 2.191045,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9534"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Pau pifirrer,1",
+      "address": "Carrer Pau pifirrer,1, Badalona",
+      "latitude": 41.4428587,
+      "longitude": 2.2242105,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9506"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Plaça Ajuntament, 23",
+      "address": "Plaça Ajuntament, 23, Barcelona",
+      "latitude": 41.4355113,
+      "longitude": 2.190027,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9561"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda del Marquès de Sant Morí, 114",
+      "address": "Avinguda del Marquès de Sant Morí, 114, Santa Coloma de Gramenet",
+      "latitude": 41.4403026,
+      "longitude": 2.2224779,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9546"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Vía Julia, 37",
+      "address": "Vía Julia, 37, Barcelona",
+      "latitude": 41.440179,
+      "longitude": 2.1757662,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9528"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Passeig Valldaura, 185",
+      "address": "Passeig Valldaura, 185, Barcelona",
+      "latitude": 41.4385697,
+      "longitude": 2.1752165,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9536"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda de Alfonso XIII, 2",
+      "address": "Avinguda de Alfonso XIII, 2, Badalona",
+      "latitude": 41.4333276,
+      "longitude": 2.2163877,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9538"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Passeig del Verdum, 14",
+      "address": "Passeig del Verdum, 14, Barcelona",
+      "latitude": 41.4365431,
+      "longitude": 2.1732368,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9544"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Rambla de Fabra i Puig, 29",
+      "address": "Rambla de Fabra i Puig, 29, Barcelona",
+      "latitude": 41.4300252,
+      "longitude": 2.1876345,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9533"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Passeig Valldaura, 168",
+      "address": "Passeig Valldaura, 168, Barcelona",
+      "latitude": 41.438836,
+      "longitude": 2.168358,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9454"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Passeig de Fabra i Puig, 150",
+      "address": "Passeig de Fabra i Puig, 150, Barcelona",
+      "latitude": 41.4303531,
+      "longitude": 2.1805071,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9501"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer arbres, 1",
+      "address": "Carrer arbres, 1, Badalona",
+      "latitude": 41.4478548,
+      "longitude": 2.2466125,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9430"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Rambla de Guipúscoa, 141",
+      "address": "Rambla de Guipúscoa, 141, Barcelona",
+      "latitude": 41.4226376,
+      "longitude": 2.2050882,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9575"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda Meridiana, 308",
+      "address": "Avinguda Meridiana, 308, Barcelona",
+      "latitude": 41.423631,
+      "longitude": 2.187223,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9516"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Passeig de Maragall, 168",
+      "address": "Passeig de Maragall, 168, Barcelona",
+      "latitude": 41.4248909,
+      "longitude": 2.1768912,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9464"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Garcilaso, 193",
+      "address": "Carrer de Garcilaso, 193, Barcelona",
+      "latitude": 41.4233735,
+      "longitude": 2.1806704,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9488"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Mar, 129",
+      "address": "Carrer de Mar, 129, Badalona",
+      "latitude": 41.4473719,
+      "longitude": 2.2502479,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9466"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Puigcerdà, 231",
+      "address": "Carrer de Puigcerdà, 231, Barcelona",
+      "latitude": 41.4193351,
+      "longitude": 2.2039939,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9511"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Passeig de Maragall, 407",
+      "address": "Passeig de Maragall, 407, Barcelona",
+      "latitude": 41.4283107,
+      "longitude": 2.1631757,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9560"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer del Tajo, 72",
+      "address": "Carrer del Tajo, 72, Barcelona",
+      "latitude": 41.4298281,
+      "longitude": 2.1593904,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9418"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Rambla de Guipúscoa, 61",
+      "address": "Rambla de Guipúscoa, 61, Barcelona",
+      "latitude": 41.4169685,
+      "longitude": 2.1975451,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9527"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Cristóbal de Moura, 196",
+      "address": "Carrer de Cristóbal de Moura, 196, 8019 Barcelona",
+      "latitude": 41.414537,
+      "longitude": 2.211278,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9401"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Rambla prim 44-52",
+      "address": "Rambla prim 44-52, Barcelona",
+      "latitude": 41.414584,
+      "longitude": 2.2155116,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9455"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Selva de Mar, 125",
+      "address": "Selva de Mar, 125, Barcelona",
+      "latitude": 41.4126165,
+      "longitude": 2.2034821,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9459"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Llobregos.139-145",
+      "address": "Llobregos.139-145, Barcelona",
+      "latitude": 41.4241588,
+      "longitude": 2.1560689,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9583"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Llull, 389",
+      "address": "Carrer de Llull, 389, Barcelona",
+      "latitude": 41.4118885,
+      "longitude": 2.2159137,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9571"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda Primavera, 9",
+      "address": "Avinguda Primavera, 9, Cerdanyola del Vallès",
+      "latitude": 41.4919453,
+      "longitude": 2.1466085,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9570"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Rambla de Balmes, 5",
+      "address": "Rambla de Balmes, 5, Mollet del Vallés",
+      "latitude": 41.5376944,
+      "longitude": 2.213976,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9437"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Passeig de Francesc Macià, 55",
+      "address": "Passeig de Francesc Macià, 55, Rubí",
+      "latitude": 41.4914012,
+      "longitude": 2.0313849,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9465"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Magí i Ramentol, 4",
+      "address": "Carrer Magí i Ramentol, 4, Rubí",
+      "latitude": 41.4898791,
+      "longitude": 2.0344217,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9420"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Santa Maria, 1",
+      "address": "Carrer de Santa Maria, 1, Sant Cugat del Valles",
+      "latitude": 41.4709838,
+      "longitude": 2.0807117,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9471"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer de Valldoreix, 75,",
+      "address": "Carrer de Valldoreix, 75,, Sant Cugat del Valles",
+      "latitude": 41.468198,
+      "longitude": 2.0792176,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9438"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - AVDA. CERDANYOLA, 18",
+      "address": "AVDA. CERDANYOLA, 18, 08172 Sant Cugat del Vallès",
+      "latitude": 41.473581,
+      "longitude": 2.088858,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "12756"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda de Jacquard, 74",
+      "address": "Avinguda de Jacquard, 74, Terrassa",
+      "latitude": 41.5638002,
+      "longitude": 2.0212693,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9504"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Rambla d`Egara, 136",
+      "address": "Rambla d`Egara, 136, Terrassa",
+      "latitude": 41.5611199,
+      "longitude": 2.0078287,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9485"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Plaça Vella,7",
+      "address": "Plaça Vella,7, Terrassa",
+      "latitude": 41.5622399,
+      "longitude": 2.0109732,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9443"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Passeig del Comte Ègara, 15",
+      "address": "Passeig del Comte Ègara, 15, Terrassa",
+      "latitude": 41.563495,
+      "longitude": 2.015573,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9566"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer dels Calders, 83",
+      "address": "Carrer dels Calders, 83, Sabadell",
+      "latitude": 41.534963,
+      "longitude": 2.115055,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9410"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Plaça de Catalunya, 6",
+      "address": "Plaça de Catalunya, 6, Sabadell",
+      "latitude": 41.5504687,
+      "longitude": 2.098825,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9576"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Rambla,245",
+      "address": "Rambla,245, Sabadell",
+      "latitude": 41.5398302,
+      "longitude": 2.1124354,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9444"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Rambla d`Egara, 233",
+      "address": "Rambla d`Egara, 233, Terrassa",
+      "latitude": 41.56361,
+      "longitude": 2.0077331,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9487"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Passeig de la Plaça Major, 16",
+      "address": "Passeig de la Plaça Major, 16, 08208 Sabadell",
+      "latitude": 41.547241,
+      "longitude": 2.108462,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "10538"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda consittució. 10-12",
+      "address": "Avinguda consittució. 10-12, Sant Andreu de la Barca",
+      "latitude": 41.448957,
+      "longitude": 1.9683659,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9491"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Av. de Béjar, 89",
+      "address": "Av. de Béjar, 89, Terrasa",
+      "latitude": 41.580192,
+      "longitude": 2.012854,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "13973"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Calle Jacint Verdaguer, 14",
+      "address": "Calle Jacint Verdaguer, 14, 08760 Martorell",
+      "latitude": 41.476531,
+      "longitude": 1.914558,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "11532"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Major de Sarrià, 92",
+      "address": "Carrer Major de Sarrià, 92, Barcelona",
+      "latitude": 41.399019,
+      "longitude": 2.12223,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "13969"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Laurea Miró 192-194",
+      "address": "Carrer Laurea Miró 192-194, 08980 Sant Feliu de Llobregat",
+      "latitude": 41.380864,
+      "longitude": 2.044168,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "11790"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Verge de la Merce,79",
+      "address": "Verge de la Merce,79, Esplugues de Llobregat",
+      "latitude": 41.3742881,
+      "longitude": 2.1007816,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9440"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Carrer Occident 14",
+      "address": "Carrer Occident 14, Hospitalet de Llobregat",
+      "latitude": 41.3751488,
+      "longitude": 2.1196909,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9419"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda de Madrid, 1",
+      "address": "Avinguda de Madrid, 1, Barcelona",
+      "latitude": 41.3760183,
+      "longitude": 2.1230148,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9526"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda del Masnou, 47",
+      "address": "Avinguda del Masnou, 47, L`Hospitalet de Llobregat",
+      "latitude": 41.3698042,
+      "longitude": 2.1078346,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9521"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda República Argentina, 60",
+      "address": "Avinguda República Argentina, 60, Cornellá de Llobregat",
+      "latitude": 41.3632752,
+      "longitude": 2.0848294,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9502"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Avinguda Ponent, 51",
+      "address": "Avinguda Ponent, 51, L`Hospitalet de Llobregat",
+      "latitude": 41.3691562,
+      "longitude": 2.1122937,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9531"
+    },
+    {
+      "chain": "365 Café",
+      "name": "365 Café - Plaça espanyola, 24",
+      "address": "Plaça espanyola, 24, L`Hospitalet de Llobregat",
+      "latitude": 41.3711358,
+      "longitude": 2.1217619,
+      "sourceUrl": "https://365obrador.com/es/encuentranos/",
+      "officialId": "9510"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - AV. CATALUNYA 39",
+      "address": "AV. CATALUNYA 39, Barcelona",
+      "latitude": 41.45018078569972,
+      "longitude": 2.2295013339183947,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - PLAÇA PATÍ DE VELA, 1",
+      "address": "PLAÇA PATÍ DE VELA, 1, Barcelona",
+      "latitude": 41.438704760674845,
+      "longitude": 2.243937751582963,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - PASEO DEL DR.MORAGAS 198",
+      "address": "PASEO DEL DR.MORAGAS 198, Barcelona",
+      "latitude": 41.51460803871818,
+      "longitude": 2.1259260029293836,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - AV. PARAL·LEL 115",
+      "address": "AV. PARAL·LEL 115, Barcelona",
+      "latitude": 41.374894082493675,
+      "longitude": 2.1615307192284554,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - AV.MERIDIANA 384",
+      "address": "AV.MERIDIANA 384, Barcelona",
+      "latitude": 41.429664921886,
+      "longitude": 2.184495622933255,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - AV. REPUBLICA ARGENTINA, 58",
+      "address": "AV. REPUBLICA ARGENTINA, 58, Barcelona",
+      "latitude": 41.40970240383521,
+      "longitude": 2.147158032722751,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - AVDA. MERIDIANA, 292",
+      "address": "AVDA. MERIDIANA, 292, Barcelona",
+      "latitude": 41.42227251208551,
+      "longitude": 2.1876163345743547,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/ COMPTE D'URGELL, 5",
+      "address": "C/ COMPTE D'URGELL, 5, Barcelona",
+      "latitude": 41.379781876575706,
+      "longitude": 2.1619237903928563,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/ DEL ROSSELLO 24-26",
+      "address": "C/ DEL ROSSELLO 24-26, Barcelona",
+      "latitude": 41.38465166640143,
+      "longitude": 2.145832809974322,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/ MARINA, 108",
+      "address": "C/ MARINA, 108, Barcelona",
+      "latitude": 41.39468109254481,
+      "longitude": 2.1881170210804433,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/ MARINA, 244",
+      "address": "C/ MARINA, 244, Barcelona",
+      "latitude": 41.402848963273414,
+      "longitude": 2.1774903652601374,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/ PROVENÇA 356",
+      "address": "C/ PROVENÇA 356, Barcelona",
+      "latitude": 41.399623324573426,
+      "longitude": 2.1682245038863748,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/ALFAMBRA,18",
+      "address": "C/ALFAMBRA,18, Barcelona",
+      "latitude": 41.38694616348509,
+      "longitude": 2.112954476900791,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/SANTS, 147",
+      "address": "C/SANTS, 147, Barcelona",
+      "latitude": 41.37546040765519,
+      "longitude": 2.1333330991772423,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - CALLE SEPÚLVEDA, 187, LC-02",
+      "address": "CALLE SEPÚLVEDA, 187, LC-02, Barcelona",
+      "latitude": 41.38422984798023,
+      "longitude": 2.1639628399414366,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - CARRETERA DE SANTS 323",
+      "address": "CARRETERA DE SANTS 323, Barcelona",
+      "latitude": 41.375601084856186,
+      "longitude": 2.1282112959454333,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - COMTE D'URGELL 65 LOCAL",
+      "address": "COMTE D'URGELL 65 LOCAL, Barcelona",
+      "latitude": 41.382740770443256,
+      "longitude": 2.158613303349544,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - DANTE ALIGHIERI 105",
+      "address": "DANTE ALIGHIERI 105, Barcelona",
+      "latitude": 41.42733662687532,
+      "longitude": 2.1569409493821015,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - DE LORENA, 101-107",
+      "address": "DE LORENA, 101-107, Barcelona",
+      "latitude": 41.438687637684815,
+      "longitude": 2.1738362112922154,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - GRAN VIA DE LES CORTS CATALANES 689",
+      "address": "GRAN VIA DE LES CORTS CATALANES 689, Barcelona",
+      "latitude": 41.39709383506614,
+      "longitude": 2.1783003940956545,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - GRAN VIA DE LES CORTS CATALANES 307",
+      "address": "GRAN VIA DE LES CORTS CATALANES 307, Barcelona",
+      "latitude": 41.37278327275102,
+      "longitude": 2.1457931669263526,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - INDUSTRIA, 80",
+      "address": "INDUSTRIA, 80, Barcelona",
+      "latitude": 41.40596507760698,
+      "longitude": 2.170088822931999,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - PASEO MARAGALL 40",
+      "address": "PASEO MARAGALL 40, Barcelona",
+      "latitude": 41.415360751064696,
+      "longitude": 2.1813514841206736,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - PI I MARGALL,12",
+      "address": "PI I MARGALL,12, Barcelona",
+      "latitude": 41.40603028331452,
+      "longitude": 2.1638998940961653,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - PLAÇA DEL CENTRE, 6",
+      "address": "PLAÇA DEL CENTRE, 6, Barcelona",
+      "latitude": 41.38172112263759,
+      "longitude": 2.1369451052004322,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - PLAÇA GAL·LA PLACIDIA 28",
+      "address": "PLAÇA GAL·LA PLACIDIA 28, Barcelona",
+      "latitude": 41.400045536432195,
+      "longitude": 2.152936321080724,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - PSO MARAGALL, 320",
+      "address": "PSO MARAGALL, 320, Barcelona",
+      "latitude": 41.427717214795194,
+      "longitude": 2.168639694097308,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - PUJADES 228",
+      "address": "PUJADES 228, Barcelona",
+      "latitude": 41.403479755641484,
+      "longitude": 2.203603921080936,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - RAMBLA GUIPUZCOA 53",
+      "address": "RAMBLA GUIPUZCOA 53, Barcelona",
+      "latitude": 41.41652885797919,
+      "longitude": 2.1969916922457817,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - RAMBLA GUIPUZCOA, 85",
+      "address": "RAMBLA GUIPUZCOA, 85, Barcelona",
+      "latitude": 41.4189732989208,
+      "longitude": 2.200425851768514,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - RAMBLA PRIM, 27",
+      "address": "RAMBLA PRIM, 27, Barcelona",
+      "latitude": 41.412356423622704,
+      "longitude": 2.2184213456794226,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - RAMON TURRO, 331",
+      "address": "RAMON TURRO, 331, Barcelona",
+      "latitude": 41.40629777704351,
+      "longitude": 2.211540172664046,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - TRAVESSERA DE DALT 21",
+      "address": "TRAVESSERA DE DALT 21, Barcelona",
+      "latitude": 41.40878319312324,
+      "longitude": 2.1522735173793377,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - TRAVESSERA DE GRACIA 141",
+      "address": "TRAVESSERA DE GRACIA 141, Barcelona",
+      "latitude": 41.40075784859487,
+      "longitude": 2.157816483769324,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - TRAVESSERA DE LES CORTS 293 BJ",
+      "address": "TRAVESSERA DE LES CORTS 293 BJ, Barcelona",
+      "latitude": 41.387020013917976,
+      "longitude": 2.1356864708120447,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/ SANT MARTI 79",
+      "address": "C/ SANT MARTI 79, Barcelona",
+      "latitude": 41.49108485587946,
+      "longitude": 2.139891867115778,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - AV. CATALUÑA 21",
+      "address": "AV. CATALUÑA 21, Barcelona",
+      "latitude": 41.49258946197236,
+      "longitude": 2.147623451772459,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/ MOSSEN JAUME SOLER I PUIGVERT, 2",
+      "address": "C/ MOSSEN JAUME SOLER I PUIGVERT, 2, Barcelona",
+      "latitude": 41.36055292706459,
+      "longitude": 2.0756319092546582,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - AVDA. VIRGEN DE MONTSERRAT, 138",
+      "address": "AVDA. VIRGEN DE MONTSERRAT, 138, Barcelona",
+      "latitude": 41.32526318487055,
+      "longitude": 2.092138354505768,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - PLAÇA DE LA VILA, 4",
+      "address": "PLAÇA DE LA VILA, 4, Barcelona",
+      "latitude": 41.33056584627501,
+      "longitude": 2.0932458650754207,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/ LA PAU, 3",
+      "address": "C/ LA PAU, 3, Barcelona",
+      "latitude": 41.37532133808403,
+      "longitude": 2.0926348787511198,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - RAMBLA LLUCH, 1",
+      "address": "RAMBLA LLUCH, 1, Barcelona",
+      "latitude": 41.30354108840533,
+      "longitude": 2.0106009652548527,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - SANT PERE, 41",
+      "address": "SANT PERE, 41, Barcelona",
+      "latitude": 41.304455343269154,
+      "longitude": 2.003760607583161,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - AVDA. CARRILET, 112",
+      "address": "AVDA. CARRILET, 112, Barcelona",
+      "latitude": 41.36538106484469,
+      "longitude": 2.122790414990159,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/ MOLI, 14, BAJOS",
+      "address": "C/ MOLI, 14, BAJOS, Barcelona",
+      "latitude": 41.36786185070753,
+      "longitude": 2.1027507417923688,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/ MOLINO, 64",
+      "address": "C/ MOLINO, 64, Barcelona",
+      "latitude": 41.37137403360366,
+      "longitude": 2.099658581137762,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - PLAÇA MARE DE DÉU DEL PILAR, 3",
+      "address": "PLAÇA MARE DE DÉU DEL PILAR, 3, Barcelona",
+      "latitude": 41.37352400689278,
+      "longitude": 2.106690157318883,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/ RAFAEL DE CASANOVA, 5",
+      "address": "C/ RAFAEL DE CASANOVA, 5, Barcelona",
+      "latitude": 41.41101380763968,
+      "longitude": 2.018079843049361,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - AV.BARBERA, 428",
+      "address": "AV.BARBERA, 428, Barcelona",
+      "latitude": 41.529510206688734,
+      "longitude": 2.1178614689317277,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - AV. CATALUNYA, 58",
+      "address": "AV. CATALUNYA, 58, Barcelona",
+      "latitude": 41.430693087623965,
+      "longitude": 2.219422338240643,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - AV. CONSTITUCIÓ, 18",
+      "address": "AV. CONSTITUCIÓ, 18, Barcelona",
+      "latitude": 41.449267309292985,
+      "longitude": 1.9685191822646486,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/CAMI VELL DE LA COLONA, 9",
+      "address": "C/CAMI VELL DE LA COLONA, 9, Barcelona",
+      "latitude": 41.35676066047407,
+      "longitude": 2.031177709400983,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/LLUIS PASCUAL I ROCA, 9",
+      "address": "C/LLUIS PASCUAL I ROCA, 9, Barcelona",
+      "latitude": 41.34349938393607,
+      "longitude": 2.039905946178649,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/VALLDOREIX, 43",
+      "address": "C/VALLDOREIX, 43, Barcelona",
+      "latitude": 41.46959385538068,
+      "longitude": 2.0807845210497793,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/ LAUREÀ MIRÓ, 216",
+      "address": "C/ LAUREÀ MIRÓ, 216, Barcelona",
+      "latitude": 41.381404673916464,
+      "longitude": 2.0442455382380382,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/BON VIATGE 16 BAJOS",
+      "address": "C/BON VIATGE 16 BAJOS, Barcelona",
+      "latitude": 41.36623685541476,
+      "longitude": 2.056143876100384,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - C/ BONAVISTA, 76",
+      "address": "C/ BONAVISTA, 76, Barcelona",
+      "latitude": 41.38391756540793,
+      "longitude": 2.078186891667066,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Granier",
+      "name": "Granier - AV. DE LA GENERALITAT, 30",
+      "address": "AV. DE LA GENERALITAT, 30, Barcelona",
+      "latitude": 41.45002850389714,
+      "longitude": 2.2103412075559183,
+      "sourceUrl": "https://pansgranier.com/donde-estamos/"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Les Parres 4 | Terrassa",
+      "address": "Les Parres, 4 (Terrasa - Barcelona)",
+      "latitude": 41.5617815,
+      "longitude": 2.0099459,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-les-parres-terrassa"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Plaça LLuís Millet | Sant Cugat del Vallès (Barcelona)",
+      "address": "Plaça Lluís Millet, 2 - Sant Cugat del Vallès - Barcelona",
+      "latitude": 41.46752515,
+      "longitude": 2.0785695513873,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-placa-lluis-millet-sant-cugat-del-valles"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria | Gran Vía de las Cortes Catalanas 272",
+      "address": "Gran Via de les Corts Catalanes, 272 - 08004 Barcelona",
+      "latitude": 41.371185,
+      "longitude": 2.1444415,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-gran-via-de-las-cortes-catalanas-272"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Dr. Robert | Rubí (Barcelona)",
+      "address": "Carrer Doctor Robert, 1 - 08191 Rubí (Barcelona)",
+      "latitude": 41.4936189,
+      "longitude": 2.0309576,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-dr-robert-rubi-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Avenida de Madrid 215 | Barcelona",
+      "address": "Avinguda de Madrid, 215 - 08028 Barcelona (Barcelona)",
+      "latitude": 41.3818748,
+      "longitude": 2.1351339225946,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-avenida-de-madrid-215-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Benet i Mateu 44 | Barcelona",
+      "address": "Carrer de Benet i Mateu, 44 - 08034 Barcelona (Barcelona)",
+      "latitude": 41.3936704,
+      "longitude": 2.1263536,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-benet-i-mateu-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Calle Provença 136 | Barcelona",
+      "address": "Carrer de Provença, 136 - 08029 Barcelona (Barcelona)",
+      "latitude": 41.386665922171,
+      "longitude": 2.1512082203013,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-provenca-136-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Calle Sabino Arana 48 | Barcelona",
+      "address": "Carrer de Sabino Arana, 48 - 08028 Barcelona (Barcelona)",
+      "latitude": 41.3863926,
+      "longitude": 2.1243567,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-sabino-arana-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Teodora Lamadrid nº 2 | Barcelona",
+      "address": "Carrer de Teodora Lamadrid, 2 - 08022 Barcelona (Barcelona)",
+      "latitude": 41.407873955374,
+      "longitude": 2.1347968612002,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-teodora-lamadrid-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Riera Principal nº 16 - Alella | Barcelona",
+      "address": "Carrer de la Riera Principal, 16 - 08328 Alella (Barcelona)",
+      "latitude": 41.4890077,
+      "longitude": 2.2973685,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-riera-principal-alella"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Aragó 307 | Barcelona",
+      "address": "Carrer d'Aragó, 307 - 08009 Barcelona (Barcelona)",
+      "latitude": 41.3948373,
+      "longitude": 2.1681172,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-arago-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Reina Elisenda 12 | Barcelona",
+      "address": "Passeig de la Reina Elisenda de Montcada, 12 - 08034 Barcelona (Barcelona)",
+      "latitude": 41.3995559,
+      "longitude": 2.120178,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-reina-elisenda-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Aribau 72 | Barcelona",
+      "address": "Carrer d'Aribau, 72 - 08011 Barcelona (Barcelona)",
+      "latitude": 41.38935095,
+      "longitude": 2.15843353125,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-aribau-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Travessera de Gràcia 83 | Barcelona",
+      "address": "Travesera de Gràcia, 83 - 08006 Barcelona (Barcelona)",
+      "latitude": 41.397274950005,
+      "longitude": 2.1512249085933,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-gracia-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Ganduxer 8 | Barcelona",
+      "address": "Carrer de Ganduxer, 8 - 08021 Barcelona (Barcelona)",
+      "latitude": 41.3938262,
+      "longitude": 2.1382652,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-ganduxer-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Aeropuerto de Barcelona - Terminal 2 | Barcelona",
+      "address": "Aeropuerto de Barcelona - Terminal 2. Planta 1. Salidas. Zona de embarque Y - 08820 El Prat de Llobregat (Barcelona)",
+      "latitude": 41.302813130695,
+      "longitude": 2.0721087286839,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-aeropuerto-barcelona-terminal-2"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Sarrià 27 | Barcelona",
+      "address": "C/ Major de Sarrià, 27 - 08017 Barcelona (Barcelona)",
+      "latitude": 41.4025562,
+      "longitude": 2.1187753,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-sarria-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Travessera de les Corts 306 | Barcelona",
+      "address": "Travessera de les Corts, 306 - 08029 Barcelona (Barcelona)",
+      "latitude": 41.3902798,
+      "longitude": 2.1411105,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-les-corts-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Provença nº 378 | Barcelona",
+      "address": "Carrer de Provença, 378 - 08037 Barcelona (Barcelona)",
+      "latitude": 41.400636439127,
+      "longitude": 2.1695272535511,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-provenca-378-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Sant Antoni Maria Claret nº 50 | Barcelona",
+      "address": "Carrer de Sant Antoni Maria Claret, 50 - 08025 Barcelona (Barcelona)",
+      "latitude": 41.404557933333,
+      "longitude": 2.1657958066667,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-sant-antoni-maria-claret-50-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Vía Augusta 349 | Barcelona",
+      "address": "Calle Via Augusta, 349 - 08017 Barcelona (Barcelona)",
+      "latitude": 41.39961101054,
+      "longitude": 2.1237618172925,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-via-augusta-349-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria CC La Farga - Hospitalet de Llobregat | Barcelona",
+      "address": "Centro Comercial La Farga. Carrer de Barcelona, 2 - 08901 L’Hospitalet de Llobregat (Barcelona)",
+      "latitude": 41.361710587018,
+      "longitude": 2.104612280734,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-la-farga-hospitalet-de-llobregat"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria CC Finestrelles Pl. 1 | Esplugues de Llobregat, Barcelona",
+      "address": "C.C. Finestrelles Shopping Center. Carrer de Sant Mateu, 9 - Planta baja - 08950 Esplugues de Llobregat (Barcelona)",
+      "latitude": 41.376813855696,
+      "longitude": 2.0987872648666,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-cc-finestrelles-pl-baja-esplugues-de-llobregat"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria CC Finestrelles Pl. baja | Esplugues de Llobregat, Barcelona",
+      "address": "C.C. Finestrelles Shopping Center. Carrer de Laureà Miró, 20 - Local P1-04B - 08950 Esplugues de Llobregat (Barcelona)",
+      "latitude": 41.376848317313,
+      "longitude": 2.0984443552252,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-cc-finestrelles-esplugues-de-llobregat"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Vía Augusta 114 | Barcelona",
+      "address": "Vía Augusta, 114 - 08006 Barcelona (Barcelona)",
+      "latitude": 41.4014181,
+      "longitude": 2.1481653390675,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-via-augusta-114-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Tres Torres 4 | Barcelona",
+      "address": "Carrer de les Tres Torres, 4 - 08017 Barcelona (Barcelona)",
+      "latitude": 41.394997124051,
+      "longitude": 2.1314028950872,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-tres-torres-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Sant Antoni Maria Claret nº 224 | Barcelona",
+      "address": "Carrer de Sant Antoni Maria Claret, 224 - 08025 Barcelona (Barcelona)",
+      "latitude": 41.4113765,
+      "longitude": 2.1747515,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-sant-antoni-maria-claret-224-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Santa Amèlia 31 | Barcelona",
+      "address": "Carrer de Santa Amèlia, 31 – 08034 Barcelona (Barcelona)",
+      "latitude": 41.3935169,
+      "longitude": 2.1228973,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santa-amelia-31-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Cartagena nº 230 | Barcelona",
+      "address": "Calle Cartagena nº 230 – Esquina Calle Mallorca - Local Planta Baja - (Barcelona) 08013",
+      "latitude": 41.4070425,
+      "longitude": 2.1799597,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-calle-cartagena-230-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Fabra i Puig nº 143 | Barcelona",
+      "address": "Passeig de Fabra i Puig, 143 - 08016 Barcelona (Barcelona)",
+      "latitude": 41.430115338082,
+      "longitude": 2.1795672451904,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-fabra-i-puig-143-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Roselló 200 | Barcelona",
+      "address": "Carrer del Rosselló, 200 - 08008 Barcelona (Barcelona)",
+      "latitude": 41.393409801431,
+      "longitude": 2.1577163422738,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-rosello-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Calle Tarragona 161 | Barcelona",
+      "address": "Carrer de Tarragona, 161 - 08014 Barcelona (Barcelona)",
+      "latitude": 41.3787087762,
+      "longitude": 2.1443851092145,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-calle-tarragona-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Muntaner 254 | Barcelona",
+      "address": "Carrer de Muntaner, 254 - 08021 Barcelona",
+      "latitude": 41.39504995,
+      "longitude": 2.1486801118895,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-muntaner-254-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Muntaner 449 | Barcelona",
+      "address": "Carrer de Muntaner, 449 - 08021 Barcelona (Barcelona)",
+      "latitude": 41.401140580197,
+      "longitude": 2.1402475902752,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-muntaner-449-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Plaza Plana nº 8 Badalona | Barcelona",
+      "address": "Plaça Plana, 8 - 08912 Badalona (Barcelona)",
+      "latitude": 41.4474158,
+      "longitude": 2.2456321,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-plaza-plana-badalona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Avenida de Madrid 122 | Barcelona",
+      "address": "Avinguda de Madrid, 122 - 08028 Barcelona (Barcelona)",
+      "latitude": 41.3771617,
+      "longitude": 2.1252055,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-avenida-de-madrid-122-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Sant Antoni Maria Claret nº 10 - Sabadell | Barcelona",
+      "address": "Carrer de Sant Antoni Maria Claret, 10 - 08202 Sabadell (Barcelona)",
+      "latitude": 41.546439,
+      "longitude": 2.1096225,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-sant-antoni-maria-claret-10-sabadell"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Doctor Reig - Viladecans | Barcelona",
+      "address": "Carrer Doctor Reig, 17 - 08840 Viladecans (Barcelona)",
+      "latitude": 41.3167995,
+      "longitude": 2.0157366,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-doctor-reig-viladecans"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Meridiana nº 267 | Barcelona",
+      "address": "Avinguda Meridiana, 267 - 08027 Barcelona (Barcelona)",
+      "latitude": 41.421110834066,
+      "longitude": 2.1862395259919,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-avenida-meridiana-267-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Gavá | Barcelona",
+      "address": "Rambla de María Casas, 73 - 08850 Gavá (Barcelona)",
+      "latitude": 41.306978,
+      "longitude": 2.0049847,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-maria-casas-gava"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria CC Splau - Cornellà de Llobregat | Barcelona",
+      "address": "C.C. Splau. Avinguda del Baix Llobregat, s/n - 08940 Cornellà de Llobregat (Barcelona)",
+      "latitude": 41.34728353894,
+      "longitude": 2.0780062815797,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-cc-splau-cornella-de-llobregat"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Bonanova 86 | Barcelona",
+      "address": "Passeig de la Bonanova, 56 - 08017 Barcelona (Barcelona)",
+      "latitude": 41.401223,
+      "longitude": 2.1237523,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-bonanova-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Ángel Guimerá - Viladecans | Barcelona",
+      "address": "Carrer d'Ángel Guimerá, 4 - 08840 Viladecans (Barcelona)",
+      "latitude": 41.3162583,
+      "longitude": 2.0200628,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-angel-guimera-viladecans"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Calle Comte Urgell 238 | Barcelona",
+      "address": "Carrer del Comte d'Urgell, 238 - 08036 Barcelona (Barcelona)",
+      "latitude": 41.389817591979,
+      "longitude": 2.1486632030857,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-comte-urgell-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Vía Augusta 280 | Barcelona",
+      "address": "Vía Augusta, 280 - 08017 Barcelona (Barcelona)",
+      "latitude": 41.398035421837,
+      "longitude": 2.1295609611936,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-via-augusta-280-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Concili de Trento | Barcelona",
+      "address": "Carrer del Concili de Trento, 59 - 08018 Sant Martí (Barcelona)",
+      "latitude": 41.4105271718,
+      "longitude": 2.1916155306497,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-concilio-de-trento"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Plaza de Maragall | Barcelona",
+      "address": "Plaza de Maragall, 8-9, Local 1 - 08041 Barcelona",
+      "latitude": 41.42028805,
+      "longitude": 2.1801564821037,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-plaza-de-maragall-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Paseo Universal | Barcelona",
+      "address": "PASSEIG UNIVERSAL, 31 - 08031 Barcelona",
+      "latitude": 41.4373701,
+      "longitude": 2.1616784,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-paseo-universal-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Josep Tarradellas | Barcelona",
+      "address": "Av. de Josep Tarradellas, 37, Sants-Montjuïc, 08029 Barcelona",
+      "latitude": 41.3836341,
+      "longitude": 2.1422016,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-josep-tarradellas-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Joan Güell | Barcelona",
+      "address": "Joan Güell, 134 - 08028 Barcelona",
+      "latitude": 41.382594,
+      "longitude": 2.131895077915,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-joan-guell-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Doctor Pi i Molist | Barcelona",
+      "address": "Doctor Pi i Molist, 86-88 – Barcelona",
+      "latitude": 41.43148012772,
+      "longitude": 2.1742054988107,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-doctor-pi-i-molist-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria CC Gran Vía 2 - Hospitalet de Llobregat | Barcelona",
+      "address": "CC Gran Vía 2 - Avinguda de la Granvia de l’Hospitalet, 75 - 08908 L'Hospitalet de Llobregat (Barcelona)",
+      "latitude": 41.358975,
+      "longitude": 2.1296987,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-cc-gran-via-2-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Avinguda de Sarrià 137 | Barcelona",
+      "address": "Avinguda de Sarrià, 137-139 - 08017 (Barcelona)",
+      "latitude": 41.392026417727,
+      "longitude": 2.1326748443172,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-avinguda-de-sarria-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Bassegoda 56 - Sants-Montjuic | Barcelona",
+      "address": "Calle Bassegoda, 56 - 08028 Sants-Montjuic (Barcelona)",
+      "latitude": 41.374285835096,
+      "longitude": 2.1239316912068,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-bassegoda-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Collblanc - Hospitalet de Llobregat | Barcelona",
+      "address": "Carretera de Collblanc, 146 - 08028 L'Hospitalet de Llobregat (Barcelona)",
+      "latitude": 41.375969835562,
+      "longitude": 2.1117603576117,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-collblanc-lhospitalet-de-llobregat-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria Rambla de San Sebastián - Santa Coloma de Gramenet | Barcelona",
+      "address": "Rambla de Sant Sebastià, 62, 08922 Santa Coloma de Gramenet, Barcelona",
+      "latitude": 41.450337046247,
+      "longitude": 2.2134680663747,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-rambla-de-san-sebastian-santa-coloma-de-gramenet-barcelona"
+    },
+    {
+      "chain": "Santagloria",
+      "name": "Santagloria - Pau Claris - Barcelona (Barcelona)",
+      "address": "Carrer de Pau Claris, 100, L'Eixample - 08009 Barcelona",
+      "latitude": 41.3910282,
+      "longitude": 2.1695236,
+      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-pau-claris-barcelona"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Provença 224",
+      "address": "Carrer de Provença, 224, 08006 Barcelona",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/provenca-224"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Ronda Universitat 11",
+      "address": "Ronda de la Universitat, 11, 08007 Barcelona",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/ronda-universitat-11"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Casanova 152",
+      "address": "Carrer de Casanova, 152, 08036 Barcelona",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/casanova-152"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Rosselló 228",
+      "address": "C/Rosselló 228",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/rossello-228"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Rambla Catalunya 82",
+      "address": "Rambla Catalunya 82",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/rambla-catalunya-82"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Provença 266",
+      "address": "C/Provença 266",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/provenca-266"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Aragó 284",
+      "address": "C/Aragó 284",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/arago-284"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet València 315",
+      "address": "C/València 315",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/valencia-315"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Mallorca 279",
+      "address": "C/Mallorca 279",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/mallorca-279"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Roger de Llúria 56",
+      "address": "C/Roger de Llúria 56",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/roger-de-lluria-56"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet - Carrer de Pau Claris, 190",
+      "address": "Carrer de Pau Claris, 190, 08037 Barcelona",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/pau-claris",
+      "catalogAddress": "Carrer de Pau Claris, 190, 08037 Barcelona"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Av. Diagonal 411",
+      "address": "Avda Diagonal 411",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/av-diagonal-411"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Consell de Cent 355",
+      "address": "C/Consell de Cent 355",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/consell-de-cent-355"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Aribau 224",
+      "address": "C/Aribau 224",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/aribau-224"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet - Avinguda de Sarrià, 1-3",
+      "address": "Avinguda de Sarrià, 1-3, 08036 Barcelona",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/av-sarria-1",
+      "catalogAddress": "Avinguda de Sarrià, 1-3, 08036 Barcelona",
+      "latitude": 41.389793,
+      "longitude": 2.147619,
+      "coordinateSource": "https://maps.app.goo.gl/aiLNLjYCjdxn5Mrm9"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Fontanella 15",
+      "address": "C/Fontanella 15",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/fontanella-15"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Roger de Llúria 8",
+      "address": "C/Roger de Llúria 8",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/roger-de-lluria-8"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Urgell 259",
+      "address": "C/ Urgell 259",
+      "zone": "Eixample",
+      "sourceUrl": "https://elfornet.com/es/tiendas/urgell-259"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Muntaner 272",
+      "address": "Carrer de Muntaner, 272, 08021 Barcelona",
+      "zone": "Sarrià-Sant Gervasi",
+      "sourceUrl": "https://elfornet.com/es/tiendas/muntaner-272"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Muntaner 388",
+      "address": "Carrer de Muntaner, 388, 08006 Barcelona",
+      "zone": "Sarrià-Sant Gervasi",
+      "sourceUrl": "https://elfornet.com/es/tiendas/muntaner-388"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Pg. Sant Gervasi 40",
+      "address": "Paseo Sant Gervasi 40",
+      "zone": "Sarrià-Sant Gervasi",
+      "sourceUrl": "https://elfornet.com/es/tiendas/passeig-sant-gervasi-40"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Mandri 26",
+      "address": "C/Mandri 26",
+      "zone": "Sarrià-Sant Gervasi",
+      "sourceUrl": "https://elfornet.com/es/tiendas/mandri-26"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Plaça Bonanova 9",
+      "address": "Plaza Bonanova 9",
+      "zone": "Sarrià-Sant Gervasi",
+      "sourceUrl": "https://elfornet.com/es/tiendas/placa-bonanova-9"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Ronda General Mitre 141",
+      "address": "Ronda General Mitre 141",
+      "zone": "Sarrià-Sant Gervasi",
+      "sourceUrl": "https://elfornet.com/es/tiendas/ronda-general-mitre-141"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Major de Sarrià 35",
+      "address": "C/Major de Sarrià 35",
+      "zone": "Sarrià-Sant Gervasi",
+      "sourceUrl": "https://elfornet.com/es/tiendas/major-de-sarria-35"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Angli 43",
+      "address": "C/Angli 43",
+      "zone": "Sarrià-Sant Gervasi",
+      "sourceUrl": "https://elfornet.com/es/tiendas/angli-43"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Travesera de Gràcia 20",
+      "address": "Travesera de Gràcia 20",
+      "zone": "Sarrià-Sant Gervasi",
+      "sourceUrl": "https://elfornet.com/es/tiendas/travessera-gracia-20"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet - Carrer de la Llacuna, 140-142",
+      "address": "Carrer de la Llacuna, 140-142, 08018 Barcelona",
+      "zone": "Poble Nou",
+      "sourceUrl": "https://elfornet.com/es/tiendas/llacuna-124",
+      "catalogAddress": "Carrer de la Llacuna, 140-142, 08018 Barcelona"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet - Carrer de Pallars, 193",
+      "address": "Carrer de Pallars, 193, 08005 Barcelona",
+      "zone": "Poble Nou",
+      "sourceUrl": "https://elfornet.com/es/tiendas/pallars-193",
+      "catalogAddress": "Carrer de Pallars, 193, 08005 Barcelona",
+      "latitude": 41.401449,
+      "longitude": 2.197578,
+      "coordinateSource": "https://elfornet.com/es/tiendas/pallars-193"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Pujades 362",
+      "address": "C/Pujades 362",
+      "zone": "Poble Nou",
+      "sourceUrl": "https://elfornet.com/es/tiendas/pujades-362"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Av. Diagonal 131",
+      "address": "Avda Diagonal 131",
+      "zone": "Poble Nou",
+      "sourceUrl": "https://elfornet.com/es/tiendas/av-diagonal-131"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Numància 180",
+      "address": "C/Numància 180",
+      "zone": "Les Corts",
+      "sourceUrl": "https://elfornet.com/es/tiendas/numancia-180"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Manila 49",
+      "address": "C/Manila 49",
+      "zone": "Les Corts",
+      "sourceUrl": "https://elfornet.com/es/tiendas/manila-49"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Av. Diagonal 633",
+      "address": "Avda Diagonal 633",
+      "zone": "Les Corts",
+      "sourceUrl": "https://elfornet.com/es/tiendas/av-diagonal-633"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Av. Diagonal 644",
+      "address": "Avda Diagonal 644",
+      "zone": "Les Corts",
+      "sourceUrl": "https://elfornet.com/es/tiendas/av-diagonal-644"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Santa Fe De Nuevo Méjico 1",
+      "address": "C/ Santa Fe De Nuevo Méjico 1",
+      "zone": "Les Corts",
+      "sourceUrl": "https://elfornet.com/es/tiendas/santa-fe-nuevo-mejico-1"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Travessera de Gràcia 101",
+      "address": "Travessera de Gràcia 101",
+      "zone": "Gràcia",
+      "sourceUrl": "https://elfornet.com/es/tiendas/travessera-gracia-101"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet - Rambla, 80",
+      "address": "Rambla, 80, 08201 Sabadell",
+      "zone": "Sabadell",
+      "sourceUrl": "https://elfornet.com/es/tiendas/rambla-80",
+      "catalogAddress": "Rambla, 80, 08201 Sabadell",
+      "latitude": 41.5441106,
+      "longitude": 2.1100764,
+      "coordinateSource": "https://elfornet.com/es/tiendas/rambla-80"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet Santa Maria 42",
+      "address": "C/ Santa Maria 42",
+      "zone": "Sant Cugat del Vallés",
+      "sourceUrl": "https://elfornet.com/es/tiendas/santa-maria-42"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet - Carrer de Francesc Moragas, 21",
+      "address": "Carrer de Francesc Moragas, 21, 08172 Sant Cugat del Vallès",
+      "zone": "Sant Cugat del Vallés",
+      "sourceUrl": "https://elfornet.com/es/tiendas/francesc-moragas-21",
+      "catalogAddress": "Carrer de Francesc Moragas, 21, 08172 Sant Cugat del Vallès",
+      "latitude": 41.469926,
+      "longitude": 2.082761,
+      "coordinateSource": "https://elfornet.com/es/tiendas/francesc-moragas-21"
+    },
+    {
+      "chain": "El Fornet",
+      "name": "El Fornet - Carrer Santa Esperança, 11",
+      "address": "Carrer Santa Esperança, 11, 08401 Granollers",
+      "zone": "Granollers",
+      "sourceUrl": "https://elfornet.com/es/tiendas/santa-esperanza-11",
+      "catalogAddress": "Carrer Santa Esperança, 11, 08401 Granollers",
+      "latitude": 41.607656,
+      "longitude": 2.288507,
+      "coordinateSource": "https://elfornet.com/es/tiendas/santa-esperanza-11"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - VIA AUGUSTA, 117",
+      "address": "VIA AUGUSTA, 117, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/HVVm1NXGdD42"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - AMIGÓ, 63",
+      "address": "AMIGÓ, 63, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/qnYK76nFC8p"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - NUMÀNCIA, 147",
+      "address": "NUMÀNCIA, 147, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/iyvvggwqhQN2"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - AV.JOSEP TARRADELLAS, 116",
+      "address": "AV.JOSEP TARRADELLAS, 116, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/n5vTU6a3Pet"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - RONDA SANT ANTONI, 35",
+      "address": "RONDA SANT ANTONI, 35, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/GMp8ssgeVPn"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - MALLORCA, 179",
+      "address": "MALLORCA, 179, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/JBzjmRexSXN2"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - TRAV. DE GRÀCIA, 18",
+      "address": "TRAV. DE GRÀCIA, 18, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/zCE1qqHYakP2"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - GRAN VIA, 403",
+      "address": "GRAN VIA, 403, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/5vgepAQ8A7v"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - PG.SANT JOAN, 34",
+      "address": "PG.SANT JOAN, 34, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/myHzmmKbcZT2"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - PROVENÇA, 258",
+      "address": "PROVENÇA, 258, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/vux3HVjL2Ur"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - CASP, 31",
+      "address": "CASP, 31, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/YmcGg3z559z"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - PADILLA, 236",
+      "address": "PADILLA, 236, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/kMy8mtR2Ynr"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - BRUC, 71",
+      "address": "BRUC, 71, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/1H4CL2CvF7o"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - PG.REINA ELISENDA, 16BIS",
+      "address": "PG.REINA ELISENDA, 16BIS, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/agTgVuTY1cC2"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - ROCAFORT, 112",
+      "address": "ROCAFORT, 112, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/zRWGNKJS75x"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - AV.REPÚBLICA ARGENTINA, 31",
+      "address": "AV.REPÚBLICA ARGENTINA, 31, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/k6AoPwf1ofw"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - trafalgar, 11",
+      "address": "trafalgar, 11, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/kJxxCmhptuYhnarr5"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - GRÀCIA, 1 | SABADELL",
+      "address": "GRÀCIA, 1 | SABADELL",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/nNtxDrTW7ToBp3oH8",
+      "latitude": 41.5469053,
+      "longitude": 2.1076882,
+      "coordinateSource": "https://goo.gl/maps/nNtxDrTW7ToBp3oH8"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - SANTS, 358",
+      "address": "SANTS, 358, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/eoVRmQvCcrCPqaSF6",
+      "latitude": 41.375828,
+      "longitude": 2.1233623,
+      "coordinateSource": "https://goo.gl/maps/eoVRmQvCcrCPqaSF6"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - BRUNIQUER, 33-35",
+      "address": "BRUNIQUER, 33-35, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://goo.gl/maps/hGRUqXnFCVgxbgkq5"
+    },
+    {
+      "chain": "Sandwichez",
+      "name": "Sandwichez - ARAGÓ, 205",
+      "address": "ARAGÓ, 205, Barcelona",
+      "sourceUrl": "https://www.sandwichez.com/locales",
+      "mapUrl": "https://www.google.com/maps/place/Carrer+d'Aragó,+205,+08011+Barcelona/@41.3883639,2.1591154,19z/data=!4m5!3m4!1s0x12a4a28e800fc0b9:0x63ff68e661b4e5d6!8m2!3d41.3884593!4d2.1596796"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Avd Diagonal, 197 local puerta 2",
+      "address": "Avd Diagonal, 197 local puerta 2 08018 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/veintidosarroba"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Baixada de Santa Clara, 2",
+      "address": "Baixada de Santa Clara, 2 08002 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/santa-clara"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Balmes, 470",
+      "address": "Balmes, 470 08022 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/balmes"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Plaça Bonsuccés, 6",
+      "address": "Plaça Bonsuccés, 6 08001 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/bonsucces"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Av Diagonal 635 Les Corts",
+      "address": "Av Diagonal 635 Les Corts 08028",
+      "sourceUrl": "https://www.buenasmigas.com/diagonal"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Carrer d'en Gignàs, 25",
+      "address": "Carrer d'en Gignàs, 25 08002 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/correos"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Centre Comercial L'Illa Diagonal Déu i mata 69-95, Local 111 Pb",
+      "address": "Centre Comercial L'Illa Diagonal Déu i mata 69-95, Local 111 Pb 08029 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/lilla"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Mallorca, 246",
+      "address": "Mallorca, 246 08008 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/mallorca"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Avd Diagonal, 466",
+      "address": "Avd Diagonal, 466 08006 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/minerva"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Avinguda del Paral·lel, 130",
+      "address": "Avinguda del Paral·lel, 130 08015 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/parallel"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Carrer París, 118 Bajos",
+      "address": "Carrer París, 118 Bajos 08036 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/paris"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Passeig de Gràcia, 120",
+      "address": "Passeig de Gràcia, 120 08008 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/passeig-de-gracia"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Plaça del Mar, 1",
+      "address": "Plaça del Mar, 1 08002 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/plaza-del-mar"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Plaça Espanya, 6-8",
+      "address": "Plaça Espanya, 6-8 08014 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/plaza-espanya"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Plaça Sagrada Familia, 17",
+      "address": "Plaça Sagrada Familia, 17 08013 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/plaza-sagrada-familia"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Plaça Universitat, 1",
+      "address": "Plaça Universitat, 1 08007 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/plaza-universitat"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Ronda Sant Pere, 27",
+      "address": "Ronda Sant Pere, 27 08010 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/ronda-sant-pere"
+    },
+    {
+      "chain": "Buenas Migas",
+      "name": "Buenas Migas - Villarroel, 177",
+      "address": "Villarroel, 177 08036 Barcelona",
+      "sourceUrl": "https://www.buenasmigas.com/villarroel"
+    }
+  ]
+}

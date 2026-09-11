@@ -1,0 +1,567 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Workable BCN — Store Screenshots Carousel</title>
+  <style>
+    :root {
+      --bg: #f6f7f5;
+      --card-bg: #ffffff;
+      --primary: #142d24;
+      --primary-hover: #1e4235;
+      --accent: #2c5946;
+      --muted: #5e6c64;
+      --border: #dbe4dd;
+      --shadow: 0 10px 30px rgba(20, 45, 36, 0.08);
+      --radius: 16px;
+    }
+
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      padding: 32px 20px 60px;
+      background: var(--bg);
+      color: var(--primary);
+      font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, system-ui, sans-serif;
+      line-height: 1.5;
+    }
+
+    .container {
+      max-width: 1100px;
+      margin: 0 auto;
+    }
+
+    header {
+      margin-bottom: 28px;
+    }
+
+    .badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      background: #e4eee6;
+      color: var(--accent);
+      padding: 4px 12px;
+      border-radius: 999px;
+      font-size: 13px;
+      font-weight: 600;
+      margin-bottom: 12px;
+      text-decoration: none;
+      transition: background 0.2s;
+    }
+
+    .badge:hover {
+      background: #d4e4d7;
+    }
+
+    h1 {
+      margin: 0 0 8px;
+      font-size: 28px;
+      font-weight: 700;
+      letter-spacing: -0.5px;
+    }
+
+    p.subtitle {
+      margin: 0;
+      color: var(--muted);
+      font-size: 15px;
+    }
+
+    .studio-card {
+      background: linear-gradient(135deg, #142d24 0%, #214d3f 100%);
+      color: #ffffff;
+      border-radius: var(--radius);
+      padding: 16px 20px;
+      margin: 20px 0 28px;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      flex-wrap: wrap;
+      gap: 12px;
+      box-shadow: 0 8px 24px rgba(20, 45, 36, 0.15);
+    }
+
+    .studio-card h3 {
+      margin: 0 0 4px;
+      font-size: 16px;
+      display: flex;
+      align-items: center;
+      gap: 8px;
+    }
+
+    .studio-card p {
+      margin: 0;
+      font-size: 13px;
+      opacity: 0.85;
+    }
+
+    .btn-studio {
+      background: #ffffff;
+      color: var(--primary);
+      text-decoration: none;
+      font-weight: 600;
+      font-size: 14px;
+      padding: 8px 16px;
+      border-radius: 8px;
+      white-space: nowrap;
+      transition: all 0.2s;
+    }
+
+    .btn-studio:hover {
+      background: #e9efe9;
+      transform: translateY(-1px);
+    }
+
+    .controls-row {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      flex-wrap: wrap;
+      gap: 16px;
+      margin-bottom: 24px;
+    }
+
+    .tabs {
+      display: flex;
+      background: #e8eee8;
+      padding: 4px;
+      border-radius: 12px;
+      gap: 4px;
+    }
+
+    .tab-btn {
+      border: none;
+      background: transparent;
+      padding: 8px 16px;
+      border-radius: 8px;
+      font-size: 14px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+      transition: all 0.2s;
+    }
+
+    .tab-btn.active {
+      background: var(--card-bg);
+      color: var(--primary);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.06);
+    }
+
+    .view-toggle {
+      display: flex;
+      gap: 8px;
+    }
+
+    .toggle-btn {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      padding: 8px 14px;
+      border-radius: 8px;
+      font-size: 13px;
+      font-weight: 600;
+      color: var(--muted);
+      cursor: pointer;
+    }
+
+    .toggle-btn.active {
+      border-color: var(--primary);
+      color: var(--primary);
+      background: #eaf1ea;
+    }
+
+    /* Carousel */
+    .carousel-view {
+      position: relative;
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 32px 24px 28px;
+      box-shadow: var(--shadow);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .carousel-stage {
+      position: relative;
+      width: 100%;
+      max-width: 420px;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      margin: 12px 0 20px;
+    }
+
+    .slide-image-wrapper {
+      position: relative;
+      width: 100%;
+      border-radius: 16px;
+      overflow: hidden;
+      box-shadow: 0 12px 36px rgba(0,0,0,0.12);
+      background: #eee;
+    }
+
+    .slide-image-wrapper img {
+      width: 100%;
+      height: auto;
+      display: block;
+      transition: opacity 0.25s ease;
+    }
+
+    .nav-arrow {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(255, 255, 255, 0.9);
+      border: 1px solid var(--border);
+      width: 44px;
+      height: 44px;
+      border-radius: 50%;
+      cursor: pointer;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 18px;
+      color: var(--primary);
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      transition: all 0.2s;
+      z-index: 5;
+    }
+
+    .nav-arrow:hover {
+      background: #ffffff;
+      transform: translateY(-50%) scale(1.08);
+    }
+
+    .nav-arrow.prev { left: -22px; }
+    .nav-arrow.next { right: -22px; }
+
+    .slide-caption {
+      text-align: center;
+      max-width: 580px;
+      margin-bottom: 20px;
+    }
+
+    .slide-index {
+      font-size: 12px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--accent);
+      margin-bottom: 4px;
+    }
+
+    .slide-title {
+      font-size: 20px;
+      font-weight: 700;
+      margin: 0 0 6px;
+      color: var(--primary);
+    }
+
+    .slide-desc {
+      font-size: 14px;
+      color: var(--muted);
+      margin: 0;
+    }
+
+    .dots-row {
+      display: flex;
+      gap: 10px;
+      align-items: center;
+      margin-top: 12px;
+    }
+
+    .dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #d3ded5;
+      border: none;
+      cursor: pointer;
+      padding: 0;
+      transition: all 0.25s;
+    }
+
+    .dot.active {
+      background: var(--primary);
+      width: 28px;
+      border-radius: 6px;
+    }
+
+    .open-full-link {
+      margin-top: 16px;
+      font-size: 13px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .open-full-link:hover {
+      text-decoration: underline;
+    }
+
+    /* Grid View */
+    .grid-view {
+      display: none;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 20px;
+    }
+
+    .grid-item {
+      background: var(--card-bg);
+      border: 1px solid var(--border);
+      border-radius: var(--radius);
+      padding: 16px;
+      box-shadow: var(--shadow);
+    }
+
+    .grid-item img {
+      width: 100%;
+      height: auto;
+      border-radius: 10px;
+      display: block;
+      margin-bottom: 12px;
+    }
+
+    .grid-item h4 {
+      margin: 0 0 4px;
+      font-size: 15px;
+    }
+
+    .grid-item p {
+      margin: 0;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    footer {
+      margin-top: 40px;
+      text-align: center;
+      font-size: 13px;
+      color: var(--muted);
+    }
+
+    @media (max-width: 600px) {
+      .nav-arrow.prev { left: 8px; }
+      .nav-arrow.next { right: 8px; }
+      .carousel-view { padding: 24px 12px; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <a class="badge" href="http://localhost:4321" target="_blank">
+        <span>✨ Goldie Studio Active</span>
+        <span>•</span>
+        <span>localhost:4321 ↗</span>
+      </a>
+      <h1>Workable BCN — Screenshots & Store Assets</h1>
+      <p class="subtitle">Framed device previews for Google Play & App Store generated via Goldie</p>
+    </header>
+
+    <div class="studio-card">
+      <div>
+        <h3>🎨 Live Goldie Studio Server</h3>
+        <p>Interactive web studio running on port 4321. Tweak backgrounds, fonts, layouts, and export store zips.</p>
+      </div>
+      <a class="btn-studio" href="http://localhost:4321" target="_blank">Open Studio ↗</a>
+    </div>
+
+    <div class="controls-row">
+      <div class="tabs">
+        <button class="tab-btn active" data-source="pixel">Google Play (Pixel 10 Pro)</button>
+        <button class="tab-btn" data-source="iphone">App Store (iPhone 17 Pro)</button>
+        <button class="tab-btn" data-source="raw">Raw Captures (Web)</button>
+      </div>
+      <div class="view-toggle">
+        <button class="toggle-btn active" id="btn-carousel">Carousel</button>
+        <button class="toggle-btn" id="btn-grid">Grid View</button>
+      </div>
+    </div>
+
+    <!-- Carousel View -->
+    <div class="carousel-view" id="carousel-view">
+      <div class="slide-caption">
+        <div class="slide-index" id="slide-index">Slide 1 / 5</div>
+        <h2 class="slide-title" id="slide-title">Coffee. City. Your places.</h2>
+        <p class="slide-desc" id="slide-desc">Find work-friendly coffee spots across Barcelona.</p>
+      </div>
+
+      <div class="carousel-stage">
+        <button class="nav-arrow prev" id="arrow-prev" aria-label="Previous slide">‹</button>
+        <div class="slide-image-wrapper">
+          <img id="carousel-img" src="../../goldie/out/screenshots/pixel-10-pro/en/01-map.png" alt="App Store preview">
+        </div>
+        <button class="nav-arrow next" id="arrow-next" aria-label="Next slide">›</button>
+      </div>
+
+      <div class="dots-row" id="dots-container"></div>
+      <a class="open-full-link" id="full-link" href="../../goldie/out/screenshots/pixel-10-pro/en/01-map.png" target="_blank">View full resolution image ↗</a>
+    </div>
+
+    <!-- Grid View -->
+    <div class="grid-view" id="grid-view"></div>
+
+    <footer>
+      Generated with <a href="https://github.com/kacperkapusciak/goldie" target="_blank" style="color:inherit; font-weight:600">Goldie</a> for Workable BCN · All screenshots verified for App Store Connect & Google Play Console
+    </footer>
+  </div>
+
+  <script>
+    const scenes = [
+      {
+        id: "map",
+        name: "01 — Map",
+        headline: "Coffee. City. Your places.",
+        subhead: "Find work-friendly coffee spots across Barcelona.",
+        pixel: "../../goldie/out/screenshots/pixel-10-pro/en/01-map.png",
+        iphone: "../../goldie/out/screenshots/iphone-6.9/en/01-map.png",
+        raw: "01-map.png"
+      },
+      {
+        id: "list",
+        name: "02 — List",
+        headline: "Curated café directory",
+        subhead: "Browse spots by chain, distance, and workspace amenities.",
+        pixel: "../../goldie/out/screenshots/pixel-10-pro/en/02-list.png",
+        iphone: "../../goldie/out/screenshots/iphone-6.9/en/02-list.png",
+        raw: "02-list.png"
+      },
+      {
+        id: "saved",
+        name: "03 — Saved",
+        headline: "Save your favorites",
+        subhead: "Keep your go-to places offline and always accessible.",
+        pixel: "../../goldie/out/screenshots/pixel-10-pro/en/03-saved.png",
+        iphone: "../../goldie/out/screenshots/iphone-6.9/en/03-saved.png",
+        raw: "03-saved.png"
+      },
+      {
+        id: "selected-place",
+        name: "04 — Selected place",
+        headline: "Clear place details",
+        subhead: "Addresses, directions, and workspace notes at a glance.",
+        pixel: "../../goldie/out/screenshots/pixel-10-pro/en/04-selected-place.png",
+        iphone: "../../goldie/out/screenshots/iphone-6.9/en/04-selected-place.png",
+        raw: "04-selected-place.png"
+      },
+      {
+        id: "about",
+        name: "05 — About",
+        headline: "Simple and transparent",
+        subhead: "Direct privacy policy and support contact right in the app.",
+        pixel: "../../goldie/out/screenshots/pixel-10-pro/en/05-about.png",
+        iphone: "../../goldie/out/screenshots/iphone-6.9/en/05-about.png",
+        raw: "05-about.png"
+      }
+    ];
+
+    let currentSource = "pixel";
+    let currentIndex = 0;
+
+    const imgEl = document.getElementById("carousel-img");
+    const titleEl = document.getElementById("slide-title");
+    const descEl = document.getElementById("slide-desc");
+    const indexEl = document.getElementById("slide-index");
+    const linkEl = document.getElementById("full-link");
+    const dotsContainer = document.getElementById("dots-container");
+    const gridView = document.getElementById("grid-view");
+    const carouselView = document.getElementById("carousel-view");
+
+    function renderDots() {
+      dotsContainer.innerHTML = "";
+      scenes.forEach((_, i) => {
+        const dot = document.createElement("button");
+        dot.className = `dot ${i === currentIndex ? "active" : ""}`;
+        dot.setAttribute("aria-label", `Slide ${i + 1}`);
+        dot.onclick = () => goTo(i);
+        dotsContainer.appendChild(dot);
+      });
+    }
+
+    function updateCarousel() {
+      const item = scenes[currentIndex];
+      const src = item[currentSource];
+      
+      imgEl.style.opacity = "0.2";
+      setTimeout(() => {
+        imgEl.src = src;
+        imgEl.onload = () => { imgEl.style.opacity = "1"; };
+      }, 100);
+
+      titleEl.textContent = item.headline;
+      descEl.textContent = item.subhead;
+      indexEl.textContent = `${item.name} (${currentIndex + 1} / ${scenes.length})`;
+      linkEl.href = src;
+
+      document.querySelectorAll(".dot").forEach((d, i) => {
+        d.classList.toggle("active", i === currentIndex);
+      });
+    }
+
+    function goTo(idx) {
+      if (idx < 0) idx = scenes.length - 1;
+      if (idx >= scenes.length) idx = 0;
+      currentIndex = idx;
+      updateCarousel();
+    }
+
+    function renderGrid() {
+      gridView.innerHTML = "";
+      scenes.forEach((item) => {
+        const div = document.createElement("div");
+        div.className = "grid-item";
+        div.innerHTML = `
+          <a href="${item[currentSource]}" target="_blank">
+            <img src="${item[currentSource]}" alt="${item.headline}">
+          </a>
+          <h4>${item.headline}</h4>
+          <p>${item.subhead}</p>
+        `;
+        gridView.appendChild(div);
+      });
+    }
+
+    document.getElementById("arrow-prev").onclick = () => goTo(currentIndex - 1);
+    document.getElementById("arrow-next").onclick = () => goTo(currentIndex + 1);
+
+    document.addEventListener("keydown", (e) => {
+      if (e.key === "ArrowLeft") goTo(currentIndex - 1);
+      if (e.key === "ArrowRight") goTo(currentIndex + 1);
+    });
+
+    document.querySelectorAll(".tab-btn").forEach(btn => {
+      btn.onclick = () => {
+        document.querySelectorAll(".tab-btn").forEach(b => b.classList.remove("active"));
+        btn.classList.add("active");
+        currentSource = btn.dataset.source;
+        updateCarousel();
+        renderGrid();
+      };
+    });
+
+    const btnCarousel = document.getElementById("btn-carousel");
+    const btnGrid = document.getElementById("btn-grid");
+
+    btnCarousel.onclick = () => {
+      btnCarousel.classList.add("active");
+      btnGrid.classList.remove("active");
+      carouselView.style.display = "flex";
+      gridView.style.display = "none";
+    };
+
+    btnGrid.onclick = () => {
+      btnGrid.classList.add("active");
+      btnCarousel.classList.remove("active");
+      carouselView.style.display = "none";
+      gridView.style.display = "grid";
+      renderGrid();
+    };
+
+    renderDots();
+    updateCarousel();
+  </script>
+</body>
+</html>
