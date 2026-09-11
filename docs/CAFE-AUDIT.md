@@ -73,3 +73,120 @@ Google Places API возвращает поле `businessStatus`, позволя
 При нажатии на кнопку «Маршрут» («Directions») в приложении утилита `src/utils/directions.ts` генерирует Google Maps Universal Directions URL:
 - **При наличии `googlePlaceId`**: формируется URL с параметрами `destination=<Name, Address>&destination_place_id=<PlaceId>&travelmode=walking`. В этом случае Google Maps открывает не безымянную булавку на координатах, а официальную карточку заведения (POI) с актуальным графиком работы, загруженностью и отзывами.
 - **При отсутствии `googlePlaceId`**: срабатывает обратная совместимость с переходом по координатам (`destination=<lat>,<lon>&travelmode=walking`).
+
+## Масштабирование на агломерацию (AMB Cafe Discovery)
+
+Для расширения охвата карты за пределы центра Барселоны на всю столичную область (Área Metropolitana de Barcelona, AMB) разработан автоматизированный пайплайн поиска, нормализации и дедупликации кофеен целевых сетей через Google Places API (New).
+
+### Географический охват и границы
+
+Поиск охватывает все **36 муниципалитетов AMB**, а также **10 административных районов Барселоны**:
+- **Районы Барселоны (10)**: Ciutat Vella, Eixample, Sants-Montjuïc, Les Corts, Sarrià-Sant Gervasi, Gràcia, Horta-Guinardó, Nou Barris, Sant Andreu, Sant Martí.
+- **Муниципалитеты AMB (35 городов-спутников + Barcelona)**: Badalona, Badia del Vallès, Barberà del Vallès, Begues, Castellbisbal, Castelldefels, Cervelló, Cerdanyola del Vallès, Corbera de Llobregat, Cornellà de Llobregat, El Papiol, El Prat de Llobregat, Esplugues de Llobregat, Gavà, L'Hospitalet de Llobregat, La Palma de Cervelló, Molins de Rei, Montcada i Reixac, Montgat, Pallejà, Ripollet, Sant Adrià de Besòs, Sant Andreu de la Barca, Sant Boi de Llobregat, Sant Climent de Llobregat, Sant Cugat del Vallès, Sant Feliu de Llobregat, Sant Joan Despí, Sant Just Desvern, Sant Vicenç dels Horts, Santa Coloma de Cervelló, Santa Coloma de Gramenet, Tiana, Torrelles de Llobregat, Viladecans.
+
+Все найденные кандидаты фильтруются по гео-рамке AMB (bounding box):
+`41.20 <= latitude <= 41.55` и `1.90 <= longitude <= 2.35`. Точки вне этих пределов отсекаются.
+
+### Поисковая матрица и целевые сети
+
+Пайплайн проверяет 7 ключевых сетевых брендов:
+1. **365 Café** (поисковые термины: `365 Obrador`, `365 Cafe`)
+2. **Granier** (`Granier`)
+3. **Vivari** (`Vivari`)
+4. **Santagloria** (`Santagloria`)
+5. **El Fornet** (`El Fornet`)
+6. **SandwiChez** (`Sandwichez`)
+7. **Buenas Migas** (`Buenas Migas`)
+
+Для каждого муниципалитета и района формируется точный поисковый запрос (всего 368 запросов). Названия найденных мест сверяются с регулярными выражениями брендов (`BRAND_PATTERNS`), исключая ложные совпадения.
+
+### Кэширование запросов
+
+Все ответы API кэшируются в `.cache/amb-discovery-cache.json` по ключу `${chain}:${municipality}:${searchTerm}` и тексту запроса:
+- Первый запуск наполняет кэш, минимизируя расходы квоты Google Places API.
+- Повторные запуски выполняются локально за доли секунды без сетевых запросов.
+- Файл кэша исключён из системы контроля версий (`.gitignore`).
+
+### Дедупликация и сопоставление (`deduplicateAgainstCatalog`)
+
+Для каждого обнаруженного кандидата выполняется трёхступенчатая дедупликация против текущей базы `src/data/places.json`:
+1. **Совпадение по Google Place ID**: если `id` кандидата уже ассоциирован с каким-либо заведением в каталоге, точка помечается как `alreadyInCatalog` и не дублируется.
+2. **Гео-сопоставление по цепочке и расстоянию (<= 50 м)**:
+   - Если в радиусе 50 м по формуле гаверсинусов (Haversine) уже есть заведение той же сети:
+     - При наличии у существующего заведения `googlePlaceId` — точка признаётся известной (`alreadyInCatalog`).
+     - При отсутствии у существующего заведения `googlePlaceId` — точка регистрируется как `enrichedExisting`. Это позволяет дообогатить существующие записи идентификаторами Google Place ID и ссылками без добавления дубликатов.
+3. **Новый кандидат (> 50 м)**: заведение признаётся новой точкой (`newCandidates`). Для него:
+   - Нормализуется адрес (`formatAmbAddress`): отсекаются суффиксы `Spain`/`España`, пятизначные почтовые индексы, дублирующиеся названия городов; добавляется суффикс `· <Municipality>`.
+   - Генерируется уникальный детерминированный слаг: `${chainSlug}-${lat.toFixed(6)}-${lon.toFixed(6)}`.
+   - Формируется структура с блоком `verification`: `{ status: "listed", checkedAt: "<date>", source: "google-places-discovery" }`.
+
+### Команды CLI и безопасность обновления
+
+Пайплайн управляется скриптом `scripts/discover-amb-cafes.mjs` и npm-командами:
+- `npm run discover:amb`: режим сухого прогона (dry-run). Выполняет поиск по матрице, сверку с кэшем/API, дедупликацию и сохраняет полный структурированный отчёт в `docs/data/amb-candidates.json` без модификации рабочей базы.
+- `npm run discover:amb:apply`: режим применения. Вносит обогащения в существующие записи и добавляет новых кандидатов в `src/data/places.json`. После записи автоматически запускается валидатор `scripts/check-places.mjs`. При обнаружении любых нарушений целостности базы выполняется **автоматический откат** к исходному файлу каталога.
+- Флаги фильтрации: `--cities=...`, `--chains=...`, `--no-cache`, `--api-key=...`.
+
+### Итоги первого прогона поиска (Сентябрь 2026)
+
+Результаты полного сканирования матрицы AMB:
+- **Выполнено запросов**: 368
+- **Найдено сырых кандидатов**: 4 438
+- **Уже присутствуют в каталоге**: 458
+- **Обогащаемые существующие точки**: 1 (`365-caf--41.369755-2.107968` в L'Hospitalet de Llobregat, совпадение 12 м)
+- **Новых уникальных кандидатов**: 69
+
+#### Распределение новых кандидатов по сетям
+
+| Сеть | Новые кандидаты | Обогащение существующих |
+|---|---:|---:|
+| 365 Café | 19 | 1 |
+| El Fornet | 15 | 0 |
+| SandwiChez | 12 | 0 |
+| Santagloria | 10 | 0 |
+| Granier | 8 | 0 |
+| Vivari | 4 | 0 |
+| Buenas Migas | 1 | 0 |
+| **Итого** | **69** | **1** |
+
+#### Распределение новых кандидатов по муниципалитетам и районам
+
+| Муниципалитет / Район | Новые кандидаты | Обогащение |
+|---|---:|---:|
+| L'Hospitalet de Llobregat | 8 | 1 |
+| Cornellà de Llobregat | 8 | 0 |
+| Badalona | 6 | 0 |
+| Eixample (Barcelona) | 6 | 0 |
+| Sant Boi de Llobregat | 4 | 0 |
+| Sants-Montjuïc (Barcelona) | 3 | 0 |
+| El Prat de Llobregat | 3 | 0 |
+| Viladecans | 3 | 0 |
+| Castelldefels | 3 | 0 |
+| Sant Martí (Barcelona) | 3 | 0 |
+| Gavà | 2 | 0 |
+| Santa Coloma de Gramenet | 2 | 0 |
+| Les Corts (Barcelona) | 1 | 0 |
+| Sant Vicenç dels Horts | 1 | 0 |
+| Sarrià-Sant Gervasi (Barcelona) | 1 | 0 |
+| Cerdanyola del Vallès | 1 | 0 |
+| Sant Just Desvern | 1 | 0 |
+| Montgat | 1 | 0 |
+| Gràcia (Barcelona) | 1 | 0 |
+| Sant Andreu de la Barca | 1 | 0 |
+| Santa Coloma de Cervelló | 1 | 0 |
+| Begues | 1 | 0 |
+| Ciutat Vella (Barcelona) | 1 | 0 |
+| Horta-Guinardó (Barcelona) | 1 | 0 |
+| Nou Barris (Barcelona) | 1 | 0 |
+| Montcada i Reixac | 1 | 0 |
+| Barberà del Vallès | 1 | 0 |
+| Castellbisbal | 1 | 0 |
+| Sant Climent de Llobregat | 1 | 0 |
+| Sant Andreu (Barcelona) | 1 | 0 |
+| **Итого** | **69** | **1** |
+
+### Сохранённые артефакты
+
+- `docs/data/amb-candidates.json`: подробный JSON-отчёт с метаданными генерации, агрегированной статистикой, разбивками по сетям и городам, а также полным списком 69 кандидатов и 1 обогащения.
+- `.cache/amb-discovery-cache.json`: персистентный кэш всех 368 запросов Google Places API для воспроизводимости и локального тестирования без затрат API-квоты.
+
