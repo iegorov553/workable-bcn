@@ -1,7 +1,7 @@
 {
-  "background": "linear-gradient(160deg, #F5F7F5 0%, #E7EFE8 55%, #D6E4D8 100%)",
+  "background": "linear-gradient(160deg, #FFFDF8 0%, #FFF9EB 50%, #F5EEDA 100%)",
   "frame": "17-pro-silver",
-  "fontFamily": "-apple-system, \"SF Pro Display\", \"Segoe UI\", Roboto, system-ui, sans-serif",
+  "fontFamily": "\"Fraunces\", Merriweather, Georgia, serif",
   "template": "",
   "layout": "classic",
   "screenOnly": false

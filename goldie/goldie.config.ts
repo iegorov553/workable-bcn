@@ -1,8 +1,16 @@
 import { resolve } from "node:path";
 import { fileURLToPath } from "node:url";
+import { GlobalFonts } from "@napi-rs/canvas";
 import type { GoldieConfig } from "goldie";
 
 const rootDir = fileURLToPath(new URL("..", import.meta.url));
+
+// Register Fraunces & Roboto fonts directly for @napi-rs/canvas renderer
+GlobalFonts.registerFromPath(resolve(rootDir, "assets/fonts/Fraunces-Bold.ttf"), "Fraunces");
+GlobalFonts.registerFromPath(resolve(rootDir, "assets/fonts/Fraunces-SemiBold.ttf"), "Fraunces");
+GlobalFonts.registerFromPath(resolve(rootDir, "assets/fonts/Roboto-Regular.ttf"), "Roboto");
+GlobalFonts.registerFromPath(resolve(rootDir, "assets/fonts/Roboto-Medium.ttf"), "Roboto");
+GlobalFonts.registerFromPath(resolve(rootDir, "assets/fonts/Roboto-Bold.ttf"), "Roboto");
 
 const config: GoldieConfig = {
   appRoot: rootDir,
@@ -17,10 +25,11 @@ const config: GoldieConfig = {
   },
 
   theme: {
-    background: "linear-gradient(160deg, #F5F7F5 0%, #E7EFE8 55%, #D6E4D8 100%)",
-    headlineColor: "#142D24",
-    subheadColor: "#3B5247",
-    fontFamily: '-apple-system, "SF Pro Display", "Segoe UI", Roboto, system-ui, sans-serif',
+    // Warm editorial background matching app cream header (#FFF9EB) and sand background (#E5DFCC)
+    background: "linear-gradient(160deg, #FFFDF8 0%, #FFF9EB 50%, #F5EEDA 100%)",
+    headlineColor: "#17211B",
+    subheadColor: "#657067",
+    fontFamily: '"Fraunces", Merriweather, Georgia, serif',
     copyHeightRatio: 0.22,
     deviceWidthRatio: 0.84,
     layout: "classic",
@@ -85,17 +94,6 @@ const config: GoldieConfig = {
       },
       subhead: {
         en: "Addresses, directions, and workspace notes at a glance.",
-      },
-    },
-    {
-      kind: "screenshot",
-      id: "about",
-      flow: "store-05-about",
-      headline: {
-        en: "Simple and transparent",
-      },
-      subhead: {
-        en: "Direct privacy policy and support contact right in the app.",
       },
     },
   ],
