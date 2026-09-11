@@ -40,6 +40,7 @@ export const BARCELONA_DISTRICTS = [
 ];
 
 export const AMB_MUNICIPALITIES = [
+  ...BARCELONA_DISTRICTS,
   'Barcelona',
   "L'Hospitalet de Llobregat",
   'Badalona',
@@ -76,7 +77,6 @@ export const AMB_MUNICIPALITIES = [
   'Montgat',
   'Badia del Vallès',
   'Cervelló',
-  ...BARCELONA_DISTRICTS,
 ];
 
 export const TARGET_CHAINS = [
@@ -552,6 +552,10 @@ export async function main() {
             await new Promise(r => setTimeout(r, 100));
           } catch (err) {
             console.error(`[ERROR] Query failed "${query}":`, err.message);
+            if (err.message.includes('HTTP 401') || err.message.includes('HTTP 403')) {
+              console.error(`[FATAL] Authentication or quota error encountered. Aborting discovery.`);
+              throw err;
+            }
             continue;
           }
         }
@@ -584,7 +588,8 @@ export async function main() {
   console.log(`Raw candidates before deduplication: ${rawCandidates.length}`);
 
   // Load current catalog
-  const catalogPlaces = JSON.parse(await readFile(placesPath, 'utf8'));
+  const catalogPlacesRaw = await readFile(placesPath, 'utf8');
+  const catalogPlaces = JSON.parse(catalogPlacesRaw);
 
   // Run deduplication
   const result = deduplicateAgainstCatalog(rawCandidates, catalogPlaces, 50);
@@ -700,7 +705,9 @@ export async function main() {
       execFileSync(process.execPath, ['scripts/check-places.mjs'], { stdio: 'inherit' });
       console.log(`[APPLY] Catalog integrity verified successfully.`);
     } catch (err) {
-      console.error(`[ERROR] check:places failed after applying changes!`);
+      console.error(`[ERROR] check:places failed after applying changes. Rolling back ${placesPath}...`);
+      await writeFile(placesPath, catalogPlacesRaw);
+      console.log(`[ROLLBACK] Successfully restored original ${placesPath}.`);
       throw err;
     }
   } else {
