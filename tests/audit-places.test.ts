@@ -30,6 +30,11 @@ test('buildSearchQuery formats query when no middle-dot delimiter is present', (
   assert.equal(query, 'Santagloria Carrer de Provença 250 Barcelona');
 });
 
+test('buildSearchQuery falls back to name when chain is empty', () => {
+  const query = buildSearchQuery('', 'Nomad Coffee Lab', 'Carrer de Pujades, 95 · Poblenou');
+  assert.equal(query, 'Nomad Coffee Lab Carrer de Pujades, 95 Barcelona');
+});
+
 test('matchCandidate returns NOT_FOUND when candidate list is empty', () => {
   const result = matchCandidate(41.3870, 2.1700, []);
   assert.equal(result.status, 'NOT_FOUND');

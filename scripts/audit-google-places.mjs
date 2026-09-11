@@ -129,10 +129,13 @@ Options:
       closedTemporarily: 0,
       mismatch: 0,
       notFound: 0,
+      errors: 0,
     },
     closedPermanently: [],
     closedTemporarily: [],
     mismatches: [],
+    notFound: [],
+    errors: [],
     matched: [],
   };
 
@@ -165,7 +168,10 @@ Options:
         });
 
         if (!res.ok) {
-          console.error(`API error for ${place.id} (${res.status}): ${await res.text()}`);
+          const errText = await res.text();
+          console.error(`API error for ${place.id} (${res.status}): ${errText}`);
+          report.stats.errors++;
+          report.errors.push({ id: place.id, name: place.name, query, error: `HTTP ${res.status}: ${errText}` });
           continue;
         }
 
@@ -174,6 +180,8 @@ Options:
         await writeFile(cachePath, JSON.stringify(cache, null, 2));
       } catch (err) {
         console.error(`Network error for ${place.id}:`, err);
+        report.stats.errors++;
+        report.errors.push({ id: place.id, name: place.name, query, error: err.message });
         continue;
       }
     }
@@ -183,6 +191,7 @@ Options:
 
     if (status === 'NOT_FOUND') {
       report.stats.notFound++;
+      report.notFound.push({ id: place.id, name: place.name, query });
       continue;
     }
 
@@ -248,6 +257,7 @@ Closed Permanently: ${report.stats.closedPermanently}
 Closed Temporarily: ${report.stats.closedTemporarily}
 Mismatched (>150m): ${report.stats.mismatch}
 Not Found:          ${report.stats.notFound}
+Errors:             ${report.stats.errors}
 Report written to:  ${reportPath}
 `);
 }

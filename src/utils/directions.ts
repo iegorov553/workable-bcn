@@ -12,7 +12,7 @@ export function getDirectionsUrl(place: Place): string {
 
   if (place.googlePlaceId) {
     const destination = encodeURIComponent(`${place.name}, ${place.address}`);
-    return `${base}&destination=${destination}&destination_place_id=${place.googlePlaceId}&${travelmode}`;
+    return `${base}&destination=${destination}&destination_place_id=${encodeURIComponent(place.googlePlaceId)}&${travelmode}`;
   }
 
   return `${base}&destination=${place.latitude},${place.longitude}&${travelmode}`;
