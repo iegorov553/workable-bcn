@@ -17,7 +17,8 @@ export function haversineDistanceMeters(lat1, lon1, lat2, lon2) {
 
 export function buildSearchQuery(chain, name, address) {
   const cleanAddress = address.split('·')[0].trim();
-  return `${chain} ${cleanAddress} Barcelona`;
+  const prefix = chain || name;
+  return `${prefix} ${cleanAddress} Barcelona`;
 }
 
 export function matchCandidate(placeLat, placeLon, candidates, maxDistance = 150) {
