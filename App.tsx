@@ -13,6 +13,7 @@ import placesJson from './src/data/places.json';
 import { chainColors, colors, fallbackChainColor } from './src/theme';
 import type { Coordinates, Place, ViewMode } from './src/types';
 import { distanceKm, formatDistance } from './src/utils/distance';
+import { getDirectionsUrl } from './src/utils/directions';
 import { LocationRequestError, requestLocation, requestLocationIfGranted } from './src/utils/location-request';
 import type { CameraCommand } from './src/utils/map-camera';
 import { formatPlaceCount, matchesSearch, parseFavorites } from './src/utils/places';
@@ -92,7 +93,7 @@ function AppContent() {
     haptic();
   };
   const openDirections = (place: Place) => {
-    void Linking.openURL(`https://www.google.com/maps/dir/?api=1&destination=${place.latitude},${place.longitude}&travelmode=walking`)
+    void Linking.openURL(getDirectionsUrl(place))
       .catch(() => setNotice('Could not open directions. Check your maps app or browser.'));
   };
   const locate = useCallback(async (centerMap = true, onlyIfGranted = false) => {
