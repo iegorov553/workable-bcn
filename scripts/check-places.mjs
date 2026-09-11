@@ -11,6 +11,12 @@ for(const p of places) {
  assert.ok(['listed','unverified'].includes(p.verification?.status),`No audit status: ${p.id}`);
  assert.ok(/^https:\/\//.test(p.verification.sourceUrl),`No source: ${p.id}`);
  assert.ok(/^\d{4}-\d{2}-\d{2}$/.test(p.verification.checkedAt),`Invalid date: ${p.id}`);
+ if (p.googlePlaceId !== undefined) {
+   assert.ok(typeof p.googlePlaceId === 'string' && /^[A-Za-z0-9_-]{10,100}$/.test(p.googlePlaceId), `Invalid googlePlaceId format: ${p.id}`);
+ }
+ if (p.googleMapsUrl !== undefined) {
+   assert.ok(typeof p.googleMapsUrl === 'string' && /^https:\/\//.test(p.googleMapsUrl), `Invalid googleMapsUrl format: ${p.id}`);
+ }
 }
 for(const p of originals) assert.ok(ids.has(p.id),`Lost favorite ID: ${p.id}`);
 const gignas=places.find(p=>p.id.startsWith('sandwichez-')&&p.address.includes('Gignàs'));

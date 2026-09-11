@@ -5,6 +5,8 @@ export type Place = {
   address: string;
   latitude: number;
   longitude: number;
+  googlePlaceId?: string;
+  googleMapsUrl?: string;
   verification?: {
     status: 'listed' | 'unverified';
     checkedAt: string;
