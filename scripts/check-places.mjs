@@ -1,7 +1,17 @@
 import assert from 'node:assert/strict';
 import {readFile} from 'node:fs/promises';
+import {existsSync} from 'node:fs';
+
 const places=JSON.parse(await readFile('src/data/places.json','utf8'));
 const originals=JSON.parse(await readFile('docs/data/original-places.json','utf8'));
+let closedIds = new Set();
+if (existsSync('docs/data/google-places-audit.json')) {
+  try {
+    const audit = JSON.parse(await readFile('docs/data/google-places-audit.json', 'utf8'));
+    closedIds = new Set((audit.closedPermanently || []).map(p => p.id));
+  } catch {}
+}
+
 const ids=new Set();
 for(const p of places) {
  assert.ok(p.id&&p.chain&&p.name&&p.address,'Missing identifying field');
@@ -18,7 +28,17 @@ for(const p of places) {
    assert.ok(typeof p.googleMapsUrl === 'string' && /^https:\/\//.test(p.googleMapsUrl), `Invalid googleMapsUrl format: ${p.id}`);
  }
 }
-for(const p of originals) assert.ok(ids.has(p.id),`Lost favorite ID: ${p.id}`);
+let retiredCount = 0;
+for(const p of originals) {
+  if (closedIds.has(p.id) && !ids.has(p.id)) {
+    retiredCount++;
+    continue;
+  }
+  assert.ok(ids.has(p.id),`Lost favorite ID: ${p.id}`);
+}
 const gignas=places.find(p=>p.id.startsWith('sandwichez-')&&p.address.includes('Gignàs'));
 assert.equal(gignas?.chain,'Buenas Migas','Gignàs was incorrectly classified in the old map');
-console.log(`${places.length} records valid; all ${originals.length} legacy IDs preserved.`);
+const legacySummary = retiredCount > 0
+  ? `${originals.length - retiredCount}/${originals.length} active legacy IDs preserved (${retiredCount} confirmed closed)`
+  : `all ${originals.length} legacy IDs preserved`;
+console.log(`${places.length} records valid; ${legacySummary}.`);

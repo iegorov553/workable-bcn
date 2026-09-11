@@ -72,6 +72,7 @@ export function parseArgs(args = process.argv.slice(2)) {
   loadEnv();
   const flags = {
     apply: args.includes('--apply'),
+    removeClosed: args.includes('--remove-closed'),
     apiKey: process.env.GOOGLE_MAPS_API_KEY || null,
     cacheFile: path.resolve('.cache/google-places-cache.json'),
     limit: null,
@@ -95,10 +96,11 @@ export async function main() {
     console.log(`
 [Google Places Audit]
 Usage:
-  GOOGLE_MAPS_API_KEY=your_key node scripts/audit-google-places.mjs [--apply] [--limit=10]
+  GOOGLE_MAPS_API_KEY=your_key node scripts/audit-google-places.mjs [--apply] [--remove-closed] [--limit=10]
 
 Options:
   --apply          Write googlePlaceId and googleMapsUrl to src/data/places.json for operational matches
+  --remove-closed  Exclude permanently closed places from src/data/places.json when --apply is used
   --limit=N        Only process the first N places (useful for dry runs)
   --cache-file=PATH Path to cache file (default: .cache/google-places-cache.json)
   --api-key=KEY    Google Maps API key (or set GOOGLE_MAPS_API_KEY)
@@ -237,11 +239,19 @@ Options:
   await writeFile(reportPath, JSON.stringify(report, null, 2));
 
   if (flags.apply) {
-    if (appliedCount > 0) {
-      await writeFile(placesPath, JSON.stringify(places, null, 2) + '\n');
-      console.log(`\nUpdated ${appliedCount} places in ${placesPath}`);
+    let finalPlaces = places;
+    if (flags.removeClosed && report.closedPermanently.length > 0) {
+      const closedSet = new Set(report.closedPermanently.map(p => p.id));
+      finalPlaces = places.filter(p => !closedSet.has(p.id));
+      console.log(`\nRemoved ${report.closedPermanently.length} permanently closed places from catalog.`);
     }
-    if (report.closedPermanently.length > 0 || report.closedTemporarily.length > 0) {
+
+    if (appliedCount > 0 || flags.removeClosed) {
+      await writeFile(placesPath, JSON.stringify(finalPlaces, null, 2) + '\n');
+      console.log(`Updated ${appliedCount} places in ${placesPath} (${finalPlaces.length} places remain)`);
+    }
+
+    if (!flags.removeClosed && (report.closedPermanently.length > 0 || report.closedTemporarily.length > 0)) {
       console.warn(
         `\n[WARNING] Found ${report.closedPermanently.length} permanently closed and ${report.closedTemporarily.length} temporarily closed places.` +
         `\nPlease verify each before manually removing from ${placesPath}.`
