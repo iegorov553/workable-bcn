@@ -61,13 +61,18 @@ export function formatAmbAddress(formattedAddress, municipality) {
   // Remove postal codes and trailing location chunks (e.g. ", 08902 L'Hospitalet de Llobregat, Barcelona")
   street = street.replace(/,?\s*\b\d{5}\b.*$/i, '');
 
+  // Remove trailing ", Barcelona" if municipality is not Barcelona
+  if (municipality && municipality.toLowerCase() !== 'barcelona') {
+    street = street.replace(/,?\s*Barcelona\s*$/i, '');
+  }
+
   // Remove municipality if explicitly present as a comma suffix
   if (municipality) {
     const escapedMun = municipality.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
     street = street.replace(new RegExp(`,?\\s*${escapedMun}\\s*$`, 'i'), '');
   }
 
-  // Remove trailing ", Barcelona" if present
+  // Remove trailing ", Barcelona" if still present
   street = street.replace(/,?\s*Barcelona\s*$/i, '');
 
   street = street.trim().replace(/,+$/, '').trim();
@@ -143,21 +148,28 @@ export function deduplicateAgainstCatalog(candidates = [], existingPlaces = [], 
       continue;
     }
 
+    if (
+      typeof candLat !== 'number' ||
+      typeof candLon !== 'number' ||
+      !Number.isFinite(candLat) ||
+      !Number.isFinite(candLon)
+    ) {
+      continue;
+    }
+
     // Rule 2: Proximity & Chain Match (<= thresholdMeters)
     let closestExisting = null;
     let minDistance = Infinity;
 
-    if (candLat !== undefined && candLon !== undefined) {
-      for (const existing of existingList) {
-        if (!existing.chain || !cand.chain) continue;
-        if (existing.chain.toLowerCase().trim() !== cand.chain.toLowerCase().trim()) continue;
-        if (typeof existing.latitude !== 'number' || typeof existing.longitude !== 'number') continue;
+    for (const existing of existingList) {
+      if (!existing.chain || !cand.chain) continue;
+      if (existing.chain.toLowerCase().trim() !== cand.chain.toLowerCase().trim()) continue;
+      if (typeof existing.latitude !== 'number' || typeof existing.longitude !== 'number') continue;
 
-        const dist = haversineDistanceMeters(candLat, candLon, existing.latitude, existing.longitude);
-        if (dist <= thresholdMeters && dist < minDistance) {
-          minDistance = dist;
-          closestExisting = existing;
-        }
+      const dist = haversineDistanceMeters(candLat, candLon, existing.latitude, existing.longitude);
+      if (dist <= thresholdMeters && dist < minDistance) {
+        minDistance = dist;
+        closestExisting = existing;
       }
     }
 
@@ -187,14 +199,12 @@ export function deduplicateAgainstCatalog(candidates = [], existingPlaces = [], 
 
     // Proximity check against already-accepted new candidates in this run
     let duplicateOfNew = false;
-    if (candLat !== undefined && candLon !== undefined) {
-      for (const newCand of newCandidates) {
-        if (newCand.chain?.toLowerCase().trim() === cand.chain?.toLowerCase().trim()) {
-          const dist = haversineDistanceMeters(candLat, candLon, newCand.latitude, newCand.longitude);
-          if (dist <= thresholdMeters) {
-            duplicateOfNew = true;
-            break;
-          }
+    for (const newCand of newCandidates) {
+      if (newCand.chain?.toLowerCase().trim() === cand.chain?.toLowerCase().trim()) {
+        const dist = haversineDistanceMeters(candLat, candLon, newCand.latitude, newCand.longitude);
+        if (dist <= thresholdMeters) {
+          duplicateOfNew = true;
+          break;
         }
       }
     }
@@ -206,8 +216,22 @@ export function deduplicateAgainstCatalog(candidates = [], existingPlaces = [], 
 
     // Rule 3: New Candidate Discovery (> thresholdMeters)
     const address = formatAmbAddress(cand.formattedAddress || cand.address, cand.municipality);
-    const streetPart = address.split(' · ')[0];
-    const name = cand.name || (cand.displayName?.text ? `${cand.chain} - ${cand.displayName.text}` : `${cand.chain} - ${streetPart}`);
+    const streetPart = address.split(' · ')[0].trim();
+    let name = cand.name;
+    if (!name) {
+      const display = cand.displayName?.text?.trim();
+      if (display) {
+        if (display.toLowerCase() === cand.chain.toLowerCase()) {
+          name = `${cand.chain} - ${streetPart}`;
+        } else if (matchesBrand(display, cand.chain)) {
+          name = display;
+        } else {
+          name = `${cand.chain} - ${display}`;
+        }
+      } else {
+        name = `${cand.chain} - ${streetPart}`;
+      }
+    }
     const id = generatePlaceId(cand.chain, candLat, candLon);
 
     const newCandidatePlace = {

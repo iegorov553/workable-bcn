@@ -41,6 +41,13 @@ test('formatAmbAddress formats clean address with municipality suffix', () => {
     'L\'Hospitalet de Llobregat'
   );
   assert.equal(formatted, 'Av. del Carrilet, 142 · L\'Hospitalet de Llobregat');
+
+  // Address without postal code ending with municipality, Barcelona, Spain
+  const withoutPostal = formatAmbAddress(
+    'Rambla de Badalona, 5, Badalona, Barcelona, Spain',
+    'Badalona'
+  );
+  assert.equal(withoutPostal, 'Rambla de Badalona, 5 · Badalona');
 });
 
 test('generatePlaceId creates canonical slug-lat-lon ID', () => {
@@ -100,6 +107,15 @@ test('deduplicateAgainstCatalog categorizes existing, enrichable, and new candid
       chain: '365 Café',
       municipality: 'Badalona',
     },
+    // 4. Malformed candidate with invalid coordinates (should be skipped)
+    {
+      id: 'ChIJMalformedCoords',
+      displayName: { text: 'Vivari' },
+      formattedAddress: 'Nowhere',
+      location: { latitude: NaN, longitude: undefined },
+      chain: 'Vivari',
+      municipality: 'Barcelona',
+    },
   ];
 
   const result = deduplicateAgainstCatalog(candidates, existingPlaces, 50);
@@ -113,5 +129,6 @@ test('deduplicateAgainstCatalog categorizes existing, enrichable, and new candid
   assert.equal(result.newCandidates.length, 1);
   assert.equal(result.newCandidates[0].googlePlaceId, 'ChIJBadalona365');
   assert.equal(result.newCandidates[0].chain, '365 Café');
-  assert.match(result.newCandidates[0].address, /· Badalona/);
+  assert.equal(result.newCandidates[0].name, '365 Obrador');
+  assert.equal(result.newCandidates[0].address, 'Carrer de Mar, 10 · Badalona');
 });
