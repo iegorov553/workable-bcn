@@ -129,64 +129,54 @@ Google Places API возвращает поле `businessStatus`, позволя
 
 ### Итоги первого прогона поиска (Сентябрь 2026)
 
-Результаты полного сканирования матрицы AMB:
+Результаты полного сканирования матрицы AMB с фильтрацией ложных срабатываний и точным определением муниципалитетов:
 - **Выполнено запросов**: 368
-- **Найдено сырых кандидатов**: 4 438
-- **Уже присутствуют в каталоге**: 458
+- **Найдено сырых кандидатов**: 4 315
+- **Уже присутствуют в каталоге**: 447
 - **Обогащаемые существующие точки**: 1 (`365-caf--41.369755-2.107968` в L'Hospitalet de Llobregat, совпадение 12 м)
-- **Новых уникальных кандидатов**: 69
+- **Новых уникальных кандидатов**: 44
 
 #### Распределение новых кандидатов по сетям
 
 | Сеть | Новые кандидаты | Обогащение существующих |
 |---|---:|---:|
 | 365 Café | 19 | 1 |
-| El Fornet | 15 | 0 |
-| SandwiChez | 12 | 0 |
 | Santagloria | 10 | 0 |
 | Granier | 8 | 0 |
 | Vivari | 4 | 0 |
+| El Fornet | 2 | 0 |
 | Buenas Migas | 1 | 0 |
-| **Итого** | **69** | **1** |
+| SandwiChez | 0 | 0 |
+| **Итого** | **44** | **1** |
+
+> **Примечание по сетям:** благодаря строгому сопоставлению (`matchesBrand`) полностью исключены ложные кандидаты под маркой SandwiChez (строительные сэндвич-панели, кебабы, бургерные) и несетевые локальные пекарни под маркой El Fornet (типа «El fornet de la Lluïsa»).
 
 #### Распределение новых кандидатов по муниципалитетам и районам
 
 | Муниципалитет / Район | Новые кандидаты | Обогащение |
 |---|---:|---:|
 | L'Hospitalet de Llobregat | 8 | 1 |
-| Cornellà de Llobregat | 8 | 0 |
-| Badalona | 6 | 0 |
-| Eixample (Barcelona) | 6 | 0 |
-| Sant Boi de Llobregat | 4 | 0 |
-| Sants-Montjuïc (Barcelona) | 3 | 0 |
+| Castelldefels | 5 | 0 |
+| Badalona | 4 | 0 |
 | El Prat de Llobregat | 3 | 0 |
 | Viladecans | 3 | 0 |
-| Castelldefels | 3 | 0 |
-| Sant Martí (Barcelona) | 3 | 0 |
-| Gavà | 2 | 0 |
-| Santa Coloma de Gramenet | 2 | 0 |
-| Les Corts (Barcelona) | 1 | 0 |
-| Sant Vicenç dels Horts | 1 | 0 |
-| Sarrià-Sant Gervasi (Barcelona) | 1 | 0 |
+| Sants-Montjuïc (Barcelona) | 3 | 0 |
+| Sarrià-Sant Gervasi (Barcelona) | 3 | 0 |
+| Cornellà de Llobregat | 2 | 0 |
+| Sant Boi de Llobregat | 2 | 0 |
+| Sant Martí (Barcelona) | 2 | 0 |
+| Esplugues de Llobregat | 2 | 0 |
+| Gavà | 1 | 0 |
+| Sant Feliu de Llobregat | 1 | 0 |
 | Cerdanyola del Vallès | 1 | 0 |
-| Sant Just Desvern | 1 | 0 |
 | Montgat | 1 | 0 |
+| Sant Vicenç dels Horts | 1 | 0 |
 | Gràcia (Barcelona) | 1 | 0 |
-| Sant Andreu de la Barca | 1 | 0 |
-| Santa Coloma de Cervelló | 1 | 0 |
-| Begues | 1 | 0 |
-| Ciutat Vella (Barcelona) | 1 | 0 |
-| Horta-Guinardó (Barcelona) | 1 | 0 |
-| Nou Barris (Barcelona) | 1 | 0 |
-| Montcada i Reixac | 1 | 0 |
-| Barberà del Vallès | 1 | 0 |
-| Castellbisbal | 1 | 0 |
-| Sant Climent de Llobregat | 1 | 0 |
-| Sant Andreu (Barcelona) | 1 | 0 |
-| **Итого** | **69** | **1** |
+| Eixample (Barcelona) | 1 | 0 |
+| **Итого** | **44** | **1** |
 
 ### Сохранённые артефакты
 
-- `docs/data/amb-candidates.json`: подробный JSON-отчёт с метаданными генерации, агрегированной статистикой, разбивками по сетям и городам, а также полным списком 69 кандидатов и 1 обогащения.
+- `docs/data/amb-candidates.json`: подробный JSON-отчёт с метаданными генерации, агрегированной статистикой, разбивками по сетям и городам, а также полным списком 44 кандидатов и 1 обогащения.
 - `.cache/amb-discovery-cache.json`: персистентный кэш всех 368 запросов Google Places API для воспроизводимости и локального тестирования без затрат API-квоты.
 

@@ -6,6 +6,7 @@ import {
   formatAmbAddress,
   generatePlaceId,
   deduplicateAgainstCatalog,
+  extractMunicipality,
 } from '../scripts/discover-amb-cafes.mjs';
 import type { Place } from '../src/types.ts';
 
@@ -22,17 +23,61 @@ test('isWithinAmbBoundingBox accepts coordinates within AMB and rejects outliers
   assert.equal(isWithinAmbBoundingBox(41.9794, 2.8214), false);
 });
 
-test('matchesBrand verifies chain brand name in Google display name', () => {
+test('matchesBrand verifies chain brand name in Google display name and rejects false positives', () => {
   assert.equal(matchesBrand('365 Obrador Balmes', '365 Café'), true);
   assert.equal(matchesBrand('Cafeteria 365', '365 Café'), true);
   assert.equal(matchesBrand('Granier Bakery', 'Granier'), true);
   assert.equal(matchesBrand('Vivari coffee & bakery', 'Vivari'), true);
   assert.equal(matchesBrand('Santagloria Coffee', 'Santagloria'), true);
   assert.equal(matchesBrand('El Fornet', 'El Fornet'), true);
+  assert.equal(matchesBrand('El Fornet - Cafeteria', 'El Fornet'), true);
+  assert.equal(matchesBrand("El Fornet D'En Rossend", 'El Fornet'), true);
   assert.equal(matchesBrand('SandwiChez Diagonal', 'SandwiChez'), true);
   assert.equal(matchesBrand('Buenas Migas Gràcia', 'Buenas Migas'), true);
-  // Unrelated bakery
+
+  // False positive rejections
   assert.equal(matchesBrand('Forn de Pa Garcia', '365 Café'), false);
+  // SandwiChez false positives (roofing panels, kebabs, pizzerias, generic sandwich bars)
+  assert.equal(matchesBrand('Panel Sandwich Bcn', 'SandwiChez'), false);
+  assert.equal(matchesBrand('Panel Sandwich Barcelona', 'SandwiChez'), false);
+  assert.equal(matchesBrand('Dōner Sandwich Dōner Kebab', 'SandwiChez'), false);
+  assert.equal(matchesBrand('Patatús Pizzeria - Burgers - Tapes - Sandwiches', 'SandwiChez'), false);
+  assert.equal(matchesBrand('PUFF Sandwich', 'SandwiChez'), false);
+  assert.equal(matchesBrand('Sandwich Club Barcelona', 'SandwiChez'), false);
+  // El Fornet false positives (generic small bakeries "El fornet de...")
+  assert.equal(matchesBrand('El fornet de la Lluïsa', 'El Fornet'), false);
+  assert.equal(matchesBrand("El fornet de l'Aran", 'El Fornet'), false);
+  assert.equal(matchesBrand('El Fornet De Natalia', 'El Fornet'), false);
+  assert.equal(matchesBrand('El fornet de la Maria', 'El Fornet'), false);
+  assert.equal(matchesBrand('El Fornet de la Mercé', 'El Fornet'), false);
+  assert.equal(matchesBrand('José M Fornet', 'El Fornet'), false);
+});
+
+test('extractMunicipality correctly identifies municipality from formatted address', () => {
+  assert.equal(
+    extractMunicipality('Av. Santa Maria, 9, 08860 Castelldefels, Barcelona, Spain', 'Sant Boi de Llobregat'),
+    'Castelldefels'
+  );
+  assert.equal(
+    extractMunicipality('Pg. de la Rambla, 1, 08911 Badalona, Barcelona, Spain', 'Barcelona'),
+    'Badalona'
+  );
+  assert.equal(
+    extractMunicipality("Av. del Carrilet, 142, 08902 L'Hospitalet de Llobregat, Barcelona, Spain", 'Cornellà'),
+    "L'Hospitalet de Llobregat"
+  );
+  assert.equal(
+    extractMunicipality('Carrer Gran de Gràcia, 45, Gràcia, 08012 Barcelona, Spain', 'Barcelona'),
+    'Gràcia'
+  );
+  assert.equal(
+    extractMunicipality('Carrer de Balmes, 365, 08022 Barcelona, Spain', 'Sant Climent'),
+    'Sarrià-Sant Gervasi'
+  );
+  assert.equal(
+    extractMunicipality('Carrer de Mallorca, 537, 08013 Barcelona, Spain', 'Eixample'),
+    'Eixample'
+  );
 });
 
 test('formatAmbAddress formats clean address with municipality suffix', () => {

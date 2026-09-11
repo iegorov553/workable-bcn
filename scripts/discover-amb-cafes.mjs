@@ -18,12 +18,12 @@ export const AMB_BOUNDING_BOX = {
 
 export const BRAND_PATTERNS = {
   '365 Café': /\b365\b/i,
-  'Granier': /granier/i,
-  'Vivari': /vivari/i,
-  'Santagloria': /santagloria/i,
-  'El Fornet': /fornet/i,
-  'SandwiChez': /sandwich/i,
-  'Buenas Migas': /buenas\s*migas/i,
+  'Granier': /\bgranier\b/i,
+  'Vivari': /\bvivari\b/i,
+  'Santagloria': /\bsantagloria\b/i,
+  'El Fornet': /\bel\s*fornet\b/i,
+  'SandwiChez': /\bsandwichez\b/i,
+  'Buenas Migas': /\bbuenas\s*migas\b/i,
 };
 
 export const BARCELONA_DISTRICTS = [
@@ -38,6 +38,92 @@ export const BARCELONA_DISTRICTS = [
   'Sant Andreu',
   'Sant Martí',
 ];
+
+export const OFFICIAL_AMB_MUNICIPALITIES = [
+  "L'Hospitalet de Llobregat",
+  'Badalona',
+  'Santa Coloma de Gramenet',
+  'Cornellà de Llobregat',
+  'Sant Boi de Llobregat',
+  'Sant Cugat del Vallès',
+  'El Prat de Llobregat',
+  'Viladecans',
+  'Castelldefels',
+  'Cerdanyola del Vallès',
+  'Esplugues de Llobregat',
+  'Gavà',
+  'Sant Feliu de Llobregat',
+  'Ripollet',
+  'Sant Adrià de Besòs',
+  'Montcada i Reixac',
+  'Sant Joan Despí',
+  'Barberà del Vallès',
+  'Sant Vicenç dels Horts',
+  'Sant Andreu de la Barca',
+  'Molins de Rei',
+  'Santa Coloma de Cervelló',
+  'Begues',
+  'Castellbisbal',
+  'Corbera de Llobregat',
+  'El Papiol',
+  'La Palma de Cervelló',
+  'Pallejà',
+  'Sant Climent de Llobregat',
+  'Sant Just Desvern',
+  'Torrelles de Llobregat',
+  'Tiana',
+  'Montgat',
+  'Badia del Vallès',
+  'Cervelló',
+];
+
+export const BCN_POSTAL_DISTRICTS = {
+  '08001': 'Ciutat Vella', '08002': 'Ciutat Vella', '08003': 'Ciutat Vella',
+  '08004': 'Sants-Montjuïc', '08014': 'Sants-Montjuïc', '08038': 'Sants-Montjuïc',
+  '08005': 'Sant Martí', '08018': 'Sant Martí', '08019': 'Sant Martí', '08020': 'Sant Martí', '08026': 'Sant Martí',
+  '08006': 'Sarrià-Sant Gervasi', '08017': 'Sarrià-Sant Gervasi', '08021': 'Sarrià-Sant Gervasi', '08022': 'Sarrià-Sant Gervasi',
+  '08007': 'Eixample', '08008': 'Eixample', '08009': 'Eixample', '08010': 'Eixample', '08011': 'Eixample', '08013': 'Eixample', '08015': 'Eixample', '08029': 'Eixample', '08036': 'Eixample', '08037': 'Eixample',
+  '08012': 'Gràcia', '08023': 'Gràcia', '08024': 'Gràcia',
+  '08016': 'Nou Barris', '08033': 'Nou Barris', '08042': 'Nou Barris',
+  '08025': 'Horta-Guinardó', '08031': 'Horta-Guinardó', '08032': 'Horta-Guinardó', '08035': 'Horta-Guinardó', '08041': 'Horta-Guinardó',
+  '08027': 'Sant Andreu', '08030': 'Sant Andreu',
+  '08028': 'Les Corts', '08034': 'Les Corts',
+};
+
+/**
+ * Accurately extracts the municipality or Barcelona district from Google formattedAddress.
+ */
+export function extractMunicipality(formattedAddress, fallback = 'Barcelona') {
+  if (!formattedAddress) return fallback;
+
+  // 1. Check official AMB municipalities (sorted longest first)
+  const sortedAmb = [...OFFICIAL_AMB_MUNICIPALITIES].sort((a, b) => b.length - a.length);
+  for (const mun of sortedAmb) {
+    const escaped = mun.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`\\b${escaped}\\b`, 'i');
+    if (regex.test(formattedAddress)) {
+      return mun;
+    }
+  }
+
+  // 2. Check explicit Barcelona districts
+  const sortedDistricts = [...BARCELONA_DISTRICTS].sort((a, b) => b.length - a.length);
+  for (const dist of sortedDistricts) {
+    const escaped = dist.replace(/[.*+?^${}()|[\]\\]/g, '\\$&');
+    const regex = new RegExp(`\\b${escaped}\\b`, 'i');
+    if (regex.test(formattedAddress)) {
+      return dist;
+    }
+  }
+
+  // 3. Check postal code mapping for Barcelona districts (080xx)
+  const pcMatch = formattedAddress.match(/\b(080\d{2})\b/);
+  if (pcMatch && BCN_POSTAL_DISTRICTS[pcMatch[1]]) {
+    return BCN_POSTAL_DISTRICTS[pcMatch[1]];
+  }
+
+  return fallback;
+}
 
 export const AMB_MUNICIPALITIES = [
   ...BARCELONA_DISTRICTS,
@@ -119,11 +205,32 @@ export function isWithinAmbBoundingBox(lat, lng) {
  */
 export function matchesBrand(name, chain) {
   if (!name || !chain) return false;
-  const pattern = BRAND_PATTERNS[chain];
-  if (pattern) {
-    return pattern.test(name);
+  const trimmed = name.trim();
+
+  switch (chain) {
+    case 'SandwiChez':
+    case 'Sandwichez':
+      // Reject generic sandwich shops, construction panels, and kebabs
+      return /\bsandwichez\b/i.test(trimmed);
+
+    case 'El Fornet':
+      // Must contain 'el fornet' or 'elfornet'
+      if (!/\bel\s*fornet\b/i.test(trimmed)) return false;
+      // Exclude generic small bakeries like 'El Fornet de la Lluïsa', 'El Fornet de Natalia', etc.
+      // Allow 'El Fornet d'en Rossend'
+      if (/\bel\s*fornet\s+(?:de\b|del\b|d['’]l\b|d['’]en\s+(?!rossend\b))/i.test(trimmed)) {
+        return false;
+      }
+      return true;
+
+    default: {
+      const pattern = BRAND_PATTERNS[chain];
+      if (pattern) {
+        return pattern.test(trimmed);
+      }
+      return trimmed.toLowerCase().includes(chain.toLowerCase());
+    }
   }
-  return name.toLowerCase().includes(chain.toLowerCase());
 }
 
 /**
@@ -569,6 +676,8 @@ export async function main() {
           const displayName = p.displayName?.text || '';
           if (!matchesBrand(displayName, chain)) continue;
 
+          const detectedMunicipality = extractMunicipality(p.formattedAddress, mun);
+
           rawCandidates.push({
             id: p.id,
             displayName: p.displayName,
@@ -577,7 +686,7 @@ export async function main() {
             googleMapsUri: p.googleMapsUri,
             businessStatus: p.businessStatus,
             chain,
-            municipality: mun,
+            municipality: detectedMunicipality,
           });
         }
       }

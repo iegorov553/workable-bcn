@@ -1,13 +1,13 @@
 {
-  "generatedAt": "2026-09-11T23:51:11.560Z",
+  "generatedAt": "2026-09-11T23:58:09.549Z",
   "stats": {
     "totalQueries": 368,
     "cacheHits": 368,
     "apiCalls": 0,
-    "rawCandidates": 4438,
-    "alreadyInCatalog": 458,
+    "rawCandidates": 4315,
+    "alreadyInCatalog": 447,
     "enrichedExisting": 1,
-    "newCandidates": 69
+    "newCandidates": 44
   },
   "byChain": {
     "365 Café": {
@@ -27,11 +27,7 @@
       "enriched": 0
     },
     "El Fornet": {
-      "newCandidates": 15,
-      "enriched": 0
-    },
-    "SandwiChez": {
-      "newCandidates": 12,
+      "newCandidates": 2,
       "enriched": 0
     },
     "Buenas Migas": {
@@ -49,11 +45,15 @@
       "enriched": 1
     },
     "Badalona": {
-      "newCandidates": 6,
+      "newCandidates": 4,
       "enriched": 0
     },
     "Cornellà de Llobregat": {
-      "newCandidates": 8,
+      "newCandidates": 2,
+      "enriched": 0
+    },
+    "Sant Boi de Llobregat": {
+      "newCandidates": 2,
       "enriched": 0
     },
     "El Prat de Llobregat": {
@@ -65,46 +65,26 @@
       "enriched": 0
     },
     "Castelldefels": {
-      "newCandidates": 3,
+      "newCandidates": 5,
       "enriched": 0
     },
     "Eixample": {
-      "newCandidates": 6,
-      "enriched": 0
-    },
-    "Les Corts": {
       "newCandidates": 1,
-      "enriched": 0
-    },
-    "Gavà": {
-      "newCandidates": 2,
-      "enriched": 0
-    },
-    "Sant Vicenç dels Horts": {
-      "newCandidates": 1,
-      "enriched": 0
-    },
-    "Sant Martí": {
-      "newCandidates": 3,
-      "enriched": 0
-    },
-    "Sant Boi de Llobregat": {
-      "newCandidates": 4,
       "enriched": 0
     },
     "Sarrià-Sant Gervasi": {
+      "newCandidates": 3,
+      "enriched": 0
+    },
+    "Sant Martí": {
+      "newCandidates": 2,
+      "enriched": 0
+    },
+    "Gavà": {
       "newCandidates": 1,
       "enriched": 0
     },
-    "Cerdanyola del Vallès": {
-      "newCandidates": 1,
-      "enriched": 0
-    },
-    "Sant Just Desvern": {
-      "newCandidates": 1,
-      "enriched": 0
-    },
-    "Montgat": {
+    "Sant Vicenç dels Horts": {
       "newCandidates": 1,
       "enriched": 0
     },
@@ -112,51 +92,19 @@
       "newCandidates": 1,
       "enriched": 0
     },
-    "Santa Coloma de Gramenet": {
+    "Esplugues de Llobregat": {
       "newCandidates": 2,
       "enriched": 0
     },
-    "Sant Andreu de la Barca": {
+    "Cerdanyola del Vallès": {
       "newCandidates": 1,
       "enriched": 0
     },
-    "Santa Coloma de Cervelló": {
+    "Montgat": {
       "newCandidates": 1,
       "enriched": 0
     },
-    "Begues": {
-      "newCandidates": 1,
-      "enriched": 0
-    },
-    "Ciutat Vella": {
-      "newCandidates": 1,
-      "enriched": 0
-    },
-    "Horta-Guinardó": {
-      "newCandidates": 1,
-      "enriched": 0
-    },
-    "Nou Barris": {
-      "newCandidates": 1,
-      "enriched": 0
-    },
-    "Montcada i Reixac": {
-      "newCandidates": 1,
-      "enriched": 0
-    },
-    "Barberà del Vallès": {
-      "newCandidates": 1,
-      "enriched": 0
-    },
-    "Castellbisbal": {
-      "newCandidates": 1,
-      "enriched": 0
-    },
-    "Sant Climent de Llobregat": {
-      "newCandidates": 1,
-      "enriched": 0
-    },
-    "Sant Andreu": {
+    "Sant Feliu de Llobregat": {
       "newCandidates": 1,
       "enriched": 0
     }
@@ -355,7 +303,7 @@
       "id": "365-caf--41.341209-2.042157",
       "name": "365 Obrador",
       "chain": "365 Café",
-      "address": "Plaça Catalunya, 1 · Cornellà de Llobregat",
+      "address": "Plaça Catalunya, 1 · Sant Boi de Llobregat",
       "latitude": 41.3412085,
       "longitude": 2.0421568,
       "googlePlaceId": "ChIJh2nevrCdpBIR8K-7JvhEFAQ",
@@ -370,7 +318,7 @@
       "id": "365-caf--41.341341-2.041521",
       "name": "365 Cafè",
       "chain": "365 Café",
-      "address": "Carrer Francesc Macià, 48 · Cornellà de Llobregat",
+      "address": "Carrer Francesc Macià, 48 · Sant Boi de Llobregat",
       "latitude": 41.341341299999996,
       "longitude": 2.0415207,
       "googlePlaceId": "ChIJZ1LZcHacpBIRKAQEzDWxG4k",
@@ -385,7 +333,7 @@
       "id": "365-caf--41.326354-2.100393",
       "name": "365 Obrador",
       "chain": "365 Café",
-      "address": "Carretera de la Marina, 48 · Cornellà de Llobregat",
+      "address": "Carretera de la Marina, 48 · El Prat de Llobregat",
       "latitude": 41.3263542,
       "longitude": 2.1003925999999997,
       "googlePlaceId": "ChIJgUB1D9yepBIRmLu6PdbGE-k",
@@ -445,7 +393,7 @@
       "id": "365-caf--41.280756-1.977481",
       "name": "365 obrador",
       "chain": "365 Café",
-      "address": "Plaça de l'Església, 5 · Viladecans",
+      "address": "Plaça de l'Església, 5 · Castelldefels",
       "latitude": 41.280755899999996,
       "longitude": 1.9774811,
       "googlePlaceId": "ChIJNTNsgqeDpBIRrBRJQ9z5ShE",
@@ -488,9 +436,9 @@
     },
     {
       "id": "granier-41.404079-2.141003",
-      "name": "Granier - Carrer de Balmes, 365, Sarrià-Sant Gervasi",
+      "name": "Granier - Carrer de Balmes, 365",
       "chain": "Granier",
-      "address": "Carrer de Balmes, 365, Sarrià-Sant Gervasi · Eixample",
+      "address": "Carrer de Balmes, 365 · Sarrià-Sant Gervasi",
       "latitude": 41.4040786,
       "longitude": 2.1410034,
       "googlePlaceId": "ChIJrdoCazyZpBIR8PxW3qaiVpM",
@@ -503,9 +451,9 @@
     },
     {
       "id": "granier-41.409385-2.183067",
-      "name": "Granier - Carrer de Mallorca, 537, Sant Martí",
+      "name": "Granier - Carrer de Mallorca, 537",
       "chain": "Granier",
-      "address": "Carrer de Mallorca, 537, Sant Martí · Eixample",
+      "address": "Carrer de Mallorca, 537 · Sant Martí",
       "latitude": 41.4093851,
       "longitude": 2.183067,
       "googlePlaceId": "ChIJ53s1JwCjpBIR0TZHoLEtlWo",
@@ -520,7 +468,7 @@
       "id": "granier-41.377265-2.094479",
       "name": "Granier - Avinguda del Carrilet",
       "chain": "Granier",
-      "address": "Avinguda del Carrilet · Les Corts",
+      "address": "Avinguda del Carrilet · L'Hospitalet de Llobregat",
       "latitude": 41.3772649,
       "longitude": 2.0944787,
       "googlePlaceId": "ChIJ0ZmuLACZpBIRZu6HXKA1B3A",
@@ -640,7 +588,7 @@
       "id": "vivari-41.315744-2.020583",
       "name": "Vivari - Plaça de la Vila, 8",
       "chain": "Vivari",
-      "address": "Plaça de la Vila, 8 · Sant Boi de Llobregat",
+      "address": "Plaça de la Vila, 8 · Viladecans",
       "latitude": 41.3157436,
       "longitude": 2.0205835,
       "googlePlaceId": "ChIJ8zkEWQCdpBIRR4e6yDrM_Ro",
@@ -655,7 +603,7 @@
       "id": "santagloria-41.397677-2.147669",
       "name": "Santagloria Coffee & Bakery",
       "chain": "Santagloria",
-      "address": "Carrer d'Aribau, 278, Sarrià-Sant Gervasi · Eixample",
+      "address": "Carrer d'Aribau, 278 · Sarrià-Sant Gervasi",
       "latitude": 41.3976765,
       "longitude": 2.1476691,
       "googlePlaceId": "ChIJv6a47h2jpBIRX6tbKWcP1Dc",
@@ -670,7 +618,7 @@
       "id": "santagloria-41.403501-2.161423",
       "name": "Santagloria Coffee & Bakery",
       "chain": "Santagloria",
-      "address": "Travessera de Gràcia, 210, Gràcia · Eixample",
+      "address": "Travessera de Gràcia, 210 · Gràcia",
       "latitude": 41.4035006,
       "longitude": 2.1614231999999998,
       "googlePlaceId": "ChIJE_fNdRSjpBIRtO9m1dvCUV8",
@@ -715,7 +663,7 @@
       "id": "santagloria-41.370502-2.082072",
       "name": "Santagloria Coffee & Bakery",
       "chain": "Santagloria",
-      "address": "Av. de Cornellà, 123 · Cornellà de Llobregat",
+      "address": "Av. de Cornellà, 123 · Esplugues de Llobregat",
       "latitude": 41.3705019,
       "longitude": 2.0820721,
       "googlePlaceId": "ChIJW3eNRwKZpBIRVd8meM-XUuc",
@@ -730,7 +678,7 @@
       "id": "santagloria-41.279691-1.978021",
       "name": "Santagloria Coffee & Bakery",
       "chain": "Santagloria",
-      "address": "Av. Santa Maria, 9 · Sant Boi de Llobregat",
+      "address": "Av. Santa Maria, 9 · Castelldefels",
       "latitude": 41.279690599999995,
       "longitude": 1.9780208,
       "googlePlaceId": "ChIJSzDvK0KDpBIRmF89CFCFp_E",
@@ -775,7 +723,7 @@
       "id": "santagloria-41.376794-2.099532",
       "name": "SANTAGLORIA FINESTRELLES 2",
       "chain": "Santagloria",
-      "address": "Finestrelles Shopping Center · Sant Just Desvern",
+      "address": "Finestrelles Shopping Center · Esplugues de Llobregat",
       "latitude": 41.3767941,
       "longitude": 2.0995322,
       "googlePlaceId": "ChIJZSSbguiZpBIRJMfrCazwaFE",
@@ -802,21 +750,6 @@
       }
     },
     {
-      "id": "el-fornet-41.409935-2.147559",
-      "name": "El Fornet de la Lluïsa",
-      "chain": "El Fornet",
-      "address": "Av. de Vallcarca, 56 · Gràcia",
-      "latitude": 41.4099346,
-      "longitude": 2.1475595,
-      "googlePlaceId": "ChIJ69thBgeYpBIRbOqIbIfX74w",
-      "googleMapsUrl": "https://maps.google.com/?cid=10155572661385226860&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=10155572661385226860&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
       "id": "el-fornet-41.349632-2.120606",
       "name": "El Fornet D'En Rossend",
       "chain": "El Fornet",
@@ -829,21 +762,6 @@
         "status": "listed",
         "checkedAt": "2026-09-11",
         "sourceUrl": "https://maps.google.com/?cid=7939414621360957014&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "el-fornet-41.459182-2.248930",
-      "name": "El Fornet de la Lluïsa",
-      "chain": "El Fornet",
-      "address": "C. Juan de la Cierva, 1 · Badalona",
-      "latitude": 41.459181799999996,
-      "longitude": 2.2489304,
-      "googlePlaceId": "ChIJ5xPjgFW7pBIRvdmh23AAGG0",
-      "googleMapsUrl": "https://maps.google.com/?cid=7861033634296355261&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=7861033634296355261&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
       }
     },
     {
@@ -862,355 +780,10 @@
       }
     },
     {
-      "id": "el-fornet-41.461414-2.248225",
-      "name": "El Fornet de la Morera",
-      "chain": "El Fornet",
-      "address": "Av. Morera, 85 · Badalona",
-      "latitude": 41.4614136,
-      "longitude": 2.2482251,
-      "googlePlaceId": "ChIJUW8-06C7pBIR8tlpzgE4s1Q",
-      "googleMapsUrl": "https://maps.google.com/?cid=6103283500426320370&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=6103283500426320370&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "el-fornet-41.443398-2.232485",
-      "name": "El fornet de la Lluïsa",
-      "chain": "El Fornet",
-      "address": "Carrer de Ponent, 166 · Santa Coloma de Gramenet",
-      "latitude": 41.443398099999996,
-      "longitude": 2.2324846,
-      "googlePlaceId": "ChIJ8dU2Pma7pBIRGmfHNx9L-vI",
-      "googleMapsUrl": "https://maps.google.com/?cid=17508389098808108826&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=17508389098808108826&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "el-fornet-41.351776-2.074719",
-      "name": "El fornet de l'Aran",
-      "chain": "El Fornet",
-      "address": "Pg. dels Ferrocarrils Catalans, 79 · Cornellà de Llobregat",
-      "latitude": 41.3517765,
-      "longitude": 2.0747193,
-      "googlePlaceId": "ChIJIZZOblCZpBIRSdTNpLNUN3E",
-      "googleMapsUrl": "https://maps.google.com/?cid=8158082380545774665&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=8158082380545774665&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "el-fornet-41.355508-2.086625",
-      "name": "El Fornet De Natalia",
-      "chain": "El Fornet",
-      "address": "Avinguda de Pablo Picasso · Cornellà de Llobregat",
-      "latitude": 41.3555078,
-      "longitude": 2.0866246999999998,
-      "googlePlaceId": "ChIJsyngmjiZpBIR8PeIOTXObo8",
-      "googleMapsUrl": "https://maps.google.com/?cid=10335424922855733232&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=10335424922855733232&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "el-fornet-41.376493-2.057854",
-      "name": "El Fornet de L'Eli",
-      "chain": "El Fornet",
-      "address": "Plaça Maria Aurèlia Capmany, 4 · Sant Boi de Llobregat",
-      "latitude": 41.3764932,
-      "longitude": 2.0578540999999997,
-      "googlePlaceId": "ChIJu_T5v9GbpBIRLe6HOtahWLM",
-      "googleMapsUrl": "https://maps.google.com/?cid=12923257072216698413&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=12923257072216698413&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "el-fornet-41.317929-2.010608",
-      "name": "El Fornet de la Lluïsa",
-      "chain": "El Fornet",
-      "address": "Av. de Josep Tarradellas, 46 · Sant Boi de Llobregat",
-      "latitude": 41.3179291,
-      "longitude": 2.010608,
-      "googlePlaceId": "ChIJ-XPGq6qdpBIRHC721Eon-dw",
-      "googleMapsUrl": "https://maps.google.com/?cid=15922801159899065884&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=15922801159899065884&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "el-fornet-41.323243-2.096553",
-      "name": "José M Fornet",
-      "chain": "El Fornet",
-      "address": "Carrer de Joan Cirera i Pons · El Prat de Llobregat",
-      "latitude": 41.323242500000006,
-      "longitude": 2.0965532,
-      "googlePlaceId": "ChIJkRAeSN2epBIREZ7dUCA8rJk",
-      "googleMapsUrl": "https://maps.google.com/?cid=11073291693290528273&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=11073291693290528273&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "el-fornet-41.309958-1.995525",
-      "name": "El fornet de la Lluïsa",
-      "chain": "El Fornet",
-      "address": "Av. de l'Eramprunyà, 36 · Gavà",
-      "latitude": 41.3099578,
-      "longitude": 1.9955246,
-      "googlePlaceId": "ChIJwdry39CcpBIR-su5r6IQtqo",
-      "googleMapsUrl": "https://maps.google.com/?cid=12301037723128024058&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=12301037723128024058&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "el-fornet-41.489431-2.035126",
-      "name": "El Fornet De La Marina",
-      "chain": "El Fornet",
-      "address": "Carrer de Trafalgar, 4 Obrador Mercat Municipal de Rubi parada 121-122 126-127, Carrer de Cal Gerrer, 1 · Sant Andreu de la Barca",
-      "latitude": 41.489431499999995,
-      "longitude": 2.0351258,
-      "googlePlaceId": "ChIJNzolWXuRpBIR1t38rnhNplg",
-      "googleMapsUrl": "https://maps.google.com/?cid=6387878302198848982&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=6387878302198848982&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "el-fornet-41.382009-1.930202",
-      "name": "El fornet de la Maria",
-      "chain": "El Fornet",
-      "address": "Carrer de Sant Mateu, 26 · Santa Coloma de Cervelló",
-      "latitude": 41.382008899999995,
-      "longitude": 1.9302020999999998,
-      "googlePlaceId": "ChIJb95yZUqEpBIRSw9rrtxo5f8",
-      "googleMapsUrl": "https://maps.google.com/?cid=18439259546366709579&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=18439259546366709579&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "el-fornet-41.330791-1.922932",
-      "name": "El Fornet de la Mercé",
-      "chain": "El Fornet",
-      "address": "Carrer Major, 27 · Begues",
-      "latitude": 41.3307911,
-      "longitude": 1.9229322999999998,
-      "googlePlaceId": "ChIJlVcjF7SDpBIRiOJkXRWWdJg",
-      "googleMapsUrl": "https://maps.google.com/?cid=10985570409568854664&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=10985570409568854664&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "sandwichez-41.379664-2.176348",
-      "name": "PUFF Sandwich by Martina & Vladi",
-      "chain": "SandwiChez",
-      "address": "Carrer dels Escudellers, 29 · Ciutat Vella",
-      "latitude": 41.379663699999995,
-      "longitude": 2.1763478,
-      "googlePlaceId": "ChIJ4dXaWFCjpBIRQPK66USqrsU",
-      "googleMapsUrl": "https://maps.google.com/?cid=14244509884375298624&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=14244509884375298624&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "sandwichez-41.397293-2.170298",
-      "name": "Sandwich Club Barcelona",
-      "chain": "SandwiChez",
-      "address": "Carrer de Bailèn, 108 · Eixample",
-      "latitude": 41.397293,
-      "longitude": 2.1702984,
-      "googlePlaceId": "ChIJGaGQcgyjpBIRb9bBEacQ-dc",
-      "googleMapsUrl": "https://maps.google.com/?cid=15562488297098958447&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=15562488297098958447&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "sandwichez-41.414793-2.164408",
-      "name": "Panel Sandwich Barcelona",
-      "chain": "SandwiChez",
-      "address": "Av. de la Mare de Déu de Montserrat, 61 · Horta-Guinardó",
-      "latitude": 41.414792899999995,
-      "longitude": 2.1644079,
-      "googlePlaceId": "ChIJRTg4H7aipBIRv6znJrsbKk8",
-      "googleMapsUrl": "https://maps.google.com/?cid=5704402368643706047&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=5704402368643706047&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "sandwichez-41.430473-2.174258",
-      "name": "Patatús Pizzeria - Burgers - Tapes - Sandwiches",
-      "chain": "SandwiChez",
-      "address": "Pseig, Pg. de Fabra i Puig, 266 · Nou Barris",
-      "latitude": 41.4304733,
-      "longitude": 2.1742578999999997,
-      "googlePlaceId": "ChIJ7ac4NrG9pBIR0g71Rp_KPZM",
-      "googleMapsUrl": "https://maps.google.com/?cid=10609859082593832658&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=10609859082593832658&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "sandwichez-41.397589-2.196618",
-      "name": "Sandwich Club Barcelona Poblenou",
-      "chain": "SandwiChez",
-      "address": "Carrer de Badajoz, 67 · Sant Martí",
-      "latitude": 41.3975889,
-      "longitude": 2.1966181,
-      "googlePlaceId": "ChIJmc4MhGKjpBIR1w9zw-dDYBk",
-      "googleMapsUrl": "https://maps.google.com/?cid=1828536111408025559&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=1828536111408025559&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "sandwichez-41.408033-2.185708",
-      "name": "The Catalan Sandwich",
-      "chain": "SandwiChez",
-      "address": "Carrer de la Corunya, 10 · Sant Martí",
-      "latitude": 41.408032899999995,
-      "longitude": 2.1857077,
-      "googlePlaceId": "ChIJvxjJdCejpBIRSdH0-WxJ7bE",
-      "googleMapsUrl": "https://maps.google.com/?cid=12820984446592536905&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=12820984446592536905&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "sandwichez-41.371577-2.103012",
-      "name": "Sandwich Basma",
-      "chain": "SandwiChez",
-      "address": "Carrer Luarca, 3 · L'Hospitalet de Llobregat",
-      "latitude": 41.3715774,
-      "longitude": 2.1030116,
-      "googlePlaceId": "ChIJHZsN7oOZpBIRdyIWAa2YW-w",
-      "googleMapsUrl": "https://maps.google.com/?cid=17031374284646654583&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=17031374284646654583&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "sandwichez-41.449733-2.219429",
-      "name": "Dōner Sandwich Dōner Kebab",
-      "chain": "SandwiChez",
-      "address": "Carrer del Rellotge, 4 · Santa Coloma de Gramenet",
-      "latitude": 41.4497326,
-      "longitude": 2.2194287999999998,
-      "googlePlaceId": "ChIJ1c9pspy8pBIROLDB7cSSNW4",
-      "googleMapsUrl": "https://maps.google.com/?cid=7941414892437876792&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=7941414892437876792&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "sandwichez-41.486596-2.177647",
-      "name": "Panel Sandwich Bcn",
-      "chain": "SandwiChez",
-      "address": "Polígono Industrial La Ferrería, Carrer del Vapor, 54 · Montcada i Reixac",
-      "latitude": 41.4865959,
-      "longitude": 2.1776474,
-      "googlePlaceId": "ChIJaVTDTZ-8pBIRDz5PCdHZWhQ",
-      "googleMapsUrl": "https://maps.google.com/?cid=1466724120490098191&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=1466724120490098191&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "sandwichez-41.519454-2.125293",
-      "name": "Sandwich Mamá",
-      "chain": "SandwiChez",
-      "address": "Carrer de Monturiol, 63 · Barberà del Vallès",
-      "latitude": 41.5194536,
-      "longitude": 2.1252926,
-      "googlePlaceId": "ChIJp3TNYcmVpBIR2frtxRqqSZs",
-      "googleMapsUrl": "https://maps.google.com/?cid=11189661781145287385&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=11189661781145287385&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "sandwichez-41.475042-1.982612",
-      "name": "Dicky Sandwich Cafe Lounge Bar",
-      "chain": "SandwiChez",
-      "address": "Avinguda de Pau Casals, 14 · Castellbisbal",
-      "latitude": 41.4750417,
-      "longitude": 1.9826122,
-      "googlePlaceId": "ChIJa7J34yWOpBIR63VKi409XZc",
-      "googleMapsUrl": "https://maps.google.com/?cid=10906941550697805291&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=10906941550697805291&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
-      "id": "sandwichez-41.395155-2.151311",
-      "name": "La Companya De Sandwiches",
-      "chain": "SandwiChez",
-      "address": "Carrer de Moià, 14, Sarrià-Sant Gervasi · Sant Climent de Llobregat",
-      "latitude": 41.3951554,
-      "longitude": 2.1513112,
-      "googlePlaceId": "ChIJd-k3x5uipBIRwI1ksCDCVLM",
-      "googleMapsUrl": "https://maps.google.com/?cid=12922166676486917568&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
-      "verification": {
-        "status": "listed",
-        "checkedAt": "2026-09-11",
-        "sourceUrl": "https://maps.google.com/?cid=12922166676486917568&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-      }
-    },
-    {
       "id": "buenas-migas-41.387687-2.036911",
       "name": "Buenas Migas - Carrer de Sant Josep, 120",
       "chain": "Buenas Migas",
-      "address": "Carrer de Sant Josep, 120 · Sant Andreu",
+      "address": "Carrer de Sant Josep, 120 · Sant Feliu de Llobregat",
       "latitude": 41.387687400000004,
       "longitude": 2.0369112,
       "googlePlaceId": "ChIJhY9ZNY2bpBIRD8P5wTaCON0",
