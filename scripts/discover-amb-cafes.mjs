@@ -418,15 +418,17 @@ export function deduplicateAgainstCatalog(candidates = [], existingPlaces = [], 
         name = `${cand.chain} - ${streetPart}`;
       }
     }
-    const id = generatePlaceId(cand.chain, candLat, candLon);
+    const roundedLat = Number(Number(candLat).toFixed(6));
+    const roundedLon = Number(Number(candLon).toFixed(6));
+    const id = generatePlaceId(cand.chain, roundedLat, roundedLon);
 
     const newCandidatePlace = {
       id,
       name,
       chain: cand.chain,
       address,
-      latitude: candLat,
-      longitude: candLon,
+      latitude: roundedLat,
+      longitude: roundedLon,
       googlePlaceId: candPlaceId,
       googleMapsUrl: cand.googleMapsUri || cand.googleMapsUrl,
       verification: {
