@@ -47,6 +47,23 @@ test('a stalled GPS request times out and a subsequent request succeeds', async 
   await assert.rejects(requestLocation({ ...provider(), current: () => new Promise(() => {}) }, 10), /15 seconds/);
   assert.deepEqual(await requestLocation(provider()), { latitude: 41.39, longitude: 2.17 });
 });
+test('a stalled GPS request falls back to lastKnown when available', async () => {
+  const stalledWithLastKnown = {
+    ...provider(),
+    current: () => new Promise<never>(() => {}),
+    lastKnown: async () => ({ coords: { latitude: 41.385, longitude: 2.165 }, timestamp: Date.now() - 60000 }),
+  };
+  const coords = await requestLocation(stalledWithLastKnown, 10);
+  assert.deepEqual(coords, { latitude: 41.385, longitude: 2.165 });
+});
+test('a stalled GPS request with invalid lastKnown coordinates still rejects with timeout', async () => {
+  const stalledWithInvalidLastKnown = {
+    ...provider(),
+    current: () => new Promise<never>(() => {}),
+    lastKnown: async () => ({ coords: { latitude: NaN, longitude: 2.165 }, timestamp: Date.now() }),
+  };
+  await assert.rejects(requestLocation(stalledWithInvalidLastKnown, 10), /15 seconds/);
+});
 test('late GPS completion after timeout does not deliver stale coordinates', async () => {
   let deliver!: (value: number) => void;
   let received = false;
