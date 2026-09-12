@@ -136,7 +136,7 @@
   "newCandidates": [
     {
       "id": "365-caf--41.368390-2.131559",
-      "name": "365 Obrador",
+      "name": "365 Café - Carrer de la Riera Blanca, 185",
       "chain": "365 Café",
       "address": "Carrer de la Riera Blanca, 185 · Sants-Montjuïc",
       "latitude": 41.36839,
@@ -151,7 +151,7 @@
     },
     {
       "id": "365-caf--41.359426-2.142196",
-      "name": "365 Obrador",
+      "name": "365 Café - Carrer de la Mare de Déu de Port, 273",
       "chain": "365 Café",
       "address": "Carrer de la Mare de Déu de Port, 273 · Sants-Montjuïc",
       "latitude": 41.359426,
@@ -166,7 +166,7 @@
     },
     {
       "id": "365-caf--41.352668-2.144109",
-      "name": "365 Obrador",
+      "name": "365 Café - Pg. de la Zona Franca, 29",
       "chain": "365 Café",
       "address": "Pg. de la Zona Franca, 29 · Sants-Montjuïc",
       "latitude": 41.352668,
@@ -181,7 +181,7 @@
     },
     {
       "id": "365-caf--41.354177-2.113094",
-      "name": "365 | Bellvitge",
+      "name": "365 Café - Av. d'Europa, 99",
       "chain": "365 Café",
       "address": "Av. d'Europa, 99 · L'Hospitalet de Llobregat",
       "latitude": 41.354177,
@@ -196,7 +196,7 @@
     },
     {
       "id": "365-caf--41.347804-2.124815",
-      "name": "365 Obrador",
+      "name": "365 Café - Carrer Miguel Hernández, 42",
       "chain": "365 Café",
       "address": "Carrer Miguel Hernández, 42 · L'Hospitalet de Llobregat",
       "latitude": 41.347804,
@@ -211,7 +211,7 @@
     },
     {
       "id": "365-caf--41.357275-2.103712",
-      "name": "365 Obrador",
+      "name": "365 Café - Rambla de la Marina, 500",
       "chain": "365 Café",
       "address": "Rambla de la Marina, 500 · L'Hospitalet de Llobregat",
       "latitude": 41.357275,
@@ -226,7 +226,7 @@
     },
     {
       "id": "365-caf--41.364663-2.128053",
-      "name": "365 | Carrilet",
+      "name": "365 Café - Av. del Carrilet, 60",
       "chain": "365 Café",
       "address": "Av. del Carrilet, 60 · L'Hospitalet de Llobregat",
       "latitude": 41.364663,
@@ -241,7 +241,7 @@
     },
     {
       "id": "365-caf--41.368656-2.116239",
-      "name": "Café Metro 365",
+      "name": "365 Café - Av. de Catalunya, 2",
       "chain": "365 Café",
       "address": "Av. de Catalunya, 2 · L'Hospitalet de Llobregat",
       "latitude": 41.368656,
@@ -256,7 +256,7 @@
     },
     {
       "id": "365-caf--41.445285-2.239100",
-      "name": "365",
+      "name": "365 Café - Av. d'Alfons XIII, 2",
       "chain": "365 Café",
       "address": "Av. d'Alfons XIII, 2 · Badalona",
       "latitude": 41.445285,
@@ -271,7 +271,7 @@
     },
     {
       "id": "365-caf--41.352491-2.070759",
-      "name": "365 Obrador",
+      "name": "365 Café - Carrer de Joaquim Rubió i Ors, 180",
       "chain": "365 Café",
       "address": "Carrer de Joaquim Rubió i Ors, 180 · Cornellà de Llobregat",
       "latitude": 41.352491,
@@ -286,7 +286,7 @@
     },
     {
       "id": "365-caf--41.358778-2.077756",
-      "name": "365 Obrador",
+      "name": "365 Café - Carrer Bonestar, 46",
       "chain": "365 Café",
       "address": "Carrer Bonestar, 46 · Cornellà de Llobregat",
       "latitude": 41.358778,
@@ -301,7 +301,7 @@
     },
     {
       "id": "365-caf--41.341209-2.042157",
-      "name": "365 Obrador",
+      "name": "365 Café - Plaça Catalunya, 1",
       "chain": "365 Café",
       "address": "Plaça Catalunya, 1 · Sant Boi de Llobregat",
       "latitude": 41.341209,
@@ -316,7 +316,7 @@
     },
     {
       "id": "365-caf--41.341341-2.041521",
-      "name": "365 Cafè",
+      "name": "365 Café - Carrer Francesc Macià, 48",
       "chain": "365 Café",
       "address": "Carrer Francesc Macià, 48 · Sant Boi de Llobregat",
       "latitude": 41.341341,
@@ -331,7 +331,7 @@
     },
     {
       "id": "365-caf--41.326354-2.100393",
-      "name": "365 Obrador",
+      "name": "365 Café - Carretera de la Marina, 48",
       "chain": "365 Café",
       "address": "Carretera de la Marina, 48 · El Prat de Llobregat",
       "latitude": 41.326354,
@@ -346,7 +346,7 @@
     },
     {
       "id": "365-caf--41.324245-2.091293",
-      "name": "365 Obrador",
+      "name": "365 Café - Av. de la Verge de Montserrat, 171",
       "chain": "365 Café",
       "address": "Av. de la Verge de Montserrat, 171 · El Prat de Llobregat",
       "latitude": 41.324245,
@@ -361,7 +361,7 @@
     },
     {
       "id": "365-caf--41.319679-2.012337",
-      "name": "365",
+      "name": "365 Café - Carrer de Salvador Baroné, 54",
       "chain": "365 Café",
       "address": "Carrer de Salvador Baroné, 54 · Viladecans",
       "latitude": 41.319679,
@@ -376,7 +376,7 @@
     },
     {
       "id": "365-caf--41.304192-2.009010",
-      "name": "Cafetería 365",
+      "name": "365 Café - Carretera de Santa Creu de Calafell, 36",
       "chain": "365 Café",
       "address": "Carretera de Santa Creu de Calafell, 36 · Viladecans",
       "latitude": 41.304192,
@@ -391,7 +391,7 @@
     },
     {
       "id": "365-caf--41.280756-1.977481",
-      "name": "365 obrador",
+      "name": "365 Café - Plaça de l'Església, 5",
       "chain": "365 Café",
       "address": "Plaça de l'Església, 5 · Castelldefels",
       "latitude": 41.280756,
@@ -526,7 +526,7 @@
     },
     {
       "id": "granier-41.366386-2.057055",
-      "name": "Granier Cafeteria",
+      "name": "Granier - Carrer de Baltasar d'Espanya, 24",
       "chain": "Granier",
       "address": "Carrer de Baltasar d'Espanya, 24 · Sant Vicenç dels Horts",
       "latitude": 41.366386,
@@ -541,7 +541,7 @@
     },
     {
       "id": "vivari-41.415296-2.186609",
-      "name": "Vivari Coffee & Bakery",
+      "name": "Vivari - Avinguda Meridiana, 203",
       "chain": "Vivari",
       "address": "Avinguda Meridiana, 203 · Sant Martí",
       "latitude": 41.415296,
@@ -556,7 +556,7 @@
     },
     {
       "id": "vivari-41.374520-2.106579",
-      "name": "VIVARI COFFEE - HOSPITALET",
+      "name": "Vivari - Av. Josep Molins, 30",
       "chain": "Vivari",
       "address": "Av. Josep Molins, 30 · L'Hospitalet de Llobregat",
       "latitude": 41.37452,
@@ -571,7 +571,7 @@
     },
     {
       "id": "vivari-41.450675-2.248317",
-      "name": "Vivari 2012 S C P",
+      "name": "Vivari - Carrer de Francesc Layret, 68",
       "chain": "Vivari",
       "address": "Carrer de Francesc Layret, 68 · Badalona",
       "latitude": 41.450675,
@@ -601,7 +601,7 @@
     },
     {
       "id": "santagloria-41.397677-2.147669",
-      "name": "Santagloria Coffee & Bakery",
+      "name": "Santagloria - Carrer d'Aribau, 278",
       "chain": "Santagloria",
       "address": "Carrer d'Aribau, 278 · Sarrià-Sant Gervasi",
       "latitude": 41.397677,
@@ -616,7 +616,7 @@
     },
     {
       "id": "santagloria-41.403501-2.161423",
-      "name": "Santagloria Coffee & Bakery",
+      "name": "Santagloria - Travessera de Gràcia, 210",
       "chain": "Santagloria",
       "address": "Travessera de Gràcia, 210 · Gràcia",
       "latitude": 41.403501,
@@ -631,7 +631,7 @@
     },
     {
       "id": "santagloria-41.401252-2.132229",
-      "name": "Santagloria Cafè i Forn",
+      "name": "Santagloria - Carrer del Dr. Carulla, 74-76",
       "chain": "Santagloria",
       "address": "Carrer del Dr. Carulla, 74-76 · Sarrià-Sant Gervasi",
       "latitude": 41.401252,
@@ -646,7 +646,7 @@
     },
     {
       "id": "santagloria-41.447847-2.242586",
-      "name": "Santagloria Coffee & Bakery Badalona",
+      "name": "Santagloria - Carrer de Francesc Macià, 8",
       "chain": "Santagloria",
       "address": "Carrer de Francesc Macià, 8 · Badalona",
       "latitude": 41.447847,
@@ -661,7 +661,7 @@
     },
     {
       "id": "santagloria-41.370502-2.082072",
-      "name": "Santagloria Coffee & Bakery",
+      "name": "Santagloria - Av. de Cornellà, 123",
       "chain": "Santagloria",
       "address": "Av. de Cornellà, 123 · Esplugues de Llobregat",
       "latitude": 41.370502,
@@ -676,7 +676,7 @@
     },
     {
       "id": "santagloria-41.279691-1.978021",
-      "name": "Santagloria Coffee & Bakery",
+      "name": "Santagloria - Av. Santa Maria, 9",
       "chain": "Santagloria",
       "address": "Av. Santa Maria, 9 · Castelldefels",
       "latitude": 41.279691,
@@ -706,7 +706,7 @@
     },
     {
       "id": "santagloria-41.535064-2.104229",
-      "name": "Santagloria Coffee & Bakery",
+      "name": "Santagloria - Carrer Domènech i Montaner, 46",
       "chain": "Santagloria",
       "address": "Carrer Domènech i Montaner, 46 · Cerdanyola del Vallès",
       "latitude": 41.535064,
@@ -721,7 +721,7 @@
     },
     {
       "id": "santagloria-41.376794-2.099532",
-      "name": "SANTAGLORIA FINESTRELLES 2",
+      "name": "Santagloria - Finestrelles Shopping Center",
       "chain": "Santagloria",
       "address": "Finestrelles Shopping Center · Esplugues de Llobregat",
       "latitude": 41.376794,
@@ -736,7 +736,7 @@
     },
     {
       "id": "santagloria-41.490765-2.295829",
-      "name": "Santagloria Cafè i Fleca",
+      "name": "Santagloria - Carrer de la Riera Principal, 16",
       "chain": "Santagloria",
       "address": "Carrer de la Riera Principal, 16 · Montgat",
       "latitude": 41.490765,
@@ -751,7 +751,7 @@
     },
     {
       "id": "el-fornet-41.349632-2.120606",
-      "name": "El Fornet D'En Rossend",
+      "name": "El Fornet - Carrer de Can Pi, 13",
       "chain": "El Fornet",
       "address": "Carrer de Can Pi, 13 · L'Hospitalet de Llobregat",
       "latitude": 41.349632,

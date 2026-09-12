@@ -174,6 +174,6 @@ test('deduplicateAgainstCatalog categorizes existing, enrichable, and new candid
   assert.equal(result.newCandidates.length, 1);
   assert.equal(result.newCandidates[0].googlePlaceId, 'ChIJBadalona365');
   assert.equal(result.newCandidates[0].chain, '365 Café');
-  assert.equal(result.newCandidates[0].name, '365 Obrador');
+  assert.equal(result.newCandidates[0].name, '365 Café - Carrer de Mar, 10');
   assert.equal(result.newCandidates[0].address, 'Carrer de Mar, 10 · Badalona');
 });

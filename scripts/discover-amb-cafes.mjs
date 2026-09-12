@@ -403,21 +403,9 @@ export function deduplicateAgainstCatalog(candidates = [], existingPlaces = [], 
     // Rule 3: New Candidate Discovery (> thresholdMeters)
     const address = formatAmbAddress(cand.formattedAddress || cand.address, cand.municipality);
     const streetPart = address.split(' · ')[0].trim();
-    let name = cand.name;
-    if (!name) {
-      const display = cand.displayName?.text?.trim();
-      if (display) {
-        if (display.toLowerCase() === cand.chain.toLowerCase()) {
-          name = `${cand.chain} - ${streetPart}`;
-        } else if (matchesBrand(display, cand.chain)) {
-          name = display;
-        } else {
-          name = `${cand.chain} - ${display}`;
-        }
-      } else {
-        name = `${cand.chain} - ${streetPart}`;
-      }
-    }
+    const name = (cand.name && cand.name.startsWith(`${cand.chain} - `))
+      ? cand.name
+      : `${cand.chain} - ${streetPart}`;
     const roundedLat = Number(Number(candLat).toFixed(6));
     const roundedLon = Number(Number(candLon).toFixed(6));
     const id = generatePlaceId(cand.chain, roundedLat, roundedLon);
