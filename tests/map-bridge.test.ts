@@ -95,6 +95,68 @@ test('map runtime dispatches mapClick on map tap outside markers', () => {
   assert.equal(typeof mapClickHandler, 'function');
   (mapClickHandler as unknown as (e: any) => void)({ latlng: { lat: 41.389, lng: 2.169 } });
   assert.deepEqual(parseMapMessage(messages.at(-1)!), { type: 'mapClick', latitude: 41.389, longitude: 2.169 });
+
+  // Guard against undefined or missing latlng
+  const countBefore = messages.length;
+  (mapClickHandler as unknown as (e: any) => void)({});
+  (mapClickHandler as unknown as (e: any) => void)(null);
+  assert.equal(messages.length, countBefore);
+});
+
+test('map runtime gives top match markers a golden stroke when unselected', () => {
+  const styles: any[] = [];
+  const map = {
+    on() { return this; },
+    stop() {}, closePopup() {}, invalidateSize() {}, flyTo() {}, fitBounds() {},
+  };
+  const window: any = { ReactNativeWebView: { postMessage() {} }, addEventListener() {} };
+  const element = () => ({ append() {}, textContent: '', className: '', hidden: true });
+  const context = {
+    window,
+    document: { getElementById: element, createElement: element },
+    L: {
+      map: () => map,
+      tileLayer: () => ({ on() { return this; }, addTo() { return this; } }),
+      circleMarker: () => ({
+        bindPopup() { return this; },
+        addTo() { return this; },
+        on() { return this; },
+        setRadius() { return this; },
+        setStyle(s: any) { styles.push(s); return this; },
+        bringToFront() {},
+        setLatLng() {},
+        remove() {},
+      }),
+    },
+  };
+  runInNewContext(readFileSync(new URL('../src/map/map-runtime.js', import.meta.url), 'utf8'), context);
+
+  const placeA = { id: 'a', name: 'Café A', chain: '365 Café', address: 'BCN', latitude: 41.389, longitude: 2.169 };
+  const placeB = { id: 'b', name: 'Café B', chain: 'Granier', address: 'BCN', latitude: 41.390, longitude: 2.170 };
+
+  const state: MapPayload = {
+    places: [placeA, placeB],
+    selectedId: null,
+    userLocation: null,
+    cameraCommand: null,
+    topMatchIds: ['a'],
+  };
+  runInNewContext(mapUpdateScript(encodeMapPayload(state)), context);
+
+  assert.equal(styles.length, 2);
+  // placeA is in topMatchIds, so should have #F4C344 stroke and weight 3 or 4
+  assert.equal(styles[0].color, '#F4C344');
+  assert.ok(styles[0].weight === 3 || styles[0].weight === 4);
+
+  // placeB is not in topMatchIds, so should have default #FFFDF7 stroke and weight 2
+  assert.equal(styles[1].color, '#FFFDF7');
+  assert.equal(styles[1].weight, 2);
+
+  // When placeA is selected, it should have #17211B stroke and weight 4
+  const stateSelected: MapPayload = { ...state, selectedId: 'a' };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateSelected)), context);
+  assert.equal(styles[2].color, '#17211B');
+  assert.equal(styles[2].weight, 4);
 });
 
 test('map runtime renders, updates, and removes friendMarker with purple styling and popup', () => {

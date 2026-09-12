@@ -92,11 +92,13 @@ test('MapCanvas and MapCanvas.web accept friendLocation, meetMode, and forward o
   assert.match(nativeSource, /onMapClick\?: \(coords: Coordinates\) => void;/);
   assert.match(nativeSource, /friendLocation/);
   assert.match(nativeSource, /meetMode/);
+  assert.match(nativeSource, /topMatchIds/);
   assert.ok(nativeSource.includes("if (message?.type === 'mapClick') onMapClick?.({ latitude: message.latitude, longitude: message.longitude });"));
 
   // Verify props and click forwarding in web component
   assert.match(webSource, /friendLocation/);
   assert.match(webSource, /meetMode/);
+  assert.match(webSource, /topMatchIds/);
   assert.ok(webSource.includes("if (message?.type === 'mapClick') onMapClick?.({ latitude: message.latitude, longitude: message.longitude });"));
 
   // Simulate MapCanvas message forwarding
@@ -112,7 +114,7 @@ test('MapCanvas and MapCanvas.web accept friendLocation, meetMode, and forward o
   }
   assert.deepEqual(receivedCoords, { latitude: 41.3892, longitude: 2.1601 });
 
-  // Verify encodeMapPayload includes friendLocation and meetMode
+  // Verify encodeMapPayload includes friendLocation, meetMode, and topMatchIds
   const payload = encodeMapPayload({
     places: [],
     selectedId: null,
@@ -120,10 +122,24 @@ test('MapCanvas and MapCanvas.web accept friendLocation, meetMode, and forward o
     friendLocation: { latitude: 41.40, longitude: 2.18 },
     meetMode: true,
     cameraCommand: null,
+    topMatchIds: ['cafe1', 'cafe2'],
   });
   const decoded = decodeMapPayload(payload);
   assert.deepEqual(decoded.friendLocation, { latitude: 41.40, longitude: 2.18 });
   assert.equal(decoded.meetMode, true);
+  assert.deepEqual(decoded.topMatchIds, ['cafe1', 'cafe2']);
+});
+
+test('meet mode distance check accurately detects origins > 35 km apart', () => {
+  const bcnCenter = { latitude: 41.3879, longitude: 2.1699 };
+  const vilanova = { latitude: 41.2230, longitude: 1.7250 }; // ~42 km from BCN
+  const badalona = { latitude: 41.4500, longitude: 2.2470 }; // ~9.4 km from BCN
+
+  const distFar = distanceKm(bcnCenter, vilanova);
+  assert.ok(distFar !== null && distFar > 35, `Vilanova should be > 35km away, got ${distFar}`);
+
+  const distNear = distanceKm(bcnCenter, badalona);
+  assert.ok(distNear !== null && distNear < 35, `Badalona should be < 35km away, got ${distNear}`);
 });
 
 test('rankEquidistantPlaces preserves catalogue stability, favorites, and deterministic ordering', () => {

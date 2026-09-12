@@ -69,6 +69,11 @@ function AppContent() {
     return rankEquidistantPlaces(baseFiltered, location, friendLocation);
   }, [meetMode, location, friendLocation, baseFiltered]);
 
+  const topMatchIds = useMemo(() => {
+    if (!meetMode || !location || !friendLocation || !equidistantMatches) return undefined;
+    return equidistantMatches.slice(0, 3).map(m => m.place.id);
+  }, [meetMode, location, friendLocation, equidistantMatches]);
+
   const equidistantMap = useMemo(() => {
     if (!equidistantMatches) return null;
     const map = new Map<string, EquidistantMatch>();
@@ -298,6 +303,14 @@ function AppContent() {
             <Ionicons name="close" size={18} color={colors.ink} />
           </Pressable>
         </View>
+        {location && friendLocation && distanceKm(location, friendLocation)! > 35 ? (
+          <View style={s.meetFarNotice}>
+            <Ionicons name="information-circle-outline" size={14} color={colors.inkSoft} />
+            <Text style={s.meetFarNoticeText}>
+              Points are far apart. Showing the best compromise in the metropolitan area
+            </Text>
+          </View>
+        ) : null}
       </View>
     ) : null}
     {notice && <View accessibilityLiveRegion="polite" style={s.notice}><View style={{ flex: 1 }}><Text selectable style={s.noticeText}>{notice}</Text>{showSettings && <Pressable accessibilityRole="button" onPress={() => void Linking.openSettings().catch(() => setNotice('Open device Settings → Apps → Workable BCN → Permissions.'))}><Text style={s.settings}>Open settings</Text></Pressable>}</View><Pressable accessibilityRole="button" accessibilityLabel="Dismiss message" onPress={() => setNotice(null)} style={s.iconButton}><Ionicons name="close" size={20} color={colors.ink} /></Pressable></View>}
@@ -310,6 +323,7 @@ function AppContent() {
           friendLocation={friendLocation}
           meetMode={meetMode}
           cameraCommand={camera}
+          topMatchIds={topMatchIds}
           onSelect={selectPlace}
           onMapClick={handleMapClick}
         />
@@ -406,6 +420,8 @@ const s = applyTypography(StyleSheet.create({
   meetPillSubtitlePrompt: { color: colors.tomato, fontWeight: '700' },
   meetClearPill: { padding: 2 },
   meetCloseButton: { width: 34, height: 34, borderRadius: 12, backgroundColor: colors.cream, alignItems: 'center', justifyContent: 'center' },
+  meetFarNotice: { marginTop: 6, flexDirection: 'row', alignItems: 'center', gap: 6, paddingVertical: 5, paddingHorizontal: 10, backgroundColor: colors.honeyLight, borderRadius: 10, borderWidth: 1, borderColor: colors.border },
+  meetFarNoticeText: { flex: 1, fontSize: 11, lineHeight: 15, color: colors.inkSoft, fontWeight: '500' },
   content: { flex: 1 }, map: { flex: 1 },
   locate: { position: 'absolute', top: 16, right: 16, width: 48, height: 48, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper, boxShadow: '0 2px 10px #00000018' },
   mapSummary: { position: 'absolute', bottom: 24, left: 12, right: 12, padding: 16, paddingTop: 10, borderRadius: 20, backgroundColor: colors.paper, boxShadow: '0 2px 16px #00000012' },

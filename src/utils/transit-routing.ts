@@ -164,7 +164,7 @@ class DijkstraState {
   // Min-heap arrays
   public heapCosts: Float64Array = new Float64Array(4096);
   public heapStations: Int16Array = new Int16Array(4096);
-  public heapLines: Int8Array = new Int8Array(4096);
+  public heapLines: Int16Array = new Int16Array(4096);
   public heapOrigins: Int16Array = new Int16Array(4096);
   public heapSize: number = 0;
 
@@ -197,7 +197,7 @@ class DijkstraState {
       const newCap = this.heapCosts.length * 2;
       const c = new Float64Array(newCap); c.set(this.heapCosts); this.heapCosts = c;
       const s = new Int16Array(newCap); s.set(this.heapStations); this.heapStations = s;
-      const l = new Int8Array(newCap); l.set(this.heapLines); this.heapLines = l;
+      const l = new Int16Array(newCap); l.set(this.heapLines); this.heapLines = l;
       const o = new Int16Array(newCap); o.set(this.heapOrigins); this.heapOrigins = o;
     }
     let i = this.heapSize++;

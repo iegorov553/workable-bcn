@@ -11,13 +11,14 @@ export default function MapCanvas({
   friendLocation,
   meetMode,
   cameraCommand,
+  topMatchIds,
   onSelect,
   onMapClick,
 }: MapCanvasProps) {
   const frame = useRef<HTMLIFrameElement>(null);
   const payload = useMemo(
-    () => encodeMapPayload({ places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, chainColors }),
-    [places, selectedId, userLocation, friendLocation, meetMode, cameraCommand]
+    () => encodeMapPayload({ places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, chainColors, topMatchIds }),
+    [places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, topMatchIds]
   );
   const send = useCallback(() => frame.current?.contentWindow?.postMessage(payload, '*'), [payload]);
   useEffect(() => {

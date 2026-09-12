@@ -9,6 +9,7 @@ export type MapPayload = {
   meetMode?: boolean;
   cameraCommand: CameraCommand | null;
   chainColors?: Record<string, string>;
+  topMatchIds?: string[];
 };
 
 // Keep catalogue text inert while transporting it to the map document.

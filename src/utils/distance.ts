@@ -3,7 +3,7 @@ import type { Coordinates, Place } from '../types';
 const EARTH_RADIUS_KM = 6371;
 const radians = (degrees: number) => (degrees * Math.PI) / 180;
 
-export function distanceKm(place: Place, origin?: Coordinates | null) {
+export function distanceKm(place: Coordinates, origin?: Coordinates | null) {
   if (!origin) return null;
   const latitudeDelta = radians(place.latitude - origin.latitude);
   const longitudeDelta = radians(place.longitude - origin.longitude);

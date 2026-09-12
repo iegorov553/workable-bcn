@@ -14,7 +14,11 @@
   }).on('tileerror', () => { notice.hidden = false; })
     .on('tileload', () => { notice.hidden = true; }).addTo(map);
   if (map.on) {
-    map.on('click', (e) => send({ type: 'mapClick', latitude: e.latlng.lat, longitude: e.latlng.lng }));
+    map.on('click', (e) => {
+      if (e?.latlng) {
+        send({ type: 'mapClick', latitude: e.latlng.lat, longitude: e.latlng.lng });
+      }
+    });
   }
   const markers = new Map();
   let userMarker = null;
@@ -51,10 +55,13 @@
         markers.set(place.id, marker);
       }
       const selected = place.id === state.selectedId;
+      const isTopMatch = !selected && Boolean(state.topMatchIds && state.topMatchIds.includes(place.id));
       marker.setRadius(selected ? 10 : 6).setStyle({
-        color: selected ? '#17211B' : '#FFFDF7', weight: selected ? 4 : 2,
+        color: selected ? '#17211B' : (isTopMatch ? '#F4C344' : '#FFFDF7'),
+        weight: selected ? 4 : (isTopMatch ? 3 : 2),
         fillColor: (state.chainColors && state.chainColors[place.chain]) || '#6D776F', fillOpacity: 1,
       });
+      if (isTopMatch) marker.bringToFront();
       if (selected) marker.bringToFront();
     }
     if (state.userLocation) {

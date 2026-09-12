@@ -12,7 +12,7 @@ test('transit network includes major BCN metro/train lines and valid coordinates
   assert.equal(network.transferPenaltyMinutes, 3.5);
 
   const lines = new Set(network.stations.flatMap(s => s.lines));
-  for (const requiredLine of ['L1', 'L2', 'L3', 'L4', 'L5', 'L9N', 'L9S', 'L10N', 'L10S', 'L6', 'L7', 'L8', 'T1', 'T4']) {
+  for (const requiredLine of ['L1', 'L2', 'L3', 'L4', 'L5', 'L9N', 'L9S', 'L10N', 'L10S', 'L6', 'L7', 'L8', 'L11', 'L12', 'T1', 'T4']) {
     assert.ok(lines.has(requiredLine), `Missing line ${requiredLine}`);
   }
 
@@ -38,6 +38,7 @@ test('connections are bidirectional and specify positive travel times', () => {
       assert.ok(target, `Target station ${conn.targetId} not found`);
       const returnConn = target.connections.find(c => c.targetId === station.id && c.line === conn.line);
       assert.ok(returnConn, `Connection between ${station.id} and ${target.id} on line ${conn.line} must be bidirectional`);
+      assert.equal(returnConn.travelMinutes, conn.travelMinutes, `Connection travel time between ${station.id} and ${target.id} on ${conn.line} must be symmetric`);
     }
   }
 });
