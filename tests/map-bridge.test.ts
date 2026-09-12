@@ -103,6 +103,53 @@ test('map runtime dispatches mapClick on map tap outside markers', () => {
   assert.equal(messages.length, countBefore);
 });
 
+test('map runtime selects marker on map tap within touch tolerance and dispatches mapClick outside', () => {
+  const messages: string[] = [];
+  let mapClickHandler: ((e: any) => void) | null = null;
+  const map = {
+    on(event: string, callback: (e: any) => void) {
+      if (event === 'click') mapClickHandler = callback;
+      return this;
+    },
+    stop() {}, closePopup() {}, invalidateSize() {}, flyTo() {},
+    latLngToContainerPoint(coords: [number, number] | { lat: number; lng: number }) {
+      const lat = Array.isArray(coords) ? coords[0] : coords.lat;
+      const lng = Array.isArray(coords) ? coords[1] : coords.lng;
+      return { x: lng * 1000, y: lat * 1000 };
+    },
+  };
+  const window: any = { ReactNativeWebView: { postMessage(data: string) { messages.push(data); } }, addEventListener() {} };
+  const element = () => ({ append() {}, textContent: '', className: '', hidden: true });
+  const context = {
+    window,
+    document: { getElementById: element, createElement: element },
+    L: {
+      map: () => map,
+      tileLayer: () => ({ on() { return this; }, addTo() { return this; } }),
+      circleMarker: () => ({ bindPopup() { return this; }, addTo() { return this; }, on() { return this; }, setRadius() { return this; }, setStyle() { return this; }, bringToFront() {}, setLatLng() {}, remove() {} }),
+    },
+  };
+  runInNewContext(readFileSync(new URL('../src/map/map-runtime.js', import.meta.url), 'utf8'), context);
+
+  const state: MapPayload = {
+    places: [{ id: 'cafe-1', name: 'Test Café', chain: 'Chain', address: 'Addr', latitude: 41.389, longitude: 2.169 }],
+    selectedId: null,
+    userLocation: null,
+    cameraCommand: null,
+  };
+  runInNewContext(mapUpdateScript(encodeMapPayload(state)), context);
+
+  assert.equal(typeof mapClickHandler, 'function');
+
+  // Tap within 26px (dist = 10px): selects cafe
+  (mapClickHandler as unknown as (e: any) => void)({ latlng: { lat: 41.389, lng: 2.179 } });
+  assert.deepEqual(parseMapMessage(messages.at(-1)!), { type: 'select', id: 'cafe-1' });
+
+  // Tap outside 26px (dist = 50px): dispatches mapClick
+  (mapClickHandler as unknown as (e: any) => void)({ latlng: { lat: 41.389, lng: 2.219 } });
+  assert.deepEqual(parseMapMessage(messages.at(-1)!), { type: 'mapClick', latitude: 41.389, longitude: 2.219 });
+});
+
 test('map runtime gives top match markers a golden stroke when unselected', () => {
   const styles: any[] = [];
   const map = {

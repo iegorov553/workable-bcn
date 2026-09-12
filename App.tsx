@@ -14,7 +14,7 @@ import { chainColors, colors, fallbackChainColor } from './src/theme';
 import type { Coordinates, Place, ViewMode } from './src/types';
 import { distanceKm, formatDistance } from './src/utils/distance';
 import { getDirectionsUrl } from './src/utils/directions';
-import { LocationRequestError, requestLocation, requestLocationIfGranted } from './src/utils/location-request';
+import { LocationRequestError, type Provider, requestLocation, requestLocationIfGranted, withTimeout } from './src/utils/location-request';
 import type { CameraCommand } from './src/utils/map-camera';
 import { formatPlaceCount, matchesSearch, parseFavorites } from './src/utils/places';
 import { requestBrowserLocation } from './src/utils/browser-location';
@@ -149,11 +149,37 @@ function AppContent() {
     setLocating(true);
     if (!onlyIfGranted) { setNotice(null); setShowSettings(false); Keyboard.dismiss(); }
     try {
-      const provider = {
+      const provider: Provider = {
         permission: onlyIfGranted ? Location.getForegroundPermissionsAsync : Location.requestForegroundPermissionsAsync,
         servicesEnabled: Platform.OS === 'web' ? async () => true : Location.hasServicesEnabledAsync,
-        current: Platform.OS === 'web' ? async () => ({ coords: await requestBrowserLocation() }) : () => Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced }),
+        lastKnown: Platform.OS === 'web' ? undefined : async () => {
+          try {
+            const loc = await Location.getLastKnownPositionAsync({ maxAge: 24 * 60 * 60 * 1000 });
+            return loc ? { coords: { latitude: loc.coords.latitude, longitude: loc.coords.longitude }, timestamp: loc.timestamp } : null;
+          } catch {
+            return null;
+          }
+        },
+        current: Platform.OS === 'web'
+          ? async () => ({ coords: await requestBrowserLocation() })
+          : async () => {
+              try {
+                return await withTimeout(Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Balanced }), 8000);
+              } catch {
+                return await Location.getCurrentPositionAsync({ accuracy: Location.Accuracy.Low });
+              }
+            },
       };
+
+      if (provider.lastKnown) {
+        provider.lastKnown().then(fast => {
+          if (mounted.current && fast?.coords) {
+            setLocation(prev => prev ?? fast.coords);
+            if (centerMap) { setSelectedId(null); setMode('map'); focus(fast.coords); }
+          }
+        }).catch(() => {});
+      }
+
       const coords = await (onlyIfGranted ? requestLocationIfGranted(provider) : Platform.OS === 'web' ? requestBrowserLocation() : requestLocation(provider));
       if (!mounted.current || !coords) return;
       setLocation(coords);

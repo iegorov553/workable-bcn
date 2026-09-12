@@ -1,7 +1,7 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
 const root = new URL('../', import.meta.url);
-const read = path => readFile(new URL(path, root), 'utf8');
+const read = async path => (await readFile(new URL(path, root), 'utf8')).replace(/\r\n/g, '\n');
 export async function buildMapDocument() {
   const [js, css, runtime, styles, license] = await Promise.all([
     read('node_modules/leaflet/dist/leaflet.js'), read('node_modules/leaflet/dist/leaflet.css'),

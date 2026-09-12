@@ -16,11 +16,22 @@ export async function withTimeout<T>(operation: Promise<T>, timeoutMs = 15000): 
   } finally { clearTimeout(timer); }
 }
 
-type Provider = {
+export type Provider = {
   permission: () => Promise<{ granted: boolean; canAskAgain: boolean }>;
   servicesEnabled: () => Promise<boolean>;
   current: () => Promise<{ coords: Coordinates }>;
+  lastKnown?: () => Promise<{ coords: Coordinates; timestamp?: number } | null>;
 };
+
+function isValidCoordinates(coords?: Coordinates | null): coords is Coordinates {
+  return Boolean(
+    coords &&
+    Number.isFinite(coords.latitude) &&
+    Number.isFinite(coords.longitude) &&
+    Math.abs(coords.latitude) <= 90 &&
+    Math.abs(coords.longitude) <= 180,
+  );
+}
 
 // The caller supplies a permission lookup, never a permission prompt.
 // A fresh app session can restore distances without asking again or saving GPS.
@@ -41,9 +52,25 @@ export async function requestLocation(provider: Provider, timeoutMs = 15000): Pr
   if (!(await withTimeout(provider.servicesEnabled(), timeoutMs))) {
     throw new LocationRequestError('Device location is turned off. Enable it and try again.');
   }
-  const { coords } = await withTimeout(provider.current(), timeoutMs);
-  if (!Number.isFinite(coords.latitude) || !Number.isFinite(coords.longitude) || Math.abs(coords.latitude) > 90 || Math.abs(coords.longitude) > 180) {
-    throw new LocationRequestError('Your device returned invalid coordinates. Please try again.');
+
+  const lastKnownPromise = provider.lastKnown
+    ? provider.lastKnown().catch(() => null)
+    : Promise.resolve(null);
+
+  try {
+    const { coords } = await withTimeout(provider.current(), timeoutMs);
+    if (!isValidCoordinates(coords)) {
+      throw new LocationRequestError('Your device returned invalid coordinates. Please try again.');
+    }
+    return { latitude: coords.latitude, longitude: coords.longitude };
+  } catch (err) {
+    if (err instanceof LocationRequestError && err.message.includes('invalid coordinates')) {
+      throw err;
+    }
+    const lastKnown = await lastKnownPromise;
+    if (lastKnown && isValidCoordinates(lastKnown.coords)) {
+      return { latitude: lastKnown.coords.latitude, longitude: lastKnown.coords.longitude };
+    }
+    throw err;
   }
-  return { latitude: coords.latitude, longitude: coords.longitude };
 }

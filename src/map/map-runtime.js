@@ -13,9 +13,28 @@
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a>',
   }).on('tileerror', () => { notice.hidden = false; })
     .on('tileload', () => { notice.hidden = true; }).addTo(map);
+  let currentPlaces = [];
   if (map.on) {
     map.on('click', (e) => {
       if (e?.latlng) {
+        if (typeof map.latLngToContainerPoint === 'function' && currentPlaces.length > 0) {
+          const clickPoint = map.latLngToContainerPoint(e.latlng);
+          let closest = null;
+          let minDistance = Infinity;
+          for (let i = 0; i < currentPlaces.length; i++) {
+            const place = currentPlaces[i];
+            const placePoint = map.latLngToContainerPoint([place.latitude, place.longitude]);
+            const dist = Math.hypot(clickPoint.x - placePoint.x, clickPoint.y - placePoint.y);
+            if (dist < minDistance) {
+              minDistance = dist;
+              closest = place;
+            }
+          }
+          if (closest && minDistance <= 26) {
+            send({ type: 'select', id: closest.id });
+            return;
+          }
+        }
         send({ type: 'mapClick', latitude: e.latlng.lat, longitude: e.latlng.lng });
       }
     });
@@ -38,6 +57,7 @@
   };
   window.workableMapUpdate = (encoded) => {
     const state = JSON.parse(decodeURIComponent(encoded));
+    currentPlaces = state.places || [];
     const ids = new Set(state.places.map(place => place.id));
     for (const [id, marker] of markers) {
       if (!ids.has(id)) { marker.remove(); markers.delete(id); }
@@ -56,7 +76,7 @@
       }
       const selected = place.id === state.selectedId;
       const isTopMatch = !selected && Boolean(state.topMatchIds && state.topMatchIds.includes(place.id));
-      marker.setRadius(selected ? 10 : 6).setStyle({
+      marker.setRadius(selected ? 13 : (isTopMatch ? 11 : 9)).setStyle({
         color: selected ? '#17211B' : (isTopMatch ? '#F4C344' : '#FFFDF7'),
         weight: selected ? 4 : (isTopMatch ? 3 : 2),
         fillColor: (state.chainColors && state.chainColors[place.chain]) || '#6D776F', fillOpacity: 1,
