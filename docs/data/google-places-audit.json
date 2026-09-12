@@ -3,7 +3,7 @@
   "stats": {
     "total": 520,
     "operational": 488,
-    "closedPermanently": 14,
+    "closedPermanently": 20,
     "closedTemporarily": 2,
     "mismatch": 16,
     "notFound": 0,
@@ -149,6 +149,42 @@
       "distanceMeters": 48,
       "businessStatus": "CLOSED_PERMANENTLY",
       "rating": 3.7
+    },
+    {
+      "id": "el-fornet-41.419781-2.157217",
+      "name": "El Fornet - Calderón de la Barca 109",
+      "businessStatus": "CLOSED_PERMANENTLY",
+      "note": "Confirmed defunct/vacant at catalog address"
+    },
+    {
+      "id": "el-fornet-41.383626-2.146912",
+      "name": "El Fornet - Provença 68",
+      "businessStatus": "CLOSED_PERMANENTLY",
+      "note": "Confirmed defunct/vacant at catalog address"
+    },
+    {
+      "id": "santagloria-41.411663-2.138752",
+      "name": "Santagloria - Craywinckel 24",
+      "businessStatus": "CLOSED_PERMANENTLY",
+      "note": "Confirmed defunct/vacant at catalog address"
+    },
+    {
+      "id": "santagloria-41.411345-2.174837",
+      "name": "Santagloria - Sant Antoni Maria Claret 224",
+      "businessStatus": "CLOSED_PERMANENTLY",
+      "note": "Confirmed defunct/vacant at catalog address"
+    },
+    {
+      "id": "santagloria-41.405864-2.138155",
+      "name": "Santagloria - Teodora Lamadrid 2",
+      "businessStatus": "CLOSED_PERMANENTLY",
+      "note": "Confirmed defunct/vacant at catalog address"
+    },
+    {
+      "id": "vivari-41.425882-2.174247",
+      "name": "Vivari - Maragall 243",
+      "businessStatus": "CLOSED_PERMANENTLY",
+      "note": "Confirmed defunct/vacant at catalog address"
     }
   ],
   "closedTemporarily": [

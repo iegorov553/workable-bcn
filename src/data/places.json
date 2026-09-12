@@ -2194,20 +2194,6 @@
     "googleMapsUrl": "https://maps.google.com/?cid=10075585294183396981&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
   },
   {
-    "id": "el-fornet-41.419781-2.157217",
-    "name": "El Fornet - Calderón de la Barca 109",
-    "chain": "El Fornet",
-    "address": "Carrer de Calderón de la Barca, 109 · Horta-Guinardó",
-    "latitude": 41.4197807,
-    "longitude": 2.1572169,
-    "verification": {
-      "status": "unverified",
-      "checkedAt": "2026-09-11",
-      "sourceUrl": "https://elfornet.com/tiendas",
-      "note": "not-matched-in-official-catalog"
-    }
-  },
-  {
     "id": "el-fornet-41.436523-2.205098",
     "name": "El Fornet - Carrer d'Alfarràs 5",
     "chain": "El Fornet",
@@ -2710,20 +2696,6 @@
     "googleMapsUrl": "https://maps.google.com/?cid=3121237323431563863&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
   },
   {
-    "id": "el-fornet-41.383626-2.146912",
-    "name": "El Fornet - Provença 68",
-    "chain": "El Fornet",
-    "address": "Carrer de Provença, 68 · Eixample",
-    "latitude": 41.3836257,
-    "longitude": 2.1469119,
-    "verification": {
-      "status": "unverified",
-      "checkedAt": "2026-09-11",
-      "sourceUrl": "https://elfornet.com/tiendas",
-      "note": "not-matched-in-official-catalog"
-    }
-  },
-  {
     "id": "el-fornet-41.406752-2.207687",
     "name": "El Fornet - Pujades 316",
     "chain": "El Fornet",
@@ -3055,7 +3027,9 @@
       "checkedAt": "2026-09-11",
       "sourceUrl": "https://pansgranier.com/donde-estamos/",
       "note": "not-matched-in-official-catalog"
-    }
+    },
+    "googlePlaceId": "ChIJm4IEc6KYpBIRXxIt_HOUf1w",
+    "googleMapsUrl": "https://maps.google.com/?cid=6665209199404585567&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
   },
   {
     "id": "granier-41.412035-2.217585",
@@ -3981,20 +3955,6 @@
     "googleMapsUrl": "https://maps.google.com/?cid=2876130272337941304&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
   },
   {
-    "id": "santagloria-41.411663-2.138752",
-    "name": "Santagloria - Craywinckel 24",
-    "chain": "Santagloria",
-    "address": "Carrer de Craywinckel, 24 · Sarrià-Sant Gervasi",
-    "latitude": 41.4116629,
-    "longitude": 2.1387521,
-    "verification": {
-      "status": "unverified",
-      "checkedAt": "2026-09-11",
-      "sourceUrl": "https://www.santagloria.com/nuestros-locales",
-      "note": "not-matched-in-official-catalog"
-    }
-  },
-  {
     "id": "santagloria-41.430111-2.179711",
     "name": "Santagloria - de Fabra i Puig 143",
     "chain": "Santagloria",
@@ -4409,19 +4369,6 @@
     "googleMapsUrl": "https://maps.google.com/?cid=1279405969948852016&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
   },
   {
-    "id": "santagloria-41.411345-2.174837",
-    "name": "Santagloria - Sant Antoni Maria Claret 224",
-    "chain": "Santagloria",
-    "address": "Carrer de Sant Antoni Maria Claret, 224 · Eixample",
-    "latitude": 41.4113765,
-    "longitude": 2.1747515,
-    "verification": {
-      "status": "listed",
-      "checkedAt": "2026-09-11",
-      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-sant-antoni-maria-claret-224-barcelona"
-    }
-  },
-  {
     "id": "santagloria-41.405456-2.166883",
     "name": "Santagloria - Sant Antoni Maria Claret 50",
     "chain": "Santagloria",
@@ -4480,20 +4427,6 @@
     },
     "googlePlaceId": "ChIJQ__lKJeZpBIRk1Cvnc_YYVc",
     "googleMapsUrl": "https://maps.google.com/?cid=6296552140256006291&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-  },
-  {
-    "id": "santagloria-41.405864-2.138155",
-    "name": "Santagloria - Teodora Lamadrid 2",
-    "chain": "Santagloria",
-    "address": "Carrer de Teodora Lamadrid, 2 · Sarrià-Sant Gervasi",
-    "latitude": 41.4058636,
-    "longitude": 2.1381546,
-    "verification": {
-      "status": "listed",
-      "checkedAt": "2026-09-11",
-      "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-teodora-lamadrid-barcelona",
-      "note": "Address listed by the chain; official coordinates differ from the original map. Original coordinates retained."
-    }
   },
   {
     "id": "santagloria-41.397318-2.151125",
@@ -5862,7 +5795,9 @@
       "checkedAt": "2026-09-11",
       "sourceUrl": "https://vivari.es/",
       "note": "official-site-certificate-expired; no public store directory verified"
-    }
+    },
+    "googlePlaceId": "ChIJVzvr0sq8pBIRy6HgryiCpYA",
+    "googleMapsUrl": "https://maps.google.com/?cid=9269958519273071051&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
   },
   {
     "id": "vivari-41.411459-2.178748",
@@ -6007,20 +5942,6 @@
     },
     "googlePlaceId": "ChIJd4weMQC9pBIROntvvJMYXVs",
     "googleMapsUrl": "https://maps.google.com/?cid=6583445253086214970&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-  },
-  {
-    "id": "vivari-41.425882-2.174247",
-    "name": "Vivari - Maragall 243",
-    "chain": "Vivari",
-    "address": "Passeig Maragall, 243 · Horta-Guinardó",
-    "latitude": 41.4258822,
-    "longitude": 2.1742465,
-    "verification": {
-      "status": "unverified",
-      "checkedAt": "2026-09-11",
-      "sourceUrl": "https://vivari.es/",
-      "note": "official-site-certificate-expired; no public store directory verified"
-    }
   },
   {
     "id": "vivari-41.360615-2.140283",
@@ -6516,19 +6437,6 @@
     "googleMapsUrl": "https://maps.google.com/?cid=10753177925299587231&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
   },
   {
-    "id": "365-caf--41.433328-2.216388",
-    "chain": "365 Café",
-    "name": "365 Café - Alfonso XIII 2",
-    "address": "Avinguda de Alfonso Xiii, 2 · Badalona",
-    "latitude": 41.4333276,
-    "longitude": 2.2163877,
-    "verification": {
-      "status": "listed",
-      "checkedAt": "2026-09-11",
-      "sourceUrl": "https://365obrador.com/es/encuentranos/"
-    }
-  },
-  {
     "id": "365-caf--41.451188-2.206576",
     "chain": "365 Café",
     "name": "365 Café - Francesc Macià 4",
@@ -6563,13 +6471,15 @@
     "chain": "365 Café",
     "name": "365 Café - Mare de Déu de Montserrat",
     "address": "Avinguda de la Mare de Déu de Montserrat, 24 · Horta-Guinardó",
-    "latitude": 41.4173671,
-    "longitude": 2.1711933,
+    "latitude": 41.413687,
+    "longitude": 2.161728,
     "verification": {
       "status": "listed",
       "checkedAt": "2026-09-11",
       "sourceUrl": "https://365obrador.com/es/encuentranos/"
-    }
+    },
+    "googlePlaceId": "ChIJAQD8_LaipBIRQN1U1xqt8rI",
+    "googleMapsUrl": "https://maps.google.com/?cid=12894559013908569408&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
   },
   {
     "id": "365-caf--41.440303-2.222478",
@@ -6786,13 +6696,15 @@
     "chain": "365 Café",
     "name": "365 Café - Villarroel 217",
     "address": "Carrer de Villarroel, 217 · Eixample",
-    "latitude": 41.3902875,
-    "longitude": 2.149771,
+    "latitude": 41.392059,
+    "longitude": 2.147869,
     "verification": {
       "status": "listed",
       "checkedAt": "2026-09-11",
       "sourceUrl": "https://365obrador.com/es/encuentranos/"
-    }
+    },
+    "googlePlaceId": "ChIJQ2f_2pyipBIRZLdYB439eUk",
+    "googleMapsUrl": "https://maps.google.com/?cid=5294541619106199396&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
   },
   {
     "id": "365-caf--41.534963-2.115055",
@@ -6915,19 +6827,6 @@
     "googleMapsUrl": "https://maps.google.com/?cid=17560700149973052443&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
   },
   {
-    "id": "365-caf--41.424891-2.176891",
-    "chain": "365 Café",
-    "name": "365 Café - Maragall 168",
-    "address": "Passeig de Maragall, 168 · Horta-Guinardó",
-    "latitude": 41.4248909,
-    "longitude": 2.1768912,
-    "verification": {
-      "status": "listed",
-      "checkedAt": "2026-09-11",
-      "sourceUrl": "https://365obrador.com/es/encuentranos/"
-    }
-  },
-  {
     "id": "365-caf--41.563495-2.015573",
     "chain": "365 Café",
     "name": "365 Café - Comte d’Ègara 15",
@@ -6971,19 +6870,6 @@
     },
     "googlePlaceId": "ChIJywoH10CZpBIRIjqsHomjAT8",
     "googleMapsUrl": "https://maps.google.com/?cid=4540089708686621218&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
-  },
-  {
-    "id": "365-caf--41.550469-2.098825",
-    "chain": "365 Café",
-    "name": "365 Café - Plaça de Catalunya 6",
-    "address": "Plaça de Catalunya, 6 · Sabadell",
-    "latitude": 41.5504687,
-    "longitude": 2.098825,
-    "verification": {
-      "status": "listed",
-      "checkedAt": "2026-09-11",
-      "sourceUrl": "https://365obrador.com/es/encuentranos/"
-    }
   },
   {
     "id": "365-caf--41.371136-2.121762",
@@ -7316,19 +7202,6 @@
     "googleMapsUrl": "https://maps.google.com/?cid=14812388894162577320&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
   },
   {
-    "id": "granier-41.371374-2.099659",
-    "chain": "Granier",
-    "name": "Granier - Molino 64",
-    "address": "Carrer del Molí, 64 · Esplugues de Llobregat",
-    "latitude": 41.37137403360366,
-    "longitude": 2.099658581137762,
-    "verification": {
-      "status": "listed",
-      "checkedAt": "2026-09-11",
-      "sourceUrl": "https://pansgranier.com/donde-estamos/"
-    }
-  },
-  {
     "id": "granier-41.360553-2.075632",
     "chain": "Granier",
     "name": "Granier - Mossèn Jaume Soler i Puigvert 2",
@@ -7543,13 +7416,15 @@
     "chain": "Santagloria",
     "name": "Santagloria - Barcelona Airport T2",
     "address": "Aeroport de Barcelona, T2 · El Prat de Llobregat",
-    "latitude": 41.302813130695,
-    "longitude": 2.0721087286839,
+    "latitude": 41.303349,
+    "longitude": 2.076868,
     "verification": {
       "status": "listed",
       "checkedAt": "2026-09-11",
       "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-aeropuerto-barcelona-terminal-2"
-    }
+    },
+    "googlePlaceId": "ChIJGQY43X2epBIRaCAv8QSl4aI",
+    "googleMapsUrl": "https://maps.google.com/?cid=11736843544549073000&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
   },
   {
     "id": "santagloria-41.376814-2.098787",
@@ -7586,13 +7461,15 @@
     "chain": "Santagloria",
     "name": "Santagloria - Riera Principal 16",
     "address": "Carrer de la Riera Principal, 16 · Alella",
-    "latitude": 41.4890077,
-    "longitude": 2.2973685,
+    "latitude": 41.490765,
+    "longitude": 2.29583,
     "verification": {
       "status": "listed",
       "checkedAt": "2026-09-11",
       "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-riera-principal-alella"
-    }
+    },
+    "googlePlaceId": "ChIJBVwBywW6pBIRlszGuu98Jvg",
+    "googleMapsUrl": "https://maps.google.com/?cid=17881116739593751702&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
   },
   {
     "id": "santagloria-41.546439-2.109622",
@@ -7719,13 +7596,15 @@
     "chain": "Santagloria",
     "name": "Santagloria - María Casas 73",
     "address": "Rambla de Maria Casas, 73 · Gavà",
-    "latitude": 41.306978,
-    "longitude": 2.0049847,
+    "latitude": 41.305842,
+    "longitude": 2.00667,
     "verification": {
       "status": "listed",
       "checkedAt": "2026-09-11",
       "sourceUrl": "https://www.santagloria.com/nuestros-locales/santagloria-maria-casas-gava"
-    }
+    },
+    "googlePlaceId": "ChIJA49p4QydpBIRbKfJhWt1vQU",
+    "googleMapsUrl": "https://maps.google.com/?cid=413615845454489452&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
   },
   {
     "id": "365-caf--41.368390-2.131559",
