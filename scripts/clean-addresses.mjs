@@ -1,8 +1,8 @@
 import { readFile, writeFile } from 'node:fs/promises';
 
-const placesPath = 'C:/Users/Mi/projects/_projects-archive/barna-cafe-map/src/data/places.json';
-const origPath = 'C:/Users/Mi/projects/_projects-archive/barna-cafe-map/docs/data/original-places.json';
-const csvPath = 'C:/Users/Mi/projects/_projects-archive/barna-cafe-map/docs/data/places-audit.csv';
+const placesPath = new URL('../src/data/places.json', import.meta.url);
+const origPath = new URL('../docs/data/original-places.json', import.meta.url);
+const csvPath = new URL('../docs/data/places-audit.csv', import.meta.url);
 
 const places = JSON.parse(await readFile(placesPath, 'utf8'));
 const originals = JSON.parse(await readFile(origPath, 'utf8'));

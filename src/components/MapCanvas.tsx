@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, Linking, Pressable, StyleSheet, Text, View } from 'react-native';
 import { WebView } from 'react-native-webview';
-import { mapHtml } from '../map/map-html';
+import { getMapHtml } from '../map/map-html';
 import { chainColors } from '../theme';
 import type { Coordinates } from '../types';
 import { encodeMapPayload, mapUpdateScript, parseMapMessage, type MapPayload } from '../utils/map-bridge';
@@ -10,7 +10,8 @@ export type MapCanvasProps = MapPayload & {
   onSelect: (id: string) => Promise<void> | void;
   onMapClick?: (coords: Coordinates) => void;
 };
-const source = { html: mapHtml };
+const cartoApiKey = process.env.EXPO_PUBLIC_CARTO_API_KEY;
+const source = { html: getMapHtml(cartoApiKey) };
 
 export default function MapCanvas({
   places,

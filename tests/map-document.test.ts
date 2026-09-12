@@ -303,3 +303,62 @@ test('cafe marker radius is reduced for compact appearance while retaining touch
   assert.equal(radiusSet, 10, 'selected cafe marker radius should be 10px');
 });
 
+test('map runtime appends CARTO API key to tile URL when provided', () => {
+  let requestedUrl = '';
+  const map = { stop() {}, closePopup() {}, invalidateSize() {}, flyTo() {}, on() { return this; } };
+  const window: any = { ReactNativeWebView: { postMessage() {} }, addEventListener() {} };
+  const element = () => ({ append() {}, textContent: '', className: '', hidden: true });
+  const context = {
+    window,
+    document: { getElementById: element, createElement: element },
+    __CARTO_API_KEY__: 'test-key-xyz',
+    L: {
+      map: () => map,
+      tileLayer: (url: string) => {
+        requestedUrl = url;
+        return { on() { return this; }, addTo() { return this; } };
+      },
+    },
+  };
+  runInNewContext(readFileSync(new URL('../src/map/map-runtime.js', import.meta.url), 'utf8'), context);
+  assert.equal(requestedUrl, 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png?key=test-key-xyz');
+});
+
+test('map runtime omits query parameter when CARTO API key is empty', () => {
+  let requestedUrl = '';
+  const map = { stop() {}, closePopup() {}, invalidateSize() {}, flyTo() {}, on() { return this; } };
+  const window: any = { ReactNativeWebView: { postMessage() {} }, addEventListener() {} };
+  const element = () => ({ append() {}, textContent: '', className: '', hidden: true });
+  const context = {
+    window,
+    document: { getElementById: element, createElement: element },
+    __CARTO_API_KEY__: '',
+    L: {
+      map: () => map,
+      tileLayer: (url: string) => {
+        requestedUrl = url;
+        return { on() { return this; }, addTo() { return this; } };
+      },
+    },
+  };
+  runInNewContext(readFileSync(new URL('../src/map/map-runtime.js', import.meta.url), 'utf8'), context);
+  assert.equal(requestedUrl, 'https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png');
+});
+
+test('getMapHtml injects CARTO API key into map document', async () => {
+  const { getMapHtml, mapHtml } = await import('../src/map/map-html.ts');
+  assert.equal(getMapHtml(), mapHtml);
+  assert.equal(getMapHtml(''), mapHtml);
+  const injected = getMapHtml('my-secret-key');
+  assert.notEqual(injected, mapHtml);
+  assert.match(injected, /const __CARTO_API_KEY__ = "my-secret-key";/);
+});
+
+test('buildMapDocument supports optional cartoApiKey option', async () => {
+  const build = await import(new URL('../scripts/build-map.mjs', import.meta.url).href);
+  const defaultHtml = await build.buildMapDocument();
+  assert.match(defaultHtml, /const __CARTO_API_KEY__ = "";/);
+  const customHtml = await build.buildMapDocument({ cartoApiKey: 'custom-build-key' });
+  assert.match(customHtml, /const __CARTO_API_KEY__ = "custom-build-key";/);
+});
+

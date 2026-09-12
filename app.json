@@ -1,7 +1,7 @@
 {
   "expo": {
     "name": "Workable BCN",
-    "slug": "barna-cafe-map",
+    "slug": "workable-bcn",
     "version": "1.0.0",
     "orientation": "portrait",
     "icon": "./assets/workable-icon.png",
@@ -55,7 +55,7 @@
     ],
     "extra": {
       "eas": {
-        "projectId": "ae372833-fa82-4bfc-a29b-083298e27e04"
+        "projectId": "5c7a5df8-ad21-4fc3-be2e-593cdea6bf98"
       }
     },
     "owner": "iegorov553"

@@ -1,8 +1,11 @@
 import { useCallback, useEffect, useMemo, useRef } from 'react';
 import type { MapCanvasProps } from './MapCanvas';
-import { mapHtml } from '../map/map-html';
+import { getMapHtml } from '../map/map-html';
 import { chainColors } from '../theme';
 import { encodeMapPayload, parseMapMessage } from '../utils/map-bridge';
+
+const cartoApiKey = process.env.EXPO_PUBLIC_CARTO_API_KEY;
+const html = getMapHtml(cartoApiKey);
 
 export default function MapCanvas({
   places,
@@ -34,5 +37,5 @@ export default function MapCanvas({
     send();
     return () => window.removeEventListener('message', receive);
   }, [send, onSelect, onMapClick, places]);
-  return <iframe ref={frame} title="Cafés in Barcelona" srcDoc={mapHtml} onLoad={send} style={{ width: '100%', height: '100%', border: 0, display: 'block', background: '#f0f1ec' }} />;
+  return <iframe ref={frame} title="Cafés in Barcelona" srcDoc={html} onLoad={send} style={{ width: '100%', height: '100%', border: 0, display: 'block', background: '#f0f1ec' }} />;
 }
