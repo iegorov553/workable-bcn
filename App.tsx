@@ -50,6 +50,7 @@ function AppContent() {
   const [meetMode, setMeetMode] = useState(false);
   const [friendLocation, setFriendLocation] = useState<Coordinates | null>(null);
   const [settingOrigin, setSettingOrigin] = useState<'you' | 'friend' | null>(null);
+  const [showMetro, setShowMetro] = useState(false);
 
   useEffect(() => {
     mounted.current = true;
@@ -350,10 +351,22 @@ function AppContent() {
           meetMode={meetMode}
           cameraCommand={camera}
           topMatchIds={topMatchIds}
+          showMetro={showMetro}
           onSelect={selectPlace}
           onMapClick={handleMapClick}
         />
-        <Pressable accessibilityRole="button" accessibilityLabel="Return to my location" accessibilityState={{ busy: locating, disabled: locating }} disabled={locating} onPress={() => void locate()} style={s.locate}>{locating ? <ActivityIndicator color={colors.ink} /> : <Ionicons name="locate-outline" size={24} color={colors.ink} />}</Pressable>
+        <View style={s.mapControls}>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={showMetro ? 'Hide metro lines' : 'Show metro lines'}
+            accessibilityState={{ selected: showMetro }}
+            onPress={() => { setShowMetro(v => !v); haptic(); }}
+            style={[s.mapButton, showMetro && s.mapButtonActive]}
+          >
+            <Ionicons name="subway-outline" size={22} color={showMetro ? colors.ink : colors.inkSoft} />
+          </Pressable>
+          <Pressable accessibilityRole="button" accessibilityLabel="Return to my location" accessibilityState={{ busy: locating, disabled: locating }} disabled={locating} onPress={() => void locate()} style={s.mapButton}>{locating ? <ActivityIndicator color={colors.ink} /> : <Ionicons name="locate-outline" size={24} color={colors.ink} />}</Pressable>
+        </View>
         {selected ? <View style={s.selected}>
           <View style={s.sheetHeader}><Text style={s.sheetLabel}>SELECTED PLACE</Text><Pressable accessibilityRole="button" accessibilityLabel="Close place details" onPress={() => setSelectedId(null)} style={s.iconButton}><Ionicons name="close" size={22} color={colors.inkSoft} /></Pressable></View>
           <PlaceCard
@@ -395,7 +408,8 @@ function AppContent() {
         <View><Pressable accessibilityRole="link" onPress={() => void Linking.openURL(PRIVACY_POLICY_URL).catch(() => { setAbout(false); setNotice('Could not open the privacy policy. Please try again.'); })}><Text style={s.settings}>Privacy policy ↗</Text></Pressable><Pressable accessibilityRole="link" onPress={() => void Linking.openURL(`mailto:${SUPPORT_EMAIL}`).catch(() => { setAbout(false); setNotice(`Please email ${SUPPORT_EMAIL} using your mail app.`); })}><Text style={s.settings}>Support · {SUPPORT_EMAIL}</Text></Pressable></View>
         <Image source={require('./assets/workable-icon.png')} style={s.brandIcon} accessibilityIgnoresInvertColors /><Text selectable style={s.heading}>Coffee. City. Your places.</Text><Text selectable style={s.aboutText}>An independent guide to cafés in Barcelona and nearby towns. We are not affiliated with the featured chains. Check opening hours, Wi-Fi and laptop policies before visiting.</Text>
         <Text style={s.heading}>Privacy</Text><Text selectable style={s.aboutText}>Location access is requested when you use a location button. If you already allowed access, the app gets your current location at startup to show distances. Location buttons refresh distances or centre the map. We do not save a location history or track you in the background. Saved places stay on your device. There are no accounts, ads or analytics.</Text>
-        <Text selectable style={s.aboutText}>The map requests tiles from OpenStreetMap, which receives your IP address and the area you are viewing. After centring on your location, that area may reveal your location. Directions open Google Maps with the selected café as the destination. These services process requests under their own privacy policies.</Text>
+        <Text selectable style={s.aboutText}>The map requests tiles from CARTO and OpenStreetMap, which receives your IP address and the area you are viewing. After centring on your location, that area may reveal your location. Directions open Google Maps with the selected café as the destination. These services process requests under their own privacy policies.</Text>
+        <Pressable accessibilityRole="link" onPress={() => void Linking.openURL('https://carto.com/privacy').catch(() => setNotice('Could not open the link. Please try again.'))}><Text style={s.settings}>CARTO privacy policy ↗</Text></Pressable>
         <Pressable accessibilityRole="link" onPress={() => void Linking.openURL('https://osmfoundation.org/wiki/Privacy_Policy').catch(() => setNotice('Could not open the link. Please try again.'))}><Text style={s.settings}>OpenStreetMap privacy policy ↗</Text></Pressable>
         <Text style={s.secondary}>Workable BCN · 1.0.0</Text>
       </ScrollView></SafeAreaView>
@@ -449,6 +463,9 @@ const s = applyTypography(StyleSheet.create({
   meetFarNotice: { marginTop: 6, flexDirection: 'row', alignItems: 'center', gap: 6, paddingVertical: 5, paddingHorizontal: 10, backgroundColor: colors.honeyLight, borderRadius: 10, borderWidth: 1, borderColor: colors.border },
   meetFarNoticeText: { flex: 1, fontSize: 11, lineHeight: 15, color: colors.inkSoft, fontWeight: '500' },
   content: { flex: 1 }, map: { flex: 1 },
+  mapControls: { position: 'absolute', top: 16, right: 16, gap: 10 },
+  mapButton: { width: 48, height: 48, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper, boxShadow: '0 2px 10px #00000018' },
+  mapButtonActive: { backgroundColor: colors.honey },
   locate: { position: 'absolute', top: 16, right: 16, width: 48, height: 48, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper, boxShadow: '0 2px 10px #00000018' },
   mapSummary: { position: 'absolute', bottom: 24, left: 12, right: 12, padding: 16, paddingTop: 10, borderRadius: 20, backgroundColor: colors.paper, boxShadow: '0 2px 16px #00000012' },
   handle: { alignSelf: 'center', width: 28, height: 3, backgroundColor: colors.border, borderRadius: 2, marginBottom: 12 },

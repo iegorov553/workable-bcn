@@ -8,11 +8,69 @@
   window.addEventListener('error', () => send({ type: 'error' }));
   const map = L.map('map', { center: [41.389, 2.169], zoom: 13, minZoom: 3, maxZoom: 19, zoomControl: false });
   const notice = document.getElementById('tile-error');
-  L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
+  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
     maxZoom: 19,
-    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a>',
+    subdomains: 'abcd',
+    attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank" rel="noreferrer">CARTO</a>',
   }).on('tileerror', () => { notice.hidden = false; })
     .on('tileload', () => { notice.hidden = true; }).addTo(map);
+  if (typeof map.createPane === 'function') {
+    const metroPane = map.createPane('metroPane');
+    if (metroPane && metroPane.style) metroPane.style.zIndex = '350';
+  }
+  const lineColors = {
+    L1: '#E1251B', L2: '#90278E', L3: '#509E2F', L4: '#F7B500', L5: '#0078C1',
+    L6: '#7874B2', L7: '#B45823', L8: '#EA5399', L9N: '#F37920', L9S: '#F37920',
+    L10N: '#009EE0', L10S: '#009EE0', L11: '#98C222', L12: '#BD93C8', T1: '#009A44', T4: '#009A44',
+  };
+  let metroLayer = null;
+  const transitData = typeof __TRANSIT_OVERLAY__ !== 'undefined' ? __TRANSIT_OVERLAY__ : null;
+  const getMetroLayer = () => {
+    if (metroLayer) return metroLayer;
+    if (!transitData || typeof L === 'undefined' || typeof L.layerGroup !== 'function') return null;
+    metroLayer = L.layerGroup();
+    if (Array.isArray(transitData.segments) && typeof L.polyline === 'function') {
+      for (let i = 0; i < transitData.segments.length; i++) {
+        const seg = transitData.segments[i];
+        const line = L.polyline(seg.coords, {
+          color: lineColors[seg.line] || '#777777',
+          weight: 3.5,
+          opacity: 0.75,
+          lineCap: 'round',
+          lineJoin: 'round',
+          interactive: false,
+          pane: 'metroPane',
+        });
+        metroLayer.addLayer(line);
+      }
+    }
+    if (Array.isArray(transitData.stations) && typeof L.circleMarker === 'function') {
+      for (let i = 0; i < transitData.stations.length; i++) {
+        const station = transitData.stations[i];
+        const stMarker = L.circleMarker(station.coords, {
+          radius: 3.5,
+          color: '#FFFFFF',
+          weight: 1.5,
+          fillColor: '#2D3748',
+          fillOpacity: 0.9,
+          bubblingMouseEvents: false,
+          pane: 'metroPane',
+        });
+        const root = document.createElement('div');
+        root.className = 'transit-popup';
+        const name = document.createElement('strong');
+        name.className = 'transit-name';
+        name.textContent = station.name;
+        const lines = document.createElement('span');
+        lines.className = 'transit-lines';
+        lines.textContent = station.lines.join(' · ');
+        root.append(name, lines);
+        stMarker.bindPopup(root);
+        metroLayer.addLayer(stMarker);
+      }
+    }
+    return metroLayer;
+  };
   let currentPlaces = [];
   if (map.on) {
     map.on('click', (e) => {
@@ -109,6 +167,15 @@
       }
     } else {
       lastBoundsKey = null;
+    }
+    const transit = getMetroLayer();
+    if (transit) {
+      const isLayerOnMap = typeof map.hasLayer === 'function' ? map.hasLayer(transit) : Boolean(transit._map);
+      if (state.showMetro) {
+        if (!isLayerOnMap && typeof transit.addTo === 'function') transit.addTo(map);
+      } else {
+        if (isLayerOnMap && typeof transit.remove === 'function') transit.remove();
+      }
     }
     const command = state.cameraCommand;
     if (command && (!lastCamera || command.requestId !== lastCamera.requestId || command.latitude !== lastCamera.latitude || command.longitude !== lastCamera.longitude)) {

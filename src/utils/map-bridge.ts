@@ -10,6 +10,7 @@ export type MapPayload = {
   cameraCommand: CameraCommand | null;
   chainColors?: Record<string, string>;
   topMatchIds?: string[];
+  showMetro?: boolean;
 };
 
 // Keep catalogue text inert while transporting it to the map document.

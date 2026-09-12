@@ -55,6 +55,22 @@ test('friendLocation and meetMode survive encoding/decoding and native bootstrap
   assert.deepEqual(decodeMapPayload(bootNull.$$EXPO_INITIAL_PROPS.props.payload), stateWithoutFriend);
 });
 
+test('showMetro survives encoding/decoding and native bootstrap', () => {
+  const stateWithMetro: MapPayload = {
+    ...initial,
+    showMetro: true,
+  };
+  const bootTrue = nativeBootstrap({ payload: encodeMapPayload(stateWithMetro) });
+  assert.deepEqual(decodeMapPayload(bootTrue.$$EXPO_INITIAL_PROPS.props.payload), stateWithMetro);
+
+  const stateWithoutMetro: MapPayload = {
+    ...initial,
+    showMetro: false,
+  };
+  const bootFalse = nativeBootstrap({ payload: encodeMapPayload(stateWithoutMetro) });
+  assert.deepEqual(decodeMapPayload(bootFalse.$$EXPO_INITIAL_PROPS.props.payload), stateWithoutMetro);
+});
+
 test('parseMapMessage parses mapClick events and rejects invalid lat/lon', () => {
   const valid = JSON.stringify({ type: 'mapClick', latitude: 41.389, longitude: 2.169 });
   assert.deepEqual(parseMapMessage(valid), { type: 'mapClick', latitude: 41.389, longitude: 2.169 });

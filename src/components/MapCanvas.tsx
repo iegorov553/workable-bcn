@@ -20,6 +20,7 @@ export default function MapCanvas({
   meetMode,
   cameraCommand,
   topMatchIds,
+  showMetro,
   onSelect,
   onMapClick,
 }: MapCanvasProps) {
@@ -29,8 +30,8 @@ export default function MapCanvas({
   const [failed, setFailed] = useState(false);
   const [generation, setGeneration] = useState(0);
   const payload = useMemo(
-    () => encodeMapPayload({ places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, chainColors, topMatchIds }),
-    [places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, topMatchIds]
+    () => encodeMapPayload({ places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, chainColors, topMatchIds, showMetro }),
+    [places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, topMatchIds, showMetro]
   );
   const latest = useRef(payload);
   latest.current = payload;
@@ -51,7 +52,7 @@ export default function MapCanvas({
       onError={() => setFailed(true)} onRenderProcessGone={() => setFailed(true)} onContentProcessDidTerminate={() => setFailed(true)}
       onShouldStartLoadWithRequest={request => {
         if (request.url === 'about:blank' || request.url.startsWith('about:blank#')) return true;
-        if (request.url.startsWith('https://www.openstreetmap.org/') || request.url === 'https://leafletjs.com' || request.url === 'https://leafletjs.com/') void Linking.openURL(request.url).catch(() => {});
+        if (request.url.startsWith('https://www.openstreetmap.org/') || request.url.startsWith('https://carto.com') || request.url === 'https://leafletjs.com' || request.url === 'https://leafletjs.com/') void Linking.openURL(request.url).catch(() => {});
         return false;
       }}
       onMessage={event => {

@@ -110,12 +110,14 @@ test('MapCanvas and MapCanvas.web accept friendLocation, meetMode, and forward o
   assert.match(nativeSource, /friendLocation/);
   assert.match(nativeSource, /meetMode/);
   assert.match(nativeSource, /topMatchIds/);
+  assert.match(nativeSource, /showMetro/);
   assert.ok(nativeSource.includes("if (message?.type === 'mapClick') onMapClick?.({ latitude: message.latitude, longitude: message.longitude });"));
 
   // Verify props and click forwarding in web component
   assert.match(webSource, /friendLocation/);
   assert.match(webSource, /meetMode/);
   assert.match(webSource, /topMatchIds/);
+  assert.match(webSource, /showMetro/);
   assert.ok(webSource.includes("if (message?.type === 'mapClick') onMapClick?.({ latitude: message.latitude, longitude: message.longitude });"));
 
   // Simulate MapCanvas message forwarding
@@ -131,7 +133,7 @@ test('MapCanvas and MapCanvas.web accept friendLocation, meetMode, and forward o
   }
   assert.deepEqual(receivedCoords, { latitude: 41.3892, longitude: 2.1601 });
 
-  // Verify encodeMapPayload includes friendLocation, meetMode, and topMatchIds
+  // Verify encodeMapPayload includes friendLocation, meetMode, topMatchIds, and showMetro
   const payload = encodeMapPayload({
     places: [],
     selectedId: null,
@@ -140,11 +142,13 @@ test('MapCanvas and MapCanvas.web accept friendLocation, meetMode, and forward o
     meetMode: true,
     cameraCommand: null,
     topMatchIds: ['cafe1', 'cafe2'],
+    showMetro: true,
   });
   const decoded = decodeMapPayload(payload);
   assert.deepEqual(decoded.friendLocation, { latitude: 41.40, longitude: 2.18 });
   assert.equal(decoded.meetMode, true);
   assert.deepEqual(decoded.topMatchIds, ['cafe1', 'cafe2']);
+  assert.equal(decoded.showMetro, true);
 });
 
 test('meet mode distance check accurately detects origins > 35 km apart', () => {

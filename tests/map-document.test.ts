@@ -46,3 +46,57 @@ test('native map starts without injected globals, receives latest state and emit
 test('map messages reject malformed data and invalid selections', () => {
   for (const data of ['null', '{}', 'bad JSON', '{"type":"select","id":123}', '{"type":"unknown"}']) assert.equal(parseMapMessage(data), null);
 });
+
+test('bundled document includes CARTO Voyager tile layer and transit overlay', async () => {
+  const build = await import(new URL('../scripts/build-map.mjs', import.meta.url).href);
+  const html = await build.buildMapDocument();
+  assert.match(html, /basemaps\.cartocdn\.com\/rastertiles\/voyager/);
+  assert.match(html, /__TRANSIT_OVERLAY__/);
+  assert.match(html, /CARTO/);
+});
+
+test('map runtime toggles metro overlay layer when showMetro changes', () => {
+  let layerGroupAdded = false;
+  let layerGroupRemoved = false;
+  const dummyLayer = {
+    addTo(target: any) { layerGroupAdded = true; layerGroupRemoved = false; return this; },
+    remove() { layerGroupRemoved = true; layerGroupAdded = false; return this; },
+    addLayer() { return this; },
+  };
+  const map = {
+    stop() {}, closePopup() {}, invalidateSize() {}, flyTo() {},
+    hasLayer(layer: any) { return layerGroupAdded; },
+    createPane() { return { style: {} }; },
+  };
+  const element = () => ({ append() {}, textContent: '', className: '', hidden: true });
+  const window: any = { ReactNativeWebView: { postMessage() {} }, addEventListener() {} };
+  const context = {
+    window,
+    document: { getElementById: element, createElement: element },
+    __TRANSIT_OVERLAY__: {
+      segments: [{ line: 'L1', coords: [[41.38, 2.15], [41.39, 2.16]] }],
+      stations: [{ name: 'Test Station', lines: ['L1'], coords: [41.38, 2.15] }],
+    },
+    L: {
+      map: () => map,
+      tileLayer: () => ({ on() { return this; }, addTo() { return this; } }),
+      circleMarker: () => ({ bindPopup() { return this; }, addTo() { return this; }, on() { return this; }, setRadius() { return this; }, setStyle() { return this; }, bringToFront() {}, setLatLng() {}, remove() {} }),
+      polyline: () => ({ addTo() { return this; } }),
+      layerGroup: () => dummyLayer,
+    },
+  };
+
+  runInNewContext(readFileSync(new URL('../src/map/map-runtime.js', import.meta.url), 'utf8'), context);
+
+  // Initial state with showMetro: true
+  const stateWithMetro = { places: [], selectedId: null, userLocation: null, cameraCommand: null, showMetro: true };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateWithMetro)), context);
+  assert.equal(layerGroupAdded, true);
+  assert.equal(layerGroupRemoved, false);
+
+  // Update with showMetro: false
+  const stateWithoutMetro = { places: [], selectedId: null, userLocation: null, cameraCommand: null, showMetro: false };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateWithoutMetro)), context);
+  assert.equal(layerGroupAdded, false);
+  assert.equal(layerGroupRemoved, true);
+});
