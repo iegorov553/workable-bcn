@@ -9,7 +9,7 @@ test('bundled document matches source and contains no Expo DOM bootstrap or remo
   const html = await build.buildMapDocument();
   assert.doesNotMatch(html, /EXPO_DOM_HOST_OS|injectedObjectJson|<script[^>]+src=|url\(images\//);
   assert.match(html, /BSD 2-Clause License/);
-  assert.equal(readFileSync(new URL('../src/map/map-html.ts', import.meta.url), 'utf8'), await build.generatedMapSource());
+  assert.equal(readFileSync(new URL('../src/map/map-html.ts', import.meta.url), 'utf8').replace(/\r\n/g, '\n'), (await build.generatedMapSource()).replace(/\r\n/g, '\n'));
 });
 
 test('native map starts without injected globals, receives latest state and emits selection', () => {
