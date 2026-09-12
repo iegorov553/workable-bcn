@@ -2,7 +2,7 @@ import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
 import { runInNewContext } from 'node:vm';
-import { decodeMapPayload, encodeMapPayload, type MapPayload } from '../src/utils/map-bridge.ts';
+import { decodeMapPayload, encodeMapPayload, mapUpdateScript, parseMapMessage, type MapPayload } from '../src/utils/map-bridge.ts';
 
 // Reproduce RNCWebView.java (13.16.1): JSON is inserted directly into a JS
 // template literal, then Expo's DOM HTML parses the result before mounting React.
@@ -34,4 +34,192 @@ test('the complete catalogue and subsequent map state survive the WebView transp
     const boot = nativeBootstrap({ payload: encodeMapPayload(state) });
     assert.deepEqual(decodeMapPayload(boot.$$EXPO_INITIAL_PROPS.props.payload), state);
   }
+});
+
+test('friendLocation and meetMode survive encoding/decoding and native bootstrap', () => {
+  const stateWithFriend: MapPayload = {
+    ...initial,
+    userLocation: { latitude: 41.389, longitude: 2.169 },
+    friendLocation: { latitude: 41.395, longitude: 2.175 },
+    meetMode: true,
+  };
+  const boot = nativeBootstrap({ payload: encodeMapPayload(stateWithFriend) });
+  assert.deepEqual(decodeMapPayload(boot.$$EXPO_INITIAL_PROPS.props.payload), stateWithFriend);
+
+  const stateWithoutFriend: MapPayload = {
+    ...initial,
+    friendLocation: null,
+    meetMode: false,
+  };
+  const bootNull = nativeBootstrap({ payload: encodeMapPayload(stateWithoutFriend) });
+  assert.deepEqual(decodeMapPayload(bootNull.$$EXPO_INITIAL_PROPS.props.payload), stateWithoutFriend);
+});
+
+test('parseMapMessage parses mapClick events and rejects invalid lat/lon', () => {
+  const valid = JSON.stringify({ type: 'mapClick', latitude: 41.389, longitude: 2.169 });
+  assert.deepEqual(parseMapMessage(valid), { type: 'mapClick', latitude: 41.389, longitude: 2.169 });
+
+  // Rejection of invalid payloads
+  assert.equal(parseMapMessage(JSON.stringify({ type: 'mapClick', latitude: '41.389', longitude: 2.169 })), null);
+  assert.equal(parseMapMessage(JSON.stringify({ type: 'mapClick', latitude: 41.389, longitude: '2.169' })), null);
+  assert.equal(parseMapMessage(JSON.stringify({ type: 'mapClick', latitude: 41.389 })), null);
+  assert.equal(parseMapMessage(JSON.stringify({ type: 'mapClick', longitude: 2.169 })), null);
+  assert.equal(parseMapMessage(JSON.stringify({ type: 'mapClick', latitude: null, longitude: 2.169 })), null);
+  assert.equal(parseMapMessage(JSON.stringify({ type: 'mapClick', latitude: NaN, longitude: 2.169 })), null);
+  assert.equal(parseMapMessage(JSON.stringify({ type: 'mapClick', latitude: Infinity, longitude: 2.169 })), null);
+  assert.equal(parseMapMessage(JSON.stringify({ type: 'mapClick' })), null);
+});
+
+test('map runtime dispatches mapClick on map tap outside markers', () => {
+  const messages: string[] = [];
+  let mapClickHandler: ((e: any) => void) | null = null;
+  const map = {
+    on(event: string, callback: (e: any) => void) {
+      if (event === 'click') mapClickHandler = callback;
+      return this;
+    },
+    stop() {}, closePopup() {}, invalidateSize() {}, flyTo() {},
+  };
+  const window: any = { ReactNativeWebView: { postMessage(data: string) { messages.push(data); } }, addEventListener() {} };
+  const element = () => ({ append() {}, textContent: '', className: '', hidden: true });
+  const context = {
+    window,
+    document: { getElementById: element, createElement: element },
+    L: {
+      map: () => map,
+      tileLayer: () => ({ on() { return this; }, addTo() { return this; } }),
+      circleMarker: () => ({ bindPopup() { return this; }, addTo() { return this; }, on() { return this; }, setRadius() { return this; }, setStyle() { return this; }, bringToFront() {}, setLatLng() {}, remove() {} }),
+    },
+  };
+  runInNewContext(readFileSync(new URL('../src/map/map-runtime.js', import.meta.url), 'utf8'), context);
+  assert.equal(typeof mapClickHandler, 'function');
+  (mapClickHandler as unknown as (e: any) => void)({ latlng: { lat: 41.389, lng: 2.169 } });
+  assert.deepEqual(parseMapMessage(messages.at(-1)!), { type: 'mapClick', latitude: 41.389, longitude: 2.169 });
+});
+
+test('map runtime renders, updates, and removes friendMarker with purple styling and popup', () => {
+  const markersCreated: any[] = [];
+  const map = {
+    on() { return this; },
+    stop() {}, closePopup() {}, invalidateSize() {}, flyTo() {}, fitBounds() {},
+  };
+  const window: any = { ReactNativeWebView: { postMessage() {} }, addEventListener() {} };
+  const element = () => ({ append() {}, textContent: '', className: '', hidden: true });
+  const context = {
+    window,
+    document: { getElementById: element, createElement: element },
+    L: {
+      map: () => map,
+      tileLayer: () => ({ on() { return this; }, addTo() { return this; } }),
+      circleMarker: (latlng: [number, number], options: any) => {
+        const marker = {
+          latlng,
+          options,
+          popupText: '',
+          removed: false,
+          frontCount: 0,
+          bindPopup(content: any) { this.popupText = typeof content === 'string' ? content : 'custom'; return this; },
+          addTo() { return this; },
+          on() { return this; },
+          setRadius() { return this; },
+          setStyle() { return this; },
+          bringToFront() { this.frontCount++; },
+          setLatLng(newCoords: [number, number]) { this.latlng = newCoords; },
+          remove() { this.removed = true; },
+        };
+        markersCreated.push(marker);
+        return marker;
+      },
+    },
+  };
+  runInNewContext(readFileSync(new URL('../src/map/map-runtime.js', import.meta.url), 'utf8'), context);
+
+  const stateWithFriend: MapPayload = {
+    places: [],
+    selectedId: null,
+    userLocation: null,
+    cameraCommand: null,
+    friendLocation: { latitude: 41.395, longitude: 2.175 },
+    meetMode: true,
+  };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateWithFriend)), context);
+
+  assert.equal(markersCreated.length, 1);
+  const friendM = markersCreated[0];
+  assert.equal(friendM.latlng[0], 41.395);
+  assert.equal(friendM.latlng[1], 2.175);
+  assert.equal(friendM.options.radius, 8);
+  assert.equal(friendM.options.color, '#FFFFFF');
+  assert.equal(friendM.options.weight, 4);
+  assert.equal(friendM.options.fillColor, '#7C3AED');
+  assert.equal(friendM.options.fillOpacity, 1);
+  assert.equal(friendM.popupText, 'Friend is here');
+
+  // Update position
+  const stateUpdated: MapPayload = {
+    ...stateWithFriend,
+    friendLocation: { latitude: 41.400, longitude: 2.180 },
+  };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateUpdated)), context);
+  assert.equal(markersCreated.length, 1); // Not recreated
+  assert.equal(friendM.latlng[0], 41.400);
+  assert.equal(friendM.latlng[1], 2.180);
+
+  // Remove friend
+  const stateCleared: MapPayload = {
+    ...stateWithFriend,
+    friendLocation: null,
+  };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateCleared)), context);
+  assert.equal(friendM.removed, true);
+});
+
+test('map runtime executes fitBounds when both userLocation and friendLocation are present and avoids jitter', () => {
+  const boundsCalls: any[] = [];
+  const map = {
+    on() { return this; },
+    stop() {}, closePopup() {}, invalidateSize() {}, flyTo() {},
+    fitBounds(bounds: any, options: any) {
+      boundsCalls.push({ bounds, options });
+    },
+  };
+  const window: any = { ReactNativeWebView: { postMessage() {} }, addEventListener() {} };
+  const element = () => ({ append() {}, textContent: '', className: '', hidden: true });
+  const context = {
+    window,
+    document: { getElementById: element, createElement: element },
+    L: {
+      map: () => map,
+      tileLayer: () => ({ on() { return this; }, addTo() { return this; } }),
+      circleMarker: () => ({ bindPopup() { return this; }, addTo() { return this; }, on() { return this; }, setRadius() { return this; }, setStyle() { return this; }, bringToFront() {}, setLatLng() {}, remove() {} }),
+    },
+  };
+  runInNewContext(readFileSync(new URL('../src/map/map-runtime.js', import.meta.url), 'utf8'), context);
+
+  const stateDual: MapPayload = {
+    places: [],
+    selectedId: null,
+    userLocation: { latitude: 41.389, longitude: 2.169 },
+    friendLocation: { latitude: 41.395, longitude: 2.175 },
+    cameraCommand: null,
+  };
+
+  // First update should fit bounds
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateDual)), context);
+  assert.equal(boundsCalls.length, 1);
+  assert.deepEqual(JSON.parse(JSON.stringify(boundsCalls[0].bounds)), [[41.389, 2.169], [41.395, 2.175]]);
+  assert.deepEqual(JSON.parse(JSON.stringify(boundsCalls[0].options)), { padding: [60, 60], maxZoom: 15 });
+
+  // Second identical update should NOT re-trigger fitBounds (avoids jittering)
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateDual)), context);
+  assert.equal(boundsCalls.length, 1);
+
+  // Moving friend should trigger fitBounds again
+  const stateMoved: MapPayload = {
+    ...stateDual,
+    friendLocation: { latitude: 41.400, longitude: 2.180 },
+  };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateMoved)), context);
+  assert.equal(boundsCalls.length, 2);
+  assert.deepEqual(JSON.parse(JSON.stringify(boundsCalls[1].bounds)), [[41.389, 2.169], [41.400, 2.180]]);
 });
