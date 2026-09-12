@@ -172,9 +172,7 @@ function AppContent() {
     if (next) {
       setMode('map');
       setSelectedId(null);
-      if (!friendLocation) {
-        setSettingOrigin('friend');
-      }
+      setSettingOrigin(!location ? 'you' : !friendLocation ? 'friend' : null);
     } else {
       setFriendLocation(null);
       setSettingOrigin(null);
