@@ -56,7 +56,7 @@ export function formatMatchTag(deltaMinutes: number, isBestMatch: boolean): stri
  * 1. Computes optimal route (transit vs walk) from originA and originB for each place.
  * 2. Scores each place using calculateEquidistantScore.
  * 3. Sorts by fairness score ascending.
- * 4. Breaks ties when scores are within 1.0 using lowest combined straight-line distance.
+ * 4. Breaks ties when scores are equal using lowest combined straight-line distance.
  * 5. Tags top 3 results as best matches.
  */
 export function rankEquidistantPlaces(
@@ -94,17 +94,15 @@ export function rankEquidistantPlaces(
     };
   });
 
-  // Sort ascending by score; secondary tie-breaking by combined distance if scores are within 1.0
+  // Sort ascending by score (strictly primary); tie-break by combined distance when scores are equal
   evaluated.sort((a, b) => {
     const scoreDiff = a.score - b.score;
-    if (Math.abs(scoreDiff) <= 1.0) {
-      const distDiff = a.combinedDistance - b.combinedDistance;
-      if (Math.abs(distDiff) > 1e-5) {
-        return distDiff;
-      }
-    }
     if (Math.abs(scoreDiff) > 1e-5) {
       return scoreDiff;
+    }
+    const distDiff = a.combinedDistance - b.combinedDistance;
+    if (Math.abs(distDiff) > 1e-5) {
+      return distDiff;
     }
     return a.place.id.localeCompare(b.place.id);
   });

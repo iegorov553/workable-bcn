@@ -68,29 +68,66 @@ test('rankEquidistantPlaces ranks central cafes highest between Gràcia and Pobl
   assert.ok(results[0].score <= results[1].score);
 });
 
-test('rankEquidistantPlaces applies secondary tie-breaking by combined distance when scores are within 1.0', () => {
+test('rankEquidistantPlaces applies secondary tie-breaking by combined distance when scores are equal', () => {
+  const originA: Coordinates = { latitude: 41.3800, longitude: 2.1600 };
+  const originB: Coordinates = { latitude: 41.3800, longitude: 2.1800 };
+
+  // Place Near is directly on the midpoint segment between A and B
+  const placeNear: Place = {
+    id: 'near',
+    name: 'Direct Midpoint',
+    chain: 'SandwiChez',
+    address: 'Midpoint Street',
+    latitude: 41.3800,
+    longitude: 2.1700,
+  };
+  // Place Offset is on the perpendicular bisector, yielding identical travel times (13m & 13m)
+  // but slightly longer combined straight-line distance (1.670km vs 1.669km)
+  const placeOffset: Place = {
+    id: 'offset',
+    name: 'Offset Midpoint',
+    chain: '365',
+    address: 'Offset Street',
+    latitude: 41.3803,
+    longitude: 2.1700,
+  };
+
+  const results = rankEquidistantPlaces([placeOffset, placeNear], originA, originB);
+  assert.equal(results.length, 2);
+  assert.equal(results[0].score, results[1].score, 'Scores must be identical to test tie-breaking');
+  assert.equal(results[0].timeA, 13);
+  assert.equal(results[0].timeB, 13);
+  assert.equal(results[1].timeA, 13);
+  assert.equal(results[1].timeB, 13);
+  assert.equal(results[0].place.id, 'near', 'Place with lower combined distance should rank first on tie-break');
+});
+
+test('rankEquidistantPlaces strictly prioritizes score over distance when scores differ', () => {
   const originA: Coordinates = { latitude: 41.3900, longitude: 2.1700 };
   const originB: Coordinates = { latitude: 41.3900, longitude: 2.1900 };
 
-  const placeNear: Place = {
-    id: 'near',
-    name: 'Near Midpoint',
-    chain: '365',
-    address: 'Near Street',
+  // Better score, but slightly higher combined distance
+  const placeBetterScore: Place = {
+    id: 'better',
+    name: 'Better Score Cafe',
+    chain: 'SandwiChez',
+    address: 'Street 1',
     latitude: 41.3900,
     longitude: 2.1800,
   };
-  const placeFar: Place = {
-    id: 'far',
-    name: 'Far Offset',
+  // Slightly worse score (asymmetric), but physically close to originA
+  const placeCloserToA: Place = {
+    id: 'closer-a',
+    name: 'Asymmetric Cafe',
     chain: '365',
-    address: 'Far Street',
-    latitude: 41.3970,
-    longitude: 2.1800,
+    address: 'Street 2',
+    latitude: 41.3900,
+    longitude: 2.1720,
   };
 
-  const results = rankEquidistantPlaces([placeFar, placeNear], originA, originB);
-  assert.equal(results[0].place.id, 'near', 'Place with lower combined distance should rank first on tie-break');
+  const results = rankEquidistantPlaces([placeCloserToA, placeBetterScore], originA, originB);
+  assert.ok(results[0].score < results[1].score);
+  assert.equal(results[0].place.id, 'better');
 });
 
 test('rankEquidistantPlaces marks top 3 as best matches and subsequent as fair matches', () => {
