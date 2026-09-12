@@ -8,7 +8,9 @@
   window.addEventListener('error', () => send({ type: 'error' }));
   const map = L.map('map', { center: [41.389, 2.169], zoom: 13, minZoom: 3, maxZoom: 19, zoomControl: false });
   const notice = document.getElementById('tile-error');
-  L.tileLayer('https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png', {
+  const cartoKey = typeof __CARTO_API_KEY__ !== 'undefined' && __CARTO_API_KEY__ ? __CARTO_API_KEY__ : '';
+  const keyParam = cartoKey ? `?key=${encodeURIComponent(cartoKey)}` : '';
+  L.tileLayer(`https://{s}.basemaps.cartocdn.com/rastertiles/voyager/{z}/{x}/{y}{r}.png${keyParam}`, {
     maxZoom: 19,
     subdomains: 'abcd',
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a> contributors &copy; <a href="https://carto.com/attributions" target="_blank" rel="noreferrer">CARTO</a>',
@@ -18,6 +20,19 @@
     const metroPane = map.createPane('metroPane');
     if (metroPane && metroPane.style) metroPane.style.zIndex = '350';
   }
+  const updateZoomClass = () => {
+    if (!map || typeof map.getZoom !== 'function' || typeof map.getContainer !== 'function') return;
+    const container = map.getContainer();
+    if (!container || !container.classList || typeof container.classList.toggle !== 'function') return;
+    const z = map.getZoom();
+    container.classList.toggle('zoom-lt-14', z < 14);
+    container.classList.toggle('zoom-14', z === 14);
+    container.classList.toggle('zoom-gte-15', z >= 15);
+  };
+  if (map.on) {
+    map.on('zoomend', updateZoomClass);
+  }
+  updateZoomClass();
   const lineColors = {
     L1: '#E1251B', L2: '#90278E', L3: '#509E2F', L4: '#F7B500', L5: '#0078C1',
     L6: '#7874B2', L7: '#B45823', L8: '#EA5399', L9N: '#F37920', L9S: '#F37920',
@@ -32,39 +47,93 @@
     if (Array.isArray(transitData.segments) && typeof L.polyline === 'function') {
       for (let i = 0; i < transitData.segments.length; i++) {
         const seg = transitData.segments[i];
-        const line = L.polyline(seg.coords, {
-          color: lineColors[seg.line] || '#777777',
-          weight: 3.5,
-          opacity: 0.75,
+        const isTram = seg.isTram || (seg.line && seg.line.startsWith('T'));
+        const lineOptions = {
+          color: lineColors[seg.line] || (isTram ? '#009A44' : '#777777'),
+          weight: isTram ? 3 : 3.5,
+          opacity: isTram ? 0.85 : 0.75,
           lineCap: 'round',
           lineJoin: 'round',
           interactive: false,
           pane: 'metroPane',
-        });
+        };
+        if (isTram) {
+          lineOptions.dashArray = '6, 5';
+        }
+        const line = L.polyline(seg.coords, lineOptions);
         metroLayer.addLayer(line);
       }
     }
     if (Array.isArray(transitData.stations) && typeof L.circleMarker === 'function') {
       for (let i = 0; i < transitData.stations.length; i++) {
         const station = transitData.stations[i];
-        const stMarker = L.circleMarker(station.coords, {
-          radius: 3.5,
-          color: '#FFFFFF',
-          weight: 1.5,
-          fillColor: '#2D3748',
-          fillOpacity: 0.9,
-          bubblingMouseEvents: false,
-          pane: 'metroPane',
-        });
+        const isTramOnly = station.isTramOnly ?? station.lines.every(l => l.startsWith('T'));
+        const isInterchange = station.isInterchange ?? (station.lines.length > 1);
+        const hasTram = station.lines.some(l => l.startsWith('T'));
+        const hasMetro = station.lines.some(l => !l.startsWith('T'));
+
+        let markerOptions;
+        if (isTramOnly) {
+          markerOptions = {
+            radius: 3,
+            color: '#009A44',
+            weight: 2,
+            fillColor: '#FFFFFF',
+            fillOpacity: 1,
+            bubblingMouseEvents: false,
+            pane: 'metroPane',
+          };
+        } else if (isInterchange) {
+          markerOptions = {
+            radius: 4.5,
+            color: '#FFFFFF',
+            weight: 2,
+            fillColor: '#111827',
+            fillOpacity: 0.95,
+            bubblingMouseEvents: false,
+            pane: 'metroPane',
+          };
+        } else {
+          markerOptions = {
+            radius: 3.5,
+            color: '#FFFFFF',
+            weight: 1.5,
+            fillColor: '#2D3748',
+            fillOpacity: 0.9,
+            bubblingMouseEvents: false,
+            pane: 'metroPane',
+          };
+        }
+
+        const stMarker = L.circleMarker(station.coords, markerOptions);
+
+        if (typeof stMarker.bindTooltip === 'function') {
+          let labelClass = 'transit-label';
+          if (isTramOnly) {
+            labelClass += ' transit-label-tram';
+          } else if (isInterchange) {
+            labelClass += ' transit-label-hub';
+          }
+          stMarker.bindTooltip(station.name, {
+            permanent: true,
+            direction: 'right',
+            offset: [isInterchange ? 6 : 5, 0],
+            className: labelClass,
+          });
+        }
+
         const root = document.createElement('div');
         root.className = 'transit-popup';
+        const typeBadge = document.createElement('span');
+        typeBadge.className = 'transit-type';
+        typeBadge.textContent = isTramOnly ? 'TRAM' : (hasTram && hasMetro ? 'METRO · TRAM' : 'METRO');
         const name = document.createElement('strong');
         name.className = 'transit-name';
         name.textContent = station.name;
         const lines = document.createElement('span');
         lines.className = 'transit-lines';
         lines.textContent = station.lines.join(' · ');
-        root.append(name, lines);
+        root.append(typeBadge, name, lines);
         stMarker.bindPopup(root);
         metroLayer.addLayer(stMarker);
       }
@@ -134,7 +203,7 @@
       }
       const selected = place.id === state.selectedId;
       const isTopMatch = !selected && Boolean(state.topMatchIds && state.topMatchIds.includes(place.id));
-      marker.setRadius(selected ? 13 : (isTopMatch ? 11 : 9)).setStyle({
+      marker.setRadius(selected ? 10 : (isTopMatch ? 8 : 6)).setStyle({
         color: selected ? '#17211B' : (isTopMatch ? '#F4C344' : '#FFFDF7'),
         weight: selected ? 4 : (isTopMatch ? 3 : 2),
         fillColor: (state.chainColors && state.chainColors[place.chain]) || '#6D776F', fillOpacity: 1,
