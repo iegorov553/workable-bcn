@@ -3,18 +3,35 @@ import { ActivityIndicator, Linking, Pressable, StyleSheet, Text, View } from 'r
 import { WebView } from 'react-native-webview';
 import { mapHtml } from '../map/map-html';
 import { chainColors } from '../theme';
+import type { Coordinates } from '../types';
 import { encodeMapPayload, mapUpdateScript, parseMapMessage, type MapPayload } from '../utils/map-bridge';
 
-export type MapCanvasProps = MapPayload & { onSelect: (id: string) => Promise<void> };
+export type MapCanvasProps = MapPayload & {
+  onSelect: (id: string) => Promise<void> | void;
+  onMapClick?: (coords: Coordinates) => void;
+};
 const source = { html: mapHtml };
 
-export default function MapCanvas({ places, selectedId, userLocation, cameraCommand, onSelect }: MapCanvasProps) {
+export default function MapCanvas({
+  places,
+  selectedId,
+  userLocation,
+  friendLocation,
+  meetMode,
+  cameraCommand,
+  topMatchIds,
+  onSelect,
+  onMapClick,
+}: MapCanvasProps) {
   const webview = useRef<WebView>(null);
   const ready = useRef(false);
   const [loading, setLoading] = useState(true);
   const [failed, setFailed] = useState(false);
   const [generation, setGeneration] = useState(0);
-  const payload = useMemo(() => encodeMapPayload({ places, selectedId, userLocation, cameraCommand, chainColors }), [places, selectedId, userLocation, cameraCommand]);
+  const payload = useMemo(
+    () => encodeMapPayload({ places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, chainColors, topMatchIds }),
+    [places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, topMatchIds]
+  );
   const latest = useRef(payload);
   latest.current = payload;
   const send = useCallback(() => webview.current?.injectJavaScript(mapUpdateScript(latest.current)), []);
@@ -43,6 +60,7 @@ export default function MapCanvas({ places, selectedId, userLocation, cameraComm
         if (message?.type === 'updated') { setLoading(false); setFailed(false); }
         if (message?.type === 'error') setFailed(true);
         if (message?.type === 'select' && places.some(place => place.id === message.id)) void onSelect(message.id);
+        if (message?.type === 'mapClick') onMapClick?.({ latitude: message.latitude, longitude: message.longitude });
       }}
     />
     {loading && !failed ? <View pointerEvents="none" style={styles.overlay}><ActivityIndicator color="#214D3F" /><Text>Loading map…</Text></View> : null}

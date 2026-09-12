@@ -13,9 +13,18 @@
     attribution: '&copy; <a href="https://www.openstreetmap.org/copyright" target="_blank" rel="noreferrer">OpenStreetMap</a>',
   }).on('tileerror', () => { notice.hidden = false; })
     .on('tileload', () => { notice.hidden = true; }).addTo(map);
+  if (map.on) {
+    map.on('click', (e) => {
+      if (e?.latlng) {
+        send({ type: 'mapClick', latitude: e.latlng.lat, longitude: e.latlng.lng });
+      }
+    });
+  }
   const markers = new Map();
   let userMarker = null;
+  let friendMarker = null;
   let lastCamera = null;
+  let lastBoundsKey = null;
   const popup = (place) => {
     const root = document.createElement('div');
     const name = document.createElement('strong');
@@ -36,23 +45,51 @@
     for (const place of state.places) {
       let marker = markers.get(place.id);
       if (!marker) {
-        marker = L.circleMarker([place.latitude, place.longitude]).bindPopup(popup(place)).addTo(map);
-        marker.on('click', () => send({ type: 'select', id: place.id }));
+        marker = L.circleMarker([place.latitude, place.longitude], { bubblingMouseEvents: false }).bindPopup(popup(place)).addTo(map);
+        marker.on('click', (e) => {
+          if (e && e.originalEvent && typeof L !== 'undefined' && L.DomEvent && L.DomEvent.stopPropagation) {
+            L.DomEvent.stopPropagation(e);
+          }
+          send({ type: 'select', id: place.id });
+        });
         markers.set(place.id, marker);
       }
       const selected = place.id === state.selectedId;
+      const isTopMatch = !selected && Boolean(state.topMatchIds && state.topMatchIds.includes(place.id));
       marker.setRadius(selected ? 10 : 6).setStyle({
-        color: selected ? '#17211B' : '#FFFDF7', weight: selected ? 4 : 2,
-        fillColor: state.chainColors[place.chain] || '#6D776F', fillOpacity: 1,
+        color: selected ? '#17211B' : (isTopMatch ? '#F4C344' : '#FFFDF7'),
+        weight: selected ? 4 : (isTopMatch ? 3 : 2),
+        fillColor: (state.chainColors && state.chainColors[place.chain]) || '#6D776F', fillOpacity: 1,
       });
+      if (isTopMatch) marker.bringToFront();
       if (selected) marker.bringToFront();
     }
     if (state.userLocation) {
       const position = [state.userLocation.latitude, state.userLocation.longitude];
-      if (!userMarker) userMarker = L.circleMarker(position, { radius: 8, color: '#FFFFFF', weight: 4, fillColor: '#1479D3', fillOpacity: 1 }).bindPopup('You are here').addTo(map);
+      if (!userMarker) userMarker = L.circleMarker(position, { radius: 8, color: '#FFFFFF', weight: 4, fillColor: '#1479D3', fillOpacity: 1, bubblingMouseEvents: false }).bindPopup('You are here').addTo(map);
       else userMarker.setLatLng(position);
       userMarker.bringToFront();
     } else if (userMarker) { userMarker.remove(); userMarker = null; }
+    if (state.friendLocation) {
+      const friendPos = [state.friendLocation.latitude, state.friendLocation.longitude];
+      if (!friendMarker) friendMarker = L.circleMarker(friendPos, { radius: 8, color: '#FFFFFF', weight: 4, fillColor: '#7C3AED', fillOpacity: 1, bubblingMouseEvents: false }).bindPopup('Friend is here').addTo(map);
+      else friendMarker.setLatLng(friendPos);
+      friendMarker.bringToFront();
+    } else if (friendMarker) { friendMarker.remove(); friendMarker = null; }
+    if (state.userLocation && state.friendLocation) {
+      const boundsKey = `${state.userLocation.latitude},${state.userLocation.longitude};${state.friendLocation.latitude},${state.friendLocation.longitude}`;
+      if (boundsKey !== lastBoundsKey) {
+        lastBoundsKey = boundsKey;
+        if (map.fitBounds) {
+          map.fitBounds([
+            [state.userLocation.latitude, state.userLocation.longitude],
+            [state.friendLocation.latitude, state.friendLocation.longitude],
+          ], { padding: [60, 60], maxZoom: 15 });
+        }
+      }
+    } else {
+      lastBoundsKey = null;
+    }
     const command = state.cameraCommand;
     if (command && (!lastCamera || command.requestId !== lastCamera.requestId || command.latitude !== lastCamera.latitude || command.longitude !== lastCamera.longitude)) {
       map.stop();

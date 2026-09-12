@@ -1,9 +1,13 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
+import { readFileSync } from 'node:fs';
 import { applyCameraCommand } from '../src/utils/map-camera.ts';
 import { requestLocation, requestLocationIfGranted, LocationRequestError, withTimeout } from '../src/utils/location-request.ts';
 import { matchesSearch, parseFavorites } from '../src/utils/places.ts';
 import { distanceKm } from '../src/utils/distance.ts';
+import { rankEquidistantPlaces } from '../src/utils/equidistant-ranking.ts';
+import { decodeMapPayload, encodeMapPayload, parseMapMessage } from '../src/utils/map-bridge.ts';
+import type { Place, Coordinates } from '../src/types.ts';
 
 test('returning to the same coordinates twice still sends two camera commands', () => {
   const calls: unknown[] = [];
@@ -69,3 +73,124 @@ test('distance stays finite at antipodes and is zero at the origin', () => {
   assert.equal(distanceKm(place,place),0);
   assert.equal(distanceKm(place,null),null);
 });
+
+test('PlaceCard source defines and supports matchBadge, isBestMatch, and onShareFriend', () => {
+  const source = readFileSync(new URL('../src/components/PlaceCard.tsx', import.meta.url), 'utf8');
+  assert.match(source, /matchBadge\?: string \| null;/);
+  assert.match(source, /isBestMatch\?: boolean;/);
+  assert.match(source, /onShareFriend\?: \(\) => void;/);
+  assert.match(source, /isBestMatch \? s\.matchBadgeBest : s\.matchBadgeNeutral/);
+  assert.match(source, /onShareFriend/);
+  assert.match(source, /share-social-outline/);
+});
+
+test('MapCanvas and MapCanvas.web accept friendLocation, meetMode, and forward onMapClick', () => {
+  const nativeSource = readFileSync(new URL('../src/components/MapCanvas.tsx', import.meta.url), 'utf8');
+  const webSource = readFileSync(new URL('../src/components/MapCanvas.web.tsx', import.meta.url), 'utf8');
+
+  // Verify props and click forwarding in native component
+  assert.match(nativeSource, /onMapClick\?: \(coords: Coordinates\) => void;/);
+  assert.match(nativeSource, /friendLocation/);
+  assert.match(nativeSource, /meetMode/);
+  assert.match(nativeSource, /topMatchIds/);
+  assert.ok(nativeSource.includes("if (message?.type === 'mapClick') onMapClick?.({ latitude: message.latitude, longitude: message.longitude });"));
+
+  // Verify props and click forwarding in web component
+  assert.match(webSource, /friendLocation/);
+  assert.match(webSource, /meetMode/);
+  assert.match(webSource, /topMatchIds/);
+  assert.ok(webSource.includes("if (message?.type === 'mapClick') onMapClick?.({ latitude: message.latitude, longitude: message.longitude });"));
+
+  // Simulate MapCanvas message forwarding
+  let receivedCoords: Coordinates | null = null;
+  const mockOnMapClick = (coords: Coordinates) => {
+    receivedCoords = coords;
+  };
+  const clickEventData = JSON.stringify({ type: 'mapClick', latitude: 41.3892, longitude: 2.1601 });
+  const parsed = parseMapMessage(clickEventData);
+  assert.ok(parsed && parsed.type === 'mapClick');
+  if (parsed.type === 'mapClick') {
+    mockOnMapClick({ latitude: parsed.latitude, longitude: parsed.longitude });
+  }
+  assert.deepEqual(receivedCoords, { latitude: 41.3892, longitude: 2.1601 });
+
+  // Verify encodeMapPayload includes friendLocation, meetMode, and topMatchIds
+  const payload = encodeMapPayload({
+    places: [],
+    selectedId: null,
+    userLocation: { latitude: 41.38, longitude: 2.15 },
+    friendLocation: { latitude: 41.40, longitude: 2.18 },
+    meetMode: true,
+    cameraCommand: null,
+    topMatchIds: ['cafe1', 'cafe2'],
+  });
+  const decoded = decodeMapPayload(payload);
+  assert.deepEqual(decoded.friendLocation, { latitude: 41.40, longitude: 2.18 });
+  assert.equal(decoded.meetMode, true);
+  assert.deepEqual(decoded.topMatchIds, ['cafe1', 'cafe2']);
+});
+
+test('meet mode distance check accurately detects origins > 35 km apart', () => {
+  const bcnCenter = { latitude: 41.3879, longitude: 2.1699 };
+  const vilanova = { latitude: 41.2230, longitude: 1.7250 }; // ~42 km from BCN
+  const badalona = { latitude: 41.4500, longitude: 2.2470 }; // ~9.4 km from BCN
+
+  const distFar = distanceKm(bcnCenter, vilanova);
+  assert.ok(distFar !== null && distFar > 35, `Vilanova should be > 35km away, got ${distFar}`);
+
+  const distNear = distanceKm(bcnCenter, badalona);
+  assert.ok(distNear !== null && distNear < 35, `Badalona should be < 35km away, got ${distNear}`);
+});
+
+test('rankEquidistantPlaces preserves catalogue stability, favorites, and deterministic ordering', () => {
+  const places = JSON.parse(readFileSync(new URL('../src/data/places.json', import.meta.url), 'utf8')) as Place[];
+  const userLoc: Coordinates = { latitude: 41.3809, longitude: 2.1400 }; // Sants Estació
+  const friendLoc: Coordinates = { latitude: 41.4036, longitude: 2.1744 }; // Sagrada Família
+
+  const rankedAll = rankEquidistantPlaces(places, userLoc, friendLoc);
+  assert.equal(rankedAll.length, places.length, 'All places from catalogue must be present in ranked output');
+
+  const originalIds = new Set(places.map(p => p.id));
+  const rankedIds = new Set(rankedAll.map(m => m.place.id));
+  assert.deepEqual(rankedIds, originalIds, 'No places should be lost or added during ranking');
+
+  // Verify strictly non-decreasing scores
+  for (let i = 1; i < rankedAll.length; i++) {
+    assert.ok(
+      rankedAll[i].score >= rankedAll[i - 1].score - 1e-6,
+      `Places must be ordered by fairness score ascending: ${rankedAll[i - 1].score} <= ${rankedAll[i].score}`
+    );
+  }
+
+  // Verify top 3 best match tagging
+  const bestMatches = rankedAll.filter(m => m.isBestMatch);
+  assert.equal(bestMatches.length, Math.min(3, places.length));
+  for (const best of bestMatches) {
+    assert.ok(best.matchTag.startsWith('★ Best match'));
+  }
+  const fairMatches = rankedAll.slice(3);
+  for (const fair of fairMatches) {
+    assert.ok(fair.matchTag.startsWith('Fair match'));
+  }
+
+  // Verify badgeLabel contains route mode emoji and participant mentions
+  for (const match of rankedAll) {
+    assert.match(match.badgeLabel, /(🚇|🚶) \d+m you · (🚇|🚶) \d+m friend/);
+  }
+
+  // Stability: second call produces identical ordering
+  const rankedAgain = rankEquidistantPlaces(places, userLoc, friendLoc);
+  assert.deepEqual(
+    rankedAgain.map(m => m.place.id),
+    rankedAll.map(m => m.place.id),
+    'Repeated ranking must be deterministic and stable'
+  );
+
+  // Favorites preservation
+  const favoriteIds = new Set([places[0].id, places[10].id, places[25].id]);
+  const favoritePlaces = places.filter(p => favoriteIds.has(p.id));
+  const rankedFavorites = rankEquidistantPlaces(favoritePlaces, userLoc, friendLoc);
+  assert.equal(rankedFavorites.length, 3);
+  assert.deepEqual(new Set(rankedFavorites.map(m => m.place.id)), favoriteIds);
+});
+

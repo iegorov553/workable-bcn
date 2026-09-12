@@ -4,9 +4,22 @@ import { mapHtml } from '../map/map-html';
 import { chainColors } from '../theme';
 import { encodeMapPayload, parseMapMessage } from '../utils/map-bridge';
 
-export default function MapCanvas({ places, selectedId, userLocation, cameraCommand, onSelect }: MapCanvasProps) {
+export default function MapCanvas({
+  places,
+  selectedId,
+  userLocation,
+  friendLocation,
+  meetMode,
+  cameraCommand,
+  topMatchIds,
+  onSelect,
+  onMapClick,
+}: MapCanvasProps) {
   const frame = useRef<HTMLIFrameElement>(null);
-  const payload = useMemo(() => encodeMapPayload({ places, selectedId, userLocation, cameraCommand, chainColors }), [places, selectedId, userLocation, cameraCommand]);
+  const payload = useMemo(
+    () => encodeMapPayload({ places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, chainColors, topMatchIds }),
+    [places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, topMatchIds]
+  );
   const send = useCallback(() => frame.current?.contentWindow?.postMessage(payload, '*'), [payload]);
   useEffect(() => {
     const receive = (event: MessageEvent) => {
@@ -14,10 +27,11 @@ export default function MapCanvas({ places, selectedId, userLocation, cameraComm
       const message = parseMapMessage(event.data);
       if (message?.type === 'ready') send();
       if (message?.type === 'select' && places.some(place => place.id === message.id)) void onSelect(message.id);
+      if (message?.type === 'mapClick') onMapClick?.({ latitude: message.latitude, longitude: message.longitude });
     };
     window.addEventListener('message', receive);
     send();
     return () => window.removeEventListener('message', receive);
-  }, [send, onSelect, places]);
+  }, [send, onSelect, onMapClick, places]);
   return <iframe ref={frame} title="Cafés in Barcelona" srcDoc={mapHtml} onLoad={send} style={{ width: '100%', height: '100%', border: 0, display: 'block', background: '#f0f1ec' }} />;
 }
