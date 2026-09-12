@@ -1,0 +1,798 @@
+{
+  "generatedAt": "2026-09-12T00:01:44.868Z",
+  "stats": {
+    "totalQueries": 368,
+    "cacheHits": 368,
+    "apiCalls": 0,
+    "rawCandidates": 4315,
+    "alreadyInCatalog": 447,
+    "enrichedExisting": 1,
+    "newCandidates": 44
+  },
+  "byChain": {
+    "365 Café": {
+      "newCandidates": 19,
+      "enriched": 1
+    },
+    "Granier": {
+      "newCandidates": 8,
+      "enriched": 0
+    },
+    "Vivari": {
+      "newCandidates": 4,
+      "enriched": 0
+    },
+    "Santagloria": {
+      "newCandidates": 10,
+      "enriched": 0
+    },
+    "El Fornet": {
+      "newCandidates": 2,
+      "enriched": 0
+    },
+    "Buenas Migas": {
+      "newCandidates": 1,
+      "enriched": 0
+    }
+  },
+  "byMunicipality": {
+    "Sants-Montjuïc": {
+      "newCandidates": 3,
+      "enriched": 0
+    },
+    "L'Hospitalet de Llobregat": {
+      "newCandidates": 8,
+      "enriched": 1
+    },
+    "Badalona": {
+      "newCandidates": 4,
+      "enriched": 0
+    },
+    "Cornellà de Llobregat": {
+      "newCandidates": 2,
+      "enriched": 0
+    },
+    "Sant Boi de Llobregat": {
+      "newCandidates": 2,
+      "enriched": 0
+    },
+    "El Prat de Llobregat": {
+      "newCandidates": 3,
+      "enriched": 0
+    },
+    "Viladecans": {
+      "newCandidates": 3,
+      "enriched": 0
+    },
+    "Castelldefels": {
+      "newCandidates": 5,
+      "enriched": 0
+    },
+    "Eixample": {
+      "newCandidates": 1,
+      "enriched": 0
+    },
+    "Sarrià-Sant Gervasi": {
+      "newCandidates": 3,
+      "enriched": 0
+    },
+    "Sant Martí": {
+      "newCandidates": 2,
+      "enriched": 0
+    },
+    "Gavà": {
+      "newCandidates": 1,
+      "enriched": 0
+    },
+    "Sant Vicenç dels Horts": {
+      "newCandidates": 1,
+      "enriched": 0
+    },
+    "Gràcia": {
+      "newCandidates": 1,
+      "enriched": 0
+    },
+    "Esplugues de Llobregat": {
+      "newCandidates": 2,
+      "enriched": 0
+    },
+    "Cerdanyola del Vallès": {
+      "newCandidates": 1,
+      "enriched": 0
+    },
+    "Montgat": {
+      "newCandidates": 1,
+      "enriched": 0
+    },
+    "Sant Feliu de Llobregat": {
+      "newCandidates": 1,
+      "enriched": 0
+    }
+  },
+  "enrichedExisting": [
+    {
+      "existingId": "365-caf--41.369755-2.107968",
+      "googlePlaceId": "ChIJjU0e_OKYpBIRHGG-JlwASmw",
+      "googleMapsUrl": "https://maps.google.com/?cid=7803049700159807772&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "candidate": {
+        "id": "ChIJjU0e_OKYpBIRHGG-JlwASmw",
+        "displayName": {
+          "text": "365.Cafè",
+          "languageCode": "ca"
+        },
+        "formattedAddress": "Carrer Enginyer Moncunill, 68, 08905 L'Hospitalet de Llobregat, Barcelona, Spain",
+        "location": {
+          "latitude": 41.369755,
+          "longitude": 2.1079678
+        },
+        "googleMapsUri": "https://maps.google.com/?cid=7803049700159807772&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+        "businessStatus": "OPERATIONAL",
+        "chain": "365 Café",
+        "municipality": "L'Hospitalet de Llobregat"
+      },
+      "distanceMeters": 12
+    }
+  ],
+  "newCandidates": [
+    {
+      "id": "365-caf--41.368390-2.131559",
+      "name": "365 Obrador",
+      "chain": "365 Café",
+      "address": "Carrer de la Riera Blanca, 185 · Sants-Montjuïc",
+      "latitude": 41.36839,
+      "longitude": 2.131559,
+      "googlePlaceId": "ChIJHd1ZbZGYpBIRnOiZ6OG65p4",
+      "googleMapsUrl": "https://maps.google.com/?cid=11450044582068873372&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=11450044582068873372&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.359426-2.142196",
+      "name": "365 Obrador",
+      "chain": "365 Café",
+      "address": "Carrer de la Mare de Déu de Port, 273 · Sants-Montjuïc",
+      "latitude": 41.359426,
+      "longitude": 2.142196,
+      "googlePlaceId": "ChIJ4yzVr6GYpBIRiVBeTHJGKJI",
+      "googleMapsUrl": "https://maps.google.com/?cid=10531745185327370377&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=10531745185327370377&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.352668-2.144109",
+      "name": "365 Obrador",
+      "chain": "365 Café",
+      "address": "Pg. de la Zona Franca, 29 · Sants-Montjuïc",
+      "latitude": 41.352668,
+      "longitude": 2.144109,
+      "googlePlaceId": "ChIJu_jHHJyZpBIR31HwEdhBcno",
+      "googleMapsUrl": "https://maps.google.com/?cid=8823187016241926623&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=8823187016241926623&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.354177-2.113094",
+      "name": "365 | Bellvitge",
+      "chain": "365 Café",
+      "address": "Av. d'Europa, 99 · L'Hospitalet de Llobregat",
+      "latitude": 41.354177,
+      "longitude": 2.113094,
+      "googlePlaceId": "ChIJZ6pg_9qYpBIRIQyLY1L5ueY",
+      "googleMapsUrl": "https://maps.google.com/?cid=16625593631667588129&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=16625593631667588129&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.347804-2.124815",
+      "name": "365 Obrador",
+      "chain": "365 Café",
+      "address": "Carrer Miguel Hernández, 42 · L'Hospitalet de Llobregat",
+      "latitude": 41.347804,
+      "longitude": 2.124815,
+      "googlePlaceId": "ChIJGzc7NXiZpBIRynB5zITRy2s",
+      "googleMapsUrl": "https://maps.google.com/?cid=7767532350626951370&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=7767532350626951370&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.357275-2.103712",
+      "name": "365 Obrador",
+      "chain": "365 Café",
+      "address": "Rambla de la Marina, 500 · L'Hospitalet de Llobregat",
+      "latitude": 41.357275,
+      "longitude": 2.103712,
+      "googlePlaceId": "ChIJrXn6RPmZpBIR8IkHgmH0Ulw",
+      "googleMapsUrl": "https://maps.google.com/?cid=6652648299210181104&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=6652648299210181104&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.364663-2.128053",
+      "name": "365 | Carrilet",
+      "chain": "365 Café",
+      "address": "Av. del Carrilet, 60 · L'Hospitalet de Llobregat",
+      "latitude": 41.364663,
+      "longitude": 2.128053,
+      "googlePlaceId": "ChIJtTIEvhiZpBIRPcLt0HmnvVw",
+      "googleMapsUrl": "https://maps.google.com/?cid=6682681563725808189&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=6682681563725808189&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.368656-2.116239",
+      "name": "Café Metro 365",
+      "chain": "365 Café",
+      "address": "Av. de Catalunya, 2 · L'Hospitalet de Llobregat",
+      "latitude": 41.368656,
+      "longitude": 2.116239,
+      "googlePlaceId": "ChIJ4QPib--YpBIRBd7P4pOB2_k",
+      "googleMapsUrl": "https://maps.google.com/?cid=18004126407509138949&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=18004126407509138949&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.445285-2.239100",
+      "name": "365",
+      "chain": "365 Café",
+      "address": "Av. d'Alfons XIII, 2 · Badalona",
+      "latitude": 41.445285,
+      "longitude": 2.2391,
+      "googlePlaceId": "ChIJZcpuEGy7pBIRwwpyOsFM2EY",
+      "googleMapsUrl": "https://maps.google.com/?cid=5104914570417408707&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=5104914570417408707&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.352491-2.070759",
+      "name": "365 Obrador",
+      "chain": "365 Café",
+      "address": "Carrer de Joaquim Rubió i Ors, 180 · Cornellà de Llobregat",
+      "latitude": 41.352491,
+      "longitude": 2.070759,
+      "googlePlaceId": "ChIJ28nCndKZpBIRtjs2r9CSrUc",
+      "googleMapsUrl": "https://maps.google.com/?cid=5164945772654246838&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=5164945772654246838&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.358778-2.077756",
+      "name": "365 Obrador",
+      "chain": "365 Café",
+      "address": "Carrer Bonestar, 46 · Cornellà de Llobregat",
+      "latitude": 41.358778,
+      "longitude": 2.077756,
+      "googlePlaceId": "ChIJU30altCZpBIRsQ-Ge43Y_wc",
+      "googleMapsUrl": "https://maps.google.com/?cid=576417379501084593&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=576417379501084593&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.341209-2.042157",
+      "name": "365 Obrador",
+      "chain": "365 Café",
+      "address": "Plaça Catalunya, 1 · Sant Boi de Llobregat",
+      "latitude": 41.341209,
+      "longitude": 2.042157,
+      "googlePlaceId": "ChIJh2nevrCdpBIR8K-7JvhEFAQ",
+      "googleMapsUrl": "https://maps.google.com/?cid=293935708278337520&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=293935708278337520&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.341341-2.041521",
+      "name": "365 Cafè",
+      "chain": "365 Café",
+      "address": "Carrer Francesc Macià, 48 · Sant Boi de Llobregat",
+      "latitude": 41.341341,
+      "longitude": 2.041521,
+      "googlePlaceId": "ChIJZ1LZcHacpBIRKAQEzDWxG4k",
+      "googleMapsUrl": "https://maps.google.com/?cid=9879685052181513256&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=9879685052181513256&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.326354-2.100393",
+      "name": "365 Obrador",
+      "chain": "365 Café",
+      "address": "Carretera de la Marina, 48 · El Prat de Llobregat",
+      "latitude": 41.326354,
+      "longitude": 2.100393,
+      "googlePlaceId": "ChIJgUB1D9yepBIRmLu6PdbGE-k",
+      "googleMapsUrl": "https://maps.google.com/?cid=16794986058855660440&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=16794986058855660440&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.324245-2.091293",
+      "name": "365 Obrador",
+      "chain": "365 Café",
+      "address": "Av. de la Verge de Montserrat, 171 · El Prat de Llobregat",
+      "latitude": 41.324245,
+      "longitude": 2.091293,
+      "googlePlaceId": "ChIJHaA4KcKepBIRULAMmqz1Wz4",
+      "googleMapsUrl": "https://maps.google.com/?cid=4493455174899904592&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=4493455174899904592&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.319679-2.012337",
+      "name": "365",
+      "chain": "365 Café",
+      "address": "Carrer de Salvador Baroné, 54 · Viladecans",
+      "latitude": 41.319679,
+      "longitude": 2.012337,
+      "googlePlaceId": "ChIJVeIBN_WdpBIRG-JO9ty7UoQ",
+      "googleMapsUrl": "https://maps.google.com/?cid=9534889918796325403&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=9534889918796325403&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.304192-2.009010",
+      "name": "Cafetería 365",
+      "chain": "365 Café",
+      "address": "Carretera de Santa Creu de Calafell, 36 · Viladecans",
+      "latitude": 41.304192,
+      "longitude": 2.00901,
+      "googlePlaceId": "ChIJMcavN6idpBIRAMWTBX6JEeY",
+      "googleMapsUrl": "https://maps.google.com/?cid=16578182877679961344&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=16578182877679961344&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.280756-1.977481",
+      "name": "365 obrador",
+      "chain": "365 Café",
+      "address": "Plaça de l'Església, 5 · Castelldefels",
+      "latitude": 41.280756,
+      "longitude": 1.977481,
+      "googlePlaceId": "ChIJNTNsgqeDpBIRrBRJQ9z5ShE",
+      "googleMapsUrl": "https://maps.google.com/?cid=1246082971338347692&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=1246082971338347692&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "365-caf--41.285031-1.982817",
+      "name": "365 Café - Carrer de l'Església, 100",
+      "chain": "365 Café",
+      "address": "Carrer de l'Església, 100 · Castelldefels",
+      "latitude": 41.285031,
+      "longitude": 1.982817,
+      "googlePlaceId": "ChIJ781_88mCpBIRC7ev6uvvVHk",
+      "googleMapsUrl": "https://maps.google.com/?cid=8742876573166712587&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=8742876573166712587&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "granier-41.390891-2.152048",
+      "name": "Granier - Carrer de Còrsega, 196",
+      "chain": "Granier",
+      "address": "Carrer de Còrsega, 196 · Eixample",
+      "latitude": 41.390891,
+      "longitude": 2.152048,
+      "googlePlaceId": "ChIJ4Yqq8z6jpBIRQQx-SFbvk1A",
+      "googleMapsUrl": "https://maps.google.com/?cid=5806247498473147457&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=5806247498473147457&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "granier-41.404079-2.141003",
+      "name": "Granier - Carrer de Balmes, 365",
+      "chain": "Granier",
+      "address": "Carrer de Balmes, 365 · Sarrià-Sant Gervasi",
+      "latitude": 41.404079,
+      "longitude": 2.141003,
+      "googlePlaceId": "ChIJrdoCazyZpBIR8PxW3qaiVpM",
+      "googleMapsUrl": "https://maps.google.com/?cid=10616852009151036656&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=10616852009151036656&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "granier-41.409385-2.183067",
+      "name": "Granier - Carrer de Mallorca, 537",
+      "chain": "Granier",
+      "address": "Carrer de Mallorca, 537 · Sant Martí",
+      "latitude": 41.409385,
+      "longitude": 2.183067,
+      "googlePlaceId": "ChIJ53s1JwCjpBIR0TZHoLEtlWo",
+      "googleMapsUrl": "https://maps.google.com/?cid=7680094980471731921&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=7680094980471731921&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "granier-41.377265-2.094479",
+      "name": "Granier - Avinguda del Carrilet",
+      "chain": "Granier",
+      "address": "Avinguda del Carrilet · L'Hospitalet de Llobregat",
+      "latitude": 41.377265,
+      "longitude": 2.094479,
+      "googlePlaceId": "ChIJ0ZmuLACZpBIRZu6HXKA1B3A",
+      "googleMapsUrl": "https://maps.google.com/?cid=8072479819948355174&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=8072479819948355174&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "granier-41.280990-1.975570",
+      "name": "Granier - Carrer del Pintor Serra Santa, 13-15, Loc 2",
+      "chain": "Granier",
+      "address": "Carrer del Pintor Serra Santa, 13-15, Loc 2 · Castelldefels",
+      "latitude": 41.28099,
+      "longitude": 1.97557,
+      "googlePlaceId": "ChIJBQSsBrmCpBIR8E9Z3DsLXcg",
+      "googleMapsUrl": "https://maps.google.com/?cid=14437708332147494896&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=14437708332147494896&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "granier-41.265948-1.971116",
+      "name": "Granier - Pg. Marítim, 193",
+      "chain": "Granier",
+      "address": "Pg. Marítim, 193 · Castelldefels",
+      "latitude": 41.265948,
+      "longitude": 1.971116,
+      "googlePlaceId": "ChIJgbdV7OyDpBIRwbqVs7idZBk",
+      "googleMapsUrl": "https://maps.google.com/?cid=1829760765231741633&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=1829760765231741633&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "granier-41.267908-2.019489",
+      "name": "Granier - Av. del Mar, 3",
+      "chain": "Granier",
+      "address": "Av. del Mar, 3 · Gavà",
+      "latitude": 41.267908,
+      "longitude": 2.019489,
+      "googlePlaceId": "ChIJw4GahnydpBIRzOg5S7zy0VU",
+      "googleMapsUrl": "https://maps.google.com/?cid=6183990653886261452&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=6183990653886261452&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "granier-41.366386-2.057055",
+      "name": "Granier Cafeteria",
+      "chain": "Granier",
+      "address": "Carrer de Baltasar d'Espanya, 24 · Sant Vicenç dels Horts",
+      "latitude": 41.366386,
+      "longitude": 2.057055,
+      "googlePlaceId": "ChIJ1f32fwCbpBIRlq2AkC17kFk",
+      "googleMapsUrl": "https://maps.google.com/?cid=6453793701650017686&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=6453793701650017686&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "vivari-41.415296-2.186609",
+      "name": "Vivari Coffee & Bakery",
+      "chain": "Vivari",
+      "address": "Avinguda Meridiana, 203 · Sant Martí",
+      "latitude": 41.415296,
+      "longitude": 2.186609,
+      "googlePlaceId": "ChIJS0EHCACjpBIRLx-2esQGJXk",
+      "googleMapsUrl": "https://maps.google.com/?cid=8729390893669687087&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=8729390893669687087&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "vivari-41.374520-2.106579",
+      "name": "VIVARI COFFEE - HOSPITALET",
+      "chain": "Vivari",
+      "address": "Av. Josep Molins, 30 · L'Hospitalet de Llobregat",
+      "latitude": 41.37452,
+      "longitude": 2.106579,
+      "googlePlaceId": "ChIJ3WjmlO6ZpBIRvX_Pa4_y07o",
+      "googleMapsUrl": "https://maps.google.com/?cid=13462370408943550397&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=13462370408943550397&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "vivari-41.450675-2.248317",
+      "name": "Vivari 2012 S C P",
+      "chain": "Vivari",
+      "address": "Carrer de Francesc Layret, 68 · Badalona",
+      "latitude": 41.450675,
+      "longitude": 2.248317,
+      "googlePlaceId": "ChIJl7f_3w27pBIRGc-Tg9JaJP4",
+      "googleMapsUrl": "https://maps.google.com/?cid=18312861844992413465&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=18312861844992413465&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "vivari-41.315744-2.020583",
+      "name": "Vivari - Plaça de la Vila, 8",
+      "chain": "Vivari",
+      "address": "Plaça de la Vila, 8 · Viladecans",
+      "latitude": 41.315744,
+      "longitude": 2.020583,
+      "googlePlaceId": "ChIJ8zkEWQCdpBIRR4e6yDrM_Ro",
+      "googleMapsUrl": "https://maps.google.com/?cid=1944935166941759303&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=1944935166941759303&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "santagloria-41.397677-2.147669",
+      "name": "Santagloria Coffee & Bakery",
+      "chain": "Santagloria",
+      "address": "Carrer d'Aribau, 278 · Sarrià-Sant Gervasi",
+      "latitude": 41.397677,
+      "longitude": 2.147669,
+      "googlePlaceId": "ChIJv6a47h2jpBIRX6tbKWcP1Dc",
+      "googleMapsUrl": "https://maps.google.com/?cid=4022857302898617183&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=4022857302898617183&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "santagloria-41.403501-2.161423",
+      "name": "Santagloria Coffee & Bakery",
+      "chain": "Santagloria",
+      "address": "Travessera de Gràcia, 210 · Gràcia",
+      "latitude": 41.403501,
+      "longitude": 2.161423,
+      "googlePlaceId": "ChIJE_fNdRSjpBIRtO9m1dvCUV8",
+      "googleMapsUrl": "https://maps.google.com/?cid=6868485156150636468&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=6868485156150636468&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "santagloria-41.401252-2.132229",
+      "name": "Santagloria Cafè i Forn",
+      "chain": "Santagloria",
+      "address": "Carrer del Dr. Carulla, 74-76 · Sarrià-Sant Gervasi",
+      "latitude": 41.401252,
+      "longitude": 2.132229,
+      "googlePlaceId": "ChIJDTl9B76ZpBIRWfFTh4gaQdQ",
+      "googleMapsUrl": "https://maps.google.com/?cid=15294534983215214937&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=15294534983215214937&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "santagloria-41.447847-2.242586",
+      "name": "Santagloria Coffee & Bakery Badalona",
+      "chain": "Santagloria",
+      "address": "Carrer de Francesc Macià, 8 · Badalona",
+      "latitude": 41.447847,
+      "longitude": 2.242586,
+      "googlePlaceId": "ChIJNaxUBM67pBIRFv4Sri9Jfoo",
+      "googleMapsUrl": "https://maps.google.com/?cid=9979494293432368662&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=9979494293432368662&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "santagloria-41.370502-2.082072",
+      "name": "Santagloria Coffee & Bakery",
+      "chain": "Santagloria",
+      "address": "Av. de Cornellà, 123 · Esplugues de Llobregat",
+      "latitude": 41.370502,
+      "longitude": 2.082072,
+      "googlePlaceId": "ChIJW3eNRwKZpBIRVd8meM-XUuc",
+      "googleMapsUrl": "https://maps.google.com/?cid=16668552088181464917&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=16668552088181464917&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "santagloria-41.279691-1.978021",
+      "name": "Santagloria Coffee & Bakery",
+      "chain": "Santagloria",
+      "address": "Av. Santa Maria, 9 · Castelldefels",
+      "latitude": 41.279691,
+      "longitude": 1.978021,
+      "googlePlaceId": "ChIJSzDvK0KDpBIRmF89CFCFp_E",
+      "googleMapsUrl": "https://maps.google.com/?cid=17413033063033429912&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=17413033063033429912&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "santagloria-41.303349-2.076868",
+      "name": "Santagloria - Josep Tarradellas Barcelona-El Prat Airport, Terminal 2",
+      "chain": "Santagloria",
+      "address": "Josep Tarradellas Barcelona-El Prat Airport, Terminal 2 · El Prat de Llobregat",
+      "latitude": 41.303349,
+      "longitude": 2.076868,
+      "googlePlaceId": "ChIJGQY43X2epBIRaCAv8QSl4aI",
+      "googleMapsUrl": "https://maps.google.com/?cid=11736843544549073000&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=11736843544549073000&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "santagloria-41.535064-2.104229",
+      "name": "Santagloria Coffee & Bakery",
+      "chain": "Santagloria",
+      "address": "Carrer Domènech i Montaner, 46 · Cerdanyola del Vallès",
+      "latitude": 41.535064,
+      "longitude": 2.104229,
+      "googlePlaceId": "ChIJzzb1tTSVpBIRWioetS9cUuo",
+      "googleMapsUrl": "https://maps.google.com/?cid=16884659312937282138&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=16884659312937282138&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "santagloria-41.376794-2.099532",
+      "name": "SANTAGLORIA FINESTRELLES 2",
+      "chain": "Santagloria",
+      "address": "Finestrelles Shopping Center · Esplugues de Llobregat",
+      "latitude": 41.376794,
+      "longitude": 2.099532,
+      "googlePlaceId": "ChIJZSSbguiZpBIRJMfrCazwaFE",
+      "googleMapsUrl": "https://maps.google.com/?cid=5866203136341559076&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=5866203136341559076&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "santagloria-41.490765-2.295829",
+      "name": "Santagloria Cafè i Fleca",
+      "chain": "Santagloria",
+      "address": "Carrer de la Riera Principal, 16 · Montgat",
+      "latitude": 41.490765,
+      "longitude": 2.295829,
+      "googlePlaceId": "ChIJBVwBywW6pBIRlszGuu98Jvg",
+      "googleMapsUrl": "https://maps.google.com/?cid=17881116739593751702&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=17881116739593751702&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "el-fornet-41.349632-2.120606",
+      "name": "El Fornet D'En Rossend",
+      "chain": "El Fornet",
+      "address": "Carrer de Can Pi, 13 · L'Hospitalet de Llobregat",
+      "latitude": 41.349632,
+      "longitude": 2.120606,
+      "googlePlaceId": "ChIJ7Z3m0siYpBIRVibDhoh3Lm4",
+      "googleMapsUrl": "https://maps.google.com/?cid=7939414621360957014&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=7939414621360957014&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "el-fornet-41.459693-2.237814",
+      "name": "El Fornet - Carrer de Muntaner, 29",
+      "chain": "El Fornet",
+      "address": "Carrer de Muntaner, 29 · Badalona",
+      "latitude": 41.459693,
+      "longitude": 2.237814,
+      "googlePlaceId": "ChIJhXkn-J27pBIR_g3KYjZBrMI",
+      "googleMapsUrl": "https://maps.google.com/?cid=14027658641193700862&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=14027658641193700862&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    },
+    {
+      "id": "buenas-migas-41.387687-2.036911",
+      "name": "Buenas Migas - Carrer de Sant Josep, 120",
+      "chain": "Buenas Migas",
+      "address": "Carrer de Sant Josep, 120 · Sant Feliu de Llobregat",
+      "latitude": 41.387687,
+      "longitude": 2.036911,
+      "googlePlaceId": "ChIJhY9ZNY2bpBIRD8P5wTaCON0",
+      "googleMapsUrl": "https://maps.google.com/?cid=15940634052772086543&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA",
+      "verification": {
+        "status": "listed",
+        "checkedAt": "2026-09-12",
+        "sourceUrl": "https://maps.google.com/?cid=15940634052772086543&g_mp=Cidnb29nbGUubWFwcy5wbGFjZXMudjEuUGxhY2VzLlNlYXJjaFRleHQQAhgEIAA"
+      }
+    }
+  ]
+}
