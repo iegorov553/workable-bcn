@@ -1,6 +1,7 @@
 import { test } from 'node:test';
 import assert from 'node:assert/strict';
 import { readFileSync } from 'node:fs';
+import { readFile } from 'node:fs/promises';
 import { runInNewContext } from 'node:vm';
 import { encodeMapPayload, mapUpdateScript, parseMapMessage } from '../src/utils/map-bridge.ts';
 
@@ -361,4 +362,14 @@ test('buildMapDocument supports optional cartoApiKey option', async () => {
   const customHtml = await build.buildMapDocument({ cartoApiKey: 'custom-build-key' });
   assert.match(customHtml, /const __CARTO_API_KEY__ = "custom-build-key";/);
 });
+
+test('map stylesheet contains 142vmax geometry, rotated-grid transform, and counter-rotation rules', async () => {
+  const css = await readFile(new URL('../src/map/map.css', import.meta.url), 'utf8');
+  assert.ok(css.includes('142vmax'), 'should size #map with 142vmax');
+  assert.ok(css.includes('#map.rotated-grid'), 'should define #map.rotated-grid');
+  assert.ok(css.includes('rotate(-45deg)'), 'should rotate -45deg');
+  assert.ok(css.includes('.rotated-grid .leaflet-tooltip.transit-label'), 'should counter-rotate transit labels');
+  assert.ok(css.includes('.rotated-grid .leaflet-popup'), 'should counter-rotate popups');
+});
+
 
