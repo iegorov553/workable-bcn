@@ -1,4 +1,4 @@
-import type { Coordinates, Place } from '../types';
+import type { Coordinates, MapOrientation, Place } from '../types';
 import type { CameraCommand } from './map-camera';
 
 export type MapPayload = {
@@ -11,6 +11,7 @@ export type MapPayload = {
   chainColors?: Record<string, string>;
   topMatchIds?: string[];
   showMetro?: boolean;
+  orientation?: MapOrientation;
 };
 
 // Keep catalogue text inert while transporting it to the map document.

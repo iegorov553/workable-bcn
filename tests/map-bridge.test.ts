@@ -71,6 +71,28 @@ test('showMetro survives encoding/decoding and native bootstrap', () => {
   assert.deepEqual(decodeMapPayload(bootFalse.$$EXPO_INITIAL_PROPS.props.payload), stateWithoutMetro);
 });
 
+test('orientation survives encoding/decoding and native bootstrap', () => {
+  const stateWithGrid: MapPayload = {
+    ...initial,
+    orientation: 'grid',
+  };
+  const bootGrid = nativeBootstrap({ payload: encodeMapPayload(stateWithGrid) });
+  assert.deepEqual(decodeMapPayload(bootGrid.$$EXPO_INITIAL_PROPS.props.payload), stateWithGrid);
+
+  const stateWithNorth: MapPayload = {
+    ...initial,
+    orientation: 'north',
+  };
+  const bootNorth = nativeBootstrap({ payload: encodeMapPayload(stateWithNorth) });
+  assert.deepEqual(decodeMapPayload(bootNorth.$$EXPO_INITIAL_PROPS.props.payload), stateWithNorth);
+});
+
+test('orientation defaults gracefully when undefined in legacy payloads', () => {
+  const legacyState: MapPayload = { ...initial };
+  const decoded = decodeMapPayload(encodeMapPayload(legacyState));
+  assert.equal(decoded.orientation, undefined);
+});
+
 test('parseMapMessage parses mapClick events and rejects invalid lat/lon', () => {
   const valid = JSON.stringify({ type: 'mapClick', latitude: 41.389, longitude: 2.169 });
   assert.deepEqual(parseMapMessage(valid), { type: 'mapClick', latitude: 41.389, longitude: 2.169 });

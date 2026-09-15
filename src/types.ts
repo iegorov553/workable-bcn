@@ -21,3 +21,5 @@ export type Coordinates = {
 };
 
 export type ViewMode = 'map' | 'list' | 'saved';
+
+export type MapOrientation = 'north' | 'grid';
