@@ -239,4 +239,24 @@ test('PlaceCard source defines and supports note and onEditNote props', () => {
   assert.match(source, /Add note/);
 });
 
+test('App integrates notes persistence, state, NoteModal, and PlaceCard wiring', () => {
+  const source = readFileSync(new URL('../App.tsx', import.meta.url), 'utf8');
+  assert.match(source, /import\s*\{[^}]*parseNotes[^}]*\}\s*from\s*['"]\.\/src\/utils\/notes['"]/);
+  assert.match(source, /import\s*\{[^}]*NoteModal[^}]*\}\s*from\s*['"]\.\/src\/components\/NoteModal['"]/);
+  assert.match(source, /const\s+NOTES_KEY\s*=\s*'workable-bcn:notes:v1';/);
+  assert.match(source, /const\s*\[notes,\s*setNotes\]\s*=\s*useState<Record<string,\s*string>>\(\{\}\);/);
+  assert.match(source, /const\s*\[editingPlace,\s*setEditingPlace\]\s*=\s*useState<Place\s*\|\s*null>\(null\);/);
+  assert.match(source, /const\s+saveNotesQueue\s*=\s*useRef\(Promise\.resolve\(\)\);/);
+  assert.match(source, /AsyncStorage\.getItem\(NOTES_KEY\)/);
+  assert.match(source, /parseNotes\(value,\s*validIds\)/);
+  assert.match(source, /saveNote\s*=\s*\(placeId:\s*string,\s*text:\s*string\)/);
+  assert.match(source, /deleteNote\s*=\s*\(placeId:\s*string\)/);
+  assert.match(source, /note=\{notes\[selected\.id\]\}/);
+  assert.match(source, /onEditNote=\{\(\)\s*=>\s*setEditingPlace\(selected\)\}/);
+  assert.match(source, /note=\{notes\[item\.id\]\}/);
+  assert.match(source, /onEditNote=\{\(\)\s*=>\s*setEditingPlace\(item\)\}/);
+  assert.match(source, /<NoteModal/);
+});
+
+
 
