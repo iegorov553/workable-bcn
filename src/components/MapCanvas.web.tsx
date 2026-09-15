@@ -16,13 +16,14 @@ export default function MapCanvas({
   cameraCommand,
   topMatchIds,
   showMetro,
+  orientation,
   onSelect,
   onMapClick,
 }: MapCanvasProps) {
   const frame = useRef<HTMLIFrameElement>(null);
   const payload = useMemo(
-    () => encodeMapPayload({ places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, chainColors, topMatchIds, showMetro }),
-    [places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, topMatchIds, showMetro]
+    () => encodeMapPayload({ places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, chainColors, topMatchIds, showMetro, orientation }),
+    [places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, topMatchIds, showMetro, orientation]
   );
   const send = useCallback(() => frame.current?.contentWindow?.postMessage(payload, '*'), [payload]);
   useEffect(() => {

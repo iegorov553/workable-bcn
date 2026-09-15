@@ -1,4 +1,29 @@
-html, body, #map { width: 100%; height: 100%; margin: 0; overflow: hidden; background: #f0f1ec; }
+html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; position: relative; background: #f0f1ec; }
+#map {
+  position: absolute;
+  width: 142vmax;
+  height: 142vmax;
+  left: 50%;
+  top: 50%;
+  margin-left: -71vmax;
+  margin-top: -71vmax;
+  transform: rotate(0deg);
+  transform-origin: center center;
+  transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
+}
+#map.rotated-grid {
+  transform: rotate(-45deg);
+}
+
+.rotated-grid .leaflet-tooltip.transit-label {
+  rotate: 45deg;
+  transform-origin: left center;
+}
+.rotated-grid .leaflet-popup {
+  rotate: 45deg;
+  transform-origin: bottom center;
+}
 * { box-sizing: border-box; }
 .leaflet-container { font-family: system-ui, sans-serif; background: #e7dfcd; }
 .leaflet-control-attribution { font-size: 9px; opacity: .72; }

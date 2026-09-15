@@ -7,6 +7,53 @@
   };
   window.addEventListener('error', () => send({ type: 'error' }));
   const map = L.map('map', { center: [41.389, 2.169], zoom: 13, minZoom: 3, maxZoom: 19, zoomControl: false });
+  let currentOrientation = 'north';
+  if (typeof L !== 'undefined' && L.DomEvent && typeof L.DomEvent.getMousePosition === 'function') {
+    const originalGetMousePosition = L.DomEvent.getMousePosition;
+    L.DomEvent.getMousePosition = function (e, container) {
+      if (currentOrientation === 'grid' && container && (container.id === 'map' || (typeof map !== 'undefined' && typeof map.getContainer === 'function' && container === map.getContainer()))) {
+        const cx = window.innerWidth / 2;
+        const cy = window.innerHeight / 2;
+        const size = typeof map !== 'undefined' && typeof map.getSize === 'function' ? map.getSize() : { x: window.innerWidth, y: window.innerHeight };
+        const mx = size.x / 2;
+        const my = size.y / 2;
+        const first = (e && e.touches && e.touches[0]) || (e && e.changedTouches && e.changedTouches[0]) || e;
+        const dx = (first && typeof first.clientX === 'number' ? first.clientX : cx) - cx;
+        const dy = (first && typeof first.clientY === 'number' ? first.clientY : cy) - cy;
+        const cos = Math.SQRT1_2;
+        const sin = Math.SQRT1_2;
+        const localDx = (dx - dy) * cos;
+        const localDy = (dx + dy) * sin;
+        return typeof L !== 'undefined' && L.Point ? new L.Point(mx + localDx, my + localDy) : { x: mx + localDx, y: my + localDy };
+      }
+      return originalGetMousePosition(e, container);
+    };
+  }
+  if (typeof map.mouseEventToContainerPoint === 'function') {
+    const originalMouseEventToContainerPoint = map.mouseEventToContainerPoint.bind(map);
+    map.mouseEventToContainerPoint = function (e) {
+      if (currentOrientation !== 'grid') {
+        return originalMouseEventToContainerPoint(e);
+      }
+      if (typeof L !== 'undefined' && L.DomEvent && typeof L.DomEvent.getMousePosition === 'function') {
+        const container = typeof map.getContainer === 'function' ? map.getContainer() : document.getElementById('map');
+        return L.DomEvent.getMousePosition(e, container);
+      }
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      const size = typeof map.getSize === 'function' ? map.getSize() : { x: window.innerWidth, y: window.innerHeight };
+      const mx = size.x / 2;
+      const my = size.y / 2;
+      const first = (e && e.touches && e.touches[0]) || (e && e.changedTouches && e.changedTouches[0]) || e;
+      const dx = (first && typeof first.clientX === 'number' ? first.clientX : cx) - cx;
+      const dy = (first && typeof first.clientY === 'number' ? first.clientY : cy) - cy;
+      const cos = Math.SQRT1_2;
+      const sin = Math.SQRT1_2;
+      const localDx = (dx - dy) * cos;
+      const localDy = (dx + dy) * sin;
+      return typeof L !== 'undefined' && L.Point ? new L.Point(mx + localDx, my + localDy) : { x: mx + localDx, y: my + localDy };
+    };
+  }
   const notice = document.getElementById('tile-error');
   const cartoKey = typeof __CARTO_API_KEY__ !== 'undefined' && __CARTO_API_KEY__ ? __CARTO_API_KEY__ : '';
   const keyParam = cartoKey ? `?key=${encodeURIComponent(cartoKey)}` : '';
@@ -184,6 +231,18 @@
   };
   window.workableMapUpdate = (encoded) => {
     const state = JSON.parse(decodeURIComponent(encoded));
+    const newOrientation = state.orientation || 'north';
+    if (newOrientation !== currentOrientation) {
+      currentOrientation = newOrientation;
+      const mapEl = document.getElementById('map');
+      if (mapEl && mapEl.classList) {
+        if (currentOrientation === 'grid') {
+          mapEl.classList.add('rotated-grid');
+        } else {
+          mapEl.classList.remove('rotated-grid');
+        }
+      }
+    }
     currentPlaces = state.places || [];
     const ids = new Set(state.places.map(place => place.id));
     for (const [id, marker] of markers) {
