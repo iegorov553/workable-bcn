@@ -447,3 +447,83 @@ test('map runtime toggles rotated-grid class and wraps mouseEventToContainerPoin
   runInNewContext(mapUpdateScript(encodeMapPayload(stateNorthAgain)), context);
   assert.equal(classList.has('rotated-grid'), false);
 });
+
+test('map runtime wraps L.DomEvent.getMousePosition with inverse rotation when orientation is grid', () => {
+  const classList = new Set<string>();
+  const mapElement = {
+    id: 'map',
+    classList: {
+      add(cls: string) { classList.add(cls); },
+      remove(cls: string) { classList.delete(cls); },
+      contains(cls: string) { return classList.has(cls); },
+    },
+  };
+  const map = {
+    on() { return this; },
+    stop() {}, closePopup() {}, invalidateSize() {}, flyTo() {},
+    getSize() { return { x: 1000, y: 1000 }; },
+    getContainer() { return mapElement; },
+  };
+  const window: any = {
+    ReactNativeWebView: { postMessage() {} },
+    addEventListener() {},
+    innerWidth: 400,
+    innerHeight: 800,
+  };
+  let originalMousePosCalled = false;
+  const originalGetMousePosition = (e: any, container: any) => {
+    originalMousePosCalled = true;
+    return { x: e.clientX, y: e.clientY };
+  };
+  const DomEvent = {
+    getMousePosition: originalGetMousePosition,
+  };
+  const context = {
+    window,
+    document: {
+      getElementById(id: string) { return id === 'map' ? mapElement : { append() {}, textContent: '', className: '', hidden: true }; },
+      createElement() { return { append() {}, textContent: '', className: '', hidden: true }; },
+    },
+    L: {
+      Point: class Point {
+        x: number; y: number;
+        constructor(x: number, y: number) { this.x = x; this.y = y; }
+      },
+      DomEvent,
+      map: () => map,
+      tileLayer: () => ({ on() { return this; }, addTo() { return this; } }),
+      circleMarker: () => ({ bindPopup() { return this; }, addTo() { return this; }, on() { return this; }, setRadius() { return this; }, setStyle() { return this; }, bringToFront() {}, setLatLng() {}, remove() {} }),
+    },
+  };
+  runInNewContext(readFileSync(new URL('../src/map/map-runtime.js', import.meta.url), 'utf8'), context);
+
+  // In north mode, L.DomEvent.getMousePosition delegates to original
+  const stateNorth: MapPayload = { places: [], selectedId: null, userLocation: null, cameraCommand: null, orientation: 'north' };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateNorth)), context);
+  originalMousePosCalled = false;
+  const northPt = DomEvent.getMousePosition({ clientX: 200, clientY: 400 }, mapElement);
+  assert.equal(originalMousePosCalled, true);
+  assert.equal(northPt.x, 200);
+  assert.equal(northPt.y, 400);
+
+  // In grid mode, L.DomEvent.getMousePosition applies inverse rotation
+  const stateGrid: MapPayload = { places: [], selectedId: null, userLocation: null, cameraCommand: null, orientation: 'grid' };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateGrid)), context);
+  originalMousePosCalled = false;
+  const gridCenter = DomEvent.getMousePosition({ clientX: 200, clientY: 400 }, mapElement);
+  assert.equal(originalMousePosCalled, false);
+  assert.equal(Math.round(gridCenter.x), 500);
+  assert.equal(Math.round(gridCenter.y), 500);
+
+  // Touch event with dy = -100 (clientX: 200, clientY: 300)
+  const touchTop = DomEvent.getMousePosition({ touches: [{ clientX: 200, clientY: 300 }] }, mapElement);
+  assert.equal(Math.round(touchTop.x), Math.round(500 + 100 * Math.SQRT1_2));
+  assert.equal(Math.round(touchTop.y), Math.round(500 - 100 * Math.SQRT1_2));
+
+  // If container is not map, delegates to original even in grid mode
+  originalMousePosCalled = false;
+  const otherContainer = { id: 'other' };
+  DomEvent.getMousePosition({ clientX: 100, clientY: 100 }, otherContainer);
+  assert.equal(originalMousePosCalled, true);
+});
+
