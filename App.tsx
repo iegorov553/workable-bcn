@@ -338,22 +338,22 @@ function AppContent() {
             accessibilityLabel={meetMode ? 'Exit Meet halfway mode' : 'Meet halfway with a friend'}
             accessibilityState={{ selected: meetMode }}
             onPress={toggleMeetMode}
-            style={[s.meetToggle, meetMode && s.meetToggleActive]}
+            style={({ pressed }) => [s.meetToggle, meetMode && s.meetToggleActive, pressed && { opacity: 0.75 }]}
           >
             <Ionicons name="people" size={16} color={colors.ink} />
             <Text style={[s.meetToggleText, meetMode && s.meetToggleTextActive]}>Meet</Text>
           </Pressable>
-          <Pressable accessibilityRole="button" accessibilityLabel="About this app and its data" onPress={() => setAbout(true)} style={s.countBadge}><Text style={s.countNumber}>{filtered.length}</Text><Text style={s.countLabel}>places</Text></Pressable>
+          <Pressable accessibilityRole="button" accessibilityLabel="About this app and its data" onPress={() => setAbout(true)} style={({ pressed }) => [s.countBadge, pressed && { opacity: 0.85, transform: [{ rotate: '4deg' }, { scale: 0.95 }] }]}><Text style={s.countNumber}>{filtered.length}</Text><Text style={s.countLabel}>places</Text></Pressable>
         </View>
       </View>
       <View style={s.search}>
         <Ionicons name="search-outline" size={20} color={colors.inkSoft} />
-        <TextInput accessibilityLabel="Search places" value={query} onChangeText={setQuery} placeholder="Café, street or neighbourhood" placeholderTextColor={colors.inkSoft} returnKeyType="search" onSubmitEditing={Keyboard.dismiss} style={s.input} />
+        <TextInput accessibilityLabel="Search places" value={query} onChangeText={setQuery} placeholder="Café, street or neighbourhood" placeholderTextColor={colors.inkSoft} returnKeyType="search" autoCorrect={false} maxLength={80} onSubmitEditing={Keyboard.dismiss} style={s.input} />
         {!!query && <Pressable accessibilityRole="button" accessibilityLabel="Clear search" onPress={() => setQuery('')} style={s.iconButton}><Ionicons name="close-circle" size={20} color={colors.inkSoft} /></Pressable>}
       </View>
     </View>
     <View style={s.filterWrap}><ScrollView horizontal showsHorizontalScrollIndicator={false} keyboardShouldPersistTaps="handled" contentContainerStyle={s.filters}>
-      {['All', ...chains].map(name => <Pressable key={name} accessibilityRole="button" accessibilityState={{ selected: chain === name }} onPress={() => { setChain(name); setSelectedId(null); haptic(); }} style={[s.chip, chain === name && s.chipActive]}>
+      {['All', ...chains].map(name => <Pressable key={name} accessibilityRole="button" accessibilityLabel={`Filter by ${name}`} accessibilityState={{ selected: chain === name }} hitSlop={4} onPress={() => { setChain(name); setSelectedId(null); haptic(); }} style={({ pressed }) => [s.chip, chain === name && s.chipActive, pressed && { opacity: 0.75 }]}>
         {name !== 'All' && <View style={[s.dot, { backgroundColor: chainColors[name] ?? fallbackChainColor }]} />}
         <Text style={[s.chipText, chain === name && s.chipTextActive]}>{name}</Text>
       </Pressable>)}
@@ -369,7 +369,7 @@ function AppContent() {
               setMode('map');
               haptic();
             }}
-            style={[s.meetPill, settingOrigin === 'you' && s.meetPillActive]}
+            style={({ pressed }) => [s.meetPill, settingOrigin === 'you' && s.meetPillActive, pressed && { opacity: 0.75 }]}
           >
             <Ionicons name="person" size={14} color={settingOrigin === 'you' ? colors.tomato : colors.ink} />
             <View style={s.meetPillTextWrap}>
@@ -388,9 +388,9 @@ function AppContent() {
               setMode('map');
               haptic();
             }}
-            style={[s.meetPill, (settingOrigin === 'friend' || (!friendLocation && settingOrigin !== 'you')) && s.meetPillActive]}
+            style={({ pressed }) => [s.meetPill, (settingOrigin === 'friend' || (!friendLocation && settingOrigin !== 'you')) && s.meetPillActive, pressed && { opacity: 0.75 }]}
           >
-            <Ionicons name="people" size={15} color={friendLocation ? '#8166C8' : colors.ink} />
+            <Ionicons name="people" size={15} color={friendLocation ? colors.friend : colors.ink} />
             <View style={s.meetPillTextWrap}>
               <Text style={s.meetPillTitle}>Friend</Text>
               <Text numberOfLines={1} style={[s.meetPillSubtitle, !friendLocation && s.meetPillSubtitlePrompt]}>
@@ -401,16 +401,16 @@ function AppContent() {
               <Pressable
                 accessibilityRole="button"
                 accessibilityLabel="Clear friend pin"
-                hitSlop={8}
+                hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
                 onPress={(e) => {
                   e?.stopPropagation?.();
                   setFriendLocation(null);
                   setSettingOrigin('friend');
                   haptic();
                 }}
-                style={s.meetClearPill}
+                style={({ pressed }) => [s.meetClearPill, pressed && { opacity: 0.6 }]}
               >
-                <Ionicons name="close-circle" size={16} color={colors.inkSoft} />
+                <Ionicons name="close-circle" size={18} color={colors.inkSoft} />
               </Pressable>
             ) : null}
           </Pressable>
@@ -418,16 +418,16 @@ function AppContent() {
           <Pressable
             accessibilityRole="button"
             accessibilityLabel="Exit Meet mode"
-            hitSlop={6}
+            hitSlop={{ top: 6, bottom: 6, left: 6, right: 6 }}
             onPress={() => {
               setMeetMode(false);
               setFriendLocation(null);
               setSettingOrigin(null);
               haptic();
             }}
-            style={s.meetCloseButton}
+            style={({ pressed }) => [s.meetCloseButton, pressed && { opacity: 0.75, transform: [{ scale: 0.94 }] }]}
           >
-            <Ionicons name="close" size={18} color={colors.ink} />
+            <Ionicons name="close" size={20} color={colors.ink} />
           </Pressable>
         </View>
         {location && friendLocation && distanceKm(location, friendLocation)! > 35 ? (
@@ -462,7 +462,7 @@ function AppContent() {
             accessibilityLabel={orientation === 'grid' ? 'Reset map orientation to North' : 'Rotate map to Barcelona grid'}
             accessibilityState={{ selected: orientation === 'grid' }}
             onPress={toggleOrientation}
-            style={[s.mapButton, orientation === 'grid' && s.mapButtonActive]}
+            style={({ pressed }) => [s.mapButton, orientation === 'grid' && s.mapButtonActive, pressed && { opacity: 0.8, transform: [{ scale: 0.94 }] }]}
           >
             <View style={{ transform: [{ rotate: orientation === 'grid' ? '45deg' : '0deg' }] }}>
               <Ionicons
@@ -477,11 +477,11 @@ function AppContent() {
             accessibilityLabel={showMetro ? 'Hide metro lines' : 'Show metro lines'}
             accessibilityState={{ selected: showMetro }}
             onPress={() => { setShowMetro(v => !v); haptic(); }}
-            style={[s.mapButton, showMetro && s.mapButtonActive]}
+            style={({ pressed }) => [s.mapButton, showMetro && s.mapButtonActive, pressed && { opacity: 0.8, transform: [{ scale: 0.94 }] }]}
           >
             <Ionicons name="subway-outline" size={22} color={showMetro ? colors.ink : colors.inkSoft} />
           </Pressable>
-          <Pressable accessibilityRole="button" accessibilityLabel="Return to my location" accessibilityState={{ busy: locating, disabled: locating }} disabled={locating} onPress={() => void locate()} style={s.mapButton}>{locating ? <ActivityIndicator color={colors.ink} /> : <Ionicons name="locate-outline" size={24} color={colors.ink} />}</Pressable>
+          <Pressable accessibilityRole="button" accessibilityLabel="Return to my location" accessibilityState={{ busy: locating, disabled: locating }} disabled={locating} onPress={() => void locate()} style={({ pressed }) => [s.mapButton, pressed && !locating && { opacity: 0.8, transform: [{ scale: 0.94 }] }]}>{locating ? <ActivityIndicator color={colors.ink} /> : <Ionicons name="locate-outline" size={24} color={colors.ink} />}</Pressable>
         </View>
         {selected ? <View style={s.selected}>
           <View style={s.sheetHeader}><Text style={s.sheetLabel}>SELECTED PLACE</Text><Pressable accessibilityRole="button" accessibilityLabel="Close place details" onPress={() => setSelectedId(null)} style={s.iconButton}><Ionicons name="close" size={22} color={colors.inkSoft} /></Pressable></View>
@@ -498,10 +498,10 @@ function AppContent() {
             onEditNote={() => setEditingPlace(selected)}
             onShareFriend={meetMode && friendLocation ? () => shareFriendDirections(selected) : undefined}
           />
-        </View> : <View style={s.mapSummary}><View style={s.handle} /><View style={s.summaryRow}><View style={{ flex: 1 }}><Text style={s.summaryTitle}>{meetMode && location && friendLocation ? (filtered.length ? `${formatPlaceCount(filtered.length)} ranked by travel time` : 'No places found') : (filtered.length ? `${formatPlaceCount(filtered.length)} on the map` : 'No places found')}</Text><Text style={s.secondary}>{meetMode ? (!location ? 'Tap map to set your location pin' : !friendLocation ? "Tap map to set your friend's pin" : 'Sorted by balanced travel time for both') : (filtered.length ? 'Tap a pin to explore a café' : 'Try a different street or chain')}</Text></View><Pressable accessibilityRole="button" accessibilityLabel={filtered.length ? 'Open the list of places' : 'Reset filters'} onPress={() => filtered.length ? setMode('list') : resetFilters()} style={s.roundButton}><Ionicons name={filtered.length ? 'list-outline' : 'refresh-outline'} size={23} color={colors.ink} /></Pressable></View></View>}
+        </View> : <View style={s.mapSummary}><View style={s.handle} /><View style={s.summaryRow}><View style={{ flex: 1 }}><Text style={s.summaryTitle}>{meetMode && location && friendLocation ? (filtered.length ? `${formatPlaceCount(filtered.length)} ranked by travel time` : 'No places found') : (filtered.length ? `${formatPlaceCount(filtered.length)} on the map` : 'No places found')}</Text><Text style={s.secondary}>{meetMode ? (!location ? 'Tap map to set your location pin' : !friendLocation ? "Tap map to set your friend's pin" : 'Sorted by balanced travel time for both') : (filtered.length ? 'Tap a pin to explore a café' : 'Try a different street or chain')}</Text></View><Pressable accessibilityRole="button" accessibilityLabel={filtered.length ? 'Open the list of places' : 'Reset filters'} onPress={() => filtered.length ? setMode('list') : resetFilters()} style={({ pressed }) => [s.roundButton, pressed && { opacity: 0.8, transform: [{ scale: 0.94 }] }]}><Ionicons name={filtered.length ? 'list-outline' : 'refresh-outline'} size={23} color={colors.ink} /></Pressable></View></View>}
       </View> : <FlatList data={filtered} keyExtractor={p => p.id} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled" contentContainerStyle={[s.list, !filtered.length && { flexGrow: 1 }]} initialNumToRender={12}
         ListHeaderComponent={filtered.length ? <View style={s.listHeaderRow}><View style={s.listHeading}><Text style={s.heading}>{mode === 'saved' ? 'Your favourites' : 'All places'}</Text><Text style={s.secondary}>{formatPlaceCount(filtered.length)}{meetMode && location && friendLocation ? ' · ranked by travel time' : (location ? ' · nearest first' : '')}</Text></View><Pressable accessibilityRole="button" accessibilityLabel={location ? 'Refresh distances' : 'Show distances'} accessibilityState={{ busy: locating, disabled: locating }} disabled={locating} onPress={() => void locate(false)} style={s.iconButton}>{locating ? <ActivityIndicator color={colors.ink} /> : <Ionicons name="locate-outline" size={22} color={colors.ink} />}</Pressable></View> : null}
-        ListEmptyComponent={<View style={s.empty}><View style={s.emptyIcon}><Ionicons name={mode === 'saved' ? 'heart-outline' : 'search-outline'} size={28} color={colors.ink} /></View><Text style={[s.heading, s.emptyHeading]}>{mode === 'saved' && !favorites.size ? 'Nothing saved yet' : 'No matching places'}</Text><Text style={s.emptyCopy}>{mode === 'saved' && !favorites.size ? 'Tap the heart on a café to keep it here.' : 'Try another search or reset the filters.'}</Text>{(query || chain !== 'All') && <Pressable accessibilityRole="button" onPress={resetFilters} style={s.reset}><Text style={s.settings}>Reset filters</Text></Pressable>}</View>}
+        ListEmptyComponent={<View style={s.empty}><View style={s.emptyIcon}><Ionicons name={mode === 'saved' ? 'heart-outline' : 'search-outline'} size={28} color={colors.ink} /></View><Text style={[s.heading, s.emptyHeading]}>{mode === 'saved' && !favorites.size ? 'Nothing saved yet' : 'No matching places'}</Text><Text style={s.emptyCopy}>{mode === 'saved' && !favorites.size ? 'Tap the heart on a café to keep it here.' : 'Try another search or reset the filters.'}</Text>{(query || chain !== 'All') && <Pressable accessibilityRole="button" onPress={resetFilters} style={({ pressed }) => [s.reset, pressed && { opacity: 0.65 }]}><Text style={s.settings}>Reset filters</Text></Pressable>}</View>}
         renderItem={({ item }) => {
           const match = equidistantMap?.get(item.id);
           return <PlaceCard
@@ -521,7 +521,7 @@ function AppContent() {
       />}
     </View>
     <SafeAreaView edges={['bottom']} style={s.navSafe}><View style={s.nav}>
-      {([['map', 'map-outline', 'map-outline', 'Map'], ['list', 'list-outline', 'list', 'List'], ['saved', 'heart-outline', 'heart', 'Favourites']] as const).map(([key, icon, activeIcon, label]) => <Pressable key={key} accessibilityRole="tab" accessibilityLabel={label} accessibilityState={{ selected: mode === key }} onPress={() => { setMode(key); setSelectedId(null); Keyboard.dismiss(); haptic(); }} style={s.navItem}><View style={[s.navIcon, mode === key && s.navIconActive]}><Ionicons name={mode === key ? activeIcon : icon} size={25} color={mode === key ? colors.ink : colors.inkSoft} />{key === 'saved' && favorites.size > 0 ? <View style={s.favoriteBadge}><Text style={s.favoriteCount}>{favorites.size}</Text></View> : null}</View><Text style={[s.navLabel, mode === key && { color: colors.ink, fontFamily: 'RobotoBold' }]}>{label}</Text></Pressable>)}
+      {([['map', 'map-outline', 'map-outline', 'Map'], ['list', 'list-outline', 'list', 'List'], ['saved', 'heart-outline', 'heart', 'Favourites']] as const).map(([key, icon, activeIcon, label]) => <Pressable key={key} accessibilityRole="tab" accessibilityLabel={label} accessibilityState={{ selected: mode === key }} onPress={() => { setMode(key); setSelectedId(null); Keyboard.dismiss(); haptic(); }} style={({ pressed }) => [s.navItem, pressed && { opacity: 0.7 }]}><View style={[s.navIcon, mode === key && s.navIconActive]}><Ionicons name={mode === key ? activeIcon : icon} size={25} color={mode === key ? colors.ink : colors.inkSoft} />{key === 'saved' && favorites.size > 0 ? <View style={s.favoriteBadge}><Text style={s.favoriteCount}>{favorites.size}</Text></View> : null}</View><Text style={[s.navLabel, mode === key && { color: colors.ink, fontFamily: 'RobotoBold' }]}>{label}</Text></Pressable>)}
     </View></SafeAreaView>
     <Modal visible={about} animationType="slide" onRequestClose={() => setAbout(false)}>
       <SafeAreaView style={s.root}><View style={s.aboutHeader}><Text style={s.heading}>About Workable BCN</Text><Pressable accessibilityRole="button" accessibilityLabel="Close about" onPress={() => setAbout(false)} style={s.iconButton}><Ionicons name="close" size={24} /></Pressable></View><ScrollView contentInsetAdjustmentBehavior="automatic" contentContainerStyle={s.aboutContent}>
@@ -556,7 +556,7 @@ export default function App() {
 const s = applyTypography(StyleSheet.create({
   root: { flex: 1, backgroundColor: colors.cream },
   loading: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 16, backgroundColor: colors.cream },
-  header: { paddingHorizontal: 18, paddingTop: 14, paddingBottom: 10 },
+  header: { paddingHorizontal: 18, paddingTop: 14, paddingBottom: 10, maxWidth: 680, width: '100%', alignSelf: 'center' },
   titleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 6 },
   brandRow: { gap: 7, flex: 1 },
   headerActions: { flexDirection: 'row', alignItems: 'center', gap: 8 },
@@ -568,26 +568,26 @@ const s = applyTypography(StyleSheet.create({
   brand: { fontFamily: 'FrauncesSemiBold', fontSize: 32, letterSpacing: -0.8, color: colors.ink },
   eyebrow: { fontSize: 10, fontWeight: '600', letterSpacing: 2, color: colors.tomato },
   countBadge: { width: 58, height: 58, backgroundColor: colors.honey, borderRadius: 20, alignItems: 'center', justifyContent: 'center', transform: [{ rotate: '4deg' }] },
-  countNumber: { fontSize: 18, lineHeight: 24, fontWeight: '600', color: colors.ink }, countLabel: { fontSize: 10, fontWeight: '500', color: colors.inkSoft },
+  countNumber: { fontSize: 18, lineHeight: 24, fontWeight: '700', color: colors.ink }, countLabel: { fontSize: 10, fontWeight: '700', letterSpacing: 0.8, color: colors.inkOnHoney },
   iconButton: { minWidth: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center' },
   search: { marginTop: 18, minHeight: 48, paddingLeft: 14, paddingRight: 4, gap: 10, flexDirection: 'row', alignItems: 'center', borderRadius: 18, backgroundColor: colors.paper, borderWidth: 1, borderColor: colors.border },
-  input: { flex: 1, minWidth: 0, minHeight: 48, fontSize: 15, color: colors.ink },
-  filterWrap: { paddingBottom: 12 },
+  input: { flex: 1, minWidth: 0, minHeight: 48, fontSize: 16, color: colors.ink },
+  filterWrap: { paddingBottom: 12, maxWidth: 680, width: '100%', alignSelf: 'center' },
   filters: { gap: 8, paddingHorizontal: 18 },
-  chip: { minHeight: 36, paddingHorizontal: 14, borderRadius: 22, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.paper, flexDirection: 'row', gap: 7, alignItems: 'center' },
+  chip: { minHeight: 40, paddingHorizontal: 16, borderRadius: 22, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.paper, flexDirection: 'row', gap: 7, alignItems: 'center' },
   chipActive: { backgroundColor: colors.ink, borderColor: colors.ink },
   chipText: { color: colors.ink, fontSize: 12, fontWeight: '600' },
-  chipTextActive: { color: '#fff' }, dot: { width: 7, height: 7, borderRadius: 4 },
-  meetBar: { paddingHorizontal: 18, paddingBottom: 10 },
+  chipTextActive: { color: colors.paper }, dot: { width: 7, height: 7, borderRadius: 4 },
+  meetBar: { paddingHorizontal: 18, paddingBottom: 10, maxWidth: 680, width: '100%', alignSelf: 'center' },
   meetBarContent: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: colors.paper, borderRadius: 18, padding: 8, borderWidth: 1, borderColor: colors.border, boxShadow: '0 2px 8px #17211b14' },
-  meetPill: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 7, paddingVertical: 7, paddingHorizontal: 10, borderRadius: 12, backgroundColor: colors.cream, borderWidth: 1, borderColor: colors.border },
+  meetPill: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 7, minHeight: 48, paddingVertical: 6, paddingHorizontal: 10, borderRadius: 14, backgroundColor: colors.cream, borderWidth: 1, borderColor: colors.border },
   meetPillActive: { borderColor: colors.honey, backgroundColor: colors.honeyLight },
-  meetPillTextWrap: { flex: 1 },
+  meetPillTextWrap: { flex: 1, minWidth: 0 },
   meetPillTitle: { fontSize: 10, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.5, color: colors.inkSoft },
   meetPillSubtitle: { fontSize: 12, fontWeight: '600', color: colors.ink },
   meetPillSubtitlePrompt: { color: colors.tomato, fontWeight: '700' },
-  meetClearPill: { padding: 2 },
-  meetCloseButton: { width: 34, height: 34, borderRadius: 12, backgroundColor: colors.cream, alignItems: 'center', justifyContent: 'center' },
+  meetClearPill: { padding: 4, minWidth: 32, minHeight: 32, alignItems: 'center', justifyContent: 'center' },
+  meetCloseButton: { width: 44, height: 44, borderRadius: 14, backgroundColor: colors.cream, alignItems: 'center', justifyContent: 'center' },
   meetFarNotice: { marginTop: 6, flexDirection: 'row', alignItems: 'center', gap: 6, paddingVertical: 5, paddingHorizontal: 10, backgroundColor: colors.honeyLight, borderRadius: 10, borderWidth: 1, borderColor: colors.border },
   meetFarNoticeText: { flex: 1, fontSize: 11, lineHeight: 15, color: colors.inkSoft, fontWeight: '500' },
   content: { flex: 1 }, map: { flex: 1 },
@@ -595,24 +595,24 @@ const s = applyTypography(StyleSheet.create({
   mapButton: { width: 48, height: 48, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper, boxShadow: '0 2px 10px #00000018' },
   mapButtonActive: { backgroundColor: colors.honey },
   locate: { position: 'absolute', top: 16, right: 16, width: 48, height: 48, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper, boxShadow: '0 2px 10px #00000018' },
-  mapSummary: { position: 'absolute', bottom: 24, left: 12, right: 12, padding: 16, paddingTop: 10, borderRadius: 20, backgroundColor: colors.paper, boxShadow: '0 2px 16px #00000012' },
+  mapSummary: { position: 'absolute', bottom: 24, width: '92%', maxWidth: 560, alignSelf: 'center', padding: 16, paddingTop: 10, borderRadius: 20, backgroundColor: colors.paper, boxShadow: '0 2px 16px #00000012' },
   handle: { alignSelf: 'center', width: 28, height: 3, backgroundColor: colors.border, borderRadius: 2, marginBottom: 12 },
   summaryRow: { flexDirection: 'row', gap: 8, alignItems: 'center' },
   summaryTitle: { fontWeight: '700', color: colors.ink, fontSize: 17, marginBottom: 5 },
   secondary: { color: colors.inkSoft, fontSize: 12, lineHeight: 18 },
-  roundButton: { width: 46, height: 46, borderRadius: 23, backgroundColor: colors.honey, alignItems: 'center', justifyContent: 'center' },
-  selected: { position: 'absolute', bottom: 24, left: 12, right: 12, borderRadius: 20, backgroundColor: colors.paper, overflow: 'hidden', boxShadow: '0 2px 16px #00000018' },
+  roundButton: { width: 48, height: 48, borderRadius: 24, backgroundColor: colors.honey, alignItems: 'center', justifyContent: 'center' },
+  selected: { position: 'absolute', bottom: 24, width: '92%', maxWidth: 560, alignSelf: 'center', borderRadius: 20, backgroundColor: colors.paper, overflow: 'hidden', boxShadow: '0 2px 16px #00000018' },
   sheetHeader: { paddingLeft: 18, paddingRight: 4, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }, sheetLabel: { fontSize: 10, letterSpacing: 1, fontWeight: '600', color: colors.inkSoft },
-  list: { paddingHorizontal: 16, paddingBottom: 16, backgroundColor: colors.listBackground }, listHeading: { paddingTop: 22, paddingBottom: 16, gap: 6 },
+  list: { paddingHorizontal: 16, paddingBottom: 16, backgroundColor: colors.listBackground, maxWidth: 680, width: '100%', alignSelf: 'center' }, listHeading: { paddingTop: 22, paddingBottom: 16, gap: 6 },
   listHeaderRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
   heading: { fontSize: 22, fontWeight: '700', letterSpacing: -0.5, color: colors.ink },
   empty: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 20, gap: 16 }, emptyCopy: { color: colors.inkSoft, textAlign: 'center', lineHeight: 22 }, reset: { padding: 12 },
   emptyIcon: { width: 64, height: 64, borderRadius: 22, backgroundColor: colors.honey, alignItems: 'center', justifyContent: 'center', marginBottom: 8, transform: [{ rotate: '-5deg' }] },
   emptyHeading: { textAlign: 'center', fontSize: 21, lineHeight: 27 },
   navSafe: { backgroundColor: colors.paper, borderTopWidth: 1, borderTopColor: colors.border },
-  nav: { minHeight: 70, flexDirection: 'row', paddingHorizontal: 16 }, navItem: { flex: 1, paddingVertical: 8, alignItems: 'center', justifyContent: 'center', gap: 3 },
+  nav: { minHeight: 70, flexDirection: 'row', paddingHorizontal: 16, maxWidth: 680, width: '100%', alignSelf: 'center' }, navItem: { flex: 1, minHeight: 48, paddingVertical: 6, alignItems: 'center', justifyContent: 'center', gap: 3 },
   navIcon: { width: 42, height: 32, borderRadius: 12, alignItems: 'center', justifyContent: 'center' }, navIconActive: { backgroundColor: colors.honey }, navLabel: { fontSize: 11, color: colors.inkSoft },
   favoriteBadge: { position: 'absolute', right: -3, top: -3, minWidth: 15, height: 15, paddingHorizontal: 3, borderRadius: 8, backgroundColor: colors.tomato, alignItems: 'center', justifyContent: 'center' }, favoriteCount: { fontSize: 9, fontWeight: '700', color: colors.white },
-  notice: { backgroundColor: '#F4EBD8', paddingLeft: 16, paddingVertical: 8, flexDirection: 'row', alignItems: 'center' }, noticeText: { fontSize: 13, lineHeight: 19, color: colors.ink }, settings: { color: colors.tomato, fontWeight: '600', fontSize: 14, paddingVertical: 8 },
-  aboutHeader: { paddingHorizontal: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }, aboutContent: { padding: 24, gap: 20 }, aboutText: { fontSize: 15, lineHeight: 24, color: colors.inkSoft },
+  notice: { backgroundColor: colors.noticeBackground, paddingLeft: 16, paddingRight: 8, paddingVertical: 10, flexDirection: 'row', alignItems: 'center' }, noticeText: { fontSize: 13, lineHeight: 19, color: colors.ink }, settings: { color: colors.tomato, fontWeight: '600', fontSize: 14, paddingVertical: 8 },
+  aboutHeader: { paddingHorizontal: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }, aboutContent: { padding: 24, gap: 20, maxWidth: 680, width: '100%', alignSelf: 'center' }, aboutText: { fontSize: 15, lineHeight: 24, color: colors.inkSoft },
 }));

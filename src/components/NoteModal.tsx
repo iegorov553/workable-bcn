@@ -67,7 +67,7 @@ export function NoteModal({
     onClose();
   };
 
-  const charsLeft = DEFAULT_MAX_NOTE_LENGTH - text.length;
+  const charsLeft = Math.max(0, DEFAULT_MAX_NOTE_LENGTH - text.length);
 
   return (
     <Modal
@@ -96,7 +96,7 @@ export function NoteModal({
               accessibilityLabel="Close note editor"
               onPress={handleClose}
               hitSlop={8}
-              style={s.closeButton}
+              style={({ pressed }) => [s.closeButton, pressed && { opacity: 0.7, transform: [{ scale: 0.94 }] }]}
             >
               <Ionicons name="close" size={24} color={colors.ink} />
             </Pressable>
@@ -132,7 +132,7 @@ export function NoteModal({
                 accessibilityRole="button"
                 accessibilityLabel="Delete this note"
                 onPress={handleDelete}
-                style={({ pressed }) => [s.deleteButton, pressed && { opacity: 0.7 }]}
+                style={({ pressed }) => [s.deleteButton, pressed && { opacity: 0.7, transform: [{ scale: 0.97 }] }]}
               >
                 <Ionicons name="trash-outline" size={17} color={colors.tomato} />
                 <Text style={s.deleteButtonText}>Delete</Text>
@@ -144,7 +144,7 @@ export function NoteModal({
                 accessibilityRole="button"
                 accessibilityLabel="Cancel editing"
                 onPress={handleClose}
-                style={({ pressed }) => [s.cancelButton, pressed && { opacity: 0.7 }]}
+                style={({ pressed }) => [s.cancelButton, pressed && { opacity: 0.7, transform: [{ scale: 0.97 }] }]}
               >
                 <Text style={s.cancelButtonText}>Cancel</Text>
               </Pressable>
@@ -153,7 +153,7 @@ export function NoteModal({
                 accessibilityRole="button"
                 accessibilityLabel="Save note"
                 onPress={handleSave}
-                style={({ pressed }) => [s.saveButton, pressed && { opacity: 0.8 }]}
+                style={({ pressed }) => [s.saveButton, pressed && { opacity: 0.8, transform: [{ scale: 0.97 }] }]}
               >
                 <Text style={s.saveButtonText}>Save</Text>
               </Pressable>
@@ -199,11 +199,11 @@ const s = applyTypography(
       marginTop: 2,
     },
     closeButton: {
-      minWidth: 40,
-      minHeight: 40,
+      minWidth: 44,
+      minHeight: 44,
       alignItems: 'center',
       justifyContent: 'center',
-      borderRadius: 20,
+      borderRadius: 22,
       backgroundColor: colors.paper,
       borderWidth: 1,
       borderColor: colors.border,
@@ -217,7 +217,7 @@ const s = applyTypography(
       borderWidth: 1,
       borderColor: colors.border,
       padding: 16,
-      fontSize: 15,
+      fontSize: 16,
       lineHeight: 22,
       color: colors.ink,
     },
@@ -229,6 +229,7 @@ const s = applyTypography(
     },
     footer: {
       flexDirection: 'row',
+      flexWrap: 'wrap',
       alignItems: 'center',
       justifyContent: 'space-between',
       paddingHorizontal: 20,
@@ -237,8 +238,10 @@ const s = applyTypography(
       borderTopColor: colors.border,
       backgroundColor: colors.paper,
       gap: 12,
+      rowGap: 10,
     },
     deleteButton: {
+      minHeight: 44,
       flexDirection: 'row',
       alignItems: 'center',
       gap: 6,
@@ -254,10 +257,11 @@ const s = applyTypography(
       flexDirection: 'row',
       alignItems: 'center',
       gap: 10,
+      flexShrink: 0,
     },
     cancelButton: {
-      minHeight: 42,
-      paddingHorizontal: 16,
+      minHeight: 44,
+      paddingHorizontal: 18,
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: 14,
@@ -271,7 +275,7 @@ const s = applyTypography(
       color: colors.ink,
     },
     saveButton: {
-      minHeight: 42,
+      minHeight: 44,
       paddingHorizontal: 22,
       alignItems: 'center',
       justifyContent: 'center',

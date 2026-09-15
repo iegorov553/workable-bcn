@@ -7,7 +7,7 @@
     "icon": "./assets/workable-icon.png",
     "userInterfaceStyle": "light",
     "ios": {
-      "supportsTablet": true
+      "supportsTablet": false
     },
     "android": {
       "package": "com.workablebcn.app",

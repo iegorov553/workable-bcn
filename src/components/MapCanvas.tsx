@@ -2,7 +2,7 @@ import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, Linking, Pressable, StyleSheet, Text, View } from 'react-native';
 import { WebView } from 'react-native-webview';
 import { getMapHtml } from '../map/map-html';
-import { chainColors } from '../theme';
+import { chainColors, colors } from '../theme';
 import type { Coordinates } from '../types';
 import { encodeMapPayload, mapUpdateScript, parseMapMessage, type MapPayload } from '../utils/map-bridge';
 
@@ -66,13 +66,13 @@ export default function MapCanvas({
         if (message?.type === 'mapClick') onMapClick?.({ latitude: message.latitude, longitude: message.longitude });
       }}
     />
-    {loading && !failed ? <View pointerEvents="none" style={styles.overlay}><ActivityIndicator color="#214D3F" /><Text>Loading map…</Text></View> : null}
-    {failed ? <View style={styles.overlay}><Text style={styles.message}>The map could not start. Your places are still available in the list.</Text><Pressable accessibilityRole="button" onPress={retry} style={styles.retry}><Text>Retry map</Text></Pressable></View> : null}
+    {loading && !failed ? <View pointerEvents="none" style={styles.overlay}><ActivityIndicator color={colors.ink} /><Text style={styles.message}>Loading map…</Text></View> : null}
+    {failed ? <View style={styles.overlay}><Text style={styles.message}>The map could not start. Your places are still available in the list.</Text><Pressable accessibilityRole="button" onPress={retry} style={styles.retry}><Text style={{ color: colors.ink, fontWeight: '600' }}>Retry map</Text></Pressable></View> : null}
   </View>;
 }
 const styles = StyleSheet.create({
-  root: { flex: 1, backgroundColor: '#f0f1ec' },
-  overlay: { position: 'absolute', top: 0, bottom: 0, left: 0, right: 0, justifyContent: 'center', alignItems: 'center', gap: 12, backgroundColor: '#f0f1ec', padding: 28 },
-  message: { textAlign: 'center', color: '#202820' },
-  retry: { padding: 14, borderRadius: 12, backgroundColor: '#E4EDE5' },
+  root: { flex: 1, backgroundColor: colors.cream },
+  overlay: { position: 'absolute', top: 0, bottom: 0, left: 0, right: 0, justifyContent: 'center', alignItems: 'center', gap: 12, backgroundColor: colors.cream, padding: 28 },
+  message: { textAlign: 'center', color: colors.ink },
+  retry: { padding: 14, borderRadius: 12, backgroundColor: colors.honey },
 });
