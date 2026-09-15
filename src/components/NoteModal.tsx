@@ -1,0 +1,287 @@
+import Ionicons from '@expo/vector-icons/Ionicons';
+import * as Haptics from 'expo-haptics';
+import { useEffect, useState } from 'react';
+import {
+  Keyboard,
+  KeyboardAvoidingView,
+  Modal,
+  Platform,
+  Pressable,
+  SafeAreaView,
+  ScrollView,
+  StyleSheet,
+  Text,
+  TextInput,
+  View,
+} from 'react-native';
+import { colors } from '../theme';
+import type { Place } from '../types';
+import { applyTypography } from '../typography';
+import { DEFAULT_MAX_NOTE_LENGTH, sanitizeNote } from '../utils/notes';
+
+export type NoteModalProps = {
+  visible: boolean;
+  place: Place | null;
+  initialNote?: string;
+  onClose: () => void;
+  onSave: (text: string) => void;
+  onDelete?: () => void;
+};
+
+const haptic = () => {
+  if (Platform.OS !== 'web') void Haptics.selectionAsync().catch(() => {});
+};
+
+export function NoteModal({
+  visible,
+  place,
+  initialNote = '',
+  onClose,
+  onSave,
+  onDelete,
+}: NoteModalProps) {
+  const [text, setText] = useState(initialNote);
+
+  useEffect(() => {
+    if (visible) {
+      setText(initialNote);
+    }
+  }, [visible, initialNote]);
+
+  if (!place) return null;
+
+  const handleSave = () => {
+    haptic();
+    Keyboard.dismiss();
+    onSave(sanitizeNote(text));
+  };
+
+  const handleDelete = () => {
+    haptic();
+    Keyboard.dismiss();
+    onDelete?.();
+  };
+
+  const handleClose = () => {
+    Keyboard.dismiss();
+    onClose();
+  };
+
+  const charsLeft = DEFAULT_MAX_NOTE_LENGTH - text.length;
+
+  return (
+    <Modal
+      visible={visible}
+      animationType="slide"
+      presentationStyle="pageSheet"
+      onRequestClose={handleClose}
+    >
+      <SafeAreaView style={s.safe}>
+        <KeyboardAvoidingView
+          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
+          style={s.container}
+        >
+          <View style={s.header}>
+            <View style={s.headerTitleWrap}>
+              <Text style={s.headerEyebrow}>PERSONAL NOTE</Text>
+              <Text numberOfLines={1} style={s.headerTitle}>
+                {place.name}
+              </Text>
+              <Text numberOfLines={1} style={s.headerSubtitle}>
+                {place.address}
+              </Text>
+            </View>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Close note editor"
+              onPress={handleClose}
+              hitSlop={8}
+              style={s.closeButton}
+            >
+              <Ionicons name="close" size={24} color={colors.ink} />
+            </Pressable>
+          </View>
+
+          <ScrollView
+            keyboardShouldPersistTaps="handled"
+            contentContainerStyle={s.body}
+          >
+            <TextInput
+              accessible
+              accessibilityLabel="Note text"
+              placeholder="Wi-Fi password, quiet tables, outlets, coffee notes..."
+              placeholderTextColor={colors.inkSoft}
+              multiline
+              autoFocus
+              maxLength={DEFAULT_MAX_NOTE_LENGTH}
+              value={text}
+              onChangeText={setText}
+              style={s.input}
+              textAlignVertical="top"
+            />
+            {charsLeft < 200 && (
+              <Text style={s.charCount}>
+                {charsLeft} characters remaining
+              </Text>
+            )}
+          </ScrollView>
+
+          <View style={s.footer}>
+            {initialNote ? (
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel="Delete this note"
+                onPress={handleDelete}
+                style={({ pressed }) => [s.deleteButton, pressed && { opacity: 0.7 }]}
+              >
+                <Ionicons name="trash-outline" size={17} color={colors.tomato} />
+                <Text style={s.deleteButtonText}>Delete</Text>
+              </Pressable>
+            ) : <View style={{ flex: 1 }} />}
+
+            <View style={s.actionButtons}>
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel="Cancel editing"
+                onPress={handleClose}
+                style={({ pressed }) => [s.cancelButton, pressed && { opacity: 0.7 }]}
+              >
+                <Text style={s.cancelButtonText}>Cancel</Text>
+              </Pressable>
+
+              <Pressable
+                accessibilityRole="button"
+                accessibilityLabel="Save note"
+                onPress={handleSave}
+                style={({ pressed }) => [s.saveButton, pressed && { opacity: 0.8 }]}
+              >
+                <Text style={s.saveButtonText}>Save</Text>
+              </Pressable>
+            </View>
+          </View>
+        </KeyboardAvoidingView>
+      </SafeAreaView>
+    </Modal>
+  );
+}
+
+const s = applyTypography(
+  StyleSheet.create({
+    safe: { flex: 1, backgroundColor: colors.cream },
+    container: { flex: 1 },
+    header: {
+      flexDirection: 'row',
+      alignItems: 'flex-start',
+      justifyContent: 'space-between',
+      paddingHorizontal: 20,
+      paddingTop: 16,
+      paddingBottom: 12,
+      borderBottomWidth: 1,
+      borderBottomColor: colors.border,
+    },
+    headerTitleWrap: { flex: 1, marginRight: 12 },
+    headerEyebrow: {
+      fontSize: 10,
+      fontWeight: '700',
+      letterSpacing: 1.5,
+      color: colors.tomato,
+      marginBottom: 3,
+    },
+    headerTitle: {
+      fontFamily: 'FrauncesBold',
+      fontSize: 22,
+      color: colors.ink,
+      lineHeight: 28,
+    },
+    headerSubtitle: {
+      fontSize: 12,
+      color: colors.inkSoft,
+      marginTop: 2,
+    },
+    closeButton: {
+      minWidth: 40,
+      minHeight: 40,
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: 20,
+      backgroundColor: colors.paper,
+      borderWidth: 1,
+      borderColor: colors.border,
+    },
+    body: { flexGrow: 1, padding: 20 },
+    input: {
+      flex: 1,
+      minHeight: 180,
+      backgroundColor: colors.paper,
+      borderRadius: 18,
+      borderWidth: 1,
+      borderColor: colors.border,
+      padding: 16,
+      fontSize: 15,
+      lineHeight: 22,
+      color: colors.ink,
+    },
+    charCount: {
+      fontSize: 11,
+      color: colors.inkSoft,
+      alignSelf: 'flex-end',
+      marginTop: 8,
+    },
+    footer: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      justifyContent: 'space-between',
+      paddingHorizontal: 20,
+      paddingVertical: 14,
+      borderTopWidth: 1,
+      borderTopColor: colors.border,
+      backgroundColor: colors.paper,
+      gap: 12,
+    },
+    deleteButton: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 6,
+      paddingVertical: 10,
+      paddingHorizontal: 12,
+    },
+    deleteButtonText: {
+      fontSize: 14,
+      fontWeight: '600',
+      color: colors.tomato,
+    },
+    actionButtons: {
+      flexDirection: 'row',
+      alignItems: 'center',
+      gap: 10,
+    },
+    cancelButton: {
+      minHeight: 42,
+      paddingHorizontal: 16,
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: 14,
+      backgroundColor: colors.cream,
+      borderWidth: 1,
+      borderColor: colors.border,
+    },
+    cancelButtonText: {
+      fontSize: 14,
+      fontWeight: '600',
+      color: colors.ink,
+    },
+    saveButton: {
+      minHeight: 42,
+      paddingHorizontal: 22,
+      alignItems: 'center',
+      justifyContent: 'center',
+      borderRadius: 14,
+      backgroundColor: colors.honey,
+    },
+    saveButtonText: {
+      fontSize: 14,
+      fontWeight: '700',
+      color: colors.ink,
+    },
+  })
+);

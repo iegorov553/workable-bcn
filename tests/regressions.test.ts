@@ -215,3 +215,19 @@ test('rankEquidistantPlaces preserves catalogue stability, favorites, and determ
   assert.deepEqual(new Set(rankedFavorites.map(m => m.place.id)), favoriteIds);
 });
 
+test('NoteModal exports valid component and NoteModalProps interface', () => {
+  const source = readFileSync(new URL('../src/components/NoteModal.tsx', import.meta.url), 'utf8');
+  assert.match(source, /export function NoteModal\(/);
+  assert.match(source, /export type NoteModalProps =/);
+  assert.match(source, /visible: boolean;/);
+  assert.match(source, /place: Place \| null;/);
+  assert.match(source, /initialNote\?: string;/);
+  assert.match(source, /onClose: \(\) => void;/);
+  assert.match(source, /onSave: \(text: string\) => void;/);
+  assert.match(source, /onDelete\?: \(\) => void;/);
+  assert.match(source, /DEFAULT_MAX_NOTE_LENGTH/);
+  assert.match(source, /sanitizeNote/);
+  assert.match(source, /Haptics/);
+});
+
+
