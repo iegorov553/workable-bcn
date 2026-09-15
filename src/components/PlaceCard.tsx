@@ -53,7 +53,7 @@ export function PlaceCard({
           accessibilityState={{ selected: favorite }}
           onPress={onFavorite}
           hitSlop={8}
-          style={s.icon}
+          style={({ pressed }) => [s.icon, pressed && { opacity: 0.6, transform: [{ scale: 0.9 }] }]}
         >
           <Ionicons name={favorite ? 'heart' : 'heart-outline'} size={25} color={favorite ? colors.tomato : colors.ink} />
         </Pressable>
@@ -87,7 +87,7 @@ export function PlaceCard({
           accessibilityLabel={`Get directions to ${place.name}`}
           onPress={onDirections}
           hitSlop={4}
-          style={({ pressed }) => [s.route, pressed && { opacity: 0.65 }]}
+          style={({ pressed }) => [s.route, pressed && { opacity: 0.7, transform: [{ scale: 0.97 }] }]}
         >
           <Ionicons name="navigate" size={17} color={colors.ink} />
           <Text style={s.routeText}>Directions</Text>
@@ -98,7 +98,7 @@ export function PlaceCard({
             accessibilityLabel={`Share directions to ${place.name} with friend`}
             onPress={onShareFriend}
             hitSlop={4}
-            style={({ pressed }) => [s.shareFriend, pressed && { opacity: 0.65 }]}
+            style={({ pressed }) => [s.shareFriend, pressed && { opacity: 0.7, transform: [{ scale: 0.94 }] }]}
           >
             <Ionicons name="share-social-outline" size={18} color={colors.ink} />
           </Pressable>
@@ -109,7 +109,7 @@ export function PlaceCard({
             accessibilityLabel="Add note for this cafe"
             onPress={onEditNote}
             hitSlop={4}
-            style={({ pressed }) => [s.addNoteButton, pressed && { opacity: 0.65 }]}
+            style={({ pressed }) => [s.addNoteButton, pressed && { opacity: 0.7, transform: [{ scale: 0.97 }] }]}
           >
             <Ionicons name="create-outline" size={15} color={colors.ink} />
             <Text style={s.addNoteText}>Add note</Text>
@@ -121,7 +121,7 @@ export function PlaceCard({
 }
 
 const s = applyTypography(StyleSheet.create({
-  card: { padding: 16, paddingLeft: 22, backgroundColor: colors.paper, borderRadius: 24, marginBottom: 14, borderWidth: 1, borderColor: '#EFEBDD', overflow: 'hidden', boxShadow: '0 4px 7px #17211b26' },
+  card: { padding: 16, paddingLeft: 22, backgroundColor: colors.paper, borderRadius: 24, marginBottom: 14, borderWidth: 1, borderColor: colors.cardBorder, overflow: 'hidden', boxShadow: '0 4px 7px #17211b26' },
   stripe: { position: 'absolute', top: 0, bottom: 0, left: 0, width: 6 },
   row: { flexDirection: 'row', alignItems: 'center', gap: 7, minHeight: 32 },
   dot: { width: 8, height: 8, borderRadius: 4 },

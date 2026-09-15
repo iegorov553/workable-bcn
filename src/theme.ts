@@ -9,7 +9,10 @@ export const colors = {
   tomato: '#C85233',
   mint: '#A7D5B8',
   border: '#E5DFCC',
+  cardBorder: '#EFEBDD',
   listBackground: '#E5DFCC',
+  noticeBackground: '#F4EBD8',
+  friend: '#8166C8',
   white: '#FFFFFF',
   shadow: '#17211B',
 };

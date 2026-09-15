@@ -96,7 +96,7 @@ export function NoteModal({
               accessibilityLabel="Close note editor"
               onPress={handleClose}
               hitSlop={8}
-              style={s.closeButton}
+              style={({ pressed }) => [s.closeButton, pressed && { opacity: 0.7, transform: [{ scale: 0.94 }] }]}
             >
               <Ionicons name="close" size={24} color={colors.ink} />
             </Pressable>
@@ -132,7 +132,7 @@ export function NoteModal({
                 accessibilityRole="button"
                 accessibilityLabel="Delete this note"
                 onPress={handleDelete}
-                style={({ pressed }) => [s.deleteButton, pressed && { opacity: 0.7 }]}
+                style={({ pressed }) => [s.deleteButton, pressed && { opacity: 0.7, transform: [{ scale: 0.97 }] }]}
               >
                 <Ionicons name="trash-outline" size={17} color={colors.tomato} />
                 <Text style={s.deleteButtonText}>Delete</Text>
@@ -144,7 +144,7 @@ export function NoteModal({
                 accessibilityRole="button"
                 accessibilityLabel="Cancel editing"
                 onPress={handleClose}
-                style={({ pressed }) => [s.cancelButton, pressed && { opacity: 0.7 }]}
+                style={({ pressed }) => [s.cancelButton, pressed && { opacity: 0.7, transform: [{ scale: 0.97 }] }]}
               >
                 <Text style={s.cancelButtonText}>Cancel</Text>
               </Pressable>
@@ -153,7 +153,7 @@ export function NoteModal({
                 accessibilityRole="button"
                 accessibilityLabel="Save note"
                 onPress={handleSave}
-                style={({ pressed }) => [s.saveButton, pressed && { opacity: 0.8 }]}
+                style={({ pressed }) => [s.saveButton, pressed && { opacity: 0.8, transform: [{ scale: 0.97 }] }]}
               >
                 <Text style={s.saveButtonText}>Save</Text>
               </Pressable>
