@@ -568,7 +568,7 @@ const s = applyTypography(StyleSheet.create({
   brand: { fontFamily: 'FrauncesSemiBold', fontSize: 32, letterSpacing: -0.8, color: colors.ink },
   eyebrow: { fontSize: 10, fontWeight: '600', letterSpacing: 2, color: colors.tomato },
   countBadge: { width: 58, height: 58, backgroundColor: colors.honey, borderRadius: 20, alignItems: 'center', justifyContent: 'center', transform: [{ rotate: '4deg' }] },
-  countNumber: { fontSize: 18, lineHeight: 24, fontWeight: '600', color: colors.ink }, countLabel: { fontSize: 10, fontWeight: '500', color: colors.inkSoft },
+  countNumber: { fontSize: 18, lineHeight: 24, fontWeight: '700', color: colors.ink }, countLabel: { fontSize: 10, fontWeight: '700', color: colors.inkOnHoney },
   iconButton: { minWidth: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center' },
   search: { marginTop: 18, minHeight: 48, paddingLeft: 14, paddingRight: 4, gap: 10, flexDirection: 'row', alignItems: 'center', borderRadius: 18, backgroundColor: colors.paper, borderWidth: 1, borderColor: colors.border },
   input: { flex: 1, minWidth: 0, minHeight: 48, fontSize: 15, color: colors.ink },

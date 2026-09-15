@@ -60,6 +60,10 @@ Zero-friction, private, and offline-first: no accounts, no subscriptions, no ads
 
 ## Accessibility & Inclusion
 
-- Minimum 48x48 dp touch targets.
-- High-contrast text pairings (ink `#17211B` on ivory `#FFFEF8` / cream `#FFF9EB`).
+- Minimum 48x48 dp touch targets on all interactive controls.
+- WCAG AA compliant contrast pairings:
+  - Primary text: `ink` (`#17211B`) on ivory (`#FFFEF8`) / cream (`#FFF9EB`) (>14:1).
+  - Secondary text: calibrated `inkSoft` (`#4E5950`) on sand (`#E5DFCC`) (5.2:1) and ivory (`#FFFEF8`) (6.8:1).
+  - Badge text on yellow: `inkOnHoney` (`#232C26`) on honey (`#F4C344`) (8.2:1).
+  - Terracotta accents: calibrated `tomato` (`#C85233`) on cream/tint backgrounds (5.0:1).
 - Screen reader accessibility labels for icon buttons (favorites toggle, navigation links, filters).
