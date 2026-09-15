@@ -2,7 +2,7 @@
 
 ## Настроено в проекте
 
-- `com.workablebcn.app`, Workable BCN, версия 1.0.0. ID существующего EAS-проекта и владелец сохранены.
+- `com.workablebcn.app`, Workable BCN, версия 1.1.0. ID существующего EAS-проекта и владелец сохранены.
 - Expo 57.0.21, React Native 0.86.3; Android target SDK 36. С 31 августа 2026 Google Play требует API 36 для новых обычных Android-приложений и обновлений: [требование Google](https://support.google.com/googleplay/android-developer/answer/11926878).
 - `production`: AAB, увеличение versionCode на стороне EAS (`appVersionSource: remote`). `preview`: APK для установки на телефон.
 - `submit.production`: internal track, **draft**. Команда отправки сама не выпускает публичный релиз.
