@@ -17,7 +17,7 @@ import {
 import { colors } from '../theme';
 import type { Place } from '../types';
 import { applyTypography } from '../typography';
-import { DEFAULT_MAX_NOTE_LENGTH, sanitizeNote } from '../utils/notes';
+import { DEFAULT_MAX_NOTE_LENGTH } from '../utils/notes';
 
 export type NoteModalProps = {
   visible: boolean;
@@ -53,7 +53,7 @@ export function NoteModal({
   const handleSave = () => {
     haptic();
     Keyboard.dismiss();
-    onSave(sanitizeNote(text));
+    onSave(text);
   };
 
   const handleDelete = () => {

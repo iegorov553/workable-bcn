@@ -34,6 +34,18 @@ test('parseNotes filters unknown IDs, trims text, and drops empty values', () =>
   });
 });
 
+test('parseNotes clamps strings exceeding DEFAULT_MAX_NOTE_LENGTH', () => {
+  const validIds = new Set(['place-1']);
+  const longText = 'a'.repeat(DEFAULT_MAX_NOTE_LENGTH + 500);
+  const raw = JSON.stringify({
+    'place-1': longText,
+  });
+
+  const parsed = parseNotes(raw, validIds);
+  assert.equal(parsed['place-1'].length, DEFAULT_MAX_NOTE_LENGTH);
+  assert.equal(parsed['place-1'], 'a'.repeat(DEFAULT_MAX_NOTE_LENGTH));
+});
+
 test('sanitizeNote trims whitespace and truncates at maxLength', () => {
   assert.equal(sanitizeNote('  hello world \n '), 'hello world');
   const longText = 'a'.repeat(2500);

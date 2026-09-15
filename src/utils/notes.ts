@@ -21,7 +21,7 @@ export function parseNotes(raw: string | null | undefined, validIds: Set<string>
     const result: PlaceNotes = {};
     for (const [id, value] of Object.entries(parsed)) {
       if (validIds.has(id) && typeof value === 'string') {
-        const cleaned = value.trim();
+        const cleaned = sanitizeNote(value);
         if (cleaned.length > 0) {
           result[id] = cleaned;
         }

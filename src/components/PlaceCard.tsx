@@ -70,7 +70,7 @@ export function PlaceCard({
       {note ? (
         <Pressable
           accessibilityRole="button"
-          accessibilityLabel={`Edit note: ${note}`}
+          accessibilityLabel="Edit note"
           onPress={onEditNote}
           style={({ pressed }) => [s.noteBox, pressed && { opacity: 0.7 }]}
         >

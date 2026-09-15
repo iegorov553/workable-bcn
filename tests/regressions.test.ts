@@ -226,7 +226,6 @@ test('NoteModal exports valid component and NoteModalProps interface', () => {
   assert.match(source, /onSave: \(text: string\) => void;/);
   assert.match(source, /onDelete\?: \(\) => void;/);
   assert.match(source, /DEFAULT_MAX_NOTE_LENGTH/);
-  assert.match(source, /sanitizeNote/);
   assert.match(source, /Haptics/);
 });
 
