@@ -353,7 +353,7 @@ function AppContent() {
       </View>
     </View>
     <View style={s.filterWrap}><ScrollView horizontal showsHorizontalScrollIndicator={false} keyboardShouldPersistTaps="handled" contentContainerStyle={s.filters}>
-      {['All', ...chains].map(name => <Pressable key={name} accessibilityRole="button" accessibilityState={{ selected: chain === name }} onPress={() => { setChain(name); setSelectedId(null); haptic(); }} style={[s.chip, chain === name && s.chipActive]}>
+      {['All', ...chains].map(name => <Pressable key={name} accessibilityRole="button" accessibilityLabel={`Filter by ${name}`} accessibilityState={{ selected: chain === name }} hitSlop={4} onPress={() => { setChain(name); setSelectedId(null); haptic(); }} style={[s.chip, chain === name && s.chipActive]}>
         {name !== 'All' && <View style={[s.dot, { backgroundColor: chainColors[name] ?? fallbackChainColor }]} />}
         <Text style={[s.chipText, chain === name && s.chipTextActive]}>{name}</Text>
       </Pressable>)}
@@ -401,7 +401,7 @@ function AppContent() {
               <Pressable
                 accessibilityRole="button"
                 accessibilityLabel="Clear friend pin"
-                hitSlop={8}
+                hitSlop={{ top: 10, bottom: 10, left: 10, right: 10 }}
                 onPress={(e) => {
                   e?.stopPropagation?.();
                   setFriendLocation(null);
@@ -410,7 +410,7 @@ function AppContent() {
                 }}
                 style={s.meetClearPill}
               >
-                <Ionicons name="close-circle" size={16} color={colors.inkSoft} />
+                <Ionicons name="close-circle" size={18} color={colors.inkSoft} />
               </Pressable>
             ) : null}
           </Pressable>
@@ -418,7 +418,7 @@ function AppContent() {
           <Pressable
             accessibilityRole="button"
             accessibilityLabel="Exit Meet mode"
-            hitSlop={6}
+            hitSlop={{ top: 6, bottom: 6, left: 6, right: 6 }}
             onPress={() => {
               setMeetMode(false);
               setFriendLocation(null);
@@ -427,7 +427,7 @@ function AppContent() {
             }}
             style={s.meetCloseButton}
           >
-            <Ionicons name="close" size={18} color={colors.ink} />
+            <Ionicons name="close" size={20} color={colors.ink} />
           </Pressable>
         </View>
         {location && friendLocation && distanceKm(location, friendLocation)! > 35 ? (
@@ -556,7 +556,7 @@ export default function App() {
 const s = applyTypography(StyleSheet.create({
   root: { flex: 1, backgroundColor: colors.cream },
   loading: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 16, backgroundColor: colors.cream },
-  header: { paddingHorizontal: 18, paddingTop: 14, paddingBottom: 10 },
+  header: { paddingHorizontal: 18, paddingTop: 14, paddingBottom: 10, maxWidth: 680, width: '100%', alignSelf: 'center' },
   titleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 6 },
   brandRow: { gap: 7, flex: 1 },
   headerActions: { flexDirection: 'row', alignItems: 'center', gap: 8 },
@@ -572,22 +572,22 @@ const s = applyTypography(StyleSheet.create({
   iconButton: { minWidth: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center' },
   search: { marginTop: 18, minHeight: 48, paddingLeft: 14, paddingRight: 4, gap: 10, flexDirection: 'row', alignItems: 'center', borderRadius: 18, backgroundColor: colors.paper, borderWidth: 1, borderColor: colors.border },
   input: { flex: 1, minWidth: 0, minHeight: 48, fontSize: 15, color: colors.ink },
-  filterWrap: { paddingBottom: 12 },
+  filterWrap: { paddingBottom: 12, maxWidth: 680, width: '100%', alignSelf: 'center' },
   filters: { gap: 8, paddingHorizontal: 18 },
-  chip: { minHeight: 36, paddingHorizontal: 14, borderRadius: 22, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.paper, flexDirection: 'row', gap: 7, alignItems: 'center' },
+  chip: { minHeight: 40, paddingHorizontal: 16, borderRadius: 22, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.paper, flexDirection: 'row', gap: 7, alignItems: 'center' },
   chipActive: { backgroundColor: colors.ink, borderColor: colors.ink },
   chipText: { color: colors.ink, fontSize: 12, fontWeight: '600' },
   chipTextActive: { color: '#fff' }, dot: { width: 7, height: 7, borderRadius: 4 },
-  meetBar: { paddingHorizontal: 18, paddingBottom: 10 },
+  meetBar: { paddingHorizontal: 18, paddingBottom: 10, maxWidth: 680, width: '100%', alignSelf: 'center' },
   meetBarContent: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: colors.paper, borderRadius: 18, padding: 8, borderWidth: 1, borderColor: colors.border, boxShadow: '0 2px 8px #17211b14' },
-  meetPill: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 7, paddingVertical: 7, paddingHorizontal: 10, borderRadius: 12, backgroundColor: colors.cream, borderWidth: 1, borderColor: colors.border },
+  meetPill: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 7, minHeight: 48, paddingVertical: 6, paddingHorizontal: 10, borderRadius: 14, backgroundColor: colors.cream, borderWidth: 1, borderColor: colors.border },
   meetPillActive: { borderColor: colors.honey, backgroundColor: colors.honeyLight },
   meetPillTextWrap: { flex: 1 },
   meetPillTitle: { fontSize: 10, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.5, color: colors.inkSoft },
   meetPillSubtitle: { fontSize: 12, fontWeight: '600', color: colors.ink },
   meetPillSubtitlePrompt: { color: colors.tomato, fontWeight: '700' },
-  meetClearPill: { padding: 2 },
-  meetCloseButton: { width: 34, height: 34, borderRadius: 12, backgroundColor: colors.cream, alignItems: 'center', justifyContent: 'center' },
+  meetClearPill: { padding: 4, minWidth: 32, minHeight: 32, alignItems: 'center', justifyContent: 'center' },
+  meetCloseButton: { width: 44, height: 44, borderRadius: 14, backgroundColor: colors.cream, alignItems: 'center', justifyContent: 'center' },
   meetFarNotice: { marginTop: 6, flexDirection: 'row', alignItems: 'center', gap: 6, paddingVertical: 5, paddingHorizontal: 10, backgroundColor: colors.honeyLight, borderRadius: 10, borderWidth: 1, borderColor: colors.border },
   meetFarNoticeText: { flex: 1, fontSize: 11, lineHeight: 15, color: colors.inkSoft, fontWeight: '500' },
   content: { flex: 1 }, map: { flex: 1 },
@@ -595,24 +595,24 @@ const s = applyTypography(StyleSheet.create({
   mapButton: { width: 48, height: 48, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper, boxShadow: '0 2px 10px #00000018' },
   mapButtonActive: { backgroundColor: colors.honey },
   locate: { position: 'absolute', top: 16, right: 16, width: 48, height: 48, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper, boxShadow: '0 2px 10px #00000018' },
-  mapSummary: { position: 'absolute', bottom: 24, left: 12, right: 12, padding: 16, paddingTop: 10, borderRadius: 20, backgroundColor: colors.paper, boxShadow: '0 2px 16px #00000012' },
+  mapSummary: { position: 'absolute', bottom: 24, width: '92%', maxWidth: 560, alignSelf: 'center', padding: 16, paddingTop: 10, borderRadius: 20, backgroundColor: colors.paper, boxShadow: '0 2px 16px #00000012' },
   handle: { alignSelf: 'center', width: 28, height: 3, backgroundColor: colors.border, borderRadius: 2, marginBottom: 12 },
   summaryRow: { flexDirection: 'row', gap: 8, alignItems: 'center' },
   summaryTitle: { fontWeight: '700', color: colors.ink, fontSize: 17, marginBottom: 5 },
   secondary: { color: colors.inkSoft, fontSize: 12, lineHeight: 18 },
-  roundButton: { width: 46, height: 46, borderRadius: 23, backgroundColor: colors.honey, alignItems: 'center', justifyContent: 'center' },
-  selected: { position: 'absolute', bottom: 24, left: 12, right: 12, borderRadius: 20, backgroundColor: colors.paper, overflow: 'hidden', boxShadow: '0 2px 16px #00000018' },
+  roundButton: { width: 48, height: 48, borderRadius: 24, backgroundColor: colors.honey, alignItems: 'center', justifyContent: 'center' },
+  selected: { position: 'absolute', bottom: 24, width: '92%', maxWidth: 560, alignSelf: 'center', borderRadius: 20, backgroundColor: colors.paper, overflow: 'hidden', boxShadow: '0 2px 16px #00000018' },
   sheetHeader: { paddingLeft: 18, paddingRight: 4, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }, sheetLabel: { fontSize: 10, letterSpacing: 1, fontWeight: '600', color: colors.inkSoft },
-  list: { paddingHorizontal: 16, paddingBottom: 16, backgroundColor: colors.listBackground }, listHeading: { paddingTop: 22, paddingBottom: 16, gap: 6 },
+  list: { paddingHorizontal: 16, paddingBottom: 16, backgroundColor: colors.listBackground, maxWidth: 680, width: '100%', alignSelf: 'center' }, listHeading: { paddingTop: 22, paddingBottom: 16, gap: 6 },
   listHeaderRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
   heading: { fontSize: 22, fontWeight: '700', letterSpacing: -0.5, color: colors.ink },
   empty: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 20, gap: 16 }, emptyCopy: { color: colors.inkSoft, textAlign: 'center', lineHeight: 22 }, reset: { padding: 12 },
   emptyIcon: { width: 64, height: 64, borderRadius: 22, backgroundColor: colors.honey, alignItems: 'center', justifyContent: 'center', marginBottom: 8, transform: [{ rotate: '-5deg' }] },
   emptyHeading: { textAlign: 'center', fontSize: 21, lineHeight: 27 },
   navSafe: { backgroundColor: colors.paper, borderTopWidth: 1, borderTopColor: colors.border },
-  nav: { minHeight: 70, flexDirection: 'row', paddingHorizontal: 16 }, navItem: { flex: 1, paddingVertical: 8, alignItems: 'center', justifyContent: 'center', gap: 3 },
+  nav: { minHeight: 70, flexDirection: 'row', paddingHorizontal: 16, maxWidth: 680, width: '100%', alignSelf: 'center' }, navItem: { flex: 1, minHeight: 48, paddingVertical: 6, alignItems: 'center', justifyContent: 'center', gap: 3 },
   navIcon: { width: 42, height: 32, borderRadius: 12, alignItems: 'center', justifyContent: 'center' }, navIconActive: { backgroundColor: colors.honey }, navLabel: { fontSize: 11, color: colors.inkSoft },
   favoriteBadge: { position: 'absolute', right: -3, top: -3, minWidth: 15, height: 15, paddingHorizontal: 3, borderRadius: 8, backgroundColor: colors.tomato, alignItems: 'center', justifyContent: 'center' }, favoriteCount: { fontSize: 9, fontWeight: '700', color: colors.white },
   notice: { backgroundColor: '#F4EBD8', paddingLeft: 16, paddingVertical: 8, flexDirection: 'row', alignItems: 'center' }, noticeText: { fontSize: 13, lineHeight: 19, color: colors.ink }, settings: { color: colors.tomato, fontWeight: '600', fontSize: 14, paddingVertical: 8 },
-  aboutHeader: { paddingHorizontal: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }, aboutContent: { padding: 24, gap: 20 }, aboutText: { fontSize: 15, lineHeight: 24, color: colors.inkSoft },
+  aboutHeader: { paddingHorizontal: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }, aboutContent: { padding: 24, gap: 20, maxWidth: 680, width: '100%', alignSelf: 'center' }, aboutText: { fontSize: 15, lineHeight: 24, color: colors.inkSoft },
 }));

@@ -52,7 +52,7 @@ export function PlaceCard({
           accessibilityLabel={favorite ? 'Remove from saved' : 'Save place'}
           accessibilityState={{ selected: favorite }}
           onPress={onFavorite}
-          hitSlop={6}
+          hitSlop={8}
           style={s.icon}
         >
           <Ionicons name={favorite ? 'heart' : 'heart-outline'} size={25} color={favorite ? colors.tomato : colors.ink} />
@@ -121,9 +121,9 @@ export function PlaceCard({
 }
 
 const s = applyTypography(StyleSheet.create({
-  card: { padding: 14, paddingLeft: 22, backgroundColor: colors.paper, borderRadius: 24, marginBottom: 14, borderWidth: 1, borderColor: '#EFEBDD', overflow: 'hidden', boxShadow: '0 4px 7px #17211b26' },
+  card: { padding: 16, paddingLeft: 22, backgroundColor: colors.paper, borderRadius: 24, marginBottom: 14, borderWidth: 1, borderColor: '#EFEBDD', overflow: 'hidden', boxShadow: '0 4px 7px #17211b26' },
   stripe: { position: 'absolute', top: 0, bottom: 0, left: 0, width: 6 },
-  row: { flexDirection: 'row', alignItems: 'center', gap: 7, minHeight: 28 },
+  row: { flexDirection: 'row', alignItems: 'center', gap: 7, minHeight: 32 },
   dot: { width: 8, height: 8, borderRadius: 4 },
   chain: { flex: 1, fontSize: 11, fontWeight: '700', color: colors.inkSoft },
   matchBadge: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 8, alignItems: 'center', justifyContent: 'center' },
@@ -132,18 +132,18 @@ const s = applyTypography(StyleSheet.create({
   matchBadgeText: { fontSize: 11, fontWeight: '700' },
   matchBadgeTextBest: { color: colors.ink },
   matchBadgeTextNeutral: { color: colors.inkSoft },
-  icon: { width: 32, height: 32, marginRight: -2, marginTop: -4, alignItems: 'center', justifyContent: 'center', borderRadius: 18, backgroundColor: colors.cream },
-  addressButton: { paddingTop: 7, paddingBottom: 10 },
+  icon: { width: 36, height: 36, marginRight: -2, marginTop: -2, alignItems: 'center', justifyContent: 'center', borderRadius: 18, backgroundColor: colors.cream },
+  addressButton: { paddingTop: 8, paddingBottom: 10 },
   name: { fontFamily: 'FrauncesBold', fontSize: 20, color: colors.ink, lineHeight: 26 },
   address: { marginTop: 5, fontSize: 12, lineHeight: 17, color: colors.inkSoft },
   noteBox: { backgroundColor: colors.cream, borderRadius: 14, borderWidth: 1, borderColor: colors.border, paddingVertical: 9, paddingHorizontal: 12, marginBottom: 12 },
   noteHeader: { flexDirection: 'row', alignItems: 'center', gap: 5, marginBottom: 3 },
   noteLabel: { fontSize: 10, fontWeight: '700', letterSpacing: 1.2, color: colors.inkSoft },
   noteText: { fontSize: 13, lineHeight: 18, color: colors.ink },
-  actionsRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
-  route: { alignSelf: 'flex-start', minHeight: 36, flexDirection: 'row', alignItems: 'center', gap: 7, paddingHorizontal: 14, borderRadius: 13, backgroundColor: colors.honey },
+  actionsRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 4 },
+  route: { alignSelf: 'flex-start', minHeight: 44, flexDirection: 'row', alignItems: 'center', gap: 7, paddingHorizontal: 16, borderRadius: 14, backgroundColor: colors.honey },
   routeText: { fontSize: 13, color: colors.ink, fontWeight: '700' },
-  shareFriend: { width: 36, height: 36, borderRadius: 13, backgroundColor: colors.cream, borderWidth: 1, borderColor: colors.border, alignItems: 'center', justifyContent: 'center' },
-  addNoteButton: { minHeight: 36, flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 12, borderRadius: 13, backgroundColor: colors.cream, borderWidth: 1, borderColor: colors.border },
+  shareFriend: { width: 44, height: 44, borderRadius: 14, backgroundColor: colors.cream, borderWidth: 1, borderColor: colors.border, alignItems: 'center', justifyContent: 'center' },
+  addNoteButton: { minHeight: 44, flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 14, borderRadius: 14, backgroundColor: colors.cream, borderWidth: 1, borderColor: colors.border },
   addNoteText: { fontSize: 13, color: colors.ink, fontWeight: '600' },
 }));

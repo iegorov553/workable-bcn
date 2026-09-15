@@ -199,11 +199,11 @@ const s = applyTypography(
       marginTop: 2,
     },
     closeButton: {
-      minWidth: 40,
-      minHeight: 40,
+      minWidth: 44,
+      minHeight: 44,
       alignItems: 'center',
       justifyContent: 'center',
-      borderRadius: 20,
+      borderRadius: 22,
       backgroundColor: colors.paper,
       borderWidth: 1,
       borderColor: colors.border,
@@ -239,6 +239,7 @@ const s = applyTypography(
       gap: 12,
     },
     deleteButton: {
+      minHeight: 44,
       flexDirection: 'row',
       alignItems: 'center',
       gap: 6,
@@ -256,8 +257,8 @@ const s = applyTypography(
       gap: 10,
     },
     cancelButton: {
-      minHeight: 42,
-      paddingHorizontal: 16,
+      minHeight: 44,
+      paddingHorizontal: 18,
       alignItems: 'center',
       justifyContent: 'center',
       borderRadius: 14,
@@ -271,7 +272,7 @@ const s = applyTypography(
       color: colors.ink,
     },
     saveButton: {
-      minHeight: 42,
+      minHeight: 44,
       paddingHorizontal: 22,
       alignItems: 'center',
       justifyContent: 'center',
