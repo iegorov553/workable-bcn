@@ -348,7 +348,7 @@ function AppContent() {
       </View>
       <View style={s.search}>
         <Ionicons name="search-outline" size={20} color={colors.inkSoft} />
-        <TextInput accessibilityLabel="Search places" value={query} onChangeText={setQuery} placeholder="Café, street or neighbourhood" placeholderTextColor={colors.inkSoft} returnKeyType="search" onSubmitEditing={Keyboard.dismiss} style={s.input} />
+        <TextInput accessibilityLabel="Search places" value={query} onChangeText={setQuery} placeholder="Café, street or neighbourhood" placeholderTextColor={colors.inkSoft} returnKeyType="search" autoCorrect={false} maxLength={80} onSubmitEditing={Keyboard.dismiss} style={s.input} />
         {!!query && <Pressable accessibilityRole="button" accessibilityLabel="Clear search" onPress={() => setQuery('')} style={s.iconButton}><Ionicons name="close-circle" size={20} color={colors.inkSoft} /></Pressable>}
       </View>
     </View>
@@ -571,7 +571,7 @@ const s = applyTypography(StyleSheet.create({
   countNumber: { fontSize: 18, lineHeight: 24, fontWeight: '700', color: colors.ink }, countLabel: { fontSize: 10, fontWeight: '700', color: colors.inkOnHoney },
   iconButton: { minWidth: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center' },
   search: { marginTop: 18, minHeight: 48, paddingLeft: 14, paddingRight: 4, gap: 10, flexDirection: 'row', alignItems: 'center', borderRadius: 18, backgroundColor: colors.paper, borderWidth: 1, borderColor: colors.border },
-  input: { flex: 1, minWidth: 0, minHeight: 48, fontSize: 15, color: colors.ink },
+  input: { flex: 1, minWidth: 0, minHeight: 48, fontSize: 16, color: colors.ink },
   filterWrap: { paddingBottom: 12, maxWidth: 680, width: '100%', alignSelf: 'center' },
   filters: { gap: 8, paddingHorizontal: 18 },
   chip: { minHeight: 40, paddingHorizontal: 16, borderRadius: 22, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.paper, flexDirection: 'row', gap: 7, alignItems: 'center' },
@@ -582,7 +582,7 @@ const s = applyTypography(StyleSheet.create({
   meetBarContent: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: colors.paper, borderRadius: 18, padding: 8, borderWidth: 1, borderColor: colors.border, boxShadow: '0 2px 8px #17211b14' },
   meetPill: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 7, minHeight: 48, paddingVertical: 6, paddingHorizontal: 10, borderRadius: 14, backgroundColor: colors.cream, borderWidth: 1, borderColor: colors.border },
   meetPillActive: { borderColor: colors.honey, backgroundColor: colors.honeyLight },
-  meetPillTextWrap: { flex: 1 },
+  meetPillTextWrap: { flex: 1, minWidth: 0 },
   meetPillTitle: { fontSize: 10, fontWeight: '700', textTransform: 'uppercase', letterSpacing: 0.5, color: colors.inkSoft },
   meetPillSubtitle: { fontSize: 12, fontWeight: '600', color: colors.ink },
   meetPillSubtitlePrompt: { color: colors.tomato, fontWeight: '700' },
@@ -613,6 +613,6 @@ const s = applyTypography(StyleSheet.create({
   nav: { minHeight: 70, flexDirection: 'row', paddingHorizontal: 16, maxWidth: 680, width: '100%', alignSelf: 'center' }, navItem: { flex: 1, minHeight: 48, paddingVertical: 6, alignItems: 'center', justifyContent: 'center', gap: 3 },
   navIcon: { width: 42, height: 32, borderRadius: 12, alignItems: 'center', justifyContent: 'center' }, navIconActive: { backgroundColor: colors.honey }, navLabel: { fontSize: 11, color: colors.inkSoft },
   favoriteBadge: { position: 'absolute', right: -3, top: -3, minWidth: 15, height: 15, paddingHorizontal: 3, borderRadius: 8, backgroundColor: colors.tomato, alignItems: 'center', justifyContent: 'center' }, favoriteCount: { fontSize: 9, fontWeight: '700', color: colors.white },
-  notice: { backgroundColor: '#F4EBD8', paddingLeft: 16, paddingVertical: 8, flexDirection: 'row', alignItems: 'center' }, noticeText: { fontSize: 13, lineHeight: 19, color: colors.ink }, settings: { color: colors.tomato, fontWeight: '600', fontSize: 14, paddingVertical: 8 },
+  notice: { backgroundColor: '#F4EBD8', paddingLeft: 16, paddingRight: 8, paddingVertical: 10, flexDirection: 'row', alignItems: 'center' }, noticeText: { fontSize: 13, lineHeight: 19, color: colors.ink }, settings: { color: colors.tomato, fontWeight: '600', fontSize: 14, paddingVertical: 8 },
   aboutHeader: { paddingHorizontal: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }, aboutContent: { padding: 24, gap: 20, maxWidth: 680, width: '100%', alignSelf: 'center' }, aboutText: { fontSize: 15, lineHeight: 24, color: colors.inkSoft },
 }));

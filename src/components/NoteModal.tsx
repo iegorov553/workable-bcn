@@ -67,7 +67,7 @@ export function NoteModal({
     onClose();
   };
 
-  const charsLeft = DEFAULT_MAX_NOTE_LENGTH - text.length;
+  const charsLeft = Math.max(0, DEFAULT_MAX_NOTE_LENGTH - text.length);
 
   return (
     <Modal
@@ -217,7 +217,7 @@ const s = applyTypography(
       borderWidth: 1,
       borderColor: colors.border,
       padding: 16,
-      fontSize: 15,
+      fontSize: 16,
       lineHeight: 22,
       color: colors.ink,
     },
@@ -229,6 +229,7 @@ const s = applyTypography(
     },
     footer: {
       flexDirection: 'row',
+      flexWrap: 'wrap',
       alignItems: 'center',
       justifyContent: 'space-between',
       paddingHorizontal: 20,
@@ -237,6 +238,7 @@ const s = applyTypography(
       borderTopColor: colors.border,
       backgroundColor: colors.paper,
       gap: 12,
+      rowGap: 10,
     },
     deleteButton: {
       minHeight: 44,
@@ -255,6 +257,7 @@ const s = applyTypography(
       flexDirection: 'row',
       alignItems: 'center',
       gap: 10,
+      flexShrink: 0,
     },
     cancelButton: {
       minHeight: 44,

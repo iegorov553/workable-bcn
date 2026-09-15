@@ -37,7 +37,7 @@ export function PlaceCard({
       <View style={[s.stripe, { backgroundColor: accent }]} />
       <View style={s.row}>
         <View style={[s.dot, { backgroundColor: accent }]} />
-        <Text style={s.chain}>
+        <Text numberOfLines={1} ellipsizeMode="tail" style={s.chain}>
           {place.chain.toUpperCase()}{distanceLabel ? ` · ${distanceLabel}` : ''}
         </Text>
         {matchBadge ? (
@@ -125,8 +125,8 @@ const s = applyTypography(StyleSheet.create({
   stripe: { position: 'absolute', top: 0, bottom: 0, left: 0, width: 6 },
   row: { flexDirection: 'row', alignItems: 'center', gap: 7, minHeight: 32 },
   dot: { width: 8, height: 8, borderRadius: 4 },
-  chain: { flex: 1, fontSize: 11, fontWeight: '700', color: colors.inkSoft },
-  matchBadge: { paddingHorizontal: 8, paddingVertical: 3, borderRadius: 8, alignItems: 'center', justifyContent: 'center' },
+  chain: { flex: 1, minWidth: 0, fontSize: 11, fontWeight: '700', color: colors.inkSoft },
+  matchBadge: { flexShrink: 0, paddingHorizontal: 8, paddingVertical: 3, borderRadius: 8, alignItems: 'center', justifyContent: 'center' },
   matchBadgeBest: { backgroundColor: colors.honey },
   matchBadgeNeutral: { backgroundColor: colors.border },
   matchBadgeText: { fontSize: 11, fontWeight: '700' },
@@ -140,7 +140,7 @@ const s = applyTypography(StyleSheet.create({
   noteHeader: { flexDirection: 'row', alignItems: 'center', gap: 5, marginBottom: 3 },
   noteLabel: { fontSize: 10, fontWeight: '700', letterSpacing: 1.2, color: colors.inkSoft },
   noteText: { fontSize: 13, lineHeight: 18, color: colors.ink },
-  actionsRow: { flexDirection: 'row', alignItems: 'center', gap: 8, marginTop: 4 },
+  actionsRow: { flexDirection: 'row', flexWrap: 'wrap', alignItems: 'center', gap: 8, rowGap: 8, marginTop: 4 },
   route: { alignSelf: 'flex-start', minHeight: 44, flexDirection: 'row', alignItems: 'center', gap: 7, paddingHorizontal: 16, borderRadius: 14, backgroundColor: colors.honey },
   routeText: { fontSize: 13, color: colors.ink, fontWeight: '700' },
   shareFriend: { width: 44, height: 44, borderRadius: 14, backgroundColor: colors.cream, borderWidth: 1, borderColor: colors.border, alignItems: 'center', justifyContent: 'center' },
