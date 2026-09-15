@@ -126,19 +126,23 @@ flowchart TD
     onDelete?: () => void;
   };
   ```
-- **Modal Content:**
-  - Standard React Native `Modal` with `animationType="slide"` and `KeyboardAvoidingView`.
-  - Header: café name in `FrauncesBold` font, address in secondary text, and close button (`Ionicons name="close"`).
+- **Modal Presentation & Layout:**
+  - React Native transparent `Modal` (`statusBarTranslucent`, `navigationBarTranslucent`, `animationType="slide"`).
+  - Renders as a half-screen bottom sheet (`~52%` viewport height, max width 600px, rounded top corners) over a semi-transparent backdrop (`#17211b` with 45% opacity).
+  - Backdrop tap dismisses the modal.
+  - Dynamic bottom padding adjusts to soft keyboard height via `Keyboard` listeners, lifting the sheet above the keyboard without squashing inner controls.
+  - Safe area inset handling (`insets.bottom`) keeps the footer action buttons comfortably above Android 3-button navigation bars and gesture bars.
+  - Header: drag handle bar, `PERSONAL NOTE` eyebrow, café name in `FrauncesBold` font, address in secondary text, and circular close button (`Ionicons name="close"`).
   - Multiline `TextInput`:
-    - `placeholder="Wi-Fi password, quiet spots, power outlets, coffee notes..."`
+    - `placeholder="Wi-Fi password, quiet tables, outlets, coffee notes..."`
     - `autoFocus={true}`
     - `multiline={true}`
     - `maxLength={2000}`
     - Character count indicator displayed if length $> 1800$.
   - Action Footer:
-    - Primary button: `"Save note"` (`backgroundColor: colors.honey`, `fontWeight: '700'`).
+    - Primary button: `"Save"` (`backgroundColor: colors.honey`, `fontWeight: '700'`).
     - Secondary button: `"Cancel"`.
-    - Delete button: `"Delete note"` (`color: colors.tomato`) shown only when `initialNote` is non-empty.
+    - Delete button: `"Delete"` with trash icon (`color: colors.tomato`) shown only when `initialNote` is non-empty.
 
 ---
 
