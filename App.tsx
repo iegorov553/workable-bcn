@@ -331,7 +331,7 @@ function AppContent() {
     <StatusBar style="dark" />
     <View style={s.header}>
       <View style={s.titleRow}>
-        <View style={s.brandRow}><Text style={s.eyebrow}>FIND YOUR SPOT</Text><Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.8} style={s.brand}>Workable BCN</Text></View>
+        <Text numberOfLines={1} adjustsFontSizeToFit minimumFontScale={0.75} style={s.brand}>Workable BCN</Text>
         <View style={s.headerActions}>
           <Pressable
             accessibilityRole="button"
@@ -498,7 +498,7 @@ function AppContent() {
             onEditNote={() => setEditingPlace(selected)}
             onShareFriend={meetMode && friendLocation ? () => shareFriendDirections(selected) : undefined}
           />
-        </View> : <View style={s.mapSummary}><View style={s.handle} /><View style={s.summaryRow}><View style={{ flex: 1 }}><Text style={s.summaryTitle}>{meetMode && location && friendLocation ? (filtered.length ? `${formatPlaceCount(filtered.length)} ranked by travel time` : 'No places found') : (filtered.length ? `${formatPlaceCount(filtered.length)} on the map` : 'No places found')}</Text><Text style={s.secondary}>{meetMode ? (!location ? 'Tap map to set your location pin' : !friendLocation ? "Tap map to set your friend's pin" : 'Sorted by balanced travel time for both') : (filtered.length ? 'Tap a pin to explore a café' : 'Try a different street or chain')}</Text></View><Pressable accessibilityRole="button" accessibilityLabel={filtered.length ? 'Open the list of places' : 'Reset filters'} onPress={() => filtered.length ? setMode('list') : resetFilters()} style={({ pressed }) => [s.roundButton, pressed && { opacity: 0.8, transform: [{ scale: 0.94 }] }]}><Ionicons name={filtered.length ? 'list-outline' : 'refresh-outline'} size={23} color={colors.ink} /></Pressable></View></View>}
+        </View> : null}
       </View> : <FlatList data={filtered} keyExtractor={p => p.id} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled" contentContainerStyle={[s.list, !filtered.length && { flexGrow: 1 }]} initialNumToRender={12}
         ListHeaderComponent={filtered.length ? <View style={s.listHeaderRow}><View style={s.listHeading}><Text style={s.heading}>{mode === 'saved' ? 'Your favourites' : 'All places'}</Text><Text style={s.secondary}>{formatPlaceCount(filtered.length)}{meetMode && location && friendLocation ? ' · ranked by travel time' : (location ? ' · nearest first' : '')}</Text></View><Pressable accessibilityRole="button" accessibilityLabel={location ? 'Refresh distances' : 'Show distances'} accessibilityState={{ busy: locating, disabled: locating }} disabled={locating} onPress={() => void locate(false)} style={s.iconButton}>{locating ? <ActivityIndicator color={colors.ink} /> : <Ionicons name="locate-outline" size={22} color={colors.ink} />}</Pressable></View> : null}
         ListEmptyComponent={<View style={s.empty}><View style={s.emptyIcon}><Ionicons name={mode === 'saved' ? 'heart-outline' : 'search-outline'} size={28} color={colors.ink} /></View><Text style={[s.heading, s.emptyHeading]}>{mode === 'saved' && !favorites.size ? 'Nothing saved yet' : 'No matching places'}</Text><Text style={s.emptyCopy}>{mode === 'saved' && !favorites.size ? 'Tap the heart on a café to keep it here.' : 'Try another search or reset the filters.'}</Text>{(query || chain !== 'All') && <Pressable accessibilityRole="button" onPress={resetFilters} style={({ pressed }) => [s.reset, pressed && { opacity: 0.65 }]}><Text style={s.settings}>Reset filters</Text></Pressable>}</View>}
@@ -557,16 +557,14 @@ const s = applyTypography(StyleSheet.create({
   root: { flex: 1, backgroundColor: colors.cream },
   loading: { flex: 1, alignItems: 'center', justifyContent: 'center', gap: 16, backgroundColor: colors.cream },
   header: { paddingHorizontal: 18, paddingTop: 14, paddingBottom: 10, maxWidth: 680, width: '100%', alignSelf: 'center' },
-  titleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 6 },
-  brandRow: { gap: 7, flex: 1 },
-  headerActions: { flexDirection: 'row', alignItems: 'center', gap: 8 },
+  titleRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10 },
+  headerActions: { flexDirection: 'row', alignItems: 'center', gap: 8, flexShrink: 0 },
   meetToggle: { minHeight: 44, paddingHorizontal: 12, borderRadius: 16, backgroundColor: colors.paper, borderWidth: 1, borderColor: colors.border, flexDirection: 'row', alignItems: 'center', gap: 6 },
   meetToggleActive: { backgroundColor: colors.honey, borderColor: colors.honey },
   meetToggleText: { fontSize: 13, fontWeight: '600', color: colors.ink },
   meetToggleTextActive: { fontWeight: '700', color: colors.ink },
   brandIcon: { width: 42, height: 42, borderRadius: 14, backgroundColor: colors.tomato, alignItems: 'center', justifyContent: 'center' },
-  brand: { fontFamily: 'FrauncesSemiBold', fontSize: 32, letterSpacing: -0.8, color: colors.ink },
-  eyebrow: { fontSize: 10, fontWeight: '600', letterSpacing: 2, color: colors.tomato },
+  brand: { fontFamily: 'FrauncesSemiBold', fontSize: 28, letterSpacing: -0.8, color: colors.ink, flex: 1, minWidth: 0 },
   countBadge: { width: 58, height: 58, backgroundColor: colors.honey, borderRadius: 20, alignItems: 'center', justifyContent: 'center', transform: [{ rotate: '4deg' }] },
   countNumber: { fontSize: 18, lineHeight: 24, fontWeight: '700', color: colors.ink }, countLabel: { fontSize: 10, fontWeight: '700', letterSpacing: 0.8, color: colors.inkOnHoney },
   iconButton: { minWidth: 44, minHeight: 44, alignItems: 'center', justifyContent: 'center' },
@@ -595,12 +593,7 @@ const s = applyTypography(StyleSheet.create({
   mapButton: { width: 48, height: 48, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper, boxShadow: '0 2px 10px #00000018' },
   mapButtonActive: { backgroundColor: colors.honey },
   locate: { position: 'absolute', top: 16, right: 16, width: 48, height: 48, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper, boxShadow: '0 2px 10px #00000018' },
-  mapSummary: { position: 'absolute', bottom: 24, width: '92%', maxWidth: 560, alignSelf: 'center', padding: 16, paddingTop: 10, borderRadius: 20, backgroundColor: colors.paper, boxShadow: '0 2px 16px #00000012' },
-  handle: { alignSelf: 'center', width: 28, height: 3, backgroundColor: colors.border, borderRadius: 2, marginBottom: 12 },
-  summaryRow: { flexDirection: 'row', gap: 8, alignItems: 'center' },
-  summaryTitle: { fontWeight: '700', color: colors.ink, fontSize: 17, marginBottom: 5 },
   secondary: { color: colors.inkSoft, fontSize: 12, lineHeight: 18 },
-  roundButton: { width: 48, height: 48, borderRadius: 24, backgroundColor: colors.honey, alignItems: 'center', justifyContent: 'center' },
   selected: { position: 'absolute', bottom: 24, width: '92%', maxWidth: 560, alignSelf: 'center', borderRadius: 20, backgroundColor: colors.paper, overflow: 'hidden', boxShadow: '0 2px 16px #00000018' },
   sheetHeader: { paddingLeft: 18, paddingRight: 4, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }, sheetLabel: { fontSize: 10, letterSpacing: 1, fontWeight: '600', color: colors.inkSoft },
   list: { paddingHorizontal: 16, paddingBottom: 16, backgroundColor: colors.listBackground, maxWidth: 680, width: '100%', alignSelf: 'center' }, listHeading: { paddingTop: 22, paddingBottom: 16, gap: 6 },
