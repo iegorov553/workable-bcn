@@ -5,7 +5,7 @@ import * as Location from 'expo-location';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { ActivityIndicator, BackHandler, FlatList, Image, Keyboard, Linking, Modal, Platform, Pressable, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
+import { ActivityIndicator, AppState, BackHandler, FlatList, Image, Keyboard, Linking, Modal, Platform, Pressable, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import MapCanvas from './src/components/MapCanvas';
 import { PlaceCard } from './src/components/PlaceCard';
@@ -21,6 +21,7 @@ import { requestBrowserLocation } from './src/utils/browser-location';
 import { PRIVACY_POLICY_URL, SUPPORT_EMAIL } from './src/config';
 import { applyTypography } from './src/typography';
 import { rankEquidistantPlaces, type EquidistantMatch } from './src/utils/equidistant-ranking';
+import { startLocationWatcher, type WatcherProvider } from './src/utils/location-watcher';
 
 const places = placesJson as Place[];
 const chains = Array.from(new Set(places.map(p => p.chain)));
@@ -37,6 +38,7 @@ function AppContent() {
   const [loaded, setLoaded] = useState(false);
   const [location, setLocation] = useState<Coordinates | null>(null);
   const [locating, setLocating] = useState(false);
+  const [permissionGranted, setPermissionGranted] = useState(false);
   const locationPending = useRef(false);
   const [camera, setCamera] = useState<CameraCommand | null>(null);
   const cameraSequence = useRef(0);
@@ -172,6 +174,11 @@ function AppContent() {
             },
       };
 
+      const perm = await provider.permission();
+      if (mounted.current && perm.granted) {
+        setPermissionGranted(true);
+      }
+
       if (provider.lastKnown) {
         provider.lastKnown().then(fast => {
           if (mounted.current && fast?.coords) {
@@ -183,6 +190,7 @@ function AppContent() {
 
       const coords = await (onlyIfGranted ? requestLocationIfGranted(provider) : Platform.OS === 'web' ? requestBrowserLocation() : requestLocation(provider));
       if (!mounted.current || !coords) return;
+      setPermissionGranted(true);
       setLocation(coords);
       if (centerMap) { setSelectedId(null); setMode('map'); focus(coords); }
       if (!onlyIfGranted) haptic();
@@ -196,6 +204,48 @@ function AppContent() {
     }
   }, [focus]);
   useEffect(() => { void locate(false, true); }, [locate]);
+
+  useEffect(() => {
+    if (!permissionGranted) return;
+    let watcherSub: { remove: () => void } | null = null;
+    let isCancelled = false;
+
+    const watcherProvider: WatcherProvider = {
+      permission: Location.getForegroundPermissionsAsync,
+      watchPosition: Location.watchPositionAsync,
+      getAppState: () => AppState.currentState,
+      addAppStateListener: (listener) => {
+        const sub = AppState.addEventListener('change', listener);
+        return { remove: () => sub.remove() };
+      },
+    };
+
+    void startLocationWatcher(watcherProvider, {
+      accuracy: Location.Accuracy.Balanced,
+      timeInterval: 10000,
+      distanceInterval: 5,
+      onLocation: (coords) => {
+        if (!mounted.current) return;
+        setLocation((prev) => {
+          if (prev && prev.latitude === coords.latitude && prev.longitude === coords.longitude) {
+            return prev;
+          }
+          return coords;
+        });
+      },
+    }).then((sub) => {
+      if (isCancelled) {
+        sub.remove();
+      } else {
+        watcherSub = sub;
+      }
+    }).catch(() => {});
+
+    return () => {
+      isCancelled = true;
+      watcherSub?.remove();
+    };
+  }, [permissionGranted]);
   const resetFilters = () => { setQuery(''); setChain('All'); };
 
   const toggleMeetMode = () => {
