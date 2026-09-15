@@ -317,6 +317,8 @@ test('map runtime executes fitBounds when both userLocation and friendLocation a
       map: () => map,
       tileLayer: () => ({ on() { return this; }, addTo() { return this; } }),
       circleMarker: () => ({ bindPopup() { return this; }, addTo() { return this; }, on() { return this; }, setRadius() { return this; }, setStyle() { return this; }, bringToFront() {}, setLatLng() {}, remove() {} }),
+      divIcon: (opts: any) => opts,
+      marker: () => ({ bindPopup() { return this; }, addTo() { return this; }, setLatLng() {}, remove() {} }),
     },
   };
   runInNewContext(readFileSync(new URL('../src/map/map-runtime.js', import.meta.url), 'utf8'), context);

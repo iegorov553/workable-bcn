@@ -213,15 +213,43 @@
     }
     if (state.userLocation) {
       const position = [state.userLocation.latitude, state.userLocation.longitude];
-      if (!userMarker) userMarker = L.circleMarker(position, { radius: 8, color: '#FFFFFF', weight: 4, fillColor: '#1479D3', fillOpacity: 1, bubblingMouseEvents: false }).bindPopup('You are here').addTo(map);
-      else userMarker.setLatLng(position);
-      userMarker.bringToFront();
+      if (!userMarker) {
+        if (typeof L.marker === 'function') {
+          const icon = typeof L.divIcon === 'function' ? L.divIcon({
+            className: 'location-marker user-location-marker',
+            html: '<div class="location-pulse location-pulse-user"></div><div class="location-dot location-dot-user"></div>',
+            iconSize: [24, 24],
+            iconAnchor: [12, 12],
+            popupAnchor: [0, -14],
+          }) : undefined;
+          userMarker = L.marker(position, { icon, zIndexOffset: 1000, bubblingMouseEvents: false }).bindPopup('You are here').addTo(map);
+        } else {
+          userMarker = L.circleMarker(position, { radius: 8, color: '#FFFFFF', weight: 4, fillColor: '#007AFF', fillOpacity: 1, bubblingMouseEvents: false }).bindPopup('You are here').addTo(map);
+        }
+      } else {
+        userMarker.setLatLng(position);
+      }
+      if (typeof userMarker.bringToFront === 'function') userMarker.bringToFront();
     } else if (userMarker) { userMarker.remove(); userMarker = null; }
     if (state.friendLocation) {
       const friendPos = [state.friendLocation.latitude, state.friendLocation.longitude];
-      if (!friendMarker) friendMarker = L.circleMarker(friendPos, { radius: 8, color: '#FFFFFF', weight: 4, fillColor: '#7C3AED', fillOpacity: 1, bubblingMouseEvents: false }).bindPopup('Friend is here').addTo(map);
-      else friendMarker.setLatLng(friendPos);
-      friendMarker.bringToFront();
+      if (!friendMarker) {
+        if (typeof L.marker === 'function') {
+          const icon = typeof L.divIcon === 'function' ? L.divIcon({
+            className: 'location-marker friend-location-marker',
+            html: '<div class="location-pulse location-pulse-friend"></div><div class="location-dot location-dot-friend"></div>',
+            iconSize: [24, 24],
+            iconAnchor: [12, 12],
+            popupAnchor: [0, -14],
+          }) : undefined;
+          friendMarker = L.marker(friendPos, { icon, zIndexOffset: 900, bubblingMouseEvents: false }).bindPopup('Friend is here').addTo(map);
+        } else {
+          friendMarker = L.circleMarker(friendPos, { radius: 8, color: '#FFFFFF', weight: 4, fillColor: '#7C3AED', fillOpacity: 1, bubblingMouseEvents: false }).bindPopup('Friend is here').addTo(map);
+        }
+      } else {
+        friendMarker.setLatLng(friendPos);
+      }
+      if (typeof friendMarker.bringToFront === 'function') friendMarker.bringToFront();
     } else if (friendMarker) { friendMarker.remove(); friendMarker = null; }
     if (state.userLocation && state.friendLocation) {
       const boundsKey = `${state.userLocation.latitude},${state.userLocation.longitude};${state.friendLocation.latitude},${state.friendLocation.longitude}`;

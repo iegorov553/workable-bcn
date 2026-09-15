@@ -362,3 +362,90 @@ test('buildMapDocument supports optional cartoApiKey option', async () => {
   assert.match(customHtml, /const __CARTO_API_KEY__ = "custom-build-key";/);
 });
 
+test('user and friend location markers use distinct divIcons with pulsing animations and high z-index', () => {
+  const markers: any[] = [];
+  const map = {
+    stop() {}, closePopup() {}, invalidateSize() {}, flyTo() {},
+    on() { return this; },
+  };
+  const window: any = { ReactNativeWebView: { postMessage() {} }, addEventListener() {} };
+  const element = () => ({ append() {}, textContent: '', className: '', hidden: true });
+  const context = {
+    window,
+    document: { getElementById: element, createElement: element },
+    L: {
+      map: () => map,
+      tileLayer: () => ({ on() { return this; }, addTo() { return this; } }),
+      circleMarker: () => ({ bindPopup() { return this; }, addTo() { return this; }, on() { return this; }, setRadius() { return this; }, setStyle() { return this; }, bringToFront() {}, setLatLng() {}, remove() {} }),
+      divIcon: (opts: any) => ({ _isDivIcon: true, ...opts }),
+      marker: (latlng: any, opts: any) => {
+        const marker = {
+          latlng,
+          opts,
+          popup: '',
+          removed: false,
+          bindPopup(text: string) { this.popup = text; return this; },
+          addTo() { return this; },
+          setLatLng(pos: any) { this.latlng = pos; return this; },
+          remove() { this.removed = true; },
+        };
+        markers.push(marker);
+        return marker;
+      },
+    },
+  };
+
+  runInNewContext(readFileSync(new URL('../src/map/map-runtime.js', import.meta.url), 'utf8'), context);
+
+  // Deliver state with userLocation and friendLocation
+  const state = {
+    places: [],
+    selectedId: null,
+    userLocation: { latitude: 41.389, longitude: 2.169 },
+    friendLocation: { latitude: 41.395, longitude: 2.175 },
+    cameraCommand: null,
+  };
+  runInNewContext(mapUpdateScript(encodeMapPayload(state)), context);
+
+  assert.equal(markers.length, 2);
+  const userMarker = markers.find(m => m.popup === 'You are here');
+  assert.ok(userMarker, 'user marker should exist');
+  assert.equal(userMarker.opts.zIndexOffset, 1000);
+  assert.match(userMarker.opts.icon.className, /user-location-marker/);
+  assert.match(userMarker.opts.icon.html, /location-pulse-user/);
+  assert.match(userMarker.opts.icon.html, /location-dot-user/);
+
+  const friendMarker = markers.find(m => m.popup === 'Friend is here');
+  assert.ok(friendMarker, 'friend marker should exist');
+  assert.equal(friendMarker.opts.zIndexOffset, 900);
+  assert.match(friendMarker.opts.icon.className, /friend-location-marker/);
+  assert.match(friendMarker.opts.icon.html, /location-pulse-friend/);
+  assert.match(friendMarker.opts.icon.html, /location-dot-friend/);
+
+  // Updating coordinates calls setLatLng
+  const updatedState = {
+    ...state,
+    userLocation: { latitude: 41.390, longitude: 2.170 },
+  };
+  runInNewContext(mapUpdateScript(encodeMapPayload(updatedState)), context);
+  assert.deepEqual(JSON.parse(JSON.stringify(userMarker.latlng)), [41.390, 2.170]);
+
+  // Removing location removes marker
+  const emptyState = { ...state, userLocation: null, friendLocation: null };
+  runInNewContext(mapUpdateScript(encodeMapPayload(emptyState)), context);
+  assert.equal(userMarker.removed, true);
+  assert.equal(friendMarker.removed, true);
+});
+
+test('bundled map css defines location-marker styles and pulse animation', async () => {
+  const build = await import(new URL('../scripts/build-map.mjs', import.meta.url).href);
+  const html = await build.buildMapDocument();
+  assert.match(html, /\.location-marker/);
+  assert.match(html, /\.location-pulse-user/);
+  assert.match(html, /\.location-pulse-friend/);
+  assert.match(html, /\.location-dot-user/);
+  assert.match(html, /\.location-dot-friend/);
+  assert.match(html, /@keyframes location-pulse-anim/);
+});
+
+
