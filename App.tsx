@@ -11,7 +11,7 @@ import MapCanvas from './src/components/MapCanvas';
 import { PlaceCard } from './src/components/PlaceCard';
 import placesJson from './src/data/places.json';
 import { chainColors, colors, fallbackChainColor } from './src/theme';
-import type { Coordinates, Place, ViewMode } from './src/types';
+import type { Coordinates, MapOrientation, Place, ViewMode } from './src/types';
 import { distanceKm, formatDistance } from './src/utils/distance';
 import { getDirectionsUrl } from './src/utils/directions';
 import { LocationRequestError, type Provider, requestLocation, requestLocationIfGranted, withTimeout } from './src/utils/location-request';
@@ -26,6 +26,7 @@ const places = placesJson as Place[];
 const chains = Array.from(new Set(places.map(p => p.chain)));
 const validIds = new Set(places.map(p => p.id));
 const FAVORITES_KEY = 'workable-bcn:favorites:v1';
+const ORIENTATION_KEY = 'workable-bcn:map-orientation:v1';
 const haptic = () => { if (Platform.OS !== 'web') void Haptics.selectionAsync().catch(() => {}); };
 
 function AppContent() {
@@ -51,6 +52,7 @@ function AppContent() {
   const [friendLocation, setFriendLocation] = useState<Coordinates | null>(null);
   const [settingOrigin, setSettingOrigin] = useState<'you' | 'friend' | null>(null);
   const [showMetro, setShowMetro] = useState(false);
+  const [orientation, setOrientation] = useState<MapOrientation>('north');
 
   useEffect(() => {
     mounted.current = true;
@@ -58,6 +60,13 @@ function AppContent() {
       .then(value => { if (mounted.current) setFavorites(parseFavorites(value, validIds)); })
       .catch(() => { if (mounted.current) setNotice('Could not load saved places. Please restart the app.'); })
       .finally(() => { if (mounted.current) setLoaded(true); });
+    AsyncStorage.getItem(ORIENTATION_KEY)
+      .then(value => {
+        if (mounted.current && (value === 'grid' || value === 'north')) {
+          setOrientation(value);
+        }
+      })
+      .catch(() => {});
     return () => { mounted.current = false; };
   }, []);
 
@@ -212,6 +221,13 @@ function AppContent() {
     haptic();
   };
 
+  const toggleOrientation = useCallback(() => {
+    const next: MapOrientation = orientation === 'north' ? 'grid' : 'north';
+    setOrientation(next);
+    haptic();
+    void AsyncStorage.setItem(ORIENTATION_KEY, next).catch(() => {});
+  }, [orientation]);
+
   const handleMapClick = useCallback((coords: Coordinates) => {
     if (!meetMode) return;
     if (settingOrigin === 'you') {
@@ -352,10 +368,26 @@ function AppContent() {
           cameraCommand={camera}
           topMatchIds={topMatchIds}
           showMetro={showMetro}
+          orientation={orientation}
           onSelect={selectPlace}
           onMapClick={handleMapClick}
         />
         <View style={s.mapControls}>
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel={orientation === 'grid' ? 'Reset map orientation to North' : 'Rotate map to Barcelona grid'}
+            accessibilityState={{ selected: orientation === 'grid' }}
+            onPress={toggleOrientation}
+            style={[s.mapButton, orientation === 'grid' && s.mapButtonActive]}
+          >
+            <View style={{ transform: [{ rotate: orientation === 'grid' ? '45deg' : '0deg' }] }}>
+              <Ionicons
+                name="compass-outline"
+                size={24}
+                color={orientation === 'grid' ? colors.tomato : colors.ink}
+              />
+            </View>
+          </Pressable>
           <Pressable
             accessibilityRole="button"
             accessibilityLabel={showMetro ? 'Hide metro lines' : 'Show metro lines'}
