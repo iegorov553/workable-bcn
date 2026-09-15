@@ -9,6 +9,7 @@ import { ActivityIndicator, AppState, BackHandler, FlatList, Image, Keyboard, Li
 import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import MapCanvas from './src/components/MapCanvas';
 import { PlaceCard } from './src/components/PlaceCard';
+import { NoteModal } from './src/components/NoteModal';
 import placesJson from './src/data/places.json';
 import { chainColors, colors, fallbackChainColor } from './src/theme';
 import type { Coordinates, Place, ViewMode } from './src/types';
@@ -22,11 +23,13 @@ import { PRIVACY_POLICY_URL, SUPPORT_EMAIL } from './src/config';
 import { applyTypography } from './src/typography';
 import { rankEquidistantPlaces, type EquidistantMatch } from './src/utils/equidistant-ranking';
 import { startLocationWatcher, type WatcherProvider } from './src/utils/location-watcher';
+import { parseNotes, serializeNotes, sanitizeNote } from './src/utils/notes';
 
 const places = placesJson as Place[];
 const chains = Array.from(new Set(places.map(p => p.chain)));
 const validIds = new Set(places.map(p => p.id));
 const FAVORITES_KEY = 'workable-bcn:favorites:v1';
+const NOTES_KEY = 'workable-bcn:notes:v1';
 const haptic = () => { if (Platform.OS !== 'web') void Haptics.selectionAsync().catch(() => {}); };
 
 function AppContent() {
@@ -35,6 +38,8 @@ function AppContent() {
   const [chain, setChain] = useState('All');
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
+  const [notes, setNotes] = useState<Record<string, string>>({});
+  const [editingPlace, setEditingPlace] = useState<Place | null>(null);
   const [loaded, setLoaded] = useState(false);
   const [location, setLocation] = useState<Coordinates | null>(null);
   const [locating, setLocating] = useState(false);
@@ -47,6 +52,7 @@ function AppContent() {
   const [about, setAbout] = useState(false);
   const mounted = useRef(true);
   const saveQueue = useRef(Promise.resolve());
+  const saveNotesQueue = useRef(Promise.resolve());
 
   // Meet Halfway state
   const [meetMode, setMeetMode] = useState(false);
@@ -60,6 +66,9 @@ function AppContent() {
       .then(value => { if (mounted.current) setFavorites(parseFavorites(value, validIds)); })
       .catch(() => { if (mounted.current) setNotice('Could not load saved places. Please restart the app.'); })
       .finally(() => { if (mounted.current) setLoaded(true); });
+    AsyncStorage.getItem(NOTES_KEY)
+      .then(value => { if (mounted.current) setNotes(parseNotes(value, validIds)); })
+      .catch(() => { if (mounted.current) setNotice('Could not load saved notes.'); });
     return () => { mounted.current = false; };
   }, []);
 
@@ -132,6 +141,31 @@ function AppContent() {
     saveQueue.current = saveQueue.current.then(() => AsyncStorage.setItem(FAVORITES_KEY, JSON.stringify([...next])))
       .catch(() => { if (mounted.current) setNotice('Could not save your places on this device.'); });
     haptic();
+  };
+
+  const saveNote = (placeId: string, text: string) => {
+    const cleaned = sanitizeNote(text);
+    const next = { ...notes };
+    if (cleaned.length > 0) {
+      next[placeId] = cleaned;
+    } else {
+      delete next[placeId];
+    }
+    setNotes(next);
+    saveNotesQueue.current = saveNotesQueue.current
+      .then(() => AsyncStorage.setItem(NOTES_KEY, serializeNotes(next)))
+      .catch(() => { if (mounted.current) setNotice('Could not save your note on this device.'); });
+    setEditingPlace(null);
+  };
+
+  const deleteNote = (placeId: string) => {
+    const next = { ...notes };
+    delete next[placeId];
+    setNotes(next);
+    saveNotesQueue.current = saveNotesQueue.current
+      .then(() => AsyncStorage.setItem(NOTES_KEY, serializeNotes(next)))
+      .catch(() => { if (mounted.current) setNotice('Could not delete your note.'); });
+    setEditingPlace(null);
   };
   const openDirections = (place: Place) => {
     void Linking.openURL(getDirectionsUrl(place))
@@ -422,12 +456,14 @@ function AppContent() {
           <PlaceCard
             place={selected}
             favorite={favorites.has(selected.id)}
+            note={notes[selected.id]}
             distanceLabel={equidistantMap?.get(selected.id)?.badgeLabel ?? formatDistance(distanceKm(selected, location))}
             matchBadge={equidistantMap?.get(selected.id)?.matchTag}
             isBestMatch={equidistantMap?.get(selected.id)?.isBestMatch}
             onPress={() => openDirections(selected)}
             onDirections={() => openDirections(selected)}
             onFavorite={() => toggleFavorite(selected.id)}
+            onEditNote={() => setEditingPlace(selected)}
             onShareFriend={meetMode && friendLocation ? () => shareFriendDirections(selected) : undefined}
           />
         </View> : <View style={s.mapSummary}><View style={s.handle} /><View style={s.summaryRow}><View style={{ flex: 1 }}><Text style={s.summaryTitle}>{meetMode && location && friendLocation ? (filtered.length ? `${formatPlaceCount(filtered.length)} ranked by travel time` : 'No places found') : (filtered.length ? `${formatPlaceCount(filtered.length)} on the map` : 'No places found')}</Text><Text style={s.secondary}>{meetMode ? (!location ? 'Tap map to set your location pin' : !friendLocation ? "Tap map to set your friend's pin" : 'Sorted by balanced travel time for both') : (filtered.length ? 'Tap a pin to explore a café' : 'Try a different street or chain')}</Text></View><Pressable accessibilityRole="button" accessibilityLabel={filtered.length ? 'Open the list of places' : 'Reset filters'} onPress={() => filtered.length ? setMode('list') : resetFilters()} style={s.roundButton}><Ionicons name={filtered.length ? 'list-outline' : 'refresh-outline'} size={23} color={colors.ink} /></Pressable></View></View>}
@@ -439,12 +475,14 @@ function AppContent() {
           return <PlaceCard
             place={item}
             favorite={favorites.has(item.id)}
+            note={notes[item.id]}
             distanceLabel={match?.badgeLabel ?? formatDistance(distanceKm(item, location))}
             matchBadge={match?.matchTag}
             isBestMatch={match?.isBestMatch}
             onPress={() => void selectPlace(item.id)}
             onDirections={() => openDirections(item)}
             onFavorite={() => toggleFavorite(item.id)}
+            onEditNote={() => setEditingPlace(item)}
             onShareFriend={meetMode && friendLocation ? () => shareFriendDirections(item) : undefined}
           />;
         }}
@@ -464,6 +502,14 @@ function AppContent() {
         <Text style={s.secondary}>Workable BCN · 1.0.0</Text>
       </ScrollView></SafeAreaView>
     </Modal>
+    <NoteModal
+      visible={!!editingPlace}
+      place={editingPlace}
+      initialNote={editingPlace ? notes[editingPlace.id] : undefined}
+      onClose={() => setEditingPlace(null)}
+      onSave={(text) => editingPlace && saveNote(editingPlace.id, text)}
+      onDelete={() => editingPlace && deleteNote(editingPlace.id)}
+    />
   </SafeAreaView>;
 }
 export default function App() {

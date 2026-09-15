@@ -215,3 +215,47 @@ test('rankEquidistantPlaces preserves catalogue stability, favorites, and determ
   assert.deepEqual(new Set(rankedFavorites.map(m => m.place.id)), favoriteIds);
 });
 
+test('NoteModal exports valid component and NoteModalProps interface', () => {
+  const source = readFileSync(new URL('../src/components/NoteModal.tsx', import.meta.url), 'utf8');
+  assert.match(source, /export function NoteModal\(/);
+  assert.match(source, /export type NoteModalProps =/);
+  assert.match(source, /visible: boolean;/);
+  assert.match(source, /place: Place \| null;/);
+  assert.match(source, /initialNote\?: string;/);
+  assert.match(source, /onClose: \(\) => void;/);
+  assert.match(source, /onSave: \(text: string\) => void;/);
+  assert.match(source, /onDelete\?: \(\) => void;/);
+  assert.match(source, /DEFAULT_MAX_NOTE_LENGTH/);
+  assert.match(source, /Haptics/);
+});
+
+test('PlaceCard source defines and supports note and onEditNote props', () => {
+  const source = readFileSync(new URL('../src/components/PlaceCard.tsx', import.meta.url), 'utf8');
+  assert.match(source, /note\?: string;/);
+  assert.match(source, /onEditNote\?: \(\) => void;/);
+  assert.match(source, /onEditNote/);
+  assert.match(source, /YOUR NOTE/);
+  assert.match(source, /Add note/);
+});
+
+test('App integrates notes persistence, state, NoteModal, and PlaceCard wiring', () => {
+  const source = readFileSync(new URL('../App.tsx', import.meta.url), 'utf8');
+  assert.match(source, /import\s*\{[^}]*parseNotes[^}]*\}\s*from\s*['"]\.\/src\/utils\/notes['"]/);
+  assert.match(source, /import\s*\{[^}]*NoteModal[^}]*\}\s*from\s*['"]\.\/src\/components\/NoteModal['"]/);
+  assert.match(source, /const\s+NOTES_KEY\s*=\s*'workable-bcn:notes:v1';/);
+  assert.match(source, /const\s*\[notes,\s*setNotes\]\s*=\s*useState<Record<string,\s*string>>\(\{\}\);/);
+  assert.match(source, /const\s*\[editingPlace,\s*setEditingPlace\]\s*=\s*useState<Place\s*\|\s*null>\(null\);/);
+  assert.match(source, /const\s+saveNotesQueue\s*=\s*useRef\(Promise\.resolve\(\)\);/);
+  assert.match(source, /AsyncStorage\.getItem\(NOTES_KEY\)/);
+  assert.match(source, /parseNotes\(value,\s*validIds\)/);
+  assert.match(source, /saveNote\s*=\s*\(placeId:\s*string,\s*text:\s*string\)/);
+  assert.match(source, /deleteNote\s*=\s*\(placeId:\s*string\)/);
+  assert.match(source, /note=\{notes\[selected\.id\]\}/);
+  assert.match(source, /onEditNote=\{\(\)\s*=>\s*setEditingPlace\(selected\)\}/);
+  assert.match(source, /note=\{notes\[item\.id\]\}/);
+  assert.match(source, /onEditNote=\{\(\)\s*=>\s*setEditingPlace\(item\)\}/);
+  assert.match(source, /<NoteModal/);
+});
+
+
+

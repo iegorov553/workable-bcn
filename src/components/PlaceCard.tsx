@@ -14,6 +14,8 @@ export type PlaceCardProps = {
   matchBadge?: string | null;
   isBestMatch?: boolean;
   onShareFriend?: () => void;
+  note?: string;
+  onEditNote?: () => void;
 };
 
 export function PlaceCard({
@@ -26,6 +28,8 @@ export function PlaceCard({
   matchBadge,
   isBestMatch = false,
   onShareFriend,
+  note,
+  onEditNote,
 }: PlaceCardProps) {
   const accent = chainColors[place.chain] ?? fallbackChainColor;
   return (
@@ -63,6 +67,20 @@ export function PlaceCard({
         <Text numberOfLines={2} style={s.name}>{place.name}</Text>
         <Text numberOfLines={2} style={s.address}>{place.address}</Text>
       </Pressable>
+      {note ? (
+        <Pressable
+          accessibilityRole="button"
+          accessibilityLabel="Edit note"
+          onPress={onEditNote}
+          style={({ pressed }) => [s.noteBox, pressed && { opacity: 0.7 }]}
+        >
+          <View style={s.noteHeader}>
+            <Ionicons name="document-text-outline" size={13} color={colors.inkSoft} />
+            <Text style={s.noteLabel}>YOUR NOTE</Text>
+          </View>
+          <Text numberOfLines={3} style={s.noteText}>{note}</Text>
+        </Pressable>
+      ) : null}
       <View style={s.actionsRow}>
         <Pressable
           accessibilityRole="link"
@@ -83,6 +101,18 @@ export function PlaceCard({
             style={({ pressed }) => [s.shareFriend, pressed && { opacity: 0.65 }]}
           >
             <Ionicons name="share-social-outline" size={18} color={colors.ink} />
+          </Pressable>
+        ) : null}
+        {onEditNote && !note ? (
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Add note for this cafe"
+            onPress={onEditNote}
+            hitSlop={4}
+            style={({ pressed }) => [s.addNoteButton, pressed && { opacity: 0.65 }]}
+          >
+            <Ionicons name="create-outline" size={15} color={colors.ink} />
+            <Text style={s.addNoteText}>Add note</Text>
           </Pressable>
         ) : null}
       </View>
@@ -106,8 +136,14 @@ const s = applyTypography(StyleSheet.create({
   addressButton: { paddingTop: 7, paddingBottom: 10 },
   name: { fontFamily: 'FrauncesBold', fontSize: 20, color: colors.ink, lineHeight: 26 },
   address: { marginTop: 5, fontSize: 12, lineHeight: 17, color: colors.inkSoft },
+  noteBox: { backgroundColor: colors.cream, borderRadius: 14, borderWidth: 1, borderColor: colors.border, paddingVertical: 9, paddingHorizontal: 12, marginBottom: 12 },
+  noteHeader: { flexDirection: 'row', alignItems: 'center', gap: 5, marginBottom: 3 },
+  noteLabel: { fontSize: 10, fontWeight: '700', letterSpacing: 1.2, color: colors.inkSoft },
+  noteText: { fontSize: 13, lineHeight: 18, color: colors.ink },
   actionsRow: { flexDirection: 'row', alignItems: 'center', gap: 8 },
   route: { alignSelf: 'flex-start', minHeight: 36, flexDirection: 'row', alignItems: 'center', gap: 7, paddingHorizontal: 14, borderRadius: 13, backgroundColor: colors.honey },
   routeText: { fontSize: 13, color: colors.ink, fontWeight: '700' },
   shareFriend: { width: 36, height: 36, borderRadius: 13, backgroundColor: colors.cream, borderWidth: 1, borderColor: colors.border, alignItems: 'center', justifyContent: 'center' },
+  addNoteButton: { minHeight: 36, flexDirection: 'row', alignItems: 'center', gap: 6, paddingHorizontal: 12, borderRadius: 13, backgroundColor: colors.cream, borderWidth: 1, borderColor: colors.border },
+  addNoteText: { fontSize: 13, color: colors.ink, fontWeight: '600' },
 }));
