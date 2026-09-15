@@ -224,9 +224,24 @@ map.mouseEventToContainerPoint = function (e) {
   return new L.Point(mx + localDx, my + localDy);
 };
 ```
-* **Pan / Drag:** Touch deltas map directly to container displacement with zero drift.
-* **Pinch Zoom:** The centroid of two touches maps to the correct geographic point.
+* **Pinch Zoom:** The centroid of two touches maps to the correct geographic point via `mouseEventToContainerPoint`.
 * **Marker & Map Clicks:** Tapping cafes or setting origin pins in Meet Halfway mode works seamlessly with pixel accuracy.
+
+### 6.3 Map Pan / Drag Projection (`L.Draggable` and `L.DomUtil.getScale`)
+Leaflet's map panning (`L.Draggable`) operates on raw screen coordinates (`clientX`, `clientY`) directly from DOM touch/mouse events and applies the delta directly to `map._mapPane` without calling `mouseEventToContainerPoint`. In addition, `L.DomUtil.getScale` inspects `getBoundingClientRect()`, which on a 45°-rotated element reports $\sqrt{2} \times$ width/height as apparent scale.
+
+To ensure panning moves the map 1:1 under the user's finger in grid orientation:
+1. `L.DomUtil.getScale` is wrapped for `#map` in grid orientation to return `{ x: 1, y: 1 }`, preventing false scale division.
+2. `L.Draggable.prototype._updatePosition` (and `map.dragging._draggable`) is wrapped to inverse-rotate the screen displacement by $-45^\circ$ before applying it to `map._mapPane`:
+```javascript
+const dx = (this._newPos.x - this._startPos.x) * scaleX;
+const dy = (this._newPos.y - this._startPos.y) * scaleY;
+const cos = Math.SQRT1_2;
+const localDx = (dx + dy) * cos;
+const localDy = (dy - dx) * cos;
+this._newPos = new L.Point(this._startPos.x + localDx, this._startPos.y + localDy);
+```
+3. Inertia movement (`map.panBy`) naturally preserves the rotated velocity vector because `_lastPos` and `_positions` reflect the rotated pane positions.
 
 ---
 

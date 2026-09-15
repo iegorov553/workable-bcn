@@ -529,3 +529,154 @@ test('map runtime wraps L.DomEvent.getMousePosition with inverse rotation when o
   assert.equal(originalMousePosCalled, true);
 });
 
+test('map runtime wraps L.Draggable._updatePosition with inverse rotation when orientation is grid', () => {
+  const classList = new Set<string>();
+  const mapElement = {
+    id: 'map',
+    offsetWidth: 1000,
+    offsetHeight: 1000,
+    getBoundingClientRect() {
+      return { left: 0, top: 0, width: 1000 * Math.SQRT2, height: 1000 * Math.SQRT2 };
+    },
+    classList: {
+      add(cls: string) { classList.add(cls); },
+      remove(cls: string) { classList.delete(cls); },
+      contains(cls: string) { return classList.has(cls); },
+    },
+  };
+  const mapPane = { id: 'mapPane', style: {} };
+  const map: any = {
+    _mapPane: mapPane,
+    on() { return this; },
+    stop() {}, closePopup() {}, invalidateSize() {}, flyTo() {},
+    getSize() { return { x: 1000, y: 1000 }; },
+    getContainer() { return mapElement; },
+    getPane(name: string) { return name === 'mapPane' ? mapPane : null; },
+  };
+
+  class Point {
+    x: number; y: number;
+    constructor(x: number, y: number) { this.x = x; this.y = y; }
+    add(p: { x: number; y: number }) { return new Point(this.x + p.x, this.y + p.y); }
+    subtract(p: { x: number; y: number }) { return new Point(this.x - p.x, this.y - p.y); }
+  }
+
+  let originalUpdatePositionCalled = false;
+  class Draggable {
+    _element: any;
+    _dragHandle: any;
+    _startPos: any;
+    _newPos: any;
+    _parentScale: any;
+    constructor(element: any, dragHandle: any) {
+      this._element = element;
+      this._dragHandle = dragHandle;
+    }
+    _updatePosition() {
+      originalUpdatePositionCalled = true;
+    }
+  }
+
+  const DomUtil = {
+    getScale(element: any) {
+      const rect = element.getBoundingClientRect ? element.getBoundingClientRect() : { width: element.offsetWidth || 0, height: element.offsetHeight || 0 };
+      return {
+        x: rect.width / (element.offsetWidth || 1),
+        y: rect.height / (element.offsetHeight || 1),
+        boundingClientRect: rect,
+      };
+    },
+  };
+
+  const window: any = {
+    ReactNativeWebView: { postMessage() {} },
+    addEventListener() {},
+    innerWidth: 400,
+    innerHeight: 800,
+  };
+  const context = {
+    window,
+    document: {
+      getElementById(id: string) { return id === 'map' ? mapElement : { append() {}, textContent: '', className: '', hidden: true }; },
+      createElement() { return { append() {}, textContent: '', className: '', hidden: true }; },
+    },
+    L: {
+      Point,
+      DomUtil,
+      Draggable,
+      map: () => map,
+      tileLayer: () => ({ on() { return this; }, addTo() { return this; } }),
+      circleMarker: () => ({ bindPopup() { return this; }, addTo() { return this; }, on() { return this; }, setRadius() { return this; }, setStyle() { return this; }, bringToFront() {}, setLatLng() {}, remove() {} }),
+    },
+  };
+  runInNewContext(readFileSync(new URL('../src/map/map-runtime.js', import.meta.url), 'utf8'), context);
+
+  // In north mode, Draggable._updatePosition does not rotate position
+  const stateNorth: MapPayload = { places: [], selectedId: null, userLocation: null, cameraCommand: null, orientation: 'north' };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateNorth)), context);
+
+  const draggable = new Draggable(mapPane, mapElement);
+  draggable._startPos = new Point(0, 0);
+  draggable._newPos = new Point(0, 100); // Screen drag down by 100px
+  draggable._parentScale = { x: 1, y: 1 };
+  originalUpdatePositionCalled = false;
+  draggable._updatePosition();
+  assert.equal(originalUpdatePositionCalled, true);
+  assert.equal(draggable._newPos.x, 0);
+  assert.equal(draggable._newPos.y, 100);
+
+  // In grid mode, DomUtil.getScale returns x: 1, y: 1 for map
+  const stateGrid: MapPayload = { places: [], selectedId: null, userLocation: null, cameraCommand: null, orientation: 'grid' };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateGrid)), context);
+
+  const mapScale = DomUtil.getScale(mapElement);
+  assert.equal(mapScale.x, 1);
+  assert.equal(mapScale.y, 1);
+
+  // In grid mode, Draggable._updatePosition applies -45deg inverse rotation to screen displacement
+  // Dragging downward on screen (dx = 0, dy = 100):
+  // localDx = (0 + 100) * SQRT1_2 = +70.71, localDy = (100 - 0) * SQRT1_2 = +70.71
+  draggable._startPos = new Point(0, 0);
+  draggable._newPos = new Point(0, 100);
+  draggable._parentScale = { x: 1, y: 1 };
+  draggable._updatePosition();
+  assert.equal(Math.round(draggable._newPos.x), Math.round(100 * Math.SQRT1_2));
+  assert.equal(Math.round(draggable._newPos.y), Math.round(100 * Math.SQRT1_2));
+
+  // Dragging rightward on screen (dx = 100, dy = 0):
+  // localDx = (100 + 0) * SQRT1_2 = +70.71, localDy = (0 - 100) * SQRT1_2 = -70.71
+  draggable._startPos = new Point(0, 0);
+  draggable._newPos = new Point(100, 0);
+  draggable._parentScale = { x: 1, y: 1 };
+  draggable._updatePosition();
+  assert.equal(Math.round(draggable._newPos.x), Math.round(100 * Math.SQRT1_2));
+  assert.equal(Math.round(draggable._newPos.y), Math.round(-100 * Math.SQRT1_2));
+
+  // Dragging with existing pane offset (startPos: 500, 500, dragging upward: dx = 0, dy = -100):
+  // localDx = (0 + (-100)) * SQRT1_2 = -70.71, localDy = (-100 - 0) * SQRT1_2 = -70.71
+  draggable._startPos = new Point(500, 500);
+  draggable._newPos = new Point(500, 400); // 500 + 0, 500 - 100
+  draggable._parentScale = { x: 1, y: 1 };
+  draggable._updatePosition();
+  assert.equal(Math.round(draggable._newPos.x), Math.round(500 - 100 * Math.SQRT1_2));
+  assert.equal(Math.round(draggable._newPos.y), Math.round(500 - 100 * Math.SQRT1_2));
+
+  // Non-map element is NOT rotated even in grid mode
+  const otherEl = { id: 'other' };
+  const otherDraggable = new Draggable(otherEl, otherEl);
+  otherDraggable._startPos = new Point(0, 0);
+  otherDraggable._newPos = new Point(0, 100);
+  otherDraggable._updatePosition();
+  assert.equal(otherDraggable._newPos.x, 0);
+  assert.equal(otherDraggable._newPos.y, 100);
+
+  // Switching back to north mode restores unrotated drag
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateNorth)), context);
+  draggable._startPos = new Point(0, 0);
+  draggable._newPos = new Point(0, 100);
+  draggable._updatePosition();
+  assert.equal(draggable._newPos.x, 0);
+  assert.equal(draggable._newPos.y, 100);
+});
+
+

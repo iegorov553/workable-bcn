@@ -8,6 +8,20 @@
   window.addEventListener('error', () => send({ type: 'error' }));
   const map = L.map('map', { center: [41.389, 2.169], zoom: 13, minZoom: 3, maxZoom: 19, zoomControl: false });
   let currentOrientation = 'north';
+  if (typeof L !== 'undefined' && L.DomUtil && typeof L.DomUtil.getScale === 'function') {
+    const originalGetScale = L.DomUtil.getScale;
+    L.DomUtil.getScale = function (element) {
+      if (currentOrientation === 'grid' && element && (element.id === 'map' || (typeof map !== 'undefined' && typeof map.getContainer === 'function' && element === map.getContainer()))) {
+        const rect = element.getBoundingClientRect ? element.getBoundingClientRect() : { width: element.offsetWidth || 0, height: element.offsetHeight || 0 };
+        return {
+          x: 1,
+          y: 1,
+          boundingClientRect: rect,
+        };
+      }
+      return originalGetScale(element);
+    };
+  }
   if (typeof L !== 'undefined' && L.DomEvent && typeof L.DomEvent.getMousePosition === 'function') {
     const originalGetMousePosition = L.DomEvent.getMousePosition;
     L.DomEvent.getMousePosition = function (e, container) {
@@ -51,6 +65,35 @@
       const localDy = (dy - dx) * cos;
       return typeof L !== 'undefined' && L.Point ? new L.Point(mx + localDx, my + localDy) : { x: mx + localDx, y: my + localDy };
     };
+  }
+  const wrapDraggable = (target) => {
+    if (!target || target._workableDragWrapped || typeof target._updatePosition !== 'function') return;
+    target._workableDragWrapped = true;
+    const originalUpdatePosition = target._updatePosition;
+    target._updatePosition = function () {
+      if (currentOrientation === 'grid' && this._startPos && this._newPos && typeof this._startPos.x === 'number' && typeof this._newPos.x === 'number') {
+        const isMapDrag = !this._element || (typeof map !== 'undefined' && (this._element === map._mapPane || (typeof map.getPane === 'function' && this._element === map.getPane('mapPane')))) ||
+          (this._dragHandle && (this._dragHandle.id === 'map' || (typeof map !== 'undefined' && typeof map.getContainer === 'function' && this._dragHandle === map.getContainer())));
+        if (isMapDrag) {
+          const scaleX = (this._parentScale && typeof this._parentScale.x === 'number') ? this._parentScale.x : 1;
+          const scaleY = (this._parentScale && typeof this._parentScale.y === 'number') ? this._parentScale.y : 1;
+          const dx = (this._newPos.x - this._startPos.x) * scaleX;
+          const dy = (this._newPos.y - this._startPos.y) * scaleY;
+          const cos = Math.SQRT1_2;
+          const localDx = (dx + dy) * cos;
+          const localDy = (dy - dx) * cos;
+          this._newPos = typeof L !== 'undefined' && L.Point
+            ? new L.Point(this._startPos.x + localDx, this._startPos.y + localDy)
+            : { x: this._startPos.x + localDx, y: this._startPos.y + localDy };
+        }
+      }
+      return originalUpdatePosition.call(this);
+    };
+  };
+  if (typeof L !== 'undefined' && L.Draggable && L.Draggable.prototype) {
+    wrapDraggable(L.Draggable.prototype);
+  } else if (typeof map !== 'undefined' && map.dragging && map.dragging._draggable) {
+    wrapDraggable(map.dragging._draggable);
   }
   const notice = document.getElementById('tile-error');
   const cartoKey = typeof __CARTO_API_KEY__ !== 'undefined' && __CARTO_API_KEY__ ? __CARTO_API_KEY__ : '';
