@@ -22,6 +22,7 @@ export default function MapCanvas({
   cameraCommand,
   topMatchIds,
   showMetro,
+  orientation,
   onSelect,
   onMapClick,
 }: MapCanvasProps) {
@@ -31,8 +32,8 @@ export default function MapCanvas({
   const [failed, setFailed] = useState(false);
   const [generation, setGeneration] = useState(0);
   const payload = useMemo(
-    () => encodeMapPayload({ places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, chainColors, topMatchIds, showMetro }),
-    [places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, topMatchIds, showMetro]
+    () => encodeMapPayload({ places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, chainColors, topMatchIds, showMetro, orientation }),
+    [places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, topMatchIds, showMetro, orientation]
   );
   const latest = useRef(payload);
   latest.current = payload;

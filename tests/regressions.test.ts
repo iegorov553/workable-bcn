@@ -111,6 +111,7 @@ test('MapCanvas and MapCanvas.web accept friendLocation, meetMode, and forward o
   assert.match(nativeSource, /meetMode/);
   assert.match(nativeSource, /topMatchIds/);
   assert.match(nativeSource, /showMetro/);
+  assert.match(nativeSource, /orientation/);
   assert.ok(nativeSource.includes("if (message?.type === 'mapClick') onMapClick?.({ latitude: message.latitude, longitude: message.longitude });"));
 
   // Verify props and click forwarding in web component
@@ -118,6 +119,7 @@ test('MapCanvas and MapCanvas.web accept friendLocation, meetMode, and forward o
   assert.match(webSource, /meetMode/);
   assert.match(webSource, /topMatchIds/);
   assert.match(webSource, /showMetro/);
+  assert.match(webSource, /orientation/);
   assert.ok(webSource.includes("if (message?.type === 'mapClick') onMapClick?.({ latitude: message.latitude, longitude: message.longitude });"));
 
   // Simulate MapCanvas message forwarding
