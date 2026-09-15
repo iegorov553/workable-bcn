@@ -264,10 +264,12 @@ test('NoteModal renders as half-screen sheet with safe area insets and dismiss b
   assert.match(source, /useSafeAreaInsets/);
   assert.match(source, /useWindowDimensions/);
   assert.match(source, /statusBarTranslucent/);
+  assert.match(source, /navigationBarTranslucent/);
   assert.match(source, /transparent/);
   assert.match(source, /sheetHeight/);
   assert.match(source, /insets\.bottom/);
   assert.match(source, /handleBar/);
+  assert.match(source, /keyboardHeight/);
 });
 
 test('App header renders Workable BCN, Meet, and place count in single row without FIND YOUR SPOT and omits mapSummary hover', () => {

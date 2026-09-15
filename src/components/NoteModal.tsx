@@ -3,7 +3,6 @@ import * as Haptics from 'expo-haptics';
 import { useEffect, useState } from 'react';
 import {
   Keyboard,
-  KeyboardAvoidingView,
   Modal,
   Platform,
   Pressable,
@@ -42,36 +41,61 @@ export function NoteModal({
   onDelete,
 }: NoteModalProps) {
   const [text, setText] = useState(initialNote);
+  const [keyboardHeight, setKeyboardHeight] = useState(0);
   const insets = useSafeAreaInsets();
   const { height: windowHeight } = useWindowDimensions();
 
   useEffect(() => {
     if (visible) {
       setText(initialNote);
+    } else {
+      setKeyboardHeight(0);
     }
   }, [visible, initialNote]);
+
+  useEffect(() => {
+    const showEvent = Platform.OS === 'ios' ? 'keyboardWillShow' : 'keyboardDidShow';
+    const hideEvent = Platform.OS === 'ios' ? 'keyboardWillHide' : 'keyboardDidHide';
+    const showSub = Keyboard.addListener(showEvent, (e) => {
+      if (e?.endCoordinates?.height) {
+        setKeyboardHeight(e.endCoordinates.height);
+      }
+    });
+    const hideSub = Keyboard.addListener(hideEvent, () => {
+      setKeyboardHeight(0);
+    });
+    return () => {
+      showSub.remove();
+      hideSub.remove();
+    };
+  }, []);
 
   if (!place) return null;
 
   const handleSave = () => {
     haptic();
     Keyboard.dismiss();
+    setKeyboardHeight(0);
     onSave(text);
   };
 
   const handleDelete = () => {
     haptic();
     Keyboard.dismiss();
+    setKeyboardHeight(0);
     onDelete?.();
   };
 
   const handleClose = () => {
     Keyboard.dismiss();
+    setKeyboardHeight(0);
     onClose();
   };
 
   const charsLeft = Math.max(0, DEFAULT_MAX_NOTE_LENGTH - text.length);
   const sheetHeight = Math.min(Math.max(windowHeight * 0.52, 380), windowHeight * 0.75);
+  const maxAvailable = windowHeight - keyboardHeight - Math.max(insets.top, 24) - 16;
+  const currentSheetHeight = keyboardHeight > 0 ? Math.min(sheetHeight, maxAvailable) : sheetHeight;
 
   return (
     <Modal
@@ -79,19 +103,17 @@ export function NoteModal({
       transparent
       animationType="slide"
       statusBarTranslucent
+      navigationBarTranslucent
       onRequestClose={handleClose}
     >
-      <View style={s.overlay}>
+      <View style={[s.overlay, keyboardHeight > 0 && { paddingBottom: keyboardHeight }]}>
         <Pressable
           style={s.backdrop}
           accessibilityRole="button"
           accessibilityLabel="Close note editor"
           onPress={handleClose}
         />
-        <KeyboardAvoidingView
-          behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-          style={[s.sheet, { height: sheetHeight }]}
-        >
+        <View style={[s.sheet, { height: currentSheetHeight }]}>
           <View style={s.handleBar}>
             <View style={s.handle} />
           </View>
@@ -140,7 +162,7 @@ export function NoteModal({
             )}
           </ScrollView>
 
-          <View style={[s.footer, { paddingBottom: Math.max(insets.bottom, 12) + 12 }]}>
+          <View style={[s.footer, { paddingBottom: keyboardHeight > 0 ? 12 : Math.max(insets.bottom, 12) + 12 }]}>
             {initialNote ? (
               <Pressable
                 accessibilityRole="button"
@@ -173,7 +195,7 @@ export function NoteModal({
               </Pressable>
             </View>
           </View>
-        </KeyboardAvoidingView>
+        </View>
       </View>
     </Modal>
   );
@@ -197,7 +219,13 @@ const s = applyTypography(
       backgroundColor: colors.cream,
       borderTopLeftRadius: 24,
       borderTopRightRadius: 24,
-      boxShadow: '0 -4px 24px rgba(23, 33, 27, 0.15)',
+      maxWidth: 600,
+      width: '100%',
+      alignSelf: 'center',
+      shadowColor: '#17211b',
+      shadowOffset: { width: 0, height: -4 },
+      shadowOpacity: 0.15,
+      shadowRadius: 16,
       elevation: 16,
       overflow: 'hidden',
     },
