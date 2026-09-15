@@ -7,13 +7,14 @@ import {
   Modal,
   Platform,
   Pressable,
-  SafeAreaView,
   ScrollView,
   StyleSheet,
   Text,
   TextInput,
+  useWindowDimensions,
   View,
 } from 'react-native';
+import { useSafeAreaInsets } from 'react-native-safe-area-context';
 import { colors } from '../theme';
 import type { Place } from '../types';
 import { applyTypography } from '../typography';
@@ -41,6 +42,8 @@ export function NoteModal({
   onDelete,
 }: NoteModalProps) {
   const [text, setText] = useState(initialNote);
+  const insets = useSafeAreaInsets();
+  const { height: windowHeight } = useWindowDimensions();
 
   useEffect(() => {
     if (visible) {
@@ -68,19 +71,30 @@ export function NoteModal({
   };
 
   const charsLeft = Math.max(0, DEFAULT_MAX_NOTE_LENGTH - text.length);
+  const sheetHeight = Math.min(Math.max(windowHeight * 0.52, 380), windowHeight * 0.75);
 
   return (
     <Modal
       visible={visible}
+      transparent
       animationType="slide"
-      presentationStyle="pageSheet"
+      statusBarTranslucent
       onRequestClose={handleClose}
     >
-      <SafeAreaView style={s.safe}>
+      <View style={s.overlay}>
+        <Pressable
+          style={s.backdrop}
+          accessibilityRole="button"
+          accessibilityLabel="Close note editor"
+          onPress={handleClose}
+        />
         <KeyboardAvoidingView
           behavior={Platform.OS === 'ios' ? 'padding' : undefined}
-          style={s.container}
+          style={[s.sheet, { height: sheetHeight }]}
         >
+          <View style={s.handleBar}>
+            <View style={s.handle} />
+          </View>
           <View style={s.header}>
             <View style={s.headerTitleWrap}>
               <Text style={s.headerEyebrow}>PERSONAL NOTE</Text>
@@ -126,7 +140,7 @@ export function NoteModal({
             )}
           </ScrollView>
 
-          <View style={s.footer}>
+          <View style={[s.footer, { paddingBottom: Math.max(insets.bottom, 12) + 12 }]}>
             {initialNote ? (
               <Pressable
                 accessibilityRole="button"
@@ -160,21 +174,50 @@ export function NoteModal({
             </View>
           </View>
         </KeyboardAvoidingView>
-      </SafeAreaView>
+      </View>
     </Modal>
   );
 }
 
 const s = applyTypography(
   StyleSheet.create({
-    safe: { flex: 1, backgroundColor: colors.cream },
-    container: { flex: 1 },
+    overlay: {
+      flex: 1,
+      justifyContent: 'flex-end',
+      backgroundColor: 'rgba(23, 33, 27, 0.45)',
+    },
+    backdrop: {
+      position: 'absolute',
+      top: 0,
+      left: 0,
+      right: 0,
+      bottom: 0,
+    },
+    sheet: {
+      backgroundColor: colors.cream,
+      borderTopLeftRadius: 24,
+      borderTopRightRadius: 24,
+      boxShadow: '0 -4px 24px rgba(23, 33, 27, 0.15)',
+      elevation: 16,
+      overflow: 'hidden',
+    },
+    handleBar: {
+      alignItems: 'center',
+      paddingTop: 10,
+      paddingBottom: 4,
+    },
+    handle: {
+      width: 36,
+      height: 4,
+      borderRadius: 2,
+      backgroundColor: colors.border,
+    },
     header: {
       flexDirection: 'row',
       alignItems: 'flex-start',
       justifyContent: 'space-between',
       paddingHorizontal: 20,
-      paddingTop: 16,
+      paddingTop: 4,
       paddingBottom: 12,
       borderBottomWidth: 1,
       borderBottomColor: colors.border,
@@ -189,9 +232,9 @@ const s = applyTypography(
     },
     headerTitle: {
       fontFamily: 'FrauncesBold',
-      fontSize: 22,
+      fontSize: 20,
       color: colors.ink,
-      lineHeight: 28,
+      lineHeight: 26,
     },
     headerSubtitle: {
       fontSize: 12,
@@ -208,24 +251,24 @@ const s = applyTypography(
       borderWidth: 1,
       borderColor: colors.border,
     },
-    body: { flexGrow: 1, padding: 20 },
+    body: { flexGrow: 1, padding: 16 },
     input: {
       flex: 1,
-      minHeight: 180,
+      minHeight: 110,
       backgroundColor: colors.paper,
-      borderRadius: 18,
+      borderRadius: 16,
       borderWidth: 1,
       borderColor: colors.border,
-      padding: 16,
-      fontSize: 16,
-      lineHeight: 22,
+      padding: 14,
+      fontSize: 15,
+      lineHeight: 21,
       color: colors.ink,
     },
     charCount: {
       fontSize: 11,
       color: colors.inkSoft,
       alignSelf: 'flex-end',
-      marginTop: 8,
+      marginTop: 6,
     },
     footer: {
       flexDirection: 'row',
@@ -233,7 +276,7 @@ const s = applyTypography(
       alignItems: 'center',
       justifyContent: 'space-between',
       paddingHorizontal: 20,
-      paddingVertical: 14,
+      paddingTop: 12,
       borderTopWidth: 1,
       borderTopColor: colors.border,
       backgroundColor: colors.paper,

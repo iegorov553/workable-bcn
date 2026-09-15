@@ -259,5 +259,22 @@ test('App integrates notes persistence, state, NoteModal, and PlaceCard wiring',
   assert.match(source, /<NoteModal/);
 });
 
+test('NoteModal renders as half-screen sheet with safe area insets and dismiss backdrop', () => {
+  const source = readFileSync(new URL('../src/components/NoteModal.tsx', import.meta.url), 'utf8');
+  assert.match(source, /useSafeAreaInsets/);
+  assert.match(source, /useWindowDimensions/);
+  assert.match(source, /statusBarTranslucent/);
+  assert.match(source, /transparent/);
+  assert.match(source, /sheetHeight/);
+  assert.match(source, /insets\.bottom/);
+  assert.match(source, /handleBar/);
+});
 
-
+test('App header renders Workable BCN, Meet, and place count in single row without FIND YOUR SPOT and omits mapSummary hover', () => {
+  const source = readFileSync(new URL('../App.tsx', import.meta.url), 'utf8');
+  assert.doesNotMatch(source, /FIND YOUR SPOT/);
+  assert.doesNotMatch(source, /mapSummary/);
+  assert.match(source, /<Text numberOfLines=\{1\} adjustsFontSizeToFit minimumFontScale=\{0\.75\} style=\{s\.brand\}>Workable BCN<\/Text>/);
+  assert.match(source, /meetToggle/);
+  assert.match(source, /countBadge/);
+});
