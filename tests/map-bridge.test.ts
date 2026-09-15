@@ -438,10 +438,10 @@ test('map runtime toggles rotated-grid class and wraps mouseEventToContainerPoin
   assert.equal(Math.round(ptGridCenter.x), 500);
   assert.equal(Math.round(ptGridCenter.y), 500);
 
-  // Screen top-center (200, 300) [dy = -100, upward]: maps with +45deg rotation
-  // localDx = (0 - (-100)) * SQRT1_2 = +70.71, localDy = (0 + (-100)) * SQRT1_2 = -70.71
+  // Screen top-center (200, 300) [dy = -100, upward]: maps with -45deg inverse rotation
+  // localDx = (0 + (-100)) * SQRT1_2 = -70.71, localDy = (-100 - 0) * SQRT1_2 = -70.71
   const ptGridTop = map.mouseEventToContainerPoint({ clientX: 200, clientY: 300 });
-  assert.equal(Math.round(ptGridTop.x), Math.round(500 + 100 * Math.SQRT1_2));
+  assert.equal(Math.round(ptGridTop.x), Math.round(500 - 100 * Math.SQRT1_2));
   assert.equal(Math.round(ptGridTop.y), Math.round(500 - 100 * Math.SQRT1_2));
 
   // Toggle back to north: removes rotated-grid class
@@ -519,7 +519,7 @@ test('map runtime wraps L.DomEvent.getMousePosition with inverse rotation when o
 
   // Touch event with dy = -100 (clientX: 200, clientY: 300)
   const touchTop = DomEvent.getMousePosition({ touches: [{ clientX: 200, clientY: 300 }] }, mapElement);
-  assert.equal(Math.round(touchTop.x), Math.round(500 + 100 * Math.SQRT1_2));
+  assert.equal(Math.round(touchTop.x), Math.round(500 - 100 * Math.SQRT1_2));
   assert.equal(Math.round(touchTop.y), Math.round(500 - 100 * Math.SQRT1_2));
 
   // If container is not map, delegates to original even in grid mode

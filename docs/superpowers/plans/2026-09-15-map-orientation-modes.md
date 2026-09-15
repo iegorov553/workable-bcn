@@ -2,9 +2,9 @@
 
 > **For agentic workers:** REQUIRED SUB-SKILL: Use superpowers:subagent-driven-development (recommended) or superpowers:executing-plans to implement this plan task-by-task. Steps use checkbox (`- [ ]`) syntax for tracking.
 
-**Goal:** Add a dual-mode map orientation toggle between Standard (0° North-Up) and Barcelona Grid (-45° Muntanya-Mar) with a responsive Compass button, counter-rotated overlays, inverse touch coordinate projection, and AsyncStorage persistence.
+**Goal:** Add a dual-mode map orientation toggle between Standard (0° North-Up) and Barcelona Grid (+45° Muntanya-Mar) with a responsive Compass button, counter-rotated overlays, inverse touch coordinate projection, and AsyncStorage persistence.
 
-**Architecture:** A centered oversized (142vmax) `#map` container in WebView/iframe is rotated by -45° with a GPU-accelerated CSS transition. Leaflet's `mouseEventToContainerPoint` applies an inverse rotation matrix so gestures and clicks align 1:1 with the screen. A floating Compass button in `App.tsx` toggles between modes, indicates true North, and persists the choice in `AsyncStorage`.
+**Architecture:** A centered oversized (142vmax) `#map` container in WebView/iframe is rotated by +45° with a GPU-accelerated CSS transition. Leaflet's `mouseEventToContainerPoint` applies an inverse rotation matrix so gestures and clicks align 1:1 with the screen. A floating Compass button in `App.tsx` toggles between modes, indicates true North, and persists the choice in `AsyncStorage`.
 
 **Tech Stack:** React Native (Expo 57), Leaflet 1.9.4, TypeScript, AsyncStorage, Expo Haptics, Node.js test runner.
 

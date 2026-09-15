@@ -13,15 +13,17 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; position: r
   will-change: transform;
 }
 #map.rotated-grid {
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
 }
 
 .rotated-grid .leaflet-tooltip.transit-label {
-  rotate: 45deg;
+  transform: rotate(-45deg);
+  rotate: -45deg;
   transform-origin: left center;
 }
 .rotated-grid .leaflet-popup {
-  rotate: 45deg;
+  transform: rotate(-45deg);
+  rotate: -45deg;
   transform-origin: bottom center;
 }
 * { box-sizing: border-box; }

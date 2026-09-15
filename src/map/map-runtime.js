@@ -21,9 +21,8 @@
         const dx = (first && typeof first.clientX === 'number' ? first.clientX : cx) - cx;
         const dy = (first && typeof first.clientY === 'number' ? first.clientY : cy) - cy;
         const cos = Math.SQRT1_2;
-        const sin = Math.SQRT1_2;
-        const localDx = (dx - dy) * cos;
-        const localDy = (dx + dy) * sin;
+        const localDx = (dx + dy) * cos;
+        const localDy = (dy - dx) * cos;
         return typeof L !== 'undefined' && L.Point ? new L.Point(mx + localDx, my + localDy) : { x: mx + localDx, y: my + localDy };
       }
       return originalGetMousePosition(e, container);
@@ -48,9 +47,8 @@
       const dx = (first && typeof first.clientX === 'number' ? first.clientX : cx) - cx;
       const dy = (first && typeof first.clientY === 'number' ? first.clientY : cy) - cy;
       const cos = Math.SQRT1_2;
-      const sin = Math.SQRT1_2;
-      const localDx = (dx - dy) * cos;
-      const localDy = (dx + dy) * sin;
+      const localDx = (dx + dy) * cos;
+      const localDy = (dy - dx) * cos;
       return typeof L !== 'undefined' && L.Point ? new L.Point(mx + localDx, my + localDy) : { x: mx + localDx, y: my + localDy };
     };
   }

@@ -4,7 +4,7 @@
 
 Provide a two-mode orientation toggle for the Barcelona map:
 1. **Standard Mode (`'north'`):** North is up, South is down (0° rotation).
-2. **Barcelona Grid Mode (`'grid'`):** The map is rotated 45° counter-clockwise (Muntanya-Mar orientation: Tibidabo/Collserola mountains at the top, Mediterranean Sea at the bottom). The tilted Eixample Cerdà grid aligns horizontally and vertically with the device screen.
+2. **Barcelona Grid Mode (`'grid'`):** The map is rotated 45° clockwise (Muntanya-Mar orientation: Tibidabo/Collserola mountains at the top, Mediterranean Sea at the bottom). The tilted Eixample Cerdà grid aligns horizontally and vertically with the device screen.
 
 The feature includes a responsive Compass button in the floating map controls that indicates true North and acts as a two-way toggle with haptic feedback, counter-rotated station labels and popups for horizontal legibility, inverse coordinate mapping in the Leaflet runtime for pixel-accurate dragging and tapping, and persistence across app restarts via `AsyncStorage`.
 
@@ -15,7 +15,7 @@ The feature includes a responsive Compass button in the floating map controls th
 1. **Urban Geometry of Barcelona:** The iconic Eixample street grid designed by Ildefons Cerdà runs at an angle of roughly 45° to the geographic meridian. Avenues such as Gran Via, Aragó, Mallorca, and València run parallel to the coastline, while Passeig de Gràcia, Balmes, Muntaner, and Pau Claris run perpendicular (mountain to sea).
 2. **The "Muntanya – Mar" Mental Model:** Residents and frequent visitors navigate Barcelona using "Muntanya" (mountain) and "Mar" (sea). Displaying the map with North-Up forces the entire grid to appear diagonally, making it harder to scan rectangular blocks and navigate streets.
 3. **Core Objectives:**
-   - Provide two clean presets: Standard (`0°`) and Barcelona Grid (`-45°`).
+   - Provide two clean presets: Standard (`0°`) and Barcelona Grid (`+45°`).
    - Compass button in map controls: indicates true North (arrow points straight up in standard mode, tilts 45° clockwise in grid mode) and toggles modes on tap.
    - Smooth 60fps GPU-accelerated transition between orientations.
    - Exact touch/drag/pinch alignment: dragging the map in rotated mode must move the map directly under the user's finger with zero drift.
@@ -50,11 +50,11 @@ flowchart TD
     subgraph Leaflet HTML & Runtime
         MapUpdate --> DOMToggle["Toggle #map.rotated-grid<br/>transition: transform 0.45s"]
         MapUpdate --> RuntimeState["Runtime orientation = state.orientation"]
-        DOMToggle --> CSSGPU["CSS Transform rotate(-45deg)<br/>Centered 142vmax container"]
-        CSSGPU --> CounterRotate["Counter-rotate .transit-label & .leaflet-popup (+45deg)"]
+        DOMToggle --> CSSGPU["CSS Transform rotate(45deg)<br/>Centered 142vmax container"]
+        CSSGPU --> CounterRotate["Counter-rotate .transit-label & .leaflet-popup (-45deg)"]
         
         Touch["Touch / Mouse Event<br/>(Drag, Zoom, Tap)"]
-        Touch --> Projection["map.mouseEventToContainerPoint()<br/>Apply inverse rotation matrix (+45deg)"]
+        Touch --> Projection["map.mouseEventToContainerPoint()<br/>Apply inverse rotation matrix (-45deg)"]
         Projection --> LeafletEvents["Leaflet Pan / Zoom / Marker Click"]
     end
 ```
@@ -153,7 +153,7 @@ html, body {
 }
 
 #map.rotated-grid {
-  transform: rotate(-45deg);
+  transform: rotate(45deg);
 }
 ```
 
@@ -161,12 +161,12 @@ html, body {
 Station tooltips and popup cards counter-rotate so text remains strictly horizontal:
 ```css
 .rotated-grid .leaflet-tooltip.transit-label {
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
   transform-origin: left center;
 }
 
 .rotated-grid .leaflet-popup {
-  transform: rotate(45deg);
+  transform: rotate(-45deg);
   transform-origin: bottom center;
 }
 ```
@@ -198,7 +198,7 @@ if (newOrientation !== currentOrientation) {
 ```
 
 ### 6.2 Inverted Touch Coordinate Projection
-When `#map` is rotated by $\theta = -45^\circ$, Leaflet's default `mouseEventToContainerPoint` fails because `getBoundingClientRect()` returns the unrotated axis-aligned bounding box.
+When `#map` is rotated by $\theta = +45^\circ$, Leaflet's default `mouseEventToContainerPoint` fails because `getBoundingClientRect()` returns the unrotated axis-aligned bounding box.
 
 We wrap `map.mouseEventToContainerPoint`:
 ```javascript
@@ -216,11 +216,10 @@ map.mouseEventToContainerPoint = function (e) {
   const dx = e.clientX - cx;
   const dy = e.clientY - cy;
 
-  // Inverse rotation: angle = +45°, cos = sin = 1/√2
+  // Inverse rotation: angle = -45°, cos = 1/√2
   const cos = Math.SQRT1_2;
-  const sin = Math.SQRT1_2;
-  const localDx = (dx - dy) * cos;
-  const localDy = (dx + dy) * sin;
+  const localDx = (dx + dy) * cos;
+  const localDy = (dy - dx) * cos;
 
   return new L.Point(mx + localDx, my + localDy);
 };
