@@ -4,11 +4,12 @@ import {
   haversineDistanceMeters,
   buildSearchQuery,
   matchCandidate,
+  isBrandMatch,
   parseArgs,
 } from '../scripts/audit-google-places.mjs';
 
 // Re-export formulas for compatibility with tests expecting exports from this module
-export { haversineDistanceMeters, buildSearchQuery, matchCandidate };
+export { haversineDistanceMeters, buildSearchQuery, matchCandidate, isBrandMatch };
 
 test('haversineDistanceMeters computes accurate distance between Barcelona locations', () => {
   // Plaça Catalunya to Arc de Triomf is ~900-1000m
@@ -89,3 +90,64 @@ test('parseArgs correctly parses CLI flags', () => {
   assert.equal(flags.limit, 25);
   assert.ok(flags.cacheFile.endsWith('custom-cache.json'));
 });
+
+test('isBrandMatch identifies variations of supported chains and rejects unrelated businesses', () => {
+  // Santagloria
+  assert.equal(isBrandMatch('Santagloria', 'Santagloria Coffee & Bakery'), true);
+  assert.equal(isBrandMatch('Santagloria', 'Santa Glòria | Sarrià'), true);
+  assert.equal(isBrandMatch('Santagloria', 'Santa Gloria Coffee & Bakery | Bonanova'), true);
+
+  // 365 Café
+  assert.equal(isBrandMatch('365 Café', '365 Obrador'), true);
+  assert.equal(isBrandMatch('365 Café', '365 cafè'), true);
+  assert.equal(isBrandMatch('365 Café', 'Forn de pa 365'), true);
+  assert.equal(isBrandMatch('365 Café', 'aparto Cristóbal De Moura'), false);
+  assert.equal(isBrandMatch('365 Café', 'La Boulangerie'), false);
+  assert.equal(isBrandMatch('365 Café', 'La salut'), false);
+
+  // El Fornet
+  assert.equal(isBrandMatch('El Fornet', 'Fornet De La Plaça'), true);
+  assert.equal(isBrandMatch('El Fornet', "elFornet d'en Rossend"), true);
+
+  // Granier
+  assert.equal(isBrandMatch('Granier', 'Granier pans artesans'), true);
+  assert.equal(isBrandMatch('Granier', 'Time For Me - Nail & eyebrow Salon'), false);
+
+  // Sandwichez
+  assert.equal(isBrandMatch('Sandwichez', 'SandwiChez | Numància'), true);
+  assert.equal(isBrandMatch('Sandwichez', 'Santagloria Cafè i Fleca'), false);
+});
+
+test('matchCandidate rejects candidates whose brand name mismatches', () => {
+  const candidates = [
+    {
+      id: 'salon',
+      displayName: { text: 'Time For Me - Nail & eyebrow Salon' },
+      location: { latitude: 41.3871, longitude: 2.1701 },
+      businessStatus: 'OPERATIONAL',
+    },
+    {
+      id: 'granier',
+      displayName: { text: 'Granier pans artesans' },
+      location: { latitude: 41.3875, longitude: 2.1705 },
+      businessStatus: 'OPERATIONAL',
+    },
+  ];
+  const result = matchCandidate(41.3870, 2.1700, candidates, 150, 'Granier');
+  assert.equal(result.status, 'OPERATIONAL');
+  assert.equal(result.best.id, 'granier');
+});
+
+test('Santagloria Claret 50 coordinates in catalog match real Google Place location', async () => {
+  const { readFile } = await import('node:fs/promises');
+  const places = JSON.parse(await readFile('src/data/places.json', 'utf8'));
+  const place = places.find((p: { id: string; latitude: number; longitude: number }) => p.id === 'santagloria-41.405456-2.166883');
+  assert.ok(place, 'santagloria-41.405456-2.166883 must exist');
+
+  // Real coordinates from Google Maps: 41.405456, 2.166883
+  const targetLat = 41.405456;
+  const targetLon = 2.166883;
+  const dist = haversineDistanceMeters(place.latitude, place.longitude, targetLat, targetLon);
+  assert.ok(dist <= 5, `Expected distance <= 5m, got ${dist.toFixed(1)}m (lat=${place.latitude}, lon=${place.longitude})`);
+});
+

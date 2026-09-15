@@ -21,7 +21,47 @@ export function buildSearchQuery(chain, name, address) {
   return `${prefix} ${cleanAddress} Barcelona`;
 }
 
-export function matchCandidate(placeLat, placeLon, candidates, maxDistance = 150) {
+export function isBrandMatch(chain, candidateName) {
+  if (!chain || !candidateName) return false;
+
+  const normalize = (str) =>
+    str
+      .toLowerCase()
+      .normalize('NFD')
+      .replace(/[\u0300-\u036f]/g, '')
+      .replace(/[^a-z0-9]/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+
+  const normChain = normalize(chain);
+  const normCand = normalize(candidateName);
+
+  if (normChain.includes('365')) {
+    return /\b365\b/.test(normCand);
+  }
+  if (normChain.includes('santagloria')) {
+    return normCand.includes('santagloria') || normCand.includes('santa gloria');
+  }
+  if (normChain.includes('fornet')) {
+    return normCand.includes('fornet');
+  }
+  if (normChain.includes('granier')) {
+    return normCand.includes('granier');
+  }
+  if (normChain.includes('sandwichez')) {
+    return normCand.includes('sandwichez');
+  }
+  if (normChain.includes('buenas migas')) {
+    return normCand.includes('buenas migas');
+  }
+  if (normChain.includes('vivari')) {
+    return normCand.includes('vivari');
+  }
+
+  return normCand.includes(normChain);
+}
+
+export function matchCandidate(placeLat, placeLon, candidates, maxDistance = 150, chain = '') {
   if (!candidates || candidates.length === 0) {
     return { status: 'NOT_FOUND', best: null };
   }
@@ -29,7 +69,18 @@ export function matchCandidate(placeLat, placeLon, candidates, maxDistance = 150
   let best = null;
   let minDistance = Infinity;
 
-  for (const cand of candidates) {
+  let validCandidates = candidates;
+  if (chain) {
+    const brandMatches = candidates.filter((c) => {
+      const name = c.displayName?.text || c.displayName || c.name || '';
+      return isBrandMatch(chain, name);
+    });
+    if (brandMatches.length > 0) {
+      validCandidates = brandMatches;
+    }
+  }
+
+  for (const cand of validCandidates) {
     if (!cand.location || typeof cand.location.latitude !== 'number' || typeof cand.location.longitude !== 'number') {
       continue;
     }
@@ -46,6 +97,13 @@ export function matchCandidate(placeLat, placeLon, candidates, maxDistance = 150
 
   if (best.distanceMeters > maxDistance) {
     return { status: 'DISTANCE_MISMATCH', best };
+  }
+
+  if (chain) {
+    const name = best.displayName?.text || best.displayName || best.name || '';
+    if (!isBrandMatch(chain, name)) {
+      return { status: 'NAME_MISMATCH', best };
+    }
   }
 
   const status = best.businessStatus || 'OPERATIONAL';
@@ -73,6 +131,7 @@ export function parseArgs(args = process.argv.slice(2)) {
   const flags = {
     apply: args.includes('--apply'),
     removeClosed: args.includes('--remove-closed'),
+    updateCoordinates: args.includes('--update-coordinates') || args.includes('--apply'),
     apiKey: process.env.GOOGLE_MAPS_API_KEY || null,
     cacheFile: path.resolve('.cache/google-places-cache.json'),
     limit: null,
@@ -92,18 +151,19 @@ export async function main() {
   const cacheDir = path.dirname(cachePath);
   const reportPath = path.resolve('docs/data/google-places-audit.json');
 
-  if (!flags.apiKey) {
+  if (!flags.apiKey && !existsSync(cachePath)) {
     console.log(`
 [Google Places Audit]
 Usage:
   GOOGLE_MAPS_API_KEY=your_key node scripts/audit-google-places.mjs [--apply] [--remove-closed] [--limit=10]
 
 Options:
-  --apply          Write googlePlaceId and googleMapsUrl to src/data/places.json for operational matches
-  --remove-closed  Exclude permanently closed places from src/data/places.json when --apply is used
-  --limit=N        Only process the first N places (useful for dry runs)
-  --cache-file=PATH Path to cache file (default: .cache/google-places-cache.json)
-  --api-key=KEY    Google Maps API key (or set GOOGLE_MAPS_API_KEY)
+  --apply               Write googlePlaceId, googleMapsUrl and accurate coordinates to src/data/places.json
+  --update-coordinates  Explicitly update latitude and longitude from verified Google Place location
+  --remove-closed       Exclude permanently closed places from src/data/places.json when --apply is used
+  --limit=N             Only process the first N places (useful for dry runs)
+  --cache-file=PATH     Path to cache file (default: .cache/google-places-cache.json)
+  --api-key=KEY         Google Maps API key (or set GOOGLE_MAPS_API_KEY)
 `);
     process.exit(0);
   }
@@ -118,9 +178,27 @@ Options:
       cache = JSON.parse(await readFile(cachePath, 'utf8'));
     } catch {}
   }
+  const ambCachePath = path.resolve('.cache/amb-discovery-cache.json');
+  if (existsSync(ambCachePath)) {
+    try {
+      const ambData = JSON.parse(await readFile(ambCachePath, 'utf8'));
+      for (const [k, v] of Object.entries(ambData)) {
+        if (!cache[k] && v) {
+          cache[k] = v;
+        }
+      }
+    } catch {}
+  }
+
+  let prevReport = null;
+  if (existsSync(reportPath)) {
+    try {
+      prevReport = JSON.parse(await readFile(reportPath, 'utf8'));
+    } catch {}
+  }
 
   const subset = flags.limit ? places.slice(0, flags.limit) : places;
-  console.log(`Auditing ${subset.length} places with Google Places API (New)...`);
+  console.log(`Auditing ${subset.length} places with Google Places API (${flags.apiKey ? 'live' : 'cached'})...`);
 
   const report = {
     checkedAt: new Date().toISOString().split('T')[0],
@@ -149,7 +227,21 @@ Options:
     const cacheKey = `${place.id}`;
 
     let data = cache[cacheKey];
+    if (!data && place.googlePlaceId) {
+      for (const entry of Object.values(cache)) {
+        if (entry?.places?.some(p => p.id === place.googlePlaceId)) {
+          data = { places: entry.places.filter(p => p.id === place.googlePlaceId) };
+          break;
+        }
+      }
+    }
+
     if (!data) {
+      if (!flags.apiKey) {
+        report.stats.notFound++;
+        report.notFound.push({ id: place.id, name: place.name, query, reason: 'NOT_IN_OFFLINE_CACHE' });
+        continue;
+      }
       try {
         const res = await fetch('https://places.googleapis.com/v1/places:searchText', {
           method: 'POST',
@@ -189,7 +281,7 @@ Options:
     }
 
     const candidates = data.places || [];
-    const { status, best } = matchCandidate(place.latitude, place.longitude, candidates, 150);
+    const { status, best } = matchCandidate(place.latitude, place.longitude, candidates, 150, place.chain);
 
     if (status === 'NOT_FOUND') {
       report.stats.notFound++;
@@ -207,6 +299,23 @@ Options:
       continue;
     }
 
+    if (status === 'NAME_MISMATCH') {
+      report.stats.mismatch++;
+      report.mismatches.push({
+        id: place.id,
+        name: place.name,
+        reason: 'BRAND_MISMATCH',
+        googleName: best?.displayName?.text || best?.displayName || best?.name,
+        bestDistance: best?.distanceMeters,
+      });
+      if (flags.apply && place.googlePlaceId) {
+        delete place.googlePlaceId;
+        delete place.googleMapsUrl;
+        appliedCount++;
+      }
+      continue;
+    }
+
     const record = {
       id: place.id,
       name: place.name,
@@ -216,6 +325,7 @@ Options:
       distanceMeters: best.distanceMeters,
       businessStatus: status,
       rating: best.rating,
+      location: best.location,
     };
 
     if (status === 'CLOSED_PERMANENTLY') {
@@ -231,9 +341,23 @@ Options:
       if (flags.apply) {
         place.googlePlaceId = best.id;
         if (best.googleMapsUri) place.googleMapsUrl = best.googleMapsUri;
+        if (flags.updateCoordinates && best.location?.latitude && best.location?.longitude) {
+          place.latitude = best.location.latitude;
+          place.longitude = best.location.longitude;
+        }
         appliedCount++;
       }
     }
+  }
+
+  if (prevReport?.closedPermanently) {
+    const currentClosedIds = new Set(report.closedPermanently.map(p => p.id));
+    for (const cp of prevReport.closedPermanently) {
+      if (!currentClosedIds.has(cp.id)) {
+        report.closedPermanently.push(cp);
+      }
+    }
+    report.stats.closedPermanently = report.closedPermanently.length;
   }
 
   await writeFile(reportPath, JSON.stringify(report, null, 2));

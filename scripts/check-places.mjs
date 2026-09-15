@@ -38,7 +38,17 @@ for(const p of originals) {
 }
 const gignas=places.find(p=>p.id.startsWith('sandwichez-')&&p.address.includes('Gignàs'));
 assert.equal(gignas?.chain,'Buenas Migas','Gignàs was incorrectly classified in the old map');
+
+const claretSantagloria = places.find(p => p.id === 'santagloria-41.405456-2.166883');
+assert.ok(claretSantagloria, 'Santagloria Claret 50 must exist in catalog');
+assert.ok(
+  Math.abs(claretSantagloria.latitude - 41.405456) < 0.0001 &&
+  Math.abs(claretSantagloria.longitude - 2.166883) < 0.0001,
+  `Santagloria Claret 50 coordinates inaccurate: (${claretSantagloria.latitude}, ${claretSantagloria.longitude})`
+);
+
 const legacySummary = retiredCount > 0
   ? `${originals.length - retiredCount}/${originals.length} active legacy IDs preserved (${retiredCount} confirmed closed)`
   : `all ${originals.length} legacy IDs preserved`;
 console.log(`${places.length} records valid; ${legacySummary}.`);
+
