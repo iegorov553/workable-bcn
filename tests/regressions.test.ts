@@ -230,4 +230,13 @@ test('NoteModal exports valid component and NoteModalProps interface', () => {
   assert.match(source, /Haptics/);
 });
 
+test('PlaceCard source defines and supports note and onEditNote props', () => {
+  const source = readFileSync(new URL('../src/components/PlaceCard.tsx', import.meta.url), 'utf8');
+  assert.match(source, /note\?: string;/);
+  assert.match(source, /onEditNote\?: \(\) => void;/);
+  assert.match(source, /onEditNote/);
+  assert.match(source, /YOUR NOTE/);
+  assert.match(source, /Add note/);
+});
+
 
