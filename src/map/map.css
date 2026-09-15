@@ -10,6 +10,7 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; position: r
   transform: rotate(0deg);
   transform-origin: center center;
   transition: transform 0.45s cubic-bezier(0.25, 1, 0.5, 1);
+  will-change: transform;
 }
 #map.rotated-grid {
   transform: rotate(-45deg);
@@ -17,10 +18,13 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; position: r
 
 .rotated-grid .leaflet-tooltip.transit-label {
   transform: rotate(45deg);
+  rotate: 45deg;
   transform-origin: left center;
 }
-.rotated-grid .leaflet-popup {
+.rotated-grid .leaflet-popup,
+.rotated-grid .leaflet-popup-content-wrapper {
   transform: rotate(45deg);
+  rotate: 45deg;
   transform-origin: bottom center;
 }
 * { box-sizing: border-box; }

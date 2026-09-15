@@ -370,3 +370,80 @@ test('map runtime executes fitBounds when both userLocation and friendLocation a
   assert.equal(boundsCalls.length, 2);
   assert.deepEqual(JSON.parse(JSON.stringify(boundsCalls[1].bounds)), [[41.389, 2.169], [41.400, 2.180]]);
 });
+
+test('map runtime toggles rotated-grid class and wraps mouseEventToContainerPoint for grid orientation', () => {
+  const classList = new Set<string>();
+  const mapElement = {
+    classList: {
+      add(cls: string) { classList.add(cls); },
+      remove(cls: string) { classList.delete(cls); },
+      contains(cls: string) { return classList.has(cls); },
+    },
+  };
+  const invalidateCalls: any[] = [];
+  const map = {
+    on() { return this; },
+    stop() {}, closePopup() {},
+    invalidateSize(opts?: any) { invalidateCalls.push(opts); },
+    flyTo() {},
+    getSize() { return { x: 1000, y: 1000 }; },
+    mouseEventToContainerPoint(e: any) {
+      return { x: e.clientX, y: e.clientY };
+    },
+  };
+  const window: any = {
+    ReactNativeWebView: { postMessage() {} },
+    addEventListener() {},
+    innerWidth: 400,
+    innerHeight: 800,
+  };
+  const context = {
+    window,
+    document: {
+      getElementById(id: string) { return id === 'map' ? mapElement : { append() {}, textContent: '', className: '', hidden: true }; },
+      createElement() { return { append() {}, textContent: '', className: '', hidden: true }; },
+    },
+    L: {
+      Point: class Point {
+        x: number; y: number;
+        constructor(x: number, y: number) { this.x = x; this.y = y; }
+      },
+      map: () => map,
+      tileLayer: () => ({ on() { return this; }, addTo() { return this; } }),
+      circleMarker: () => ({ bindPopup() { return this; }, addTo() { return this; }, on() { return this; }, setRadius() { return this; }, setStyle() { return this; }, bringToFront() {}, setLatLng() {}, remove() {} }),
+    },
+  };
+  runInNewContext(readFileSync(new URL('../src/map/map-runtime.js', import.meta.url), 'utf8'), context);
+
+  // Standard orientation ('north'): no rotated-grid class
+  const stateNorth: MapPayload = { places: [], selectedId: null, userLocation: null, cameraCommand: null, orientation: 'north' };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateNorth)), context);
+  assert.equal(classList.has('rotated-grid'), false);
+
+  // Screen center (200, 400) maps to unrotated point
+  const ptNorthCenter = map.mouseEventToContainerPoint({ clientX: 200, clientY: 400 });
+  assert.equal(ptNorthCenter.x, 200);
+  assert.equal(ptNorthCenter.y, 400);
+
+  // Grid orientation ('grid'): adds rotated-grid class
+  const stateGrid: MapPayload = { places: [], selectedId: null, userLocation: null, cameraCommand: null, orientation: 'grid' };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateGrid)), context);
+  assert.equal(classList.has('rotated-grid'), true);
+  assert.ok(invalidateCalls.some(call => call && call.pan === false));
+
+  // Screen center (200, 400) maps to container center (500, 500)
+  const ptGridCenter = map.mouseEventToContainerPoint({ clientX: 200, clientY: 400 });
+  assert.equal(Math.round(ptGridCenter.x), 500);
+  assert.equal(Math.round(ptGridCenter.y), 500);
+
+  // Screen top-center (200, 300) [dy = -100, upward]: maps with +45deg rotation
+  // localDx = (0 - (-100)) * SQRT1_2 = +70.71, localDy = (0 + (-100)) * SQRT1_2 = -70.71
+  const ptGridTop = map.mouseEventToContainerPoint({ clientX: 200, clientY: 300 });
+  assert.equal(Math.round(ptGridTop.x), Math.round(500 + 100 * Math.SQRT1_2));
+  assert.equal(Math.round(ptGridTop.y), Math.round(500 - 100 * Math.SQRT1_2));
+
+  // Toggle back to north: removes rotated-grid class
+  const stateNorthAgain: MapPayload = { places: [], selectedId: null, userLocation: null, cameraCommand: null, orientation: 'north' };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateNorthAgain)), context);
+  assert.equal(classList.has('rotated-grid'), false);
+});

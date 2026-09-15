@@ -7,6 +7,32 @@
   };
   window.addEventListener('error', () => send({ type: 'error' }));
   const map = L.map('map', { center: [41.389, 2.169], zoom: 13, minZoom: 3, maxZoom: 19, zoomControl: false });
+  let currentOrientation = 'north';
+  if (typeof map.mouseEventToContainerPoint === 'function') {
+    const originalMouseEventToContainerPoint = map.mouseEventToContainerPoint.bind(map);
+    map.mouseEventToContainerPoint = function (e) {
+      if (currentOrientation !== 'grid') {
+        return originalMouseEventToContainerPoint(e);
+      }
+      const cx = window.innerWidth / 2;
+      const cy = window.innerHeight / 2;
+      const size = typeof map.getSize === 'function' ? map.getSize() : { x: window.innerWidth, y: window.innerHeight };
+      const mx = size.x / 2;
+      const my = size.y / 2;
+      const clientX = e && e.clientX !== undefined ? e.clientX : (e && e.touches && e.touches[0] ? e.touches[0].clientX : (e && e.changedTouches && e.changedTouches[0] ? e.changedTouches[0].clientX : undefined));
+      const clientY = e && e.clientY !== undefined ? e.clientY : (e && e.touches && e.touches[0] ? e.touches[0].clientY : (e && e.changedTouches && e.changedTouches[0] ? e.changedTouches[0].clientY : undefined));
+      if (clientX === undefined || clientY === undefined) {
+        return originalMouseEventToContainerPoint(e);
+      }
+      const dx = clientX - cx;
+      const dy = clientY - cy;
+      const cos = Math.SQRT1_2;
+      const sin = Math.SQRT1_2;
+      const localDx = (dx - dy) * cos;
+      const localDy = (dx + dy) * sin;
+      return typeof L !== 'undefined' && L.Point ? new L.Point(mx + localDx, my + localDy) : { x: mx + localDx, y: my + localDy };
+    };
+  }
   const notice = document.getElementById('tile-error');
   const cartoKey = typeof __CARTO_API_KEY__ !== 'undefined' && __CARTO_API_KEY__ ? __CARTO_API_KEY__ : '';
   const keyParam = cartoKey ? `?key=${encodeURIComponent(cartoKey)}` : '';
@@ -184,6 +210,21 @@
   };
   window.workableMapUpdate = (encoded) => {
     const state = JSON.parse(decodeURIComponent(encoded));
+    const newOrientation = state.orientation || 'north';
+    if (newOrientation !== currentOrientation) {
+      currentOrientation = newOrientation;
+      const mapEl = document.getElementById('map');
+      if (mapEl && mapEl.classList) {
+        if (currentOrientation === 'grid') {
+          mapEl.classList.add('rotated-grid');
+        } else {
+          mapEl.classList.remove('rotated-grid');
+        }
+      }
+      if (typeof map.invalidateSize === 'function') {
+        map.invalidateSize({ pan: false });
+      }
+    }
     currentPlaces = state.places || [];
     const ids = new Set(state.places.map(place => place.id));
     for (const [id, marker] of markers) {
