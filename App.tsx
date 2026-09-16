@@ -6,7 +6,7 @@ import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { ActivityIndicator, AppState, BackHandler, FlatList, Image, Keyboard, Linking, Modal, Platform, Pressable, ScrollView, Share, StyleSheet, Text, TextInput, View } from 'react-native';
-import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
+import { initialWindowMetrics, SafeAreaProvider, SafeAreaView, useSafeAreaInsets } from 'react-native-safe-area-context';
 import MapCanvas from './src/components/MapCanvas';
 import { PlaceCard } from './src/components/PlaceCard';
 import { NoteModal } from './src/components/NoteModal';
@@ -37,6 +37,7 @@ const ORIENTATION_KEY = 'workable-bcn:map-orientation:v1';
 const haptic = () => { if (Platform.OS !== 'web') void Haptics.selectionAsync().catch(() => {}); };
 
 function AppContent() {
+  const insets = useSafeAreaInsets();
   const [mode, setMode] = useState<ViewMode>('map');
   const [query, setQuery] = useState('');
   const [chain, setChain] = useState('All');
@@ -557,7 +558,7 @@ function AppContent() {
           </Pressable>
           <Pressable accessibilityRole="button" accessibilityLabel="Return to my location" accessibilityState={{ busy: locating, disabled: locating }} disabled={locating} onPress={() => void locate()} style={({ pressed }) => [s.mapButton, pressed && !locating && { opacity: 0.8, transform: [{ scale: 0.94 }] }]}>{locating ? <ActivityIndicator color={colors.ink} /> : <Ionicons name="locate-outline" size={24} color={colors.ink} />}</Pressable>
         </View>
-        {selected ? <View style={s.selected}>
+        {selected ? <View style={[s.selected, { bottom: Math.max(insets.bottom, 16) + 16 }]}>
           <View style={s.sheetHeader}><Text style={s.sheetLabel}>SELECTED PLACE</Text><Pressable accessibilityRole="button" accessibilityLabel="Close place details" onPress={() => setSelectedId(null)} style={s.iconButton}><Ionicons name="close" size={22} color={colors.inkSoft} /></Pressable></View>
           <PlaceCard
             place={selected}
@@ -574,7 +575,7 @@ function AppContent() {
             onShareFriend={meetMode && friendLocation ? () => shareFriendDirections(selected) : undefined}
           />
         </View> : null}
-      </View> : <FlatList data={filtered} keyExtractor={p => p.id} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled" contentContainerStyle={[s.list, !filtered.length && { flexGrow: 1 }]} initialNumToRender={12}
+      </View> : <FlatList data={filtered} keyExtractor={p => p.id} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled" contentContainerStyle={[s.list, { paddingBottom: Math.max(insets.bottom, 16) + 84 }, !filtered.length && { flexGrow: 1 }]} initialNumToRender={12}
         ListHeaderComponent={filtered.length ? <View style={s.listHeaderRow}><View style={s.listHeading}><Text style={s.heading}>{onlyFavorites ? 'Your favourites' : meetMode && location && friendLocation ? 'Meeting spots' : 'All places'}</Text><Text style={s.secondary}>{formatPlaceCount(filtered.length)}{meetMode && location && friendLocation ? ' · ranked by travel time' : (location ? ' · nearest first' : '')}</Text></View><Pressable accessibilityRole="button" accessibilityLabel={location ? 'Refresh distances' : 'Show distances'} accessibilityState={{ busy: locating, disabled: locating }} disabled={locating} onPress={() => void locate(false)} style={s.iconButton}>{locating ? <ActivityIndicator color={colors.ink} /> : <Ionicons name="locate-outline" size={22} color={colors.ink} />}</Pressable></View> : null}
         ListEmptyComponent={<View style={s.empty}><View style={s.emptyIcon}><Ionicons name={onlyFavorites && !favorites.size ? 'heart-outline' : 'search-outline'} size={28} color={colors.ink} /></View><Text style={[s.heading, s.emptyHeading]}>{onlyFavorites && !favorites.size ? 'Nothing saved yet' : 'No matching places'}</Text><Text style={s.emptyCopy}>{onlyFavorites && !favorites.size ? 'Tap the heart on a café to keep it here.' : 'Try another search or reset the filters.'}</Text>{(query || chain !== 'All' || onlyFavorites) && <Pressable accessibilityRole="button" onPress={resetFilters} style={({ pressed }) => [s.reset, pressed && { opacity: 0.65 }]}><Text style={s.settings}>Reset filters</Text></Pressable>}</View>}
         renderItem={({ item }) => {
@@ -606,7 +607,7 @@ function AppContent() {
       visible={mode === 'list' || !selectedId}
     />
     <Modal visible={about} animationType="slide" onRequestClose={() => setAbout(false)}>
-      <SafeAreaView style={s.root}><View style={s.aboutHeader}><Text style={s.heading}>About Workable BCN</Text><Pressable accessibilityRole="button" accessibilityLabel="Close about" onPress={() => setAbout(false)} style={s.iconButton}><Ionicons name="close" size={24} /></Pressable></View><ScrollView contentInsetAdjustmentBehavior="automatic" contentContainerStyle={s.aboutContent}>
+      <SafeAreaView style={s.root}><View style={s.aboutHeader}><Text style={s.heading}>About Workable BCN</Text><Pressable accessibilityRole="button" accessibilityLabel="Close about" onPress={() => setAbout(false)} style={s.iconButton}><Ionicons name="close" size={24} /></Pressable></View><ScrollView contentInsetAdjustmentBehavior="automatic" contentContainerStyle={[s.aboutContent, { paddingBottom: Math.max(insets.bottom, 24) + 24 }]}>
         <View><Pressable accessibilityRole="link" onPress={() => void Linking.openURL(PRIVACY_POLICY_URL).catch(() => { setAbout(false); setNotice('Could not open the privacy policy. Please try again.'); })}><Text style={s.settings}>Privacy policy ↗</Text></Pressable><Pressable accessibilityRole="link" onPress={() => void Linking.openURL(`mailto:${SUPPORT_EMAIL}`).catch(() => { setAbout(false); setNotice(`Please email ${SUPPORT_EMAIL} using your mail app.`); })}><Text style={s.settings}>Support · {SUPPORT_EMAIL}</Text></Pressable></View>
         <Image source={require('./assets/workable-icon.png')} style={s.brandIcon} accessibilityIgnoresInvertColors /><Text selectable style={s.heading}>Coffee. City. Your places.</Text><Text selectable style={s.aboutText}>An independent guide to cafés in Barcelona and nearby towns. We are not affiliated with the featured chains. Check opening hours, Wi-Fi and laptop policies before visiting.</Text>
         <Text style={s.heading}>{hiddenPlaces.size > 0 ? `Hidden places (${hiddenPlaces.size})` : 'Hidden places'}</Text>
@@ -663,7 +664,7 @@ export default function App() {
     RobotoRegular: require('./assets/fonts/Roboto-Regular.ttf'), RobotoMedium: require('./assets/fonts/Roboto-Medium.ttf'),
     RobotoSemiBold: require('./assets/fonts/Roboto-SemiBold.ttf'), RobotoBold: require('./assets/fonts/Roboto-Bold.ttf'),
   });
-  return <SafeAreaProvider>{fontsLoaded || fontError ? <AppContent /> : <View style={s.loading}><ActivityIndicator color={colors.ink} /></View>}</SafeAreaProvider>;
+  return <SafeAreaProvider initialMetrics={initialWindowMetrics}>{fontsLoaded || fontError ? <AppContent /> : <View style={s.loading}><ActivityIndicator color={colors.ink} /></View>}</SafeAreaProvider>;
 }
 
 const s = applyTypography(StyleSheet.create({

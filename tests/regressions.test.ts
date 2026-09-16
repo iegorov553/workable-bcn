@@ -341,3 +341,25 @@ test('Old static bottom navigation bar (navSafe, navItem) is removed and replace
   assert.doesNotMatch(source, /s\.navItem/);
   assert.match(source, /<FloatingModeButton/);
 });
+
+test('SafeAreaProvider receives initialMetrics to prevent transient 0 insets', () => {
+  const source = readFileSync(new URL('../App.tsx', import.meta.url), 'utf8');
+  assert.match(source, /import\s*\{[^}]*initialWindowMetrics[^}]*\}\s*from\s*['"]react-native-safe-area-context['"]/);
+  assert.match(source, /<SafeAreaProvider\s+initialMetrics=\{initialWindowMetrics\}>/);
+});
+
+test('App handles bottom safe area insets for FlatList scroll, selected place card, and About modal', () => {
+  const source = readFileSync(new URL('../App.tsx', import.meta.url), 'utf8');
+  assert.match(source, /import\s*\{[^}]*useSafeAreaInsets[^}]*\}\s*from\s*['"]react-native-safe-area-context['"]/);
+  assert.match(source, /const\s+insets\s*=\s*useSafeAreaInsets\(\);/);
+  // selected card on map accounts for insets.bottom
+  assert.match(source, /bottom:\s*Math\.max\(insets\.bottom,\s*\d+\)\s*\+\s*\d+/);
+  // FlatList contentContainerStyle accounts for insets.bottom
+  assert.match(source, /paddingBottom:\s*Math\.max\(insets\.bottom,\s*\d+\)\s*\+\s*\d+/);
+});
+
+test('FloatingModeButton provides safe fallback when insets.bottom is 0', () => {
+  const source = readFileSync(new URL('../src/components/FloatingModeButton.tsx', import.meta.url), 'utf8');
+  assert.match(source, /Math\.max\(insets\.bottom,\s*16\)\s*\+\s*16/);
+});
+

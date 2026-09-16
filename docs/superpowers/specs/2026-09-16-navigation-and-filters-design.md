@@ -59,13 +59,18 @@ In the previous design, the bottom navigation bar displayed three tabs: **Map**,
    `'saved'` is removed from `ViewMode`.
 2. **Removal of Static Bottom Bar:**
    - Remove `<SafeAreaView style={s.navSafe}>` and `<View style={s.nav}>`.
-   - Content area (`s.content`) expands to utilize the bottom space naturally, honoring safe area insets.
+   - Content area (`s.content`) expands to utilize the bottom space naturally in edge-to-edge mode.
+   - To prevent overlapping Android system navigation buttons (3-button or gesture bar):
+     - `FlatList` applies dynamic scroll inset `paddingBottom: Math.max(insets.bottom, 16) + 84`.
+     - Map selected card (`s.selected`) floats above system navigation via `bottom: Math.max(insets.bottom, 16) + 16`.
+     - `About` modal content scroll view uses `paddingBottom: Math.max(insets.bottom, 24) + 24`.
+     - `SafeAreaProvider` at app root receives `initialMetrics={initialWindowMetrics}` to avoid transient 0 insets on cold start.
 3. **Floating Mode Switcher (`FloatingModeButton`):**
-   - Centered horizontally at the bottom (`position: 'absolute', bottom: insets.bottom + 16, alignSelf: 'center'`).
+   - Centered horizontally at the bottom (`position: 'absolute', bottom: Math.max(insets.bottom, 16) + 16, alignSelf: 'center'`).
    - Dynamic label and icon:
      - When `mode === 'map'`: displays `list` icon + text **"List"**.
      - When `mode === 'list'`: displays `map` icon + text **"Map"**.
-   - Appearance: Pill shape (height 46, borderRadius 23), paddingHorizontal 20, background `colors.ink`, text/icon `colors.paper`, elevation/shadow for contrast against map and cards.
+   - Appearance: Pill shape (height 46, borderRadius 23), paddingHorizontal 22, background `colors.ink`, text/icon `colors.paper`, elevation/shadow for contrast against map and cards.
    - Visibility rule: In `map` mode, when `selectedId !== null`, the floating button hides smoothly so it never overlaps the selected place bottom sheet.
    - Android back button: Pressing back in `list` mode transitions back to `map` mode.
 

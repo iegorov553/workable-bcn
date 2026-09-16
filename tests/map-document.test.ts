@@ -467,7 +467,7 @@ test('map stylesheet contains 142vmax geometry, rotated-grid transform, and coun
 test('transit station proximity detection in map click opens station popup and suppresses mapClick', () => {
   const messages: string[] = [];
   let openedPopups: string[] = [];
-  let mapClickHandler: ((e: any) => void) | null = null;
+  let mapClickHandler: any = null;
 
   const map = {
     stop() {}, closePopup() {}, invalidateSize() {}, flyTo() {},

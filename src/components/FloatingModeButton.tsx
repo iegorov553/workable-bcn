@@ -19,7 +19,7 @@ export function FloatingModeButton({ mode, onToggle, visible = true }: FloatingM
   const icon = isMap ? 'list-outline' : 'map-outline';
 
   return (
-    <View pointerEvents="box-none" style={[styles.container, { bottom: insets.bottom + 16 }]}>
+    <View pointerEvents="box-none" style={[styles.container, { bottom: Math.max(insets.bottom, 16) + 16 }]}>
       <Pressable
         accessibilityRole="button"
         accessibilityLabel={`Switch to ${label} view`}
