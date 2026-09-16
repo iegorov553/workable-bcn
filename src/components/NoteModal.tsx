@@ -147,6 +147,8 @@ export function NoteModal({
               accessibilityLabel="Note text"
               placeholder="Wi-Fi password, quiet tables, outlets, coffee notes..."
               placeholderTextColor={colors.inkSoft}
+              selectionColor={colors.tomato}
+              cursorColor={colors.tomato}
               multiline
               autoFocus
               maxLength={DEFAULT_MAX_NOTE_LENGTH}
@@ -156,7 +158,7 @@ export function NoteModal({
               textAlignVertical="top"
             />
             {charsLeft < 200 && (
-              <Text style={s.charCount}>
+              <Text style={[s.charCount, charsLeft < 50 && { color: colors.tomato, fontWeight: '600' }]}>
                 {charsLeft} characters remaining
               </Text>
             )}
