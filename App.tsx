@@ -683,7 +683,7 @@ function AppContent() {
         <Text selectable style={s.aboutText}>The map requests tiles from CARTO and OpenStreetMap, which receives your IP address and the area you are viewing. After centring on your location, that area may reveal your location. Directions open Google Maps with the selected café as the destination. These services process requests under their own privacy policies.</Text>
         <Pressable accessibilityRole="link" onPress={() => void Linking.openURL('https://carto.com/privacy').catch(() => setNotice('Could not open the link. Please try again.'))}><Text style={s.settings}>CARTO privacy policy ↗</Text></Pressable>
         <Pressable accessibilityRole="link" onPress={() => void Linking.openURL('https://osmfoundation.org/wiki/Privacy_Policy').catch(() => setNotice('Could not open the link. Please try again.'))}><Text style={s.settings}>OpenStreetMap privacy policy ↗</Text></Pressable>
-        <Text style={s.secondary}>Workable BCN · 1.1.0</Text>
+        <Text style={s.secondary}>Workable BCN · 1.1.1</Text>
       </ScrollView></SafeAreaView>
     </Modal>
     <NoteModal

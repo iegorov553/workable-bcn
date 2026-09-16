@@ -2,7 +2,7 @@
   "expo": {
     "name": "Workable BCN",
     "slug": "workable-bcn",
-    "version": "1.1.0",
+    "version": "1.1.1",
     "orientation": "portrait",
     "icon": "./assets/workable-icon.png",
     "userInterfaceStyle": "light",
@@ -20,7 +20,7 @@
         "android.permission.ACCESS_COARSE_LOCATION",
         "android.permission.ACCESS_FINE_LOCATION"
       ],
-      "versionCode": 3,
+      "versionCode": 5,
       "allowBackup": false,
       "blockedPermissions": [
         "android.permission.ACCESS_BACKGROUND_LOCATION",
