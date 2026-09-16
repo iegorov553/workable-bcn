@@ -8,9 +8,10 @@ export type FloatingModeButtonProps = {
   mode: ViewMode;
   onToggle: () => void;
   visible?: boolean;
+  bottom?: number;
 };
 
-export function FloatingModeButton({ mode, onToggle, visible = true }: FloatingModeButtonProps) {
+export function FloatingModeButton({ mode, onToggle, visible = true, bottom = 16 }: FloatingModeButtonProps) {
   const insets = useSafeAreaInsets();
   if (!visible) return null;
 
@@ -19,7 +20,7 @@ export function FloatingModeButton({ mode, onToggle, visible = true }: FloatingM
   const icon = isMap ? 'list-outline' : 'map-outline';
 
   return (
-    <View pointerEvents="box-none" style={[styles.container, { bottom: Math.max(insets.bottom, 16) + 16 }]}>
+    <View pointerEvents="box-none" style={[styles.container, { bottom }]}>
       <Pressable
         accessibilityRole="button"
         accessibilityLabel={`Switch to ${label} view`}

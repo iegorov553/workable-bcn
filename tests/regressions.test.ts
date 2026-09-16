@@ -348,19 +348,24 @@ test('SafeAreaProvider receives initialMetrics to prevent transient 0 insets', (
   assert.match(source, /<SafeAreaProvider\s+initialMetrics=\{initialWindowMetrics\}>/);
 });
 
-test('App handles bottom safe area insets for FlatList scroll, selected place card, and About modal', () => {
+test('App handles bottom safe area insets and Android system navigation bar fallback', () => {
   const source = readFileSync(new URL('../App.tsx', import.meta.url), 'utf8');
   assert.match(source, /import\s*\{[^}]*useSafeAreaInsets[^}]*\}\s*from\s*['"]react-native-safe-area-context['"]/);
   assert.match(source, /const\s+insets\s*=\s*useSafeAreaInsets\(\);/);
-  // selected card on map accounts for insets.bottom
-  assert.match(source, /bottom:\s*Math\.max\(insets\.bottom,\s*\d+\)\s*\+\s*\d+/);
-  // FlatList contentContainerStyle accounts for insets.bottom
-  assert.match(source, /paddingBottom:\s*Math\.max\(insets\.bottom,\s*\d+\)\s*\+\s*\d+/);
+  // Root and About modal SafeAreaView include 'bottom' in edges
+  assert.match(source, /edges=\{[^}]*['"]bottom['"][^}]*\}/);
+  // Fallback for Android when insets.bottom is 0
+  assert.match(source, /Platform\.OS\s*===\s*['"]android['"]\s*&&\s*insets\.bottom\s*===\s*0/);
 });
 
-test('FloatingModeButton provides safe fallback when insets.bottom is 0', () => {
+test('FloatingModeButton defaults to bottom 16 inside safe content container', () => {
   const source = readFileSync(new URL('../src/components/FloatingModeButton.tsx', import.meta.url), 'utf8');
-  assert.match(source, /Math\.max\(insets\.bottom,\s*16\)\s*\+\s*16/);
+  assert.match(source, /bottom\s*=\s*16/);
+});
+
+test('NoteModal provides safe fallback for Android navigation bar', () => {
+  const source = readFileSync(new URL('../src/components/NoteModal.tsx', import.meta.url), 'utf8');
+  assert.match(source, /Platform\.OS\s*===\s*['"]android['"]\s*\?\s*48\s*:\s*12/);
 });
 
 test('Selected PlaceCard retains its distinct two-tiered card styling without flattening overrides', () => {

@@ -388,9 +388,11 @@ function AppContent() {
     }
   }, [meetMode, settingOrigin]);
 
+  const androidBottomFallback = Platform.OS === 'android' && insets.bottom === 0 ? 48 : 0;
+
   if (!loaded) return <View style={s.loading}><ActivityIndicator color={colors.tomato} /><Text style={s.secondary}>Opening the map…</Text></View>;
 
-  return <SafeAreaView edges={['top', 'left', 'right']} style={s.root}>
+  return <SafeAreaView edges={['top', 'left', 'right', 'bottom']} style={[s.root, androidBottomFallback > 0 && { paddingBottom: androidBottomFallback }]}>
     <StatusBar style="dark" />
     <View style={s.header}>
       <View style={s.titleRow}>
@@ -575,7 +577,7 @@ function AppContent() {
           </Pressable>
           <Pressable accessibilityRole="button" accessibilityLabel="Return to my location" accessibilityState={{ busy: locating, disabled: locating }} disabled={locating} onPress={() => void locate()} style={({ pressed }) => [s.mapButton, pressed && !locating && { opacity: 0.8, transform: [{ scale: 0.94 }] }]}>{locating ? <ActivityIndicator color={colors.ink} /> : <Ionicons name="locate-outline" size={24} color={colors.ink} />}</Pressable>
         </View>
-        {selected ? <View style={[s.selected, { bottom: Math.max(insets.bottom, 16) + 16 }]}>
+        {selected ? <View style={[s.selected, { bottom: 16 }]}>
           <View style={s.sheetHeader}><Text style={s.sheetLabel}>SELECTED PLACE</Text><Pressable accessibilityRole="button" accessibilityLabel="Close place details" onPress={() => setSelectedId(null)} hitSlop={8} style={({ pressed }) => [s.iconButton, pressed && { opacity: 0.6 }]}><Ionicons name="close" size={22} color={colors.inkSoft} /></Pressable></View>
           <PlaceCard
             place={selected}
@@ -604,7 +606,7 @@ function AppContent() {
           keyExtractor={p => p.id}
           contentInsetAdjustmentBehavior="automatic"
           keyboardShouldPersistTaps="handled"
-          contentContainerStyle={[s.list, { paddingBottom: Math.max(insets.bottom, 16) + 84 }, !filtered.length && { flexGrow: 1 }]}
+          contentContainerStyle={[s.list, { paddingBottom: 84 }, !filtered.length && { flexGrow: 1 }]}
           initialNumToRender={10}
           maxToRenderPerBatch={10}
           windowSize={7}
@@ -630,18 +632,18 @@ function AppContent() {
           }}
         />
       </View>
+      <FloatingModeButton
+        mode={mode}
+        onToggle={() => {
+          setMode(m => m === 'map' ? 'list' : 'map');
+          setSelectedId(null);
+          haptic();
+        }}
+        visible={mode === 'list' || !selectedId}
+      />
     </View>
-    <FloatingModeButton
-      mode={mode}
-      onToggle={() => {
-        setMode(m => m === 'map' ? 'list' : 'map');
-        setSelectedId(null);
-        haptic();
-      }}
-      visible={mode === 'list' || !selectedId}
-    />
     <Modal visible={about} animationType="slide" onRequestClose={() => setAbout(false)}>
-      <SafeAreaView style={s.root}><View style={s.aboutHeader}><Text style={s.heading}>About Workable BCN</Text><Pressable accessibilityRole="button" accessibilityLabel="Close about" onPress={() => setAbout(false)} style={s.iconButton}><Ionicons name="close" size={24} /></Pressable></View><ScrollView contentInsetAdjustmentBehavior="automatic" contentContainerStyle={[s.aboutContent, { paddingBottom: Math.max(insets.bottom, 24) + 24 }]}>
+      <SafeAreaView edges={['top', 'left', 'right', 'bottom']} style={[s.root, androidBottomFallback > 0 && { paddingBottom: androidBottomFallback }]}><View style={s.aboutHeader}><Text style={s.heading}>About Workable BCN</Text><Pressable accessibilityRole="button" accessibilityLabel="Close about" onPress={() => setAbout(false)} style={s.iconButton}><Ionicons name="close" size={24} /></Pressable></View><ScrollView contentInsetAdjustmentBehavior="automatic" contentContainerStyle={s.aboutContent}>
         <View><Pressable accessibilityRole="link" onPress={() => void Linking.openURL(PRIVACY_POLICY_URL).catch(() => { setAbout(false); setNotice('Could not open the privacy policy. Please try again.'); })}><Text style={s.settings}>Privacy policy ↗</Text></Pressable><Pressable accessibilityRole="link" onPress={() => void Linking.openURL(`mailto:${SUPPORT_EMAIL}`).catch(() => { setAbout(false); setNotice(`Please email ${SUPPORT_EMAIL} using your mail app.`); })}><Text style={s.settings}>Support · {SUPPORT_EMAIL}</Text></Pressable></View>
         <Image source={require('./assets/workable-icon.png')} style={s.brandIcon} accessibilityIgnoresInvertColors /><Text selectable style={s.heading}>Coffee. City. Your places.</Text><Text selectable style={s.aboutText}>An independent guide to cafés in Barcelona and nearby towns. We are not affiliated with the featured chains. Check opening hours, Wi-Fi and laptop policies before visiting.</Text>
         <Text style={s.heading}>{hiddenPlaces.size > 0 ? `Hidden places (${hiddenPlaces.size})` : 'Hidden places'}</Text>
@@ -753,7 +755,7 @@ const s = applyTypography(StyleSheet.create({
   mapButtonActive: { backgroundColor: colors.honey },
   locate: { position: 'absolute', top: 16, right: 16, width: 48, height: 48, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper, boxShadow: '0 2px 10px #00000018', elevation: 3 },
   secondary: { color: colors.inkSoft, fontSize: 12, lineHeight: 18 },
-  selected: { position: 'absolute', bottom: 24, width: '92%', maxWidth: 560, alignSelf: 'center', borderRadius: 20, backgroundColor: colors.paper, overflow: 'hidden', boxShadow: '0 2px 16px #00000018', elevation: 8 },
+  selected: { position: 'absolute', bottom: 16, width: '92%', maxWidth: 560, alignSelf: 'center', borderRadius: 20, backgroundColor: colors.paper, overflow: 'hidden', boxShadow: '0 2px 16px #00000018', elevation: 8 },
   sheetHeader: { paddingLeft: 20, paddingRight: 6, paddingTop: 4, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }, sheetLabel: { fontSize: 10, letterSpacing: 1.2, fontWeight: '700', color: colors.inkSoft },
   list: { paddingHorizontal: 16, paddingBottom: 88, backgroundColor: colors.listBackground, maxWidth: 680, width: '100%', alignSelf: 'center' }, listHeading: { paddingTop: 22, paddingBottom: 16, gap: 6 },
   listHeaderRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },

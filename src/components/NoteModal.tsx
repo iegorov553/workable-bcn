@@ -164,7 +164,7 @@ export function NoteModal({
             )}
           </ScrollView>
 
-          <View style={[s.footer, { paddingBottom: keyboardHeight > 0 ? 12 : Math.max(insets.bottom, 12) + 12 }]}>
+          <View style={[s.footer, { paddingBottom: keyboardHeight > 0 ? 12 : Math.max(insets.bottom, Platform.OS === 'android' ? 48 : 12) + 12 }]}>
             {initialNote ? (
               <Pressable
                 accessibilityRole="button"
