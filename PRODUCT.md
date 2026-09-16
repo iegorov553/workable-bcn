@@ -16,7 +16,7 @@ A focused, fast mobile guide to Barcelona café locations (365 Café, Buenas Mig
 
 ## Positioning
 
-Zero-friction, private, and offline-first: no accounts, no subscriptions, no ads, and no tracking. Curated specifically for Barcelona's established bakery-café chains with verified address directories rather than crowdsourced clutter.
+Zero-friction, private, and offline-first: no accounts, no subscriptions, no ads, and no tracking. Curated specifically for Barcelona's established bakery-café chains with verified address directories rather than crowdsourced clutter. Personal notes, custom hidden places, and favorites stay strictly local on device.
 
 ## Operating Context
 
@@ -27,12 +27,17 @@ Zero-friction, private, and offline-first: no accounts, no subscriptions, no ads
 ## Capabilities and Constraints
 
 - **Capabilities**:
-  - Interactive map view (Leaflet via WebView) and scrollable list view.
-  - Geolocation support for distance calculation and sorting.
+  - Interactive map view (Leaflet via WebView) with chain color markers and custom heart markers for saved places.
+  - Floating mode switcher to toggle between Map and List views.
+  - Scrollable list view with distance sorting, travel time, and search matching badges.
+  - Unified filter pipeline combining favorites (heart chip), café chains, search queries, and hidden places.
+  - Place hiding with immediate undo banner and restoration management in the About modal.
+  - Local personal notes per café stored offline with quick sheet editing.
+  - Geolocation support for distance calculation, transit routing, and equidistant Meet mode.
   - Local favourites storage (AsyncStorage) without remote account requirements.
   - Search by street name, branch name, and filter by café chain.
   - One-tap navigation link to external maps.
-  - Built-in About modal with support and privacy information.
+  - Built-in About modal with support, privacy information, and hidden places restoration.
 - **Constraints**:
   - English-only UI for all application copy.
   - Strict permissions boundary (only coarse/fine location when in use; background location blocked).
