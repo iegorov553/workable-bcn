@@ -20,6 +20,6 @@ export type Coordinates = {
   longitude: number;
 };
 
-export type ViewMode = 'map' | 'list' | 'saved';
+export type ViewMode = 'map' | 'list';
 
 export type MapOrientation = 'north' | 'grid';

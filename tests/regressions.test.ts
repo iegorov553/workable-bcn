@@ -289,3 +289,14 @@ test('PlaceCard source defines and supports onHide prop with eye-off-outline ico
   assert.match(source, /accessibilityLabel="Hide place"/);
 });
 
+test('FloatingModeButton component and ViewMode type are defined', () => {
+  const types = readFileSync(new URL('../src/types.ts', import.meta.url), 'utf8');
+  assert.match(types, /export type ViewMode = 'map' \| 'list';/);
+  const source = readFileSync(new URL('../src/components/FloatingModeButton.tsx', import.meta.url), 'utf8');
+  assert.match(source, /export function FloatingModeButton\(/);
+  assert.match(source, /List/);
+  assert.match(source, /Map/);
+  assert.match(source, /colors\.ink/);
+});
+
+
