@@ -19,10 +19,11 @@ export function FloatingModeButton({ mode, onToggle, visible = true }: FloatingM
   const icon = isMap ? 'list-outline' : 'map-outline';
 
   return (
-    <View pointerEvents="box-none" style={[styles.container, { bottom: insets.bottom + 16 }]}>
+    <View pointerEvents="box-none" style={[styles.container, { bottom: Math.max(insets.bottom, 12) + 16 }]}>
       <Pressable
         accessibilityRole="button"
         accessibilityLabel={`Switch to ${label} view`}
+        accessibilityHint="Toggles between map and list view"
         onPress={onToggle}
         style={({ pressed }) => [styles.button, pressed && styles.pressed]}
       >
@@ -44,11 +45,12 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'center',
     gap: 7,
-    minHeight: 46,
+    minHeight: 48,
     paddingHorizontal: 22,
-    borderRadius: 23,
+    borderRadius: 24,
     backgroundColor: colors.ink,
     boxShadow: '0 4px 14px rgba(23, 33, 27, 0.28)',
+    elevation: 6,
   },
   pressed: {
     opacity: 0.85,

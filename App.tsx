@@ -100,6 +100,8 @@ function AppContent() {
     );
   }, [hiddenPlaces, onlyFavorites, favorites, chain, query]);
 
+  const favoriteIdsArray = useMemo(() => Array.from(favorites), [favorites]);
+
   const equidistantMatches = useMemo(() => {
     if (!meetMode || !location || !friendLocation) return null;
     return filterMeetingPlaces(baseFiltered, location, friendLocation);
@@ -157,15 +159,17 @@ function AppContent() {
     haptic();
   }, [focus]);
 
-  const toggleFavorite = (id: string) => {
-    const next = new Set(favorites);
-    if (next.has(id)) next.delete(id); else next.add(id);
-    setFavorites(next);
-    // Serialize writes so a slow old write cannot undo a newer tap.
-    saveQueue.current = saveQueue.current.then(() => AsyncStorage.setItem(FAVORITES_KEY, JSON.stringify([...next])))
-      .catch(() => { if (mounted.current) setNotice('Could not save your places on this device.'); });
+  const toggleFavorite = useCallback((id: string) => {
+    setFavorites(prev => {
+      const next = new Set(prev);
+      if (next.has(id)) next.delete(id); else next.add(id);
+      // Serialize writes so a slow old write cannot undo a newer tap.
+      saveQueue.current = saveQueue.current.then(() => AsyncStorage.setItem(FAVORITES_KEY, JSON.stringify([...next])))
+        .catch(() => { if (mounted.current) setNotice('Could not save your places on this device.'); });
+      return next;
+    });
     haptic();
-  };
+  }, []);
 
   const saveNote = (placeId: string, text: string) => {
     const cleaned = sanitizeNote(text);
@@ -191,10 +195,10 @@ function AppContent() {
       .catch(() => { if (mounted.current) setNotice('Could not delete your note.'); });
     setEditingPlace(null);
   };
-  const openDirections = (place: Place) => {
+  const openDirections = useCallback((place: Place) => {
     void Linking.openURL(getDirectionsUrl(place))
       .catch(() => setNotice('Could not open directions. Check your maps app or browser.'));
-  };
+  }, []);
   const shareFriendDirections = useCallback((place: Place) => {
     if (!friendLocation) return;
     const url = `https://www.google.com/maps/dir/?api=1&origin=${friendLocation.latitude},${friendLocation.longitude}&destination=${place.latitude},${place.longitude}`;
@@ -304,43 +308,46 @@ function AppContent() {
       watcherSub?.remove();
     };
   }, [permissionGranted]);
-  const resetFilters = () => {
+  const resetFilters = useCallback(() => {
     setQuery('');
     setChain('All');
     setOnlyFavorites(false);
-  };
+  }, []);
 
-  const hidePlace = (id: string) => {
-    const next = new Set(hiddenPlaces);
-    next.add(id);
-    setHiddenPlaces(next);
-    if (selectedId === id) setSelectedId(null);
+  const hidePlace = useCallback((id: string) => {
+    setHiddenPlaces(prev => {
+      const next = new Set(prev);
+      next.add(id);
+      saveHiddenQueue.current = saveHiddenQueue.current
+        .then(() => AsyncStorage.setItem(HIDDEN_KEY, serializeHiddenPlaces(next)))
+        .catch(() => {});
+      return next;
+    });
+    setSelectedId(current => (current === id ? null : current));
     setUndoHideId(id);
     setNotice('Café hidden');
     haptic();
-    saveHiddenQueue.current = saveHiddenQueue.current
-      .then(() => AsyncStorage.setItem(HIDDEN_KEY, serializeHiddenPlaces(next)))
-      .catch(() => {});
-  };
+  }, []);
 
-  const unhidePlace = (id: string) => {
-    const next = new Set(hiddenPlaces);
-    next.delete(id);
-    setHiddenPlaces(next);
+  const unhidePlace = useCallback((id: string) => {
+    setHiddenPlaces(prev => {
+      const next = new Set(prev);
+      next.delete(id);
+      saveHiddenQueue.current = saveHiddenQueue.current
+        .then(() => AsyncStorage.setItem(HIDDEN_KEY, serializeHiddenPlaces(next)))
+        .catch(() => {});
+      return next;
+    });
     haptic();
-    saveHiddenQueue.current = saveHiddenQueue.current
-      .then(() => AsyncStorage.setItem(HIDDEN_KEY, serializeHiddenPlaces(next)))
-      .catch(() => {});
-  };
+  }, []);
 
-  const unhideAll = () => {
-    const next = new Set<string>();
-    setHiddenPlaces(next);
+  const unhideAll = useCallback(() => {
+    setHiddenPlaces(new Set<string>());
     haptic();
     saveHiddenQueue.current = saveHiddenQueue.current
       .then(() => AsyncStorage.setItem(HIDDEN_KEY, '[]'))
       .catch(() => {});
-  };
+  }, []);
 
   const hiddenList = useMemo(() => {
     return places.filter(p => hiddenPlaces.has(p.id));
@@ -393,7 +400,7 @@ function AppContent() {
             accessibilityLabel={meetMode ? 'Exit Meet halfway mode' : 'Meet halfway with a friend'}
             accessibilityState={{ selected: meetMode }}
             onPress={toggleMeetMode}
-            style={({ pressed }) => [s.meetToggle, meetMode && s.meetToggleActive, pressed && { opacity: 0.75 }]}
+            style={({ pressed }) => [s.meetToggle, meetMode && s.meetToggleActive, pressed && { opacity: 0.75, transform: [{ scale: 0.97 }] }]}
           >
             <Ionicons name="people" size={16} color={colors.ink} />
             <Text style={[s.meetToggleText, meetMode && s.meetToggleTextActive]}>Meet</Text>
@@ -403,8 +410,8 @@ function AppContent() {
       </View>
       <View style={s.search}>
         <Ionicons name="search-outline" size={20} color={colors.inkSoft} />
-        <TextInput accessibilityLabel="Search places" value={query} onChangeText={setQuery} placeholder="Café, street or neighbourhood" placeholderTextColor={colors.inkSoft} returnKeyType="search" autoCorrect={false} maxLength={80} onSubmitEditing={Keyboard.dismiss} style={s.input} />
-        {!!query && <Pressable accessibilityRole="button" accessibilityLabel="Clear search" onPress={() => setQuery('')} style={s.iconButton}><Ionicons name="close-circle" size={20} color={colors.inkSoft} /></Pressable>}
+        <TextInput accessibilityLabel="Search places" value={query} onChangeText={setQuery} placeholder="Café, street or neighbourhood" placeholderTextColor={colors.inkSoft} selectionColor={colors.tomato} cursorColor={colors.tomato} returnKeyType="search" autoCorrect={false} maxLength={80} onSubmitEditing={Keyboard.dismiss} style={s.input} />
+        {!!query && <Pressable accessibilityRole="button" accessibilityLabel="Clear search" onPress={() => setQuery('')} hitSlop={6} style={s.iconButton}><Ionicons name="close-circle" size={20} color={colors.inkSoft} /></Pressable>}
       </View>
     </View>
     <View style={s.filterWrap}><ScrollView horizontal showsHorizontalScrollIndicator={false} keyboardShouldPersistTaps="handled" contentContainerStyle={s.filters}>
@@ -414,11 +421,11 @@ function AppContent() {
         accessibilityState={{ selected: onlyFavorites }}
         hitSlop={4}
         onPress={() => { setOnlyFavorites(v => !v); setSelectedId(null); haptic(); }}
-        style={({ pressed }) => [s.chip, onlyFavorites && s.heartChipActive, pressed && { opacity: 0.75 }]}
+        style={({ pressed }) => [s.chip, onlyFavorites && s.heartChipActive, pressed && { opacity: 0.75, transform: [{ scale: 0.96 }] }]}
       >
         <Ionicons name={onlyFavorites ? "heart" : "heart-outline"} size={16} color={onlyFavorites ? colors.tomato : colors.inkSoft} />
       </Pressable>
-      {['All', ...chains].map(name => <Pressable key={name} accessibilityRole="button" accessibilityLabel={`Filter by ${name}`} accessibilityState={{ selected: chain === name }} hitSlop={4} onPress={() => { setChain(name); setSelectedId(null); haptic(); }} style={({ pressed }) => [s.chip, chain === name && s.chipActive, pressed && { opacity: 0.75 }]}>
+      {['All', ...chains].map(name => <Pressable key={name} accessibilityRole="button" accessibilityLabel={`Filter by ${name}`} accessibilityState={{ selected: chain === name }} hitSlop={4} onPress={() => { setChain(name); setSelectedId(null); haptic(); }} style={({ pressed }) => [s.chip, chain === name && s.chipActive, pressed && { opacity: 0.75, transform: [{ scale: 0.96 }] }]}>
         {name !== 'All' && <View style={[s.dot, { backgroundColor: chainColors[name] ?? fallbackChainColor }]} />}
         <Text style={[s.chipText, chain === name && s.chipTextActive]}>{name}</Text>
       </Pressable>)}
@@ -505,13 +512,18 @@ function AppContent() {
         ) : null}
       </View>
     ) : null}
-    {notice && <View accessibilityLiveRegion="polite" style={s.notice}><View style={s.noticeContent}><Text selectable style={s.noticeText}>{notice}</Text>{undoHideId ? <Pressable accessibilityRole="button" accessibilityLabel="Undo hiding café" onPress={() => { const idToUndo = undoHideId; setUndoHideId(null); setNotice(null); unhidePlace(idToUndo); }} hitSlop={4} style={({ pressed }) => [s.undoButton, pressed && { opacity: 0.75 }]}><Text style={s.undoText}>Undo</Text></Pressable> : null}{showSettings && <Pressable accessibilityRole="button" onPress={() => void Linking.openSettings().catch(() => setNotice('Open device Settings → Apps → Workable BCN → Permissions.'))}><Text style={s.settings}>Open settings</Text></Pressable>}</View><Pressable accessibilityRole="button" accessibilityLabel="Dismiss message" onPress={() => { setNotice(null); setUndoHideId(null); }} style={s.iconButton}><Ionicons name="close" size={20} color={colors.ink} /></Pressable></View>}
+    {notice && <View accessibilityLiveRegion="polite" style={s.notice}><View style={s.noticeContent}><Text selectable style={s.noticeText}>{notice}</Text>{undoHideId ? <Pressable accessibilityRole="button" accessibilityLabel="Undo hiding café" onPress={() => { const idToUndo = undoHideId; setUndoHideId(null); setNotice(null); unhidePlace(idToUndo); }} hitSlop={{ top: 8, bottom: 8, left: 6, right: 6 }} style={({ pressed }) => [s.undoButton, pressed && { opacity: 0.75, transform: [{ scale: 0.96 }] }]}><Text style={s.undoText}>Undo</Text></Pressable> : null}{showSettings && <Pressable accessibilityRole="button" onPress={() => void Linking.openSettings().catch(() => setNotice('Open device Settings → Apps → Workable BCN → Permissions.'))}><Text style={s.settings}>Open settings</Text></Pressable>}</View><Pressable accessibilityRole="button" accessibilityLabel="Dismiss message" onPress={() => { setNotice(null); setUndoHideId(null); }} style={s.iconButton}><Ionicons name="close" size={20} color={colors.ink} /></Pressable></View>}
     <View style={s.content}>
-      {mode === 'map' ? <View style={s.map}>
+      <View
+        style={[s.map, mode !== 'map' && s.mapHidden]}
+        pointerEvents={mode === 'map' ? 'auto' : 'none'}
+        accessibilityElementsHidden={mode !== 'map'}
+        importantForAccessibility={mode === 'map' ? 'auto' : 'no-hide-descendants'}
+      >
         <MapCanvas
           places={filtered}
           selectedId={selectedId}
-          favoriteIds={Array.from(favorites)}
+          favoriteIds={favoriteIdsArray}
           userLocation={location}
           friendLocation={friendLocation}
           meetMode={meetMode}
@@ -525,7 +537,12 @@ function AppContent() {
         {filtered.length === 0 ? (
           <View style={s.mapEmptyBanner}>
             <Text style={s.mapEmptyText}>No places match the active filters.</Text>
-            <Pressable accessibilityRole="button" onPress={resetFilters} style={({ pressed }) => [s.resetMapFiltersButton, pressed && { opacity: 0.75 }]}>
+            <Pressable
+              accessibilityRole="button"
+              hitSlop={{ top: 8, bottom: 8, left: 8, right: 8 }}
+              onPress={resetFilters}
+              style={({ pressed }) => [s.resetMapFiltersButton, pressed && { opacity: 0.75, transform: [{ scale: 0.96 }] }]}
+            >
               <Text style={s.resetMapFiltersText}>Reset filters</Text>
             </Pressable>
           </View>
@@ -558,7 +575,7 @@ function AppContent() {
           <Pressable accessibilityRole="button" accessibilityLabel="Return to my location" accessibilityState={{ busy: locating, disabled: locating }} disabled={locating} onPress={() => void locate()} style={({ pressed }) => [s.mapButton, pressed && !locating && { opacity: 0.8, transform: [{ scale: 0.94 }] }]}>{locating ? <ActivityIndicator color={colors.ink} /> : <Ionicons name="locate-outline" size={24} color={colors.ink} />}</Pressable>
         </View>
         {selected ? <View style={s.selected}>
-          <View style={s.sheetHeader}><Text style={s.sheetLabel}>SELECTED PLACE</Text><Pressable accessibilityRole="button" accessibilityLabel="Close place details" onPress={() => setSelectedId(null)} style={s.iconButton}><Ionicons name="close" size={22} color={colors.inkSoft} /></Pressable></View>
+          <View style={s.sheetHeader}><Text style={s.sheetLabel}>SELECTED PLACE</Text><Pressable accessibilityRole="button" accessibilityLabel="Close place details" onPress={() => setSelectedId(null)} hitSlop={8} style={({ pressed }) => [s.iconButton, pressed && { opacity: 0.6 }]}><Ionicons name="close" size={22} color={colors.inkSoft} /></Pressable></View>
           <PlaceCard
             place={selected}
             favorite={favorites.has(selected.id)}
@@ -572,29 +589,47 @@ function AppContent() {
             onHide={() => hidePlace(selected.id)}
             onEditNote={() => setEditingPlace(selected)}
             onShareFriend={meetMode && friendLocation ? () => shareFriendDirections(selected) : undefined}
+            style={s.selectedCard}
           />
         </View> : null}
-      </View> : <FlatList data={filtered} keyExtractor={p => p.id} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled" contentContainerStyle={[s.list, !filtered.length && { flexGrow: 1 }]} initialNumToRender={12}
-        ListHeaderComponent={filtered.length ? <View style={s.listHeaderRow}><View style={s.listHeading}><Text style={s.heading}>{onlyFavorites ? 'Your favourites' : meetMode && location && friendLocation ? 'Meeting spots' : 'All places'}</Text><Text style={s.secondary}>{formatPlaceCount(filtered.length)}{meetMode && location && friendLocation ? ' · ranked by travel time' : (location ? ' · nearest first' : '')}</Text></View><Pressable accessibilityRole="button" accessibilityLabel={location ? 'Refresh distances' : 'Show distances'} accessibilityState={{ busy: locating, disabled: locating }} disabled={locating} onPress={() => void locate(false)} style={s.iconButton}>{locating ? <ActivityIndicator color={colors.ink} /> : <Ionicons name="locate-outline" size={22} color={colors.ink} />}</Pressable></View> : null}
-        ListEmptyComponent={<View style={s.empty}><View style={s.emptyIcon}><Ionicons name={onlyFavorites && !favorites.size ? 'heart-outline' : 'search-outline'} size={28} color={colors.ink} /></View><Text style={[s.heading, s.emptyHeading]}>{onlyFavorites && !favorites.size ? 'Nothing saved yet' : 'No matching places'}</Text><Text style={s.emptyCopy}>{onlyFavorites && !favorites.size ? 'Tap the heart on a café to keep it here.' : 'Try another search or reset the filters.'}</Text>{(query || chain !== 'All' || onlyFavorites) && <Pressable accessibilityRole="button" onPress={resetFilters} style={({ pressed }) => [s.reset, pressed && { opacity: 0.65 }]}><Text style={s.settings}>Reset filters</Text></Pressable>}</View>}
-        renderItem={({ item }) => {
-          const match = equidistantMap?.get(item.id);
-          return <PlaceCard
-            place={item}
-            favorite={favorites.has(item.id)}
-            note={notes[item.id]}
-            distanceLabel={match?.badgeLabel ?? formatDistance(distanceKm(item, location))}
-            matchBadge={match?.matchTag}
-            isBestMatch={match?.isBestMatch}
-            onPress={() => void selectPlace(item.id)}
-            onDirections={() => openDirections(item)}
-            onFavorite={() => toggleFavorite(item.id)}
-            onHide={() => hidePlace(item.id)}
-            onEditNote={() => setEditingPlace(item)}
-            onShareFriend={meetMode && friendLocation ? () => shareFriendDirections(item) : undefined}
-          />;
-        }}
-      />}
+      </View>
+      <View
+        style={[s.listWrap, mode !== 'list' && s.listHidden]}
+        pointerEvents={mode === 'list' ? 'auto' : 'none'}
+        accessibilityElementsHidden={mode !== 'list'}
+        importantForAccessibility={mode === 'list' ? 'auto' : 'no-hide-descendants'}
+      >
+        <FlatList
+          data={filtered}
+          keyExtractor={p => p.id}
+          contentInsetAdjustmentBehavior="automatic"
+          keyboardShouldPersistTaps="handled"
+          contentContainerStyle={[s.list, !filtered.length && { flexGrow: 1 }]}
+          initialNumToRender={10}
+          maxToRenderPerBatch={10}
+          windowSize={7}
+          removeClippedSubviews={Platform.OS !== 'web'}
+          ListHeaderComponent={filtered.length ? <View style={s.listHeaderRow}><View style={s.listHeading}><Text style={s.heading}>{onlyFavorites ? 'Your favourites' : meetMode && location && friendLocation ? 'Meeting spots' : 'All places'}</Text><Text style={s.secondary}>{formatPlaceCount(filtered.length)}{meetMode && location && friendLocation ? ' · ranked by travel time' : (location ? ' · nearest first' : '')}</Text></View><Pressable accessibilityRole="button" accessibilityLabel={location ? 'Refresh distances' : 'Show distances'} accessibilityState={{ busy: locating, disabled: locating }} disabled={locating} onPress={() => void locate(false)} style={s.iconButton}>{locating ? <ActivityIndicator color={colors.ink} /> : <Ionicons name="locate-outline" size={22} color={colors.ink} />}</Pressable></View> : null}
+          ListEmptyComponent={<View style={s.empty}><View style={s.emptyIcon}><Ionicons name={onlyFavorites && !favorites.size ? 'heart-outline' : 'search-outline'} size={28} color={colors.ink} /></View><Text style={[s.heading, s.emptyHeading]}>{onlyFavorites && !favorites.size ? 'Nothing saved yet' : 'No matching places'}</Text><Text style={s.emptyCopy}>{onlyFavorites && !favorites.size ? 'Tap the heart on a café to keep it here.' : 'Try another search or reset the filters.'}</Text>{(query || chain !== 'All' || onlyFavorites) && <Pressable accessibilityRole="button" onPress={resetFilters} style={({ pressed }) => [s.reset, pressed && { opacity: 0.65 }]}><Text style={s.settings}>Reset filters</Text></Pressable>}</View>}
+          renderItem={({ item }) => {
+            const match = equidistantMap?.get(item.id);
+            return <PlaceCard
+              place={item}
+              favorite={favorites.has(item.id)}
+              note={notes[item.id]}
+              distanceLabel={match?.badgeLabel ?? formatDistance(distanceKm(item, location))}
+              matchBadge={match?.matchTag}
+              isBestMatch={match?.isBestMatch}
+              onPress={() => void selectPlace(item.id)}
+              onDirections={() => openDirections(item)}
+              onFavorite={() => toggleFavorite(item.id)}
+              onHide={() => hidePlace(item.id)}
+              onEditNote={() => setEditingPlace(item)}
+              onShareFriend={meetMode && friendLocation ? () => shareFriendDirections(item) : undefined}
+            />;
+          }}
+        />
+      </View>
     </View>
     <FloatingModeButton
       mode={mode}
@@ -617,8 +652,9 @@ function AppContent() {
             <Pressable
               accessibilityRole="button"
               accessibilityLabel="Unhide all places"
+              hitSlop={{ top: 6, bottom: 6, left: 6, right: 6 }}
               onPress={unhideAll}
-              style={({ pressed }) => [s.unhideAllButton, pressed && { opacity: 0.75 }]}
+              style={({ pressed }) => [s.unhideAllButton, pressed && { opacity: 0.75, transform: [{ scale: 0.97 }] }]}
             >
               <Text style={s.unhideAllText}>Unhide all</Text>
             </Pressable>
@@ -631,8 +667,9 @@ function AppContent() {
                 <Pressable
                   accessibilityRole="button"
                   accessibilityLabel={`Unhide ${place.name}`}
+                  hitSlop={{ top: 6, bottom: 6, left: 6, right: 6 }}
                   onPress={() => unhidePlace(place.id)}
-                  style={({ pressed }) => [s.unhideButton, pressed && { opacity: 0.75 }]}
+                  style={({ pressed }) => [s.unhideButton, pressed && { opacity: 0.75, transform: [{ scale: 0.96 }] }]}
                 >
                   <Text style={s.unhideButtonText}>Unhide</Text>
                 </Pressable>
@@ -691,7 +728,7 @@ const s = applyTypography(StyleSheet.create({
   chipText: { color: colors.ink, fontSize: 12, fontWeight: '600' },
   chipTextActive: { color: colors.paper }, dot: { width: 7, height: 7, borderRadius: 4 },
   meetBar: { paddingHorizontal: 18, paddingBottom: 10, maxWidth: 680, width: '100%', alignSelf: 'center' },
-  meetBarContent: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: colors.paper, borderRadius: 18, padding: 8, borderWidth: 1, borderColor: colors.border, boxShadow: '0 2px 8px #17211b14' },
+  meetBarContent: { flexDirection: 'row', alignItems: 'center', gap: 8, backgroundColor: colors.paper, borderRadius: 18, padding: 8, borderWidth: 1, borderColor: colors.border, boxShadow: '0 2px 8px #17211b14', elevation: 2 },
   meetPill: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 7, minHeight: 48, paddingVertical: 6, paddingHorizontal: 10, borderRadius: 14, backgroundColor: colors.cream, borderWidth: 1, borderColor: colors.border },
   meetPillActive: { borderColor: colors.honey, backgroundColor: colors.honeyLight },
   meetPillTextWrap: { flex: 1, minWidth: 0 },
@@ -702,18 +739,23 @@ const s = applyTypography(StyleSheet.create({
   meetCloseButton: { width: 44, height: 44, borderRadius: 14, backgroundColor: colors.cream, alignItems: 'center', justifyContent: 'center' },
   meetFarNotice: { marginTop: 6, flexDirection: 'row', alignItems: 'center', gap: 6, paddingVertical: 5, paddingHorizontal: 10, backgroundColor: colors.honeyLight, borderRadius: 10, borderWidth: 1, borderColor: colors.border },
   meetFarNoticeText: { flex: 1, fontSize: 11, lineHeight: 15, color: colors.inkSoft, fontWeight: '500' },
-  content: { flex: 1 }, map: { flex: 1 },
-  mapEmptyBanner: { position: 'absolute', top: 16, left: 16, right: 76, paddingVertical: 10, paddingHorizontal: 14, borderRadius: 14, backgroundColor: colors.paper, borderWidth: 1, borderColor: colors.border, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10, boxShadow: '0 2px 10px #00000018' },
+  content: { flex: 1, position: 'relative' },
+  map: { flex: 1, width: '100%', height: '100%' },
+  mapHidden: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: 0, zIndex: -1 },
+  listWrap: { flex: 1, width: '100%', height: '100%' },
+  listHidden: { position: 'absolute', top: 0, left: 0, right: 0, bottom: 0, opacity: 0, zIndex: -1 },
+  mapEmptyBanner: { position: 'absolute', top: 16, left: 16, right: 76, paddingVertical: 10, paddingHorizontal: 14, borderRadius: 14, backgroundColor: colors.paper, borderWidth: 1, borderColor: colors.border, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10, boxShadow: '0 2px 10px #00000018', elevation: 4 },
   mapEmptyText: { flex: 1, fontSize: 13, color: colors.inkSoft, fontWeight: '500' },
-  resetMapFiltersButton: { paddingVertical: 4, paddingHorizontal: 8 },
+  resetMapFiltersButton: { minHeight: 36, justifyContent: 'center', paddingVertical: 4, paddingHorizontal: 8 },
   resetMapFiltersText: { color: colors.tomato, fontWeight: '700', fontSize: 13 },
   mapControls: { position: 'absolute', top: 16, right: 16, gap: 10 },
-  mapButton: { width: 48, height: 48, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper, boxShadow: '0 2px 10px #00000018' },
+  mapButton: { width: 48, height: 48, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper, boxShadow: '0 2px 10px #00000018', elevation: 3 },
   mapButtonActive: { backgroundColor: colors.honey },
-  locate: { position: 'absolute', top: 16, right: 16, width: 48, height: 48, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper, boxShadow: '0 2px 10px #00000018' },
+  locate: { position: 'absolute', top: 16, right: 16, width: 48, height: 48, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper, boxShadow: '0 2px 10px #00000018', elevation: 3 },
   secondary: { color: colors.inkSoft, fontSize: 12, lineHeight: 18 },
-  selected: { position: 'absolute', bottom: 24, width: '92%', maxWidth: 560, alignSelf: 'center', borderRadius: 20, backgroundColor: colors.paper, overflow: 'hidden', boxShadow: '0 2px 16px #00000018' },
-  sheetHeader: { paddingLeft: 18, paddingRight: 4, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }, sheetLabel: { fontSize: 10, letterSpacing: 1, fontWeight: '600', color: colors.inkSoft },
+  selected: { position: 'absolute', bottom: 24, width: '92%', maxWidth: 560, alignSelf: 'center', borderRadius: 20, backgroundColor: colors.paper, overflow: 'hidden', boxShadow: '0 2px 16px #00000018', elevation: 8 },
+  selectedCard: { marginBottom: 0, borderWidth: 0, boxShadow: undefined, elevation: 0, borderRadius: 0, backgroundColor: 'transparent' },
+  sheetHeader: { paddingLeft: 20, paddingRight: 6, paddingTop: 4, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }, sheetLabel: { fontSize: 10, letterSpacing: 1.2, fontWeight: '700', color: colors.inkSoft },
   list: { paddingHorizontal: 16, paddingBottom: 88, backgroundColor: colors.listBackground, maxWidth: 680, width: '100%', alignSelf: 'center' }, listHeading: { paddingTop: 22, paddingBottom: 16, gap: 6 },
   listHeaderRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
   heading: { fontSize: 22, fontWeight: '700', letterSpacing: -0.5, color: colors.ink },
@@ -723,19 +765,19 @@ const s = applyTypography(StyleSheet.create({
   notice: { backgroundColor: colors.noticeBackground, paddingLeft: 16, paddingRight: 8, paddingVertical: 10, flexDirection: 'row', alignItems: 'center' },
   noticeContent: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10, flexWrap: 'wrap' },
   noticeText: { fontSize: 13, lineHeight: 19, color: colors.ink },
-  undoButton: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: 8, backgroundColor: colors.paper, borderWidth: 1, borderColor: colors.border },
+  undoButton: { minHeight: 36, justifyContent: 'center', paddingHorizontal: 12, paddingVertical: 6, borderRadius: 8, backgroundColor: colors.paper, borderWidth: 1, borderColor: colors.border },
   undoText: { fontSize: 13, fontWeight: '700', color: colors.tomato },
-  settings: { color: colors.tomato, fontWeight: '600', fontSize: 14, paddingVertical: 8 },
-  aboutHeader: { paddingHorizontal: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
-  aboutContent: { padding: 24, gap: 20, maxWidth: 680, width: '100%', alignSelf: 'center' },
+  settings: { color: colors.tomato, fontWeight: '600', fontSize: 14, minHeight: 44, justifyContent: 'center', paddingVertical: 8 },
+  aboutHeader: { paddingHorizontal: 20, paddingTop: 14, paddingBottom: 8, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  aboutContent: { padding: 24, paddingBottom: 48, gap: 20, maxWidth: 680, width: '100%', alignSelf: 'center' },
   aboutText: { fontSize: 15, lineHeight: 24, color: colors.inkSoft },
   hiddenSection: { gap: 12 },
-  unhideAllButton: { alignSelf: 'flex-start', paddingVertical: 6, paddingHorizontal: 12, borderRadius: 12, backgroundColor: colors.paper, borderWidth: 1, borderColor: colors.border },
+  unhideAllButton: { alignSelf: 'flex-start', minHeight: 38, justifyContent: 'center', paddingVertical: 6, paddingHorizontal: 12, borderRadius: 12, backgroundColor: colors.paper, borderWidth: 1, borderColor: colors.border },
   unhideAllText: { fontSize: 13, fontWeight: '700', color: colors.tomato },
   hiddenItemRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 8, paddingHorizontal: 12, borderRadius: 14, backgroundColor: colors.paper, borderWidth: 1, borderColor: colors.border, gap: 12 },
   hiddenItemInfo: { flex: 1, minWidth: 0 },
   hiddenItemName: { fontSize: 14, fontWeight: '600', color: colors.ink },
   hiddenItemAddress: { fontSize: 12, color: colors.inkSoft, marginTop: 2 },
-  unhideButton: { paddingVertical: 6, paddingHorizontal: 12, borderRadius: 10, backgroundColor: colors.cream, borderWidth: 1, borderColor: colors.border },
+  unhideButton: { minHeight: 38, justifyContent: 'center', paddingVertical: 6, paddingHorizontal: 12, borderRadius: 10, backgroundColor: colors.cream, borderWidth: 1, borderColor: colors.border },
   unhideButtonText: { fontSize: 12, fontWeight: '600', color: colors.ink },
 }));
