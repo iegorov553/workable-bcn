@@ -129,11 +129,14 @@
     L10N: '#009EE0', L10S: '#009EE0', L11: '#98C222', L12: '#BD93C8', T1: '#009A44', T4: '#009A44',
   };
   let metroLayer = null;
+  let isMetroVisible = false;
+  const stationMarkers = [];
   const transitData = typeof __TRANSIT_OVERLAY__ !== 'undefined' ? __TRANSIT_OVERLAY__ : null;
   const getMetroLayer = () => {
     if (metroLayer) return metroLayer;
     if (!transitData || typeof L === 'undefined' || typeof L.layerGroup !== 'function') return null;
     metroLayer = L.layerGroup();
+    stationMarkers.length = 0;
     if (Array.isArray(transitData.segments) && typeof L.polyline === 'function') {
       for (let i = 0; i < transitData.segments.length; i++) {
         const seg = transitData.segments[i];
@@ -204,12 +207,28 @@
           } else if (isInterchange) {
             labelClass += ' transit-label-hub';
           }
-          stMarker.bindTooltip(station.name, {
+          stMarker.bindTooltip('<span class="transit-label-text">' + station.name + '</span>', {
             permanent: true,
             direction: 'right',
             offset: [isInterchange ? 6 : 5, 0],
             className: labelClass,
           });
+          if (typeof stMarker.on === 'function') {
+            stMarker.on('tooltipopen', (ev) => {
+              const el = ev?.tooltip?.getElement ? ev.tooltip.getElement() : (ev?.tooltip?._container || null);
+              if (el && !el._workableTap) {
+                el._workableTap = true;
+                el.addEventListener('click', (te) => {
+                  if (typeof L !== 'undefined' && L.DomEvent && L.DomEvent.stopPropagation) {
+                    L.DomEvent.stopPropagation(te);
+                  }
+                  if (typeof stMarker.openPopup === 'function') {
+                    stMarker.openPopup();
+                  }
+                });
+              }
+            });
+          }
         }
 
         const root = document.createElement('div');
@@ -225,6 +244,8 @@
         lines.textContent = station.lines.join(' · ');
         root.append(typeBadge, name, lines);
         stMarker.bindPopup(root);
+        stMarker._stationData = station;
+        stationMarkers.push(stMarker);
         metroLayer.addLayer(stMarker);
       }
     }
@@ -233,25 +254,62 @@
   let currentPlaces = [];
   if (map.on) {
     map.on('click', (e) => {
-      if (e?.latlng) {
-        if (typeof map.latLngToContainerPoint === 'function' && currentPlaces.length > 0) {
-          const clickPoint = map.latLngToContainerPoint(e.latlng);
-          let closest = null;
-          let minDistance = Infinity;
-          for (let i = 0; i < currentPlaces.length; i++) {
-            const place = currentPlaces[i];
-            const placePoint = map.latLngToContainerPoint([place.latitude, place.longitude]);
-            const dist = Math.hypot(clickPoint.x - placePoint.x, clickPoint.y - placePoint.y);
-            if (dist < minDistance) {
-              minDistance = dist;
-              closest = place;
-            }
-          }
-          if (closest && minDistance <= 26) {
-            send({ type: 'select', id: closest.id });
-            return;
+      if (e?.latlng && typeof map.latLngToContainerPoint === 'function') {
+        const clickPoint = map.latLngToContainerPoint(e.latlng);
+        let closestPlace = null;
+        let minPlaceDist = Infinity;
+        for (let i = 0; i < currentPlaces.length; i++) {
+          const place = currentPlaces[i];
+          const placePoint = map.latLngToContainerPoint([place.latitude, place.longitude]);
+          const dist = Math.hypot(clickPoint.x - placePoint.x, clickPoint.y - placePoint.y);
+          if (dist < minPlaceDist) {
+            minPlaceDist = dist;
+            closestPlace = place;
           }
         }
+
+        let closestStationMarker = null;
+        let minStationDist = Infinity;
+        if (isMetroVisible && stationMarkers.length > 0) {
+          for (let i = 0; i < stationMarkers.length; i++) {
+            const sm = stationMarkers[i];
+            const smCoords = sm.getLatLng ? sm.getLatLng() : sm._latlng || (sm._stationData && sm._stationData.coords);
+            if (smCoords) {
+              const smPoint = map.latLngToContainerPoint(smCoords);
+              const dist = Math.hypot(clickPoint.x - smPoint.x, clickPoint.y - smPoint.y);
+              if (dist < minStationDist) {
+                minStationDist = dist;
+                closestStationMarker = sm;
+              }
+            }
+          }
+        }
+
+        const placeHit = closestPlace && minPlaceDist <= 26;
+        const stationHit = closestStationMarker && minStationDist <= 26;
+
+        if (placeHit && stationHit) {
+          if (minStationDist < minPlaceDist) {
+            if (typeof closestStationMarker.openPopup === 'function') {
+              closestStationMarker.openPopup();
+            }
+            return;
+          } else {
+            send({ type: 'select', id: closestPlace.id });
+            return;
+          }
+        } else if (stationHit) {
+          if (typeof closestStationMarker.openPopup === 'function') {
+            closestStationMarker.openPopup();
+          }
+          return;
+        } else if (placeHit) {
+          send({ type: 'select', id: closestPlace.id });
+          return;
+        }
+
+        send({ type: 'mapClick', latitude: e.latlng.lat, longitude: e.latlng.lng });
+      } else if (e?.latlng) {
         send({ type: 'mapClick', latitude: e.latlng.lat, longitude: e.latlng.lng });
       }
     });
@@ -413,6 +471,7 @@
     } else {
       lastBoundsKey = null;
     }
+    isMetroVisible = Boolean(state.showMetro);
     const transit = getMetroLayer();
     if (transit) {
       const isLayerOnMap = typeof map.hasLayer === 'function' ? map.hasLayer(transit) : Boolean(transit._map);

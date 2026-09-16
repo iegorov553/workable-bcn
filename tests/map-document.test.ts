@@ -246,11 +246,11 @@ test('transit overlay distinguishes tram lines with dashed pattern, distinct mar
   assert.ok(hubMarker, 'hub marker must have larger radius');
 
   assert.equal(tooltips.length, 3);
-  const tramTooltip = tooltips.find(t => t.text === 'Tram Stop');
+  const tramTooltip = tooltips.find(t => t.text.includes('Tram Stop'));
   assert.ok(tramTooltip);
   assert.match(tramTooltip.opts.className, /transit-label-tram/);
 
-  const hubTooltip = tooltips.find(t => t.text === 'Interchange Hub');
+  const hubTooltip = tooltips.find(t => t.text.includes('Interchange Hub'));
   assert.ok(hubTooltip);
   assert.match(hubTooltip.opts.className, /transit-label-hub/);
 });
@@ -455,8 +455,99 @@ test('map stylesheet contains 142vmax geometry, rotated-grid transform, and coun
   assert.ok(css.includes('#map.rotated-grid'), 'should define #map.rotated-grid');
   assert.ok(css.includes('rotate(45deg)'), 'should rotate 45deg');
   assert.ok(css.includes('.rotated-grid .leaflet-tooltip.transit-label'), 'should counter-rotate transit labels');
+  assert.ok(css.includes('.transit-label-text'), 'should define transit-label-text');
+  assert.ok(css.includes('.rotated-grid .leaflet-tooltip.transit-label .transit-label-text'), 'should target transit-label-text for rotation');
   assert.ok(css.includes('.rotated-grid .leaflet-popup'), 'should counter-rotate popups');
+  assert.ok(css.includes('.rotated-grid .leaflet-popup .leaflet-popup-content-wrapper'), 'should target popup wrapper for rotation');
   assert.ok(css.includes('rotate(-45deg)'), 'should counter-rotate -45deg');
+  assert.ok(css.includes('visibility: hidden;'), 'should hide labels with visibility:hidden to preserve layout dimensions');
+  assert.ok(css.includes('pointer-events: auto;'), 'should allow tap interaction on visible labels');
 });
+
+test('transit station proximity detection in map click opens station popup and suppresses mapClick', () => {
+  const messages: string[] = [];
+  let openedPopups: string[] = [];
+  let mapClickHandler: ((e: any) => void) | null = null;
+
+  const map = {
+    stop() {}, closePopup() {}, invalidateSize() {}, flyTo() {},
+    on(event: string, handler: (e: any) => void) {
+      if (event === 'click') mapClickHandler = handler;
+      return this;
+    },
+    hasLayer() { return true; },
+    latLngToContainerPoint(coords: any) {
+      const lat = Array.isArray(coords) ? coords[0] : coords.lat;
+      const lng = Array.isArray(coords) ? coords[1] : coords.lng;
+      if (Math.abs(lat - 41.387) < 0.0001 && Math.abs(lng - 2.170) < 0.0001) return { x: 500, y: 500 };
+      if (Math.abs(lat - 41.389) < 0.0001 && Math.abs(lng - 2.169) < 0.0001) return { x: 300, y: 300 };
+      return { x: Math.round((lng - 2.170) * 10000) + 500, y: Math.round((41.387 - lat) * 10000) + 500 };
+    },
+  };
+
+  const window: any = {
+    ReactNativeWebView: { postMessage(data: string) { messages.push(data); } },
+    addEventListener() {},
+  };
+  const element = () => ({ append() {}, textContent: '', className: '', hidden: true });
+
+  const dummyLayer = { addTo() { return this; }, remove() { return this; }, addLayer() { return this; } };
+
+  const context = {
+    window,
+    document: { getElementById: element, createElement: element },
+    __TRANSIT_OVERLAY__: {
+      segments: [],
+      stations: [
+        { name: 'Catalunya', lines: ['L1', 'L3'], coords: [41.387, 2.170], isTramOnly: false, isInterchange: true },
+      ],
+    },
+    L: {
+      map: () => map,
+      tileLayer: () => ({ on() { return this; }, addTo() { return this; } }),
+      circleMarker: (coords: any) => ({
+        coords,
+        bindPopup() { return this; },
+        bindTooltip() { return this; },
+        addTo() { return this; },
+        on() { return this; },
+        setRadius() { return this; },
+        setStyle() { return this; },
+        openPopup() { openedPopups.push('station-popup'); return this; },
+        getLatLng() { return coords; },
+      }),
+      polyline: () => ({ addTo() { return this; } }),
+      layerGroup: () => dummyLayer,
+    },
+  };
+
+  runInNewContext(readFileSync(new URL('../src/map/map-runtime.js', import.meta.url), 'utf8'), context);
+
+  // Deliver state with showMetro: true and a cafe far away
+  const state = {
+    places: [{ id: 'cafe-1', name: 'Far Cafe', chain: 'Chain', address: 'Addr', latitude: 41.389, longitude: 2.169 }],
+    selectedId: null,
+    userLocation: null,
+    cameraCommand: null,
+    showMetro: true,
+  };
+  runInNewContext(mapUpdateScript(encodeMapPayload(state)), context);
+  assert.ok(mapClickHandler, 'map click handler must be registered');
+
+  // Click 10px away from station (container x: 510, y: 500 -> dist = 10 <= 26)
+  openedPopups = [];
+  messages.length = 0;
+  mapClickHandler!({ latlng: { lat: 41.387, lng: 2.171 } });
+  assert.equal(openedPopups.length, 1, 'clicking near station must open station popup');
+  assert.equal(messages.some(m => m.includes('mapClick')), false, 'must not send mapClick when station is tapped');
+
+  // Click 50px away from station (in empty space) -> should send mapClick
+  openedPopups = [];
+  messages.length = 0;
+  mapClickHandler!({ latlng: { lat: 41.380, lng: 2.160 } });
+  assert.equal(openedPopups.length, 0);
+  assert.equal(messages.some(m => m.includes('mapClick')), true, 'clicking empty space must send mapClick');
+});
+
 
 

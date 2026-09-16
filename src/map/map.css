@@ -17,14 +17,22 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; position: r
 }
 
 .rotated-grid .leaflet-tooltip.transit-label {
+  /* Tooltip container retains Leaflet's translate3d without conflicting independent rotation */
+}
+.rotated-grid .leaflet-tooltip.transit-label .transit-label-text {
+  display: inline-block;
   transform: rotate(-45deg);
-  rotate: -45deg;
-  transform-origin: left center;
+  transform-origin: 0 50%;
 }
 .rotated-grid .leaflet-popup {
+  /* Popup container retains Leaflet's translate3d without conflicting independent rotation */
+}
+.rotated-grid .leaflet-popup .leaflet-popup-content-wrapper {
   transform: rotate(-45deg);
-  rotate: -45deg;
-  transform-origin: bottom center;
+  transform-origin: center center;
+}
+.rotated-grid .leaflet-popup .leaflet-popup-tip-container {
+  display: none;
 }
 * { box-sizing: border-box; }
 .leaflet-container { font-family: system-ui, sans-serif; background: #e7dfcd; }
@@ -39,15 +47,18 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; position: r
 #tile-error { position: absolute; top: 8px; left: 8px; right: 72px; z-index: 1000; background: white; padding: 10px; border-radius: 12px; font: 12px sans-serif; }
 
 .leaflet-tooltip.transit-label {
-  display: none;
+  visibility: hidden;
+  opacity: 0;
+  pointer-events: none;
   background: transparent !important;
   border: none !important;
   box-shadow: none !important;
-  padding: 0 !important;
+  padding: 4px 6px !important;
+  margin-top: -4px !important;
   font-family: system-ui, -apple-system, sans-serif;
   font-size: 10px;
   font-weight: 600;
-  line-height: 1;
+  line-height: 1.2;
   color: #1a202c;
   text-shadow:
     -1px -1px 0 #ffffff,
@@ -57,10 +68,16 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; position: r
      0 0 3px #ffffff,
      0 1px 2px rgba(255,255,255,0.9);
   white-space: nowrap;
-  pointer-events: none !important;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
 }
 .leaflet-tooltip.transit-label::before {
   display: none !important;
+}
+.transit-label-text {
+  display: inline-block;
+  transform-origin: 0 50%;
 }
 .leaflet-tooltip.transit-label-hub {
   font-size: 11px;
@@ -74,10 +91,19 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; position: r
 }
 
 .zoom-14 .leaflet-tooltip.transit-label-hub {
-  display: block;
+  visibility: visible;
+  opacity: 0.95;
+  pointer-events: auto;
+  cursor: pointer;
 }
 .zoom-gte-15 .leaflet-tooltip.transit-label {
-  display: block;
+  visibility: visible;
+  opacity: 0.95;
+  pointer-events: auto;
+  cursor: pointer;
+}
+.leaflet-tooltip.transit-label:active .transit-label-text {
+  opacity: 0.7;
 }
 
 /* Location markers (User & Friend) */

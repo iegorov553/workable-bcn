@@ -158,16 +158,28 @@ html, body {
 ```
 
 ### 5.2 Counter-Rotation of Legible Overlays
-Station tooltips and popup cards counter-rotate so text remains strictly horizontal:
+Station tooltips and popup cards counter-rotate so text remains strictly horizontal.
+
+> [!IMPORTANT]
+> **CSS Transforms Level 2 Isolation:**
+> Leaflet positions `.leaflet-tooltip` and `.leaflet-popup` via inline `style.transform = translate3d(Xpx, Ypx, 0px)`.
+> Under CSS Transforms Level 2, independent CSS transform properties (`rotate`, `translate`, `scale`) are evaluated *before* the `transform` property. If `rotate: -45deg` is applied directly to `.leaflet-tooltip` or `.leaflet-popup`, the browser rotates the translation vector $(X, Y)$ by $-45^\circ$, flinging the overlays hundreds of pixels away from the station markers and causing them to drift during panning.
+> To prevent this collision, the outer containers retain Leaflet's `translate3d(...)` unperturbed, and counter-rotation is applied to child elements that sit at local $(0, 0)$:
+
 ```css
-.rotated-grid .leaflet-tooltip.transit-label {
+.rotated-grid .leaflet-tooltip.transit-label .transit-label-text {
+  display: inline-block;
   transform: rotate(-45deg);
-  transform-origin: left center;
+  transform-origin: 0 50%;
 }
 
-.rotated-grid .leaflet-popup {
+.rotated-grid .leaflet-popup .leaflet-popup-content-wrapper {
   transform: rotate(-45deg);
-  transform-origin: bottom center;
+  transform-origin: center center;
+}
+
+.rotated-grid .leaflet-popup .leaflet-popup-tip-container {
+  display: none;
 }
 ```
 Circle markers (`L.circleMarker`) for cafes, metro stations, user location, and friend pin are rotation-invariant and require no counter-rotation.
@@ -242,6 +254,14 @@ const localDy = (dy - dx) * cos;
 this._newPos = new L.Point(this._startPos.x + localDx, this._startPos.y + localDy);
 ```
 3. Inertia movement (`map.panBy`) naturally preserves the rotated velocity vector because `_lastPos` and `_positions` reflect the rotated pane positions.
+
+### 6.4 Transit Station Touch Targets & Proximity Hit Detection
+Station circle markers have small visual radii (3–4.5px, 6–9px diameter) to keep the transit network legible without cluttering café markers. To make tapping effortless on mobile touchscreens (44–48px guidelines):
+1. **Interactive Station Labels:** `.leaflet-tooltip.transit-label` is styled with `pointer-events: auto; cursor: pointer;` when visible (zoom $\ge 14$ for hubs, zoom $\ge 15$ for all stations). Tapping the station name directly invokes `stMarker.openPopup()` and calls `L.DomEvent.stopPropagation()`.
+2. **Proximity Tap Detection:** In `map.on('click')`, when `state.showMetro` is active, the Euclidean distance from the tap point to all station markers is computed in container coordinates:
+   - If a tap lands within $26\text{px}$ of a transit station, the closest station's popup is opened.
+   - If a café and a transit station both lie within $26\text{px}$ of the tap, the closer entity wins.
+   - Tap misses do not trigger `mapClick` (preventing accidental origin pin placement in Meet Halfway mode).
 
 ---
 
