@@ -11,6 +11,7 @@ export type PlaceCardProps = {
   onPress: () => void;
   onDirections: () => void;
   onFavorite: () => void;
+  onHide?: () => void;
   matchBadge?: string | null;
   isBestMatch?: boolean;
   onShareFriend?: () => void;
@@ -25,6 +26,7 @@ export function PlaceCard({
   onPress,
   onDirections,
   onFavorite,
+  onHide,
   matchBadge,
   isBestMatch = false,
   onShareFriend,
@@ -46,6 +48,17 @@ export function PlaceCard({
               {matchBadge}
             </Text>
           </View>
+        ) : null}
+        {onHide ? (
+          <Pressable
+            accessibilityRole="button"
+            accessibilityLabel="Hide place"
+            onPress={onHide}
+            hitSlop={8}
+            style={({ pressed }) => [s.icon, pressed && { opacity: 0.6, transform: [{ scale: 0.9 }] }]}
+          >
+            <Ionicons name="eye-off-outline" size={22} color={colors.inkSoft} />
+          </Pressable>
         ) : null}
         <Pressable
           accessibilityRole="button"

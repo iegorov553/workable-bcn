@@ -280,3 +280,12 @@ test('App header renders Workable BCN, Meet, and place count in single row witho
   assert.match(source, /meetToggle/);
   assert.match(source, /countBadge/);
 });
+
+test('PlaceCard source defines and supports onHide prop with eye-off-outline icon', () => {
+  const source = readFileSync(new URL('../src/components/PlaceCard.tsx', import.meta.url), 'utf8');
+  assert.match(source, /onHide\?: \(\) => void;/);
+  assert.match(source, /onHide/);
+  assert.match(source, /eye-off-outline/);
+  assert.match(source, /accessibilityLabel="Hide place"/);
+});
+
