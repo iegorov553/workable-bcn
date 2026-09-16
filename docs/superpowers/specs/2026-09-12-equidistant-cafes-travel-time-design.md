@@ -101,9 +101,14 @@ Given travel time for person A ($T_A$) and person B ($T_B$):
    * **Efficiency term ($0.5 \times \max(T_A, T_B)$):** Penalizes pushing both people too far away (e.g., into outer suburbs) just to achieve mathematical equality.
 2. **Secondary Tie-Breaking:**
    * If scores are within $1.0$, sort by lowest combined straight-line distance: $D_A + D_B$.
-3. **Output Structure:**
+3. **Meeting Area Filtering (`filterMeetingPlaces`):**
+   * Computes the intersection radius $R = \max(D \times 0.58, \frac{D}{2} + 0.25\text{ km})$, where $D = \text{distance}(A, B)$.
+   * Filters candidate venues such that $\text{dist}(A, C) \le R$ and $\text{dist}(B, C) \le R$.
+   * Limits results to a curated cluster of 8–12 venues (`DEFAULT_MEET_MAX_RESULTS = 12`) to prevent map and list overload.
+   * Seamlessly filters out all non-matching venues from the Leaflet canvas and list.
+4. **Output Structure:**
    ```typescript
-   export type EquidistantResult = {
+   export type EquidistantMatch = {
      place: Place;
      timeA: number;
      modeA: 'walk' | 'transit';
@@ -112,6 +117,8 @@ Given travel time for person A ($T_A$) and person B ($T_B$):
      deltaMinutes: number;
      score: number;
      isBestMatch: boolean; // Top 3 results
+     badgeLabel: string;
+     matchTag: string;
    };
    ```
 
@@ -138,7 +145,8 @@ Given travel time for person A ($T_A$) and person B ($T_B$):
 * **Map Tap:** When `meetMode` is active, clicking an empty spot on the Leaflet map dispatches `{ type: 'mapClick', latitude, longitude }` to React Native.
 * **Friend Marker:** Rendered as a distinct purple/violet pin (`#7C3AED`) with a white inner icon and popup: *"Friend is here"*.
 * **Camera Bounds:** When both Point A and Point B are active, the Leaflet map automatically executes `map.fitBounds([userLocation, friendLocation], { padding: [60, 60] })`.
-* **Top Matches Highlighting:** Top 3 equidistant places receive an accented golden ring marker on the map to stand out.
+* **Map Filtering:** All venues outside the meeting intersection area are hidden from the Leaflet canvas and list. Only the 8–12 candidate venues remain visible.
+* **Top Matches Highlighting:** Top 3 equidistant places receive an accented golden ring marker on the map to stand out among the filtered cluster.
 
 ### 5.4 Place Cards & List Representation
 * **Distance Badge Replacement:** In Meet mode, the single distance badge is replaced with:

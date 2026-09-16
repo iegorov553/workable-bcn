@@ -23,7 +23,7 @@ import { parseHiddenPlaces, serializeHiddenPlaces } from './src/utils/hidden-pla
 import { requestBrowserLocation } from './src/utils/browser-location';
 import { PRIVACY_POLICY_URL, SUPPORT_EMAIL } from './src/config';
 import { applyTypography } from './src/typography';
-import { rankEquidistantPlaces, type EquidistantMatch } from './src/utils/equidistant-ranking';
+import { filterMeetingPlaces, type EquidistantMatch } from './src/utils/equidistant-ranking';
 import { startLocationWatcher, type WatcherProvider } from './src/utils/location-watcher';
 import { parseNotes, serializeNotes, sanitizeNote } from './src/utils/notes';
 
@@ -102,7 +102,7 @@ function AppContent() {
 
   const equidistantMatches = useMemo(() => {
     if (!meetMode || !location || !friendLocation) return null;
-    return rankEquidistantPlaces(baseFiltered, location, friendLocation);
+    return filterMeetingPlaces(baseFiltered, location, friendLocation);
   }, [meetMode, location, friendLocation, baseFiltered]);
 
   const topMatchIds = useMemo(() => {
@@ -575,7 +575,7 @@ function AppContent() {
           />
         </View> : null}
       </View> : <FlatList data={filtered} keyExtractor={p => p.id} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled" contentContainerStyle={[s.list, !filtered.length && { flexGrow: 1 }]} initialNumToRender={12}
-        ListHeaderComponent={filtered.length ? <View style={s.listHeaderRow}><View style={s.listHeading}><Text style={s.heading}>{onlyFavorites ? 'Your favourites' : 'All places'}</Text><Text style={s.secondary}>{formatPlaceCount(filtered.length)}{meetMode && location && friendLocation ? ' · ranked by travel time' : (location ? ' · nearest first' : '')}</Text></View><Pressable accessibilityRole="button" accessibilityLabel={location ? 'Refresh distances' : 'Show distances'} accessibilityState={{ busy: locating, disabled: locating }} disabled={locating} onPress={() => void locate(false)} style={s.iconButton}>{locating ? <ActivityIndicator color={colors.ink} /> : <Ionicons name="locate-outline" size={22} color={colors.ink} />}</Pressable></View> : null}
+        ListHeaderComponent={filtered.length ? <View style={s.listHeaderRow}><View style={s.listHeading}><Text style={s.heading}>{onlyFavorites ? 'Your favourites' : meetMode && location && friendLocation ? 'Meeting spots' : 'All places'}</Text><Text style={s.secondary}>{formatPlaceCount(filtered.length)}{meetMode && location && friendLocation ? ' · ranked by travel time' : (location ? ' · nearest first' : '')}</Text></View><Pressable accessibilityRole="button" accessibilityLabel={location ? 'Refresh distances' : 'Show distances'} accessibilityState={{ busy: locating, disabled: locating }} disabled={locating} onPress={() => void locate(false)} style={s.iconButton}>{locating ? <ActivityIndicator color={colors.ink} /> : <Ionicons name="locate-outline" size={22} color={colors.ink} />}</Pressable></View> : null}
         ListEmptyComponent={<View style={s.empty}><View style={s.emptyIcon}><Ionicons name={onlyFavorites && !favorites.size ? 'heart-outline' : 'search-outline'} size={28} color={colors.ink} /></View><Text style={[s.heading, s.emptyHeading]}>{onlyFavorites && !favorites.size ? 'Nothing saved yet' : 'No matching places'}</Text><Text style={s.emptyCopy}>{onlyFavorites && !favorites.size ? 'Tap the heart on a café to keep it here.' : 'Try another search or reset the filters.'}</Text>{(query || chain !== 'All' || onlyFavorites) && <Pressable accessibilityRole="button" onPress={resetFilters} style={({ pressed }) => [s.reset, pressed && { opacity: 0.65 }]}><Text style={s.settings}>Reset filters</Text></Pressable>}</View>}
         renderItem={({ item }) => {
           const match = equidistantMap?.get(item.id);

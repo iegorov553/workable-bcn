@@ -16,6 +16,17 @@ export type EquidistantMatch = {
   matchTag: string;
 };
 
+export const DEFAULT_MEET_RADIUS_FACTOR = 0.58;
+export const DEFAULT_MEET_MIN_BUFFER_KM = 0.25;
+export const DEFAULT_MEET_MAX_RESULTS = 12;
+
+export interface FilterMeetingPlacesOptions {
+  network?: TransitNetwork;
+  maxResults?: number;
+  radiusFactor?: number;
+  minBufferKm?: number;
+}
+
 /**
  * Calculates a fairness score for two travel times.
  * Lower score is better.
@@ -126,3 +137,88 @@ export function rankEquidistantPlaces(
     };
   });
 }
+
+/**
+ * Calculates the meeting intersection radius for two coordinates.
+ * Formula: max(distance * factor, distance / 2 + minBuffer)
+ */
+export function calculateMeetingRadius(
+  distanceBetweenKm: number,
+  factor = DEFAULT_MEET_RADIUS_FACTOR,
+  minBufferKm = DEFAULT_MEET_MIN_BUFFER_KM
+): number {
+  return Math.max(distanceBetweenKm * factor, distanceBetweenKm / 2 + minBufferKm);
+}
+
+/**
+ * Checks if a place coordinate falls within the meeting area defined by two origins.
+ */
+export function isWithinMeetingArea(
+  placeCoord: Coordinates,
+  originA: Coordinates,
+  originB: Coordinates,
+  radiusKm: number
+): boolean {
+  const distA = distanceKm(placeCoord, originA);
+  const distB = distanceKm(placeCoord, originB);
+  if (distA === null || distB === null) return false;
+  return distA <= radiusKm && distB <= radiusKm;
+}
+
+/**
+ * Filters places to only those located in the meeting intersection area between originA and originB,
+ * ranks them by fairness, and caps the result to maxResults (default: 12).
+ */
+export function filterMeetingPlaces(
+  places: Place[],
+  originA: Coordinates,
+  originB: Coordinates,
+  options?: FilterMeetingPlacesOptions
+): EquidistantMatch[] {
+  if (places.length === 0) {
+    return [];
+  }
+
+  const distanceBetween = distanceKm(originA, originB) ?? 0;
+  const radius = calculateMeetingRadius(
+    distanceBetween,
+    options?.radiusFactor ?? DEFAULT_MEET_RADIUS_FACTOR,
+    options?.minBufferKm ?? DEFAULT_MEET_MIN_BUFFER_KM
+  );
+
+  let candidates = places.filter((p) => isWithinMeetingArea(p, originA, originB, radius));
+
+  // If active chain or query filters resulted in too few places (e.g. < 3),
+  // but places were available in `places`, gently expand the radius up to 0.70 * distance
+  // so the user still gets viable suggestions rather than an empty screen.
+  if (candidates.length < 3 && places.length >= 3) {
+    const expandedRadius = calculateMeetingRadius(distanceBetween, 0.70, 0.5);
+    const expanded = places.filter((p) => isWithinMeetingArea(p, originA, originB, expandedRadius));
+    if (expanded.length > candidates.length) {
+      candidates = expanded;
+    }
+  }
+
+  if (candidates.length === 0) {
+    // If points are far apart (> 35km), fall back to best compromise across whole catalog
+    if (distanceBetween > 35) {
+      candidates = places;
+    } else {
+      return [];
+    }
+  }
+
+  const ranked = rankEquidistantPlaces(candidates, originA, originB, options?.network);
+  const maxResults = options?.maxResults ?? DEFAULT_MEET_MAX_RESULTS;
+
+  const results = ranked.slice(0, maxResults);
+  return results.map((item, index) => {
+    const isBestMatch = index < 3;
+    return {
+      ...item,
+      isBestMatch,
+      matchTag: formatMatchTag(item.deltaMinutes, isBestMatch),
+    };
+  });
+}
+

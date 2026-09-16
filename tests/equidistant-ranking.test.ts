@@ -5,6 +5,11 @@ import {
   rankEquidistantPlaces,
   formatEquidistantBadge,
   formatMatchTag,
+  calculateMeetingRadius,
+  isWithinMeetingArea,
+  filterMeetingPlaces,
+  DEFAULT_MEET_RADIUS_FACTOR,
+  DEFAULT_MEET_MAX_RESULTS,
 } from '../src/utils/equidistant-ranking.ts';
 import type { Place, Coordinates } from '../src/types.ts';
 
@@ -161,3 +166,69 @@ test('rankEquidistantPlaces handles empty array gracefully', () => {
   const results = rankEquidistantPlaces([], originA, originB);
   assert.deepEqual(results, []);
 });
+
+test('calculateMeetingRadius computes proportional radius with minimum buffer', () => {
+  const dist3km = 3.68;
+  const r3km = calculateMeetingRadius(dist3km);
+  // With factor 0.58, 3.68 * 0.58 = 2.1344km
+  assert.ok(Math.abs(r3km - (dist3km * DEFAULT_MEET_RADIUS_FACTOR)) < 1e-4);
+
+  // For very small distance (e.g. 200m), minimum buffer D/2 + 0.25 should apply
+  const distSmall = 0.2;
+  const rSmall = calculateMeetingRadius(distSmall);
+  assert.equal(rSmall, distSmall / 2 + 0.25);
+});
+
+test('isWithinMeetingArea checks whether point is within radius from both origins', () => {
+  const originA: Coordinates = { latitude: 41.4000, longitude: 2.1600 };
+  const originB: Coordinates = { latitude: 41.4000, longitude: 2.1800 };
+  const mid: Coordinates = { latitude: 41.4000, longitude: 2.1700 };
+  const distant: Coordinates = { latitude: 41.4500, longitude: 2.1700 };
+
+  const radius = 1.2; // km
+  assert.ok(isWithinMeetingArea(mid, originA, originB, radius), 'Midpoint must be within radius of both');
+  assert.ok(!isWithinMeetingArea(distant, originA, originB, radius), 'Distant point must not be in intersection area');
+});
+
+test('filterMeetingPlaces filters out non-meeting cafes and caps results to maxResults', () => {
+  const originA: Coordinates = { latitude: 41.4026, longitude: 2.1589 }; // Gràcia
+  const originB: Coordinates = { latitude: 41.4010, longitude: 2.2030 }; // Poblenou
+
+  const mockPlaces: Place[] = [
+    { id: 'mid1', name: 'Midpoint Cafe 1', chain: 'Sandwichez', address: 'Eixample', latitude: 41.4000, longitude: 2.1800 },
+    { id: 'mid2', name: 'Midpoint Cafe 2', chain: '365 Café', address: 'Eixample', latitude: 41.4015, longitude: 2.1810 },
+    { id: 'far-badalona', name: 'Far Away Cafe', chain: 'Granier', address: 'Badalona', latitude: 41.4500, longitude: 2.2470 },
+    { id: 'far-aeroport', name: 'Airport Cafe', chain: 'El Fornet', address: 'El Prat', latitude: 41.3000, longitude: 2.0800 },
+  ];
+
+  const filtered = filterMeetingPlaces(mockPlaces, originA, originB);
+  assert.equal(filtered.length, 2, 'Only the 2 midpoint cafes should pass the filter');
+  assert.equal(filtered[0].place.id, 'mid2');
+  assert.equal(filtered[1].place.id, 'mid1');
+  assert.ok(filtered[0].isBestMatch, 'First result is tagged as best match');
+});
+
+test('filterMeetingPlaces respects maxResults parameter', () => {
+  const originA: Coordinates = { latitude: 41.4000, longitude: 2.1700 };
+  const originB: Coordinates = { latitude: 41.4000, longitude: 2.1900 };
+
+  const mockPlaces: Place[] = Array.from({ length: 20 }, (_, i) => ({
+    id: `cafe-${i}`,
+    name: `Cafe ${i}`,
+    chain: '365 Café',
+    address: 'Street',
+    latitude: 41.4000 + i * 0.0001,
+    longitude: 2.1800,
+  }));
+
+  const filtered = filterMeetingPlaces(mockPlaces, originA, originB, { maxResults: 5 });
+  assert.equal(filtered.length, 5);
+});
+
+test('filterMeetingPlaces returns empty array on empty input', () => {
+  const originA: Coordinates = { latitude: 41.4000, longitude: 2.1700 };
+  const originB: Coordinates = { latitude: 41.4000, longitude: 2.1900 };
+
+  assert.deepEqual(filterMeetingPlaces([], originA, originB), []);
+});
+
