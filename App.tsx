@@ -590,7 +590,6 @@ function AppContent() {
             onHide={() => hidePlace(selected.id)}
             onEditNote={() => setEditingPlace(selected)}
             onShareFriend={meetMode && friendLocation ? () => shareFriendDirections(selected) : undefined}
-            style={s.selectedCard}
           />
         </View> : null}
       </View>
@@ -755,7 +754,6 @@ const s = applyTypography(StyleSheet.create({
   locate: { position: 'absolute', top: 16, right: 16, width: 48, height: 48, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper, boxShadow: '0 2px 10px #00000018', elevation: 3 },
   secondary: { color: colors.inkSoft, fontSize: 12, lineHeight: 18 },
   selected: { position: 'absolute', bottom: 24, width: '92%', maxWidth: 560, alignSelf: 'center', borderRadius: 20, backgroundColor: colors.paper, overflow: 'hidden', boxShadow: '0 2px 16px #00000018', elevation: 8 },
-  selectedCard: { marginBottom: 0, borderWidth: 0, boxShadow: undefined, elevation: 0, borderRadius: 0, backgroundColor: 'transparent' },
   sheetHeader: { paddingLeft: 20, paddingRight: 6, paddingTop: 4, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }, sheetLabel: { fontSize: 10, letterSpacing: 1.2, fontWeight: '700', color: colors.inkSoft },
   list: { paddingHorizontal: 16, paddingBottom: 88, backgroundColor: colors.listBackground, maxWidth: 680, width: '100%', alignSelf: 'center' }, listHeading: { paddingTop: 22, paddingBottom: 16, gap: 6 },
   listHeaderRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },

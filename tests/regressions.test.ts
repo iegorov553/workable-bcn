@@ -363,3 +363,10 @@ test('FloatingModeButton provides safe fallback when insets.bottom is 0', () => 
   assert.match(source, /Math\.max\(insets\.bottom,\s*16\)\s*\+\s*16/);
 });
 
+test('Selected PlaceCard retains its distinct two-tiered card styling without flattening overrides', () => {
+  const source = readFileSync(new URL('../App.tsx', import.meta.url), 'utf8');
+  assert.doesNotMatch(source, /style=\{s\.selectedCard\}/);
+  assert.doesNotMatch(source, /selectedCard:\s*\{/);
+});
+
+
