@@ -144,3 +144,31 @@ html, body { width: 100%; height: 100%; margin: 0; overflow: hidden; position: r
     opacity: 0;
   }
 }
+
+/* Favorite markers */
+.fav-marker-div {
+  background: transparent;
+  border: none;
+}
+.fav-marker-wrap {
+  width: 20px;
+  height: 20px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  border: 2px solid #FFFDF7;
+  box-shadow: 0 1px 4px rgba(0, 0, 0, 0.35);
+  box-sizing: border-box;
+}
+.fav-marker-wrap svg {
+  display: block;
+}
+.fav-marker-wrap.is-selected {
+  border-color: #17211B;
+  box-shadow: 0 0 0 2px #17211B;
+}
+.rotated-grid .fav-marker-wrap svg {
+  transform: rotate(-45deg);
+}
+

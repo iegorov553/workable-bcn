@@ -679,4 +679,108 @@ test('map runtime wraps L.Draggable._updatePosition with inverse rotation when o
   assert.equal(draggable._newPos.y, 100);
 });
 
+test('favoriteIds survives encoding/decoding and native bootstrap', () => {
+  const stateWithFavs: MapPayload = {
+    ...initial,
+    favoriteIds: ['place-1', 'place-2'],
+  };
+  const boot = nativeBootstrap({ payload: encodeMapPayload(stateWithFavs) });
+  const decoded = decodeMapPayload(boot.$$EXPO_INITIAL_PROPS.props.payload);
+  assert.deepEqual(decoded.favoriteIds, ['place-1', 'place-2']);
+});
+
+test('map runtime renders favorite places with divIcon heart markers, updates selection, and transitions marker type', () => {
+  const circleMarkersCreated: any[] = [];
+  const divMarkersCreated: any[] = [];
+  const map = {
+    on() { return this; },
+    stop() {}, closePopup() {}, invalidateSize() {}, flyTo() {}, fitBounds() {},
+  };
+  const window: any = { ReactNativeWebView: { postMessage() {} }, addEventListener() {} };
+  const element = () => ({ append() {}, textContent: '', className: '', hidden: true, querySelector() { return null; }, classList: { toggle() {} } });
+  const context = {
+    window,
+    document: { getElementById: element, createElement: element },
+    L: {
+      map: () => map,
+      tileLayer: () => ({ on() { return this; }, addTo() { return this; } }),
+      circleMarker: (latlng: [number, number], options: any) => {
+        const marker = {
+          latlng,
+          options,
+          removed: false,
+          bindPopup() { return this; },
+          addTo() { return this; },
+          on() { return this; },
+          setRadius() { return this; },
+          setStyle() { return this; },
+          bringToFront() {},
+          setLatLng() {},
+          remove() { this.removed = true; },
+        };
+        circleMarkersCreated.push(marker);
+        return marker;
+      },
+      divIcon: (opts: any) => opts,
+      marker: (latlng: [number, number], options: any) => {
+        const marker = {
+          latlng,
+          options,
+          zIndexOffset: 0,
+          removed: false,
+          bindPopup() { return this; },
+          addTo() { return this; },
+          on() { return this; },
+          setZIndexOffset(offset: number) { this.zIndexOffset = offset; return this; },
+          setIcon(icon: any) { this.options.icon = icon; return this; },
+          getElement() { return null; },
+          remove() { this.removed = true; },
+        };
+        divMarkersCreated.push(marker);
+        return marker;
+      },
+    },
+  };
+  runInNewContext(readFileSync(new URL('../src/map/map-runtime.js', import.meta.url), 'utf8'), context);
+
+  const place1 = { id: 'place-1', name: 'Fav Café', chain: 'Chain A', address: 'Addr 1', latitude: 41.389, longitude: 2.169 };
+  const place2 = { id: 'place-2', name: 'Regular Café', chain: 'Chain B', address: 'Addr 2', latitude: 41.390, longitude: 2.170 };
+
+  const stateWithFav: MapPayload = {
+    places: [place1, place2],
+    selectedId: null,
+    userLocation: null,
+    cameraCommand: null,
+    favoriteIds: ['place-1'],
+    chainColors: { 'Chain A': '#FF5500' },
+  };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateWithFav)), context);
+
+  assert.equal(divMarkersCreated.length, 1);
+  assert.equal(divMarkersCreated[0]._isFav, true);
+  assert.match(divMarkersCreated[0].options.icon.html, /fav-marker-wrap/);
+  assert.match(divMarkersCreated[0].options.icon.html, /<svg width="10" height="10" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 21\.35/);
+  assert.match(divMarkersCreated[0].options.icon.html, /background-color:#FF5500/);
+  assert.equal(divMarkersCreated[0].zIndexOffset, 200);
+
+  assert.equal(circleMarkersCreated.length, 1);
+  assert.equal(circleMarkersCreated[0]._isFav, false);
+
+  const stateSelected: MapPayload = {
+    ...stateWithFav,
+    selectedId: 'place-1',
+  };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateSelected)), context);
+  assert.equal(divMarkersCreated[0].zIndexOffset, 500);
+
+  const stateUnfav: MapPayload = {
+    ...stateWithFav,
+    favoriteIds: [],
+  };
+  runInNewContext(mapUpdateScript(encodeMapPayload(stateUnfav)), context);
+  assert.equal(divMarkersCreated[0].removed, true);
+  assert.equal(circleMarkersCreated.length, 2);
+});
+
+
 

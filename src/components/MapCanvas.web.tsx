@@ -10,6 +10,7 @@ const html = getMapHtml(cartoApiKey);
 export default function MapCanvas({
   places,
   selectedId,
+  favoriteIds,
   userLocation,
   friendLocation,
   meetMode,
@@ -22,8 +23,8 @@ export default function MapCanvas({
 }: MapCanvasProps) {
   const frame = useRef<HTMLIFrameElement>(null);
   const payload = useMemo(
-    () => encodeMapPayload({ places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, chainColors, topMatchIds, showMetro, orientation }),
-    [places, selectedId, userLocation, friendLocation, meetMode, cameraCommand, topMatchIds, showMetro, orientation]
+    () => encodeMapPayload({ places, selectedId, favoriteIds, userLocation, friendLocation, meetMode, cameraCommand, chainColors, topMatchIds, showMetro, orientation }),
+    [places, selectedId, favoriteIds, userLocation, friendLocation, meetMode, cameraCommand, topMatchIds, showMetro, orientation]
   );
   const send = useCallback(() => frame.current?.contentWindow?.postMessage(payload, '*'), [payload]);
   useEffect(() => {

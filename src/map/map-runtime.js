@@ -292,26 +292,72 @@
       if (!ids.has(id)) { marker.remove(); markers.delete(id); }
     }
     for (const place of state.places) {
-      let marker = markers.get(place.id);
-      if (!marker) {
-        marker = L.circleMarker([place.latitude, place.longitude], { bubblingMouseEvents: false }).bindPopup(popup(place)).addTo(map);
-        marker.on('click', (e) => {
-          if (e && e.originalEvent && typeof L !== 'undefined' && L.DomEvent && L.DomEvent.stopPropagation) {
-            L.DomEvent.stopPropagation(e);
-          }
-          send({ type: 'select', id: place.id });
-        });
-        markers.set(place.id, marker);
-      }
       const selected = place.id === state.selectedId;
-      const isTopMatch = !selected && Boolean(state.topMatchIds && state.topMatchIds.includes(place.id));
-      marker.setRadius(selected ? 10 : (isTopMatch ? 8 : 6)).setStyle({
-        color: selected ? '#17211B' : (isTopMatch ? '#F4C344' : '#FFFDF7'),
-        weight: selected ? 4 : (isTopMatch ? 3 : 2),
-        fillColor: (state.chainColors && state.chainColors[place.chain]) || '#6D776F', fillOpacity: 1,
-      });
-      if (isTopMatch) marker.bringToFront();
-      if (selected) marker.bringToFront();
+      const isFav = Boolean(state.favoriteIds && state.favoriteIds.includes(place.id));
+      let marker = markers.get(place.id);
+      if (marker && marker._isFav !== isFav) {
+        marker.remove();
+        marker = null;
+        markers.delete(place.id);
+      }
+      if (isFav) {
+        const color = (state.chainColors && state.chainColors[place.chain]) || '#6D776F';
+        if (!marker) {
+          const icon = typeof L.divIcon === 'function' ? L.divIcon({
+            className: 'fav-marker-div',
+            html: `<div class="fav-marker-wrap${selected ? ' is-selected' : ''}" style="background-color:${color};"><svg width="10" height="10" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>`,
+            iconSize: [20, 20],
+            iconAnchor: [10, 10],
+          }) : undefined;
+          marker = typeof L.marker === 'function'
+            ? L.marker([place.latitude, place.longitude], { icon, bubblingMouseEvents: false }).bindPopup(popup(place)).addTo(map)
+            : L.circleMarker([place.latitude, place.longitude], { bubblingMouseEvents: false }).bindPopup(popup(place)).addTo(map);
+          marker.on('click', (e) => {
+            if (e && e.originalEvent && typeof L !== 'undefined' && L.DomEvent && L.DomEvent.stopPropagation) {
+              L.DomEvent.stopPropagation(e);
+            }
+            send({ type: 'select', id: place.id });
+          });
+          marker._isFav = true;
+          markers.set(place.id, marker);
+        } else {
+          const el = typeof marker.getElement === 'function' ? marker.getElement() : null;
+          const wrap = el && typeof el.querySelector === 'function' ? el.querySelector('.fav-marker-wrap') : null;
+          if (wrap && wrap.classList) {
+            wrap.classList.toggle('is-selected', selected);
+          } else if (typeof marker.setIcon === 'function' && typeof L.divIcon === 'function') {
+            marker.setIcon(L.divIcon({
+              className: 'fav-marker-div',
+              html: `<div class="fav-marker-wrap${selected ? ' is-selected' : ''}" style="background-color:${color};"><svg width="10" height="10" viewBox="0 0 24 24" fill="#FFFFFF"><path d="M12 21.35l-1.45-1.32C5.4 15.36 2 12.28 2 8.5 2 5.42 4.42 3 7.5 3c1.74 0 3.41.81 4.5 2.09C13.09 3.81 14.76 3 16.5 3 19.58 3 22 5.42 22 8.5c0 3.78-3.4 6.86-8.55 11.54L12 21.35z"/></svg></div>`,
+              iconSize: [20, 20],
+              iconAnchor: [10, 10],
+            }));
+          }
+        }
+        if (typeof marker.setZIndexOffset === 'function') {
+          marker.setZIndexOffset(selected ? 500 : 200);
+        }
+      } else {
+        if (!marker) {
+          marker = L.circleMarker([place.latitude, place.longitude], { bubblingMouseEvents: false }).bindPopup(popup(place)).addTo(map);
+          marker.on('click', (e) => {
+            if (e && e.originalEvent && typeof L !== 'undefined' && L.DomEvent && L.DomEvent.stopPropagation) {
+              L.DomEvent.stopPropagation(e);
+            }
+            send({ type: 'select', id: place.id });
+          });
+          marker._isFav = false;
+          markers.set(place.id, marker);
+        }
+        const isTopMatch = !selected && Boolean(state.topMatchIds && state.topMatchIds.includes(place.id));
+        marker.setRadius(selected ? 10 : (isTopMatch ? 8 : 6)).setStyle({
+          color: selected ? '#17211B' : (isTopMatch ? '#F4C344' : '#FFFDF7'),
+          weight: selected ? 4 : (isTopMatch ? 3 : 2),
+          fillColor: (state.chainColors && state.chainColors[place.chain]) || '#6D776F', fillOpacity: 1,
+        });
+        if (isTopMatch) marker.bringToFront();
+        if (selected) marker.bringToFront();
+      }
     }
     if (state.userLocation) {
       const position = [state.userLocation.latitude, state.userLocation.longitude];

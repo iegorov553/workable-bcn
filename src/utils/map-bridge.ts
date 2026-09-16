@@ -4,6 +4,7 @@ import type { CameraCommand } from './map-camera';
 export type MapPayload = {
   places: Place[];
   selectedId: string | null;
+  favoriteIds?: string[];
   userLocation: Coordinates | null;
   friendLocation?: Coordinates | null;
   meetMode?: boolean;
