@@ -57,16 +57,19 @@ In the previous design, the bottom navigation bar displayed three tabs: **Map**,
    export type ViewMode = 'map' | 'list';
    ```
    `'saved'` is removed from `ViewMode`.
-2. **Removal of Static Bottom Bar:**
+2. **Removal of Static Bottom Bar & Safe Area Framing:**
    - Remove `<SafeAreaView style={s.navSafe}>` and `<View style={s.nav}>`.
-   - Content area (`s.content`) expands to utilize the bottom space naturally in edge-to-edge mode.
-   - To prevent overlapping Android system navigation buttons (3-button or gesture bar):
-     - `FlatList` applies dynamic scroll inset `paddingBottom: Math.max(insets.bottom, 16) + 84`.
-     - Map selected card (`s.selected`) floats above system navigation via `bottom: Math.max(insets.bottom, 16) + 16`.
-     - `About` modal content scroll view uses `paddingBottom: Math.max(insets.bottom, 24) + 24`.
+   - Root `<SafeAreaView>` and About modal `<SafeAreaView>` explicitly manage all edges including `'bottom'` (`edges={['top', 'left', 'right', 'bottom']}`).
+   - To guarantee that cards, map controls, and action sheets never crawl under Android 3-button system bars even when devices or ROMs report 0 insets:
+     - An explicit Android fallback (`Platform.OS === 'android' && insets.bottom === 0 ? 48 : 0`) ensures at least 48 dp bottom padding at all times.
+     - The bottom chin behind system navigation displays the app's theme background (`colors.cream`).
+     - Content area (`s.content`) stays strictly inside the safe area: `FlatList` viewport stops cleanly above the navigation bar, so list cards never scroll under system buttons.
+     - Map selected card (`s.selected`) floats 16 dp above the bottom safe boundary.
+     - `FloatingModeButton` sits inside `s.content` with `bottom: 16`.
+     - `About` modal content and `NoteModal` actions maintain safe clearance above Android system navigation.
      - `SafeAreaProvider` at app root receives `initialMetrics={initialWindowMetrics}` to avoid transient 0 insets on cold start.
 3. **Floating Mode Switcher (`FloatingModeButton`):**
-   - Centered horizontally at the bottom (`position: 'absolute', bottom: Math.max(insets.bottom, 16) + 16, alignSelf: 'center'`).
+   - Centered horizontally inside `s.content` (`position: 'absolute', bottom: 16, alignSelf: 'center'`).
    - Dynamic label and icon:
      - When `mode === 'map'`: displays `list` icon + text **"List"**.
      - When `mode === 'list'`: displays `map` icon + text **"Map"**.
