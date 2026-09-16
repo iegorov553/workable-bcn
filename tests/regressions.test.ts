@@ -299,4 +299,45 @@ test('FloatingModeButton component and ViewMode type are defined', () => {
   assert.match(source, /colors\.ink/);
 });
 
+test('App imports parseHiddenPlaces, serializeHiddenPlaces, and FloatingModeButton', () => {
+  const source = readFileSync(new URL('../App.tsx', import.meta.url), 'utf8');
+  assert.match(source, /import\s*\{[^}]*parseHiddenPlaces[^}]*\}\s*from\s*['"]\.\/src\/utils\/hidden-places['"]/);
+  assert.match(source, /import\s*\{[^}]*serializeHiddenPlaces[^}]*\}\s*from\s*['"]\.\/src\/utils\/hidden-places['"]/);
+  assert.match(source, /import\s*\{[^}]*FloatingModeButton[^}]*\}\s*from\s*['"]\.\/src\/components\/FloatingModeButton['"]/);
+});
 
+test('App defines HIDDEN_KEY and manages hidden places state', () => {
+  const source = readFileSync(new URL('../App.tsx', import.meta.url), 'utf8');
+  assert.match(source, /const\s+HIDDEN_KEY\s*=\s*'workable-bcn:hidden:v1';/);
+  assert.match(source, /const\s*\[hiddenPlaces,\s*setHiddenPlaces\]\s*=\s*useState<Set<string>>\(new Set\(\)\);/);
+  assert.match(source, /const\s*\[onlyFavorites,\s*setOnlyFavorites\]\s*=\s*useState\s*\(\s*false\s*\);/);
+  assert.match(source, /const\s*\[undoHideId,\s*setUndoHideId\]\s*=\s*useState<string\s*\|\s*null>\(null\);/);
+});
+
+test('App includes heart filter chip in filters row', () => {
+  const source = readFileSync(new URL('../App.tsx', import.meta.url), 'utf8');
+  assert.match(source, /accessibilityLabel="Filter saved places"/);
+  assert.match(source, /onlyFavorites/);
+  assert.match(source, /name=\{onlyFavorites \? ["']heart["'] : ["']heart-outline["']\}/);
+});
+
+test('App wires onHide to PlaceCard', () => {
+  const source = readFileSync(new URL('../App.tsx', import.meta.url), 'utf8');
+  assert.match(source, /onHide=\{\(\)\s*=>\s*hidePlace\(selected\.id\)\}/);
+  assert.match(source, /onHide=\{\(\)\s*=>\s*hidePlace\(item\.id\)\}/);
+});
+
+test('App includes Hidden places management section in About modal', () => {
+  const source = readFileSync(new URL('../App.tsx', import.meta.url), 'utf8');
+  assert.match(source, /Hidden places/);
+  assert.match(source, /No hidden places\./);
+  assert.match(source, /Unhide all/);
+  assert.match(source, /unhidePlace/);
+});
+
+test('Old static bottom navigation bar (navSafe, navItem) is removed and replaced with FloatingModeButton', () => {
+  const source = readFileSync(new URL('../App.tsx', import.meta.url), 'utf8');
+  assert.doesNotMatch(source, /s\.navSafe/);
+  assert.doesNotMatch(source, /s\.navItem/);
+  assert.match(source, /<FloatingModeButton/);
+});

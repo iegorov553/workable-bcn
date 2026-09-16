@@ -10,6 +10,7 @@ import { SafeAreaProvider, SafeAreaView } from 'react-native-safe-area-context';
 import MapCanvas from './src/components/MapCanvas';
 import { PlaceCard } from './src/components/PlaceCard';
 import { NoteModal } from './src/components/NoteModal';
+import { FloatingModeButton } from './src/components/FloatingModeButton';
 import placesJson from './src/data/places.json';
 import { chainColors, colors, fallbackChainColor } from './src/theme';
 import type { Coordinates, MapOrientation, Place, ViewMode } from './src/types';
@@ -18,6 +19,7 @@ import { getDirectionsUrl } from './src/utils/directions';
 import { LocationRequestError, type Provider, requestLocation, requestLocationIfGranted, withTimeout } from './src/utils/location-request';
 import type { CameraCommand } from './src/utils/map-camera';
 import { formatPlaceCount, matchesSearch, parseFavorites } from './src/utils/places';
+import { parseHiddenPlaces, serializeHiddenPlaces } from './src/utils/hidden-places';
 import { requestBrowserLocation } from './src/utils/browser-location';
 import { PRIVACY_POLICY_URL, SUPPORT_EMAIL } from './src/config';
 import { applyTypography } from './src/typography';
@@ -29,6 +31,7 @@ const places = placesJson as Place[];
 const chains = Array.from(new Set(places.map(p => p.chain)));
 const validIds = new Set(places.map(p => p.id));
 const FAVORITES_KEY = 'workable-bcn:favorites:v1';
+const HIDDEN_KEY = 'workable-bcn:hidden:v1';
 const NOTES_KEY = 'workable-bcn:notes:v1';
 const ORIENTATION_KEY = 'workable-bcn:map-orientation:v1';
 const haptic = () => { if (Platform.OS !== 'web') void Haptics.selectionAsync().catch(() => {}); };
@@ -39,6 +42,9 @@ function AppContent() {
   const [chain, setChain] = useState('All');
   const [selectedId, setSelectedId] = useState<string | null>(null);
   const [favorites, setFavorites] = useState<Set<string>>(new Set());
+  const [hiddenPlaces, setHiddenPlaces] = useState<Set<string>>(new Set());
+  const [onlyFavorites, setOnlyFavorites] = useState(false);
+  const [undoHideId, setUndoHideId] = useState<string | null>(null);
   const [notes, setNotes] = useState<Record<string, string>>({});
   const [editingPlace, setEditingPlace] = useState<Place | null>(null);
   const [loaded, setLoaded] = useState(false);
@@ -54,6 +60,7 @@ function AppContent() {
   const mounted = useRef(true);
   const saveQueue = useRef(Promise.resolve());
   const saveNotesQueue = useRef(Promise.resolve());
+  const saveHiddenQueue = useRef(Promise.resolve());
 
   // Meet Halfway state
   const [meetMode, setMeetMode] = useState(false);
@@ -68,6 +75,9 @@ function AppContent() {
       .then(value => { if (mounted.current) setFavorites(parseFavorites(value, validIds)); })
       .catch(() => { if (mounted.current) setNotice('Could not load saved places. Please restart the app.'); })
       .finally(() => { if (mounted.current) setLoaded(true); });
+    AsyncStorage.getItem(HIDDEN_KEY)
+      .then(value => { if (mounted.current) setHiddenPlaces(parseHiddenPlaces(value, validIds)); })
+      .catch(() => { if (mounted.current) setNotice('Could not load hidden places.'); });
     AsyncStorage.getItem(NOTES_KEY)
       .then(value => { if (mounted.current) setNotes(parseNotes(value, validIds)); })
       .catch(() => { if (mounted.current) setNotice('Could not load saved notes.'); });
@@ -82,8 +92,13 @@ function AppContent() {
   }, []);
 
   const baseFiltered = useMemo(() => {
-    return places.filter(p => ((mode as string) !== 'saved' || favorites.has(p.id)) && (chain === 'All' || p.chain === chain) && matchesSearch(p, query));
-  }, [mode, favorites, chain, query]);
+    return places.filter(p =>
+      !hiddenPlaces.has(p.id) &&
+      (!onlyFavorites || favorites.has(p.id)) &&
+      (chain === 'All' || p.chain === chain) &&
+      matchesSearch(p, query)
+    );
+  }, [hiddenPlaces, onlyFavorites, favorites, chain, query]);
 
   const equidistantMatches = useMemo(() => {
     if (!meetMode || !location || !friendLocation) return null;
@@ -289,7 +304,47 @@ function AppContent() {
       watcherSub?.remove();
     };
   }, [permissionGranted]);
-  const resetFilters = () => { setQuery(''); setChain('All'); };
+  const resetFilters = () => {
+    setQuery('');
+    setChain('All');
+    setOnlyFavorites(false);
+  };
+
+  const hidePlace = (id: string) => {
+    const next = new Set(hiddenPlaces);
+    next.add(id);
+    setHiddenPlaces(next);
+    if (selectedId === id) setSelectedId(null);
+    setUndoHideId(id);
+    setNotice('Café hidden');
+    haptic();
+    saveHiddenQueue.current = saveHiddenQueue.current
+      .then(() => AsyncStorage.setItem(HIDDEN_KEY, serializeHiddenPlaces(next)))
+      .catch(() => {});
+  };
+
+  const unhidePlace = (id: string) => {
+    const next = new Set(hiddenPlaces);
+    next.delete(id);
+    setHiddenPlaces(next);
+    haptic();
+    saveHiddenQueue.current = saveHiddenQueue.current
+      .then(() => AsyncStorage.setItem(HIDDEN_KEY, serializeHiddenPlaces(next)))
+      .catch(() => {});
+  };
+
+  const unhideAll = () => {
+    const next = new Set<string>();
+    setHiddenPlaces(next);
+    haptic();
+    saveHiddenQueue.current = saveHiddenQueue.current
+      .then(() => AsyncStorage.setItem(HIDDEN_KEY, '[]'))
+      .catch(() => {});
+  };
+
+  const hiddenList = useMemo(() => {
+    return places.filter(p => hiddenPlaces.has(p.id));
+  }, [hiddenPlaces]);
 
   const toggleMeetMode = () => {
     const next = !meetMode;
@@ -353,6 +408,16 @@ function AppContent() {
       </View>
     </View>
     <View style={s.filterWrap}><ScrollView horizontal showsHorizontalScrollIndicator={false} keyboardShouldPersistTaps="handled" contentContainerStyle={s.filters}>
+      <Pressable
+        accessibilityRole="button"
+        accessibilityLabel="Filter saved places"
+        accessibilityState={{ selected: onlyFavorites }}
+        hitSlop={4}
+        onPress={() => { setOnlyFavorites(v => !v); setSelectedId(null); haptic(); }}
+        style={({ pressed }) => [s.chip, onlyFavorites && s.heartChipActive, pressed && { opacity: 0.75 }]}
+      >
+        <Ionicons name={onlyFavorites ? "heart" : "heart-outline"} size={16} color={onlyFavorites ? colors.tomato : colors.inkSoft} />
+      </Pressable>
       {['All', ...chains].map(name => <Pressable key={name} accessibilityRole="button" accessibilityLabel={`Filter by ${name}`} accessibilityState={{ selected: chain === name }} hitSlop={4} onPress={() => { setChain(name); setSelectedId(null); haptic(); }} style={({ pressed }) => [s.chip, chain === name && s.chipActive, pressed && { opacity: 0.75 }]}>
         {name !== 'All' && <View style={[s.dot, { backgroundColor: chainColors[name] ?? fallbackChainColor }]} />}
         <Text style={[s.chipText, chain === name && s.chipTextActive]}>{name}</Text>
@@ -440,12 +505,13 @@ function AppContent() {
         ) : null}
       </View>
     ) : null}
-    {notice && <View accessibilityLiveRegion="polite" style={s.notice}><View style={{ flex: 1 }}><Text selectable style={s.noticeText}>{notice}</Text>{showSettings && <Pressable accessibilityRole="button" onPress={() => void Linking.openSettings().catch(() => setNotice('Open device Settings → Apps → Workable BCN → Permissions.'))}><Text style={s.settings}>Open settings</Text></Pressable>}</View><Pressable accessibilityRole="button" accessibilityLabel="Dismiss message" onPress={() => setNotice(null)} style={s.iconButton}><Ionicons name="close" size={20} color={colors.ink} /></Pressable></View>}
+    {notice && <View accessibilityLiveRegion="polite" style={s.notice}><View style={s.noticeContent}><Text selectable style={s.noticeText}>{notice}</Text>{undoHideId ? <Pressable accessibilityRole="button" accessibilityLabel="Undo hiding café" onPress={() => { const idToUndo = undoHideId; setUndoHideId(null); setNotice(null); unhidePlace(idToUndo); }} hitSlop={4} style={({ pressed }) => [s.undoButton, pressed && { opacity: 0.75 }]}><Text style={s.undoText}>Undo</Text></Pressable> : null}{showSettings && <Pressable accessibilityRole="button" onPress={() => void Linking.openSettings().catch(() => setNotice('Open device Settings → Apps → Workable BCN → Permissions.'))}><Text style={s.settings}>Open settings</Text></Pressable>}</View><Pressable accessibilityRole="button" accessibilityLabel="Dismiss message" onPress={() => { setNotice(null); setUndoHideId(null); }} style={s.iconButton}><Ionicons name="close" size={20} color={colors.ink} /></Pressable></View>}
     <View style={s.content}>
       {mode === 'map' ? <View style={s.map}>
         <MapCanvas
           places={filtered}
           selectedId={selectedId}
+          favoriteIds={Array.from(favorites)}
           userLocation={location}
           friendLocation={friendLocation}
           meetMode={meetMode}
@@ -456,6 +522,14 @@ function AppContent() {
           onSelect={selectPlace}
           onMapClick={handleMapClick}
         />
+        {filtered.length === 0 ? (
+          <View style={s.mapEmptyBanner}>
+            <Text style={s.mapEmptyText}>No places match the active filters.</Text>
+            <Pressable accessibilityRole="button" onPress={resetFilters} style={({ pressed }) => [s.resetMapFiltersButton, pressed && { opacity: 0.75 }]}>
+              <Text style={s.resetMapFiltersText}>Reset filters</Text>
+            </Pressable>
+          </View>
+        ) : null}
         <View style={s.mapControls}>
           <Pressable
             accessibilityRole="button"
@@ -495,13 +569,14 @@ function AppContent() {
             onPress={() => openDirections(selected)}
             onDirections={() => openDirections(selected)}
             onFavorite={() => toggleFavorite(selected.id)}
+            onHide={() => hidePlace(selected.id)}
             onEditNote={() => setEditingPlace(selected)}
             onShareFriend={meetMode && friendLocation ? () => shareFriendDirections(selected) : undefined}
           />
         </View> : null}
       </View> : <FlatList data={filtered} keyExtractor={p => p.id} contentInsetAdjustmentBehavior="automatic" keyboardShouldPersistTaps="handled" contentContainerStyle={[s.list, !filtered.length && { flexGrow: 1 }]} initialNumToRender={12}
-        ListHeaderComponent={filtered.length ? <View style={s.listHeaderRow}><View style={s.listHeading}><Text style={s.heading}>{(mode as string) === 'saved' ? 'Your favourites' : 'All places'}</Text><Text style={s.secondary}>{formatPlaceCount(filtered.length)}{meetMode && location && friendLocation ? ' · ranked by travel time' : (location ? ' · nearest first' : '')}</Text></View><Pressable accessibilityRole="button" accessibilityLabel={location ? 'Refresh distances' : 'Show distances'} accessibilityState={{ busy: locating, disabled: locating }} disabled={locating} onPress={() => void locate(false)} style={s.iconButton}>{locating ? <ActivityIndicator color={colors.ink} /> : <Ionicons name="locate-outline" size={22} color={colors.ink} />}</Pressable></View> : null}
-        ListEmptyComponent={<View style={s.empty}><View style={s.emptyIcon}><Ionicons name={(mode as string) === 'saved' ? 'heart-outline' : 'search-outline'} size={28} color={colors.ink} /></View><Text style={[s.heading, s.emptyHeading]}>{(mode as string) === 'saved' && !favorites.size ? 'Nothing saved yet' : 'No matching places'}</Text><Text style={s.emptyCopy}>{(mode as string) === 'saved' && !favorites.size ? 'Tap the heart on a café to keep it here.' : 'Try another search or reset the filters.'}</Text>{(query || chain !== 'All') && <Pressable accessibilityRole="button" onPress={resetFilters} style={({ pressed }) => [s.reset, pressed && { opacity: 0.65 }]}><Text style={s.settings}>Reset filters</Text></Pressable>}</View>}
+        ListHeaderComponent={filtered.length ? <View style={s.listHeaderRow}><View style={s.listHeading}><Text style={s.heading}>{onlyFavorites ? 'Your favourites' : 'All places'}</Text><Text style={s.secondary}>{formatPlaceCount(filtered.length)}{meetMode && location && friendLocation ? ' · ranked by travel time' : (location ? ' · nearest first' : '')}</Text></View><Pressable accessibilityRole="button" accessibilityLabel={location ? 'Refresh distances' : 'Show distances'} accessibilityState={{ busy: locating, disabled: locating }} disabled={locating} onPress={() => void locate(false)} style={s.iconButton}>{locating ? <ActivityIndicator color={colors.ink} /> : <Ionicons name="locate-outline" size={22} color={colors.ink} />}</Pressable></View> : null}
+        ListEmptyComponent={<View style={s.empty}><View style={s.emptyIcon}><Ionicons name={onlyFavorites && !favorites.size ? 'heart-outline' : 'search-outline'} size={28} color={colors.ink} /></View><Text style={[s.heading, s.emptyHeading]}>{onlyFavorites && !favorites.size ? 'Nothing saved yet' : 'No matching places'}</Text><Text style={s.emptyCopy}>{onlyFavorites && !favorites.size ? 'Tap the heart on a café to keep it here.' : 'Try another search or reset the filters.'}</Text>{(query || chain !== 'All' || onlyFavorites) && <Pressable accessibilityRole="button" onPress={resetFilters} style={({ pressed }) => [s.reset, pressed && { opacity: 0.65 }]}><Text style={s.settings}>Reset filters</Text></Pressable>}</View>}
         renderItem={({ item }) => {
           const match = equidistantMap?.get(item.id);
           return <PlaceCard
@@ -514,19 +589,57 @@ function AppContent() {
             onPress={() => void selectPlace(item.id)}
             onDirections={() => openDirections(item)}
             onFavorite={() => toggleFavorite(item.id)}
+            onHide={() => hidePlace(item.id)}
             onEditNote={() => setEditingPlace(item)}
             onShareFriend={meetMode && friendLocation ? () => shareFriendDirections(item) : undefined}
           />;
         }}
       />}
     </View>
-    <SafeAreaView edges={['bottom']} style={s.navSafe}><View style={s.nav}>
-      {([['map', 'map-outline', 'map-outline', 'Map'], ['list', 'list-outline', 'list', 'List'], ['saved', 'heart-outline', 'heart', 'Favourites']] as const).map(([key, icon, activeIcon, label]) => <Pressable key={key} accessibilityRole="tab" accessibilityLabel={label} accessibilityState={{ selected: (mode as string) === key }} onPress={() => { setMode(key as any); setSelectedId(null); Keyboard.dismiss(); haptic(); }} style={({ pressed }) => [s.navItem, pressed && { opacity: 0.7 }]}><View style={[s.navIcon, (mode as string) === key && s.navIconActive]}><Ionicons name={(mode as string) === key ? activeIcon : icon} size={25} color={(mode as string) === key ? colors.ink : colors.inkSoft} />{key === 'saved' && favorites.size > 0 ? <View style={s.favoriteBadge}><Text style={s.favoriteCount}>{favorites.size}</Text></View> : null}</View><Text style={[s.navLabel, (mode as string) === key && { color: colors.ink, fontFamily: 'RobotoBold' }]}>{label}</Text></Pressable>)}
-    </View></SafeAreaView>
+    <FloatingModeButton
+      mode={mode}
+      onToggle={() => {
+        setMode(m => m === 'map' ? 'list' : 'map');
+        setSelectedId(null);
+        haptic();
+      }}
+      visible={mode === 'list' || !selectedId}
+    />
     <Modal visible={about} animationType="slide" onRequestClose={() => setAbout(false)}>
       <SafeAreaView style={s.root}><View style={s.aboutHeader}><Text style={s.heading}>About Workable BCN</Text><Pressable accessibilityRole="button" accessibilityLabel="Close about" onPress={() => setAbout(false)} style={s.iconButton}><Ionicons name="close" size={24} /></Pressable></View><ScrollView contentInsetAdjustmentBehavior="automatic" contentContainerStyle={s.aboutContent}>
         <View><Pressable accessibilityRole="link" onPress={() => void Linking.openURL(PRIVACY_POLICY_URL).catch(() => { setAbout(false); setNotice('Could not open the privacy policy. Please try again.'); })}><Text style={s.settings}>Privacy policy ↗</Text></Pressable><Pressable accessibilityRole="link" onPress={() => void Linking.openURL(`mailto:${SUPPORT_EMAIL}`).catch(() => { setAbout(false); setNotice(`Please email ${SUPPORT_EMAIL} using your mail app.`); })}><Text style={s.settings}>Support · {SUPPORT_EMAIL}</Text></Pressable></View>
         <Image source={require('./assets/workable-icon.png')} style={s.brandIcon} accessibilityIgnoresInvertColors /><Text selectable style={s.heading}>Coffee. City. Your places.</Text><Text selectable style={s.aboutText}>An independent guide to cafés in Barcelona and nearby towns. We are not affiliated with the featured chains. Check opening hours, Wi-Fi and laptop policies before visiting.</Text>
+        <Text style={s.heading}>{hiddenPlaces.size > 0 ? `Hidden places (${hiddenPlaces.size})` : 'Hidden places'}</Text>
+        {hiddenPlaces.size === 0 ? (
+          <Text selectable style={s.aboutText}>No hidden places.</Text>
+        ) : (
+          <View style={s.hiddenSection}>
+            <Pressable
+              accessibilityRole="button"
+              accessibilityLabel="Unhide all places"
+              onPress={unhideAll}
+              style={({ pressed }) => [s.unhideAllButton, pressed && { opacity: 0.75 }]}
+            >
+              <Text style={s.unhideAllText}>Unhide all</Text>
+            </Pressable>
+            {hiddenList.map(place => (
+              <View key={place.id} style={s.hiddenItemRow}>
+                <View style={s.hiddenItemInfo}>
+                  <Text numberOfLines={1} style={s.hiddenItemName}>{place.name}</Text>
+                  <Text numberOfLines={1} style={s.hiddenItemAddress}>{place.address}</Text>
+                </View>
+                <Pressable
+                  accessibilityRole="button"
+                  accessibilityLabel={`Unhide ${place.name}`}
+                  onPress={() => unhidePlace(place.id)}
+                  style={({ pressed }) => [s.unhideButton, pressed && { opacity: 0.75 }]}
+                >
+                  <Text style={s.unhideButtonText}>Unhide</Text>
+                </Pressable>
+              </View>
+            ))}
+          </View>
+        )}
         <Text style={s.heading}>Privacy</Text><Text selectable style={s.aboutText}>Location access is requested when you use a location button. If you already allowed access, the app gets your current location at startup to show distances. Location buttons refresh distances or centre the map. We do not save a location history or track you in the background. Saved places stay on your device. There are no accounts, ads or analytics.</Text>
         <Text selectable style={s.aboutText}>The map requests tiles from CARTO and OpenStreetMap, which receives your IP address and the area you are viewing. After centring on your location, that area may reveal your location. Directions open Google Maps with the selected café as the destination. These services process requests under their own privacy policies.</Text>
         <Pressable accessibilityRole="link" onPress={() => void Linking.openURL('https://carto.com/privacy').catch(() => setNotice('Could not open the link. Please try again.'))}><Text style={s.settings}>CARTO privacy policy ↗</Text></Pressable>
@@ -574,6 +687,7 @@ const s = applyTypography(StyleSheet.create({
   filters: { gap: 8, paddingHorizontal: 18 },
   chip: { minHeight: 40, paddingHorizontal: 16, borderRadius: 22, borderWidth: 1, borderColor: colors.border, backgroundColor: colors.paper, flexDirection: 'row', gap: 7, alignItems: 'center' },
   chipActive: { backgroundColor: colors.ink, borderColor: colors.ink },
+  heartChipActive: { borderColor: colors.tomato, backgroundColor: '#FDF0EC' },
   chipText: { color: colors.ink, fontSize: 12, fontWeight: '600' },
   chipTextActive: { color: colors.paper }, dot: { width: 7, height: 7, borderRadius: 4 },
   meetBar: { paddingHorizontal: 18, paddingBottom: 10, maxWidth: 680, width: '100%', alignSelf: 'center' },
@@ -589,6 +703,10 @@ const s = applyTypography(StyleSheet.create({
   meetFarNotice: { marginTop: 6, flexDirection: 'row', alignItems: 'center', gap: 6, paddingVertical: 5, paddingHorizontal: 10, backgroundColor: colors.honeyLight, borderRadius: 10, borderWidth: 1, borderColor: colors.border },
   meetFarNoticeText: { flex: 1, fontSize: 11, lineHeight: 15, color: colors.inkSoft, fontWeight: '500' },
   content: { flex: 1 }, map: { flex: 1 },
+  mapEmptyBanner: { position: 'absolute', top: 16, left: 16, right: 76, paddingVertical: 10, paddingHorizontal: 14, borderRadius: 14, backgroundColor: colors.paper, borderWidth: 1, borderColor: colors.border, flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 10, boxShadow: '0 2px 10px #00000018' },
+  mapEmptyText: { flex: 1, fontSize: 13, color: colors.inkSoft, fontWeight: '500' },
+  resetMapFiltersButton: { paddingVertical: 4, paddingHorizontal: 8 },
+  resetMapFiltersText: { color: colors.tomato, fontWeight: '700', fontSize: 13 },
   mapControls: { position: 'absolute', top: 16, right: 16, gap: 10 },
   mapButton: { width: 48, height: 48, borderRadius: 18, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.paper, boxShadow: '0 2px 10px #00000018' },
   mapButtonActive: { backgroundColor: colors.honey },
@@ -596,16 +714,28 @@ const s = applyTypography(StyleSheet.create({
   secondary: { color: colors.inkSoft, fontSize: 12, lineHeight: 18 },
   selected: { position: 'absolute', bottom: 24, width: '92%', maxWidth: 560, alignSelf: 'center', borderRadius: 20, backgroundColor: colors.paper, overflow: 'hidden', boxShadow: '0 2px 16px #00000018' },
   sheetHeader: { paddingLeft: 18, paddingRight: 4, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }, sheetLabel: { fontSize: 10, letterSpacing: 1, fontWeight: '600', color: colors.inkSoft },
-  list: { paddingHorizontal: 16, paddingBottom: 16, backgroundColor: colors.listBackground, maxWidth: 680, width: '100%', alignSelf: 'center' }, listHeading: { paddingTop: 22, paddingBottom: 16, gap: 6 },
+  list: { paddingHorizontal: 16, paddingBottom: 88, backgroundColor: colors.listBackground, maxWidth: 680, width: '100%', alignSelf: 'center' }, listHeading: { paddingTop: 22, paddingBottom: 16, gap: 6 },
   listHeaderRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', gap: 8 },
   heading: { fontSize: 22, fontWeight: '700', letterSpacing: -0.5, color: colors.ink },
   empty: { flex: 1, alignItems: 'center', justifyContent: 'center', padding: 20, gap: 16 }, emptyCopy: { color: colors.inkSoft, textAlign: 'center', lineHeight: 22 }, reset: { padding: 12 },
   emptyIcon: { width: 64, height: 64, borderRadius: 22, backgroundColor: colors.honey, alignItems: 'center', justifyContent: 'center', marginBottom: 8, transform: [{ rotate: '-5deg' }] },
   emptyHeading: { textAlign: 'center', fontSize: 21, lineHeight: 27 },
-  navSafe: { backgroundColor: colors.paper, borderTopWidth: 1, borderTopColor: colors.border },
-  nav: { minHeight: 70, flexDirection: 'row', paddingHorizontal: 16, maxWidth: 680, width: '100%', alignSelf: 'center' }, navItem: { flex: 1, minHeight: 48, paddingVertical: 6, alignItems: 'center', justifyContent: 'center', gap: 3 },
-  navIcon: { width: 42, height: 32, borderRadius: 12, alignItems: 'center', justifyContent: 'center' }, navIconActive: { backgroundColor: colors.honey }, navLabel: { fontSize: 11, color: colors.inkSoft },
-  favoriteBadge: { position: 'absolute', right: -3, top: -3, minWidth: 15, height: 15, paddingHorizontal: 3, borderRadius: 8, backgroundColor: colors.tomato, alignItems: 'center', justifyContent: 'center' }, favoriteCount: { fontSize: 9, fontWeight: '700', color: colors.white },
-  notice: { backgroundColor: colors.noticeBackground, paddingLeft: 16, paddingRight: 8, paddingVertical: 10, flexDirection: 'row', alignItems: 'center' }, noticeText: { fontSize: 13, lineHeight: 19, color: colors.ink }, settings: { color: colors.tomato, fontWeight: '600', fontSize: 14, paddingVertical: 8 },
-  aboutHeader: { paddingHorizontal: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' }, aboutContent: { padding: 24, gap: 20, maxWidth: 680, width: '100%', alignSelf: 'center' }, aboutText: { fontSize: 15, lineHeight: 24, color: colors.inkSoft },
+  notice: { backgroundColor: colors.noticeBackground, paddingLeft: 16, paddingRight: 8, paddingVertical: 10, flexDirection: 'row', alignItems: 'center' },
+  noticeContent: { flex: 1, flexDirection: 'row', alignItems: 'center', gap: 10, flexWrap: 'wrap' },
+  noticeText: { fontSize: 13, lineHeight: 19, color: colors.ink },
+  undoButton: { paddingHorizontal: 10, paddingVertical: 4, borderRadius: 8, backgroundColor: colors.paper, borderWidth: 1, borderColor: colors.border },
+  undoText: { fontSize: 13, fontWeight: '700', color: colors.tomato },
+  settings: { color: colors.tomato, fontWeight: '600', fontSize: 14, paddingVertical: 8 },
+  aboutHeader: { paddingHorizontal: 20, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
+  aboutContent: { padding: 24, gap: 20, maxWidth: 680, width: '100%', alignSelf: 'center' },
+  aboutText: { fontSize: 15, lineHeight: 24, color: colors.inkSoft },
+  hiddenSection: { gap: 12 },
+  unhideAllButton: { alignSelf: 'flex-start', paddingVertical: 6, paddingHorizontal: 12, borderRadius: 12, backgroundColor: colors.paper, borderWidth: 1, borderColor: colors.border },
+  unhideAllText: { fontSize: 13, fontWeight: '700', color: colors.tomato },
+  hiddenItemRow: { flexDirection: 'row', alignItems: 'center', justifyContent: 'space-between', paddingVertical: 8, paddingHorizontal: 12, borderRadius: 14, backgroundColor: colors.paper, borderWidth: 1, borderColor: colors.border, gap: 12 },
+  hiddenItemInfo: { flex: 1, minWidth: 0 },
+  hiddenItemName: { fontSize: 14, fontWeight: '600', color: colors.ink },
+  hiddenItemAddress: { fontSize: 12, color: colors.inkSoft, marginTop: 2 },
+  unhideButton: { paddingVertical: 6, paddingHorizontal: 12, borderRadius: 10, backgroundColor: colors.cream, borderWidth: 1, borderColor: colors.border },
+  unhideButtonText: { fontSize: 12, fontWeight: '600', color: colors.ink },
 }));
