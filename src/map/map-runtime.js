@@ -72,8 +72,9 @@
     const originalUpdatePosition = target._updatePosition;
     target._updatePosition = function () {
       if (currentOrientation === 'grid' && this._startPos && this._newPos && typeof this._startPos.x === 'number' && typeof this._newPos.x === 'number') {
+        const handle = this._dragStartTarget || this._dragHandle;
         const isMapDrag = !this._element || (typeof map !== 'undefined' && (this._element === map._mapPane || (typeof map.getPane === 'function' && this._element === map.getPane('mapPane')))) ||
-          (this._dragHandle && (this._dragHandle.id === 'map' || (typeof map !== 'undefined' && typeof map.getContainer === 'function' && this._dragHandle === map.getContainer())));
+          (handle && (handle.id === 'map' || (typeof map !== 'undefined' && typeof map.getContainer === 'function' && handle === map.getContainer())));
         if (isMapDrag) {
           const scaleX = (this._parentScale && typeof this._parentScale.x === 'number') ? this._parentScale.x : 1;
           const scaleY = (this._parentScale && typeof this._parentScale.y === 'number') ? this._parentScale.y : 1;
@@ -92,7 +93,8 @@
   };
   if (typeof L !== 'undefined' && L.Draggable && L.Draggable.prototype) {
     wrapDraggable(L.Draggable.prototype);
-  } else if (typeof map !== 'undefined' && map.dragging && map.dragging._draggable) {
+  }
+  if (typeof map !== 'undefined' && map.dragging && map.dragging._draggable) {
     wrapDraggable(map.dragging._draggable);
   }
   const notice = document.getElementById('tile-error');
